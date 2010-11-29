@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main_3col.master.cs"
+    Inherits="PTUDW_CTLH_C1.Main_3col" %>
+
+<%@ Register TagPrefix="wuc" TagName="SearchControl" Src="~/WUC/wucSearch.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />      
+</head>
+<body>
+    <form id="MainForm" runat="server">
+    <div id="background">
+        <div id="header">
+            <!--header-->
+            <div id="top_header">
+                <div id="login">
+                    <!--login-->
+                    <asp:TextBox ID="txtUsername" runat="server" CssClass="textbox" ToolTip="Tên đăng nhập"
+                        Text="Tên đăng nhập"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" CssClass="textbox" TextMode="Password"
+                        ToolTip="Mật khẩu" Text="123456"></asp:TextBox>
+                    <asp:Button ID="txtButton" runat="server" CssClass="login_button" Text="Đăng nhập" />
+                    <div class="links">
+                        <a href="#">Quên mật khẩu</a> | <a href="#">Đăng ký</a>
+                    </div>
+                </div>
+                <!--end login-->
+            </div>
+            <!--end top header-->
+            <div id="menu">
+                <!--menu-->
+                <div id="menu_bg">
+                    <!--menu background-->
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Đặt vé</a></li>
+                        <li><a href="#">Hot tours</a></li>
+                        <li><a href="#">Khách sạn</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <!--end menu background-->
+            </div>
+            <!--end menu-->
+            
+            <div id="change_theme" style="float:right; padding-right:40px">
+                <asp:DropDownList ID="ddlThemes" runat="server" AutoPostBack="True" 
+                    onselectedindexchanged="ddlThemes_SelectedIndexChanged">
+                    <asp:ListItem Value="MainTheme"></asp:ListItem>
+                    <asp:ListItem Value="AnotherTheme"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+                       
+            <div id="logo_banner">
+                <div id="logo_block">
+                    <img src="App_Themes/MainTheme/images/logo.png" alt="" width="145" height="186" />
+                    <br />
+                    <p class="text_slogan">
+                        Mỗi chuyến xe an toàn, thoải mái đối với các bạn là niềm vui của chúng tôi. Hãy
+                        để chúng tôi luôn đồng hành với bạn trên mọi nẻo đường.</p>
+                </div>
+                <!--end logo block-->
+                <div id="banner_block">
+                    <div id="search_div">
+                        <span>Tìm kiếm</span>
+                        <asp:TextBox ID="txtSearchHotTour" CssClass="search_textbox" runat="server" />
+                    </div>
+                </div>
+                <!--end banner block-->
+            </div>
+            <!--end logo banner-->
+        </div>
+        <!--end header-->
+        <div id="content">
+            <div id="left_col">
+                <p class="mytitle">Các tuyến chính</p>
+                <ul id="navigation">
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                    <li class="color_item"><a href="Detail.aspx">TP.HCM - Hà Nội</a></li>
+                    <li><a href="Detail.aspx">TP.HCM - Huế</a></li>
+                </ul>
+                <div id="continue">
+                    <asp:LinkButton ID="lnkCacTuyenKhac" CssClass="hyperlink" runat="server" PostBackUrl="~/Detail.aspx">Các tuyến khác</asp:LinkButton>
+                </div>
+            </div>
+            <!--end left column-->
+            <div id="center_col">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!--end center column-->
+            <div id="right_col">
+                <div id="line">
+              	    <img src="App_Themes/MainTheme/images/line.gif" alt="" width="5" height="inherit" />
+                </div>
+                <wuc:SearchControl ID="wucSearch" runat="server"></wuc:SearchControl>
+                <div id="service">
+                    <asp:ImageButton ID="imgService" AlternateText="Dành cho quảng cáo" ImageUrl="~/App_Themes/MainTheme/images/service.jpg" CssClass="img" PostBackUrl="~/Detail.aspx" runat="server" />
+                </div>
+                
+                <div class="adv">
+                    <asp:ImageButton ID="imgAdv1" AlternateText="Dành cho quảng cáo" ImageUrl="~/App_Themes/MainTheme/images/logo_print.png" CssClass="img" PostBackUrl="http://diadiem.com" runat="server" />
+                </div>
+            </div>
+            <!--end right column-->
+        </div>
+        <!--end content-->
+        <div id="footer">
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Tin tức</a></li>
+                <li><a href="#">Đặt vé</a></li>
+                <li><a href="#">Hot tours</a></li>
+                <li><a href="#">Khách sạn</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+            <p>
+                Copyright &copy;. All rights reserved.</p>
+        </div>
+        <!--end footer-->
+    </div>
+    <!--end background-->
+    </form>
+</body>
+</html>
