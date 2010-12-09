@@ -13,3 +13,8 @@ E:\Long's Documents\hoc ki 7\PTUDW\Do an\02.Design\PTUDW_TH2007_NhomC1_CTLH_Webs
 E:\Long's Documents\hoc ki 7\PTUDW\Do an\02.Design\PTUDW_TH2007_NhomC1_CTLH_Website\PTUDW_TH2007_NhomC1_CTLH_Website\PTUDW_CTLH_C1\obj\Debug\ResolveAssemblyReference.cache
 E:\Long's Documents\hoc ki 7\PTUDW\Do an\02.Design\PTUDW_TH2007_NhomC1_CTLH_Website\PTUDW_TH2007_NhomC1_CTLH_Website\PTUDW_CTLH_C1\obj\Debug\PTUDW_CTLH_C1.dll
 E:\Long's Documents\hoc ki 7\PTUDW\Do an\02.Design\PTUDW_TH2007_NhomC1_CTLH_Website\PTUDW_TH2007_NhomC1_CTLH_Website\PTUDW_CTLH_C1\obj\Debug\PTUDW_CTLH_C1.pdb
+H:\2.Phat trien ung dung web\thung chua web\03.Source code\PTUDW_CTLH_C1\bin\PTUDW_CTLH_C1.dll
+H:\2.Phat trien ung dung web\thung chua web\03.Source code\PTUDW_CTLH_C1\bin\PTUDW_CTLH_C1.pdb
+H:\2.Phat trien ung dung web\thung chua web\03.Source code\PTUDW_CTLH_C1\obj\Debug\ResolveAssemblyReference.cache
+H:\2.Phat trien ung dung web\thung chua web\03.Source code\PTUDW_CTLH_C1\obj\Debug\PTUDW_CTLH_C1.dll
+H:\2.Phat trien ung dung web\thung chua web\03.Source code\PTUDW_CTLH_C1\obj\Debug\PTUDW_CTLH_C1.pdb
