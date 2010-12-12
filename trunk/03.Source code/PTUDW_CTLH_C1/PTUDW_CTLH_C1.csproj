@@ -57,6 +57,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatVe.aspx.cs">
+      <DependentUpon>DatVe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatVe.aspx.designer.cs">
+      <DependentUpon>DatVe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -71,6 +78,34 @@
     <Compile Include="Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GioiThieu.aspx.cs">
+      <DependentUpon>GioiThieu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GioiThieu.aspx.designer.cs">
+      <DependentUpon>GioiThieu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotTours.aspx.cs">
+      <DependentUpon>HotTours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotTours.aspx.designer.cs">
+      <DependentUpon>HotTours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KhachSan.aspx.cs">
+      <DependentUpon>KhachSan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KhachSan.aspx.designer.cs">
+      <DependentUpon>KhachSan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LienHe.aspx.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LienHe.aspx.designer.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main_3col.Master.cs">
       <DependentUpon>Main_3col.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -79,6 +114,13 @@
       <DependentUpon>Main_3col.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TinTuc.aspx.cs">
+      <DependentUpon>TinTuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TinTuc.aspx.designer.cs">
+      <DependentUpon>TinTuc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\wucSearch.ascx.cs">
       <DependentUpon>wucSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +174,15 @@
       <Project>{F6169AE3-35F2-438C-8361-E8ACB191118C}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatVe.aspx" />
+    <Content Include="GioiThieu.aspx" />
+    <Content Include="HotTours.aspx" />
+    <Content Include="KhachSan.aspx" />
+    <Content Include="LienHe.aspx" />
+    <Content Include="TinTuc.aspx" />
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

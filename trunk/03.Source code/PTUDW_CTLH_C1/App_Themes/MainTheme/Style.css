@@ -136,7 +136,6 @@ body, background
 {
 	display:inline;	
 	line-height:33px;
-	padding:0 12px;
 }
 
 #menu_bg li a
@@ -484,3 +483,13 @@ body, background
 }
 #footer p a:visited{text-decoration:underline}
 #footer p a:hover{text-decoration:none}
+
+.StaticMenu
+{
+   padding:0 12px;
+}
+
+.StaticMenuItem
+{
+   padding:0 2px;
+}
