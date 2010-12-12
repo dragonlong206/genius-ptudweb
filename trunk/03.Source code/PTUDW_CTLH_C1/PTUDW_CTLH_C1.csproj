@@ -124,6 +124,16 @@
     <Content Include="App_Themes\AnotherTheme\AnotherSkin.skin" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{C70D3C67-0BED-4A97-90EA-E6A62FE9DD09}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{F6169AE3-35F2-438C-8361-E8ACB191118C}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
