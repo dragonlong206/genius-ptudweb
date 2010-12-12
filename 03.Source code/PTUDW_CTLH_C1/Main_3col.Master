@@ -10,6 +10,7 @@
 </head>
 <body>
     <form id="MainForm" runat="server">
+    <asp:SiteMapDataSource ID="smdsMaster" runat="server" />
     <div id="background">
         <div id="header">
             <!--header-->
@@ -33,13 +34,14 @@
                 <div id="menu_bg">
                     <!--menu background-->
                     <ul>
-                        <li><a href="#">Trang chủ</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Tin tức</a></li>
-                        <li><a href="#">Đặt vé</a></li>
-                        <li><a href="#">Hot tours</a></li>
-                        <li><a href="#">Khách sạn</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                        <li>                    
+                            <asp:Menu ID="Menu1" runat="server" DataSourceID="smdsMaster" 
+                                MaximumDynamicDisplayLevels="0" Orientation="Horizontal" 
+                                StaticDisplayLevels="2"> 
+                                <StaticMenuStyle CssClass="StaticMenu" />                              
+                                <StaticMenuItemStyle CssClass="StaticMenuItem" />
+                            </asp:Menu>
+                        </li>
                     </ul>
                 </div>
                 <!--end menu background-->
@@ -126,14 +128,16 @@
         </div>
         <!--end content-->
         <div id="footer">
+        <!--footer-->
             <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Giới thiệu</a></li>
-                <li><a href="#">Tin tức</a></li>
-                <li><a href="#">Đặt vé</a></li>
-                <li><a href="#">Hot tours</a></li>
-                <li><a href="#">Khách sạn</a></li>
-                <li><a href="#">Liên hệ</a></li>
+               <li>                    
+                   <asp:Menu ID="Menu2" runat="server" DataSourceID="smdsMaster" 
+                        MaximumDynamicDisplayLevels="0" Orientation="Horizontal" 
+                        StaticDisplayLevels="2"> 
+                        <StaticMenuStyle CssClass="StaticMenu" />                              
+                        <StaticMenuItemStyle CssClass="StaticMenuItem" />
+                   </asp:Menu>
+               </li>
             </ul>
             <p>
                 Copyright &copy;. All rights reserved.</p>
