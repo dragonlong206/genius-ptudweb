@@ -156,6 +156,17 @@ body, background
 	text-decoration:underline;
 }
 
+.StaticMenu
+{
+   padding:2px 0px 0px 8px;
+}
+
+.StaticMenuItem
+{
+	text-align: center;
+	/*padding:0px 2px 0px 0px;*/
+}
+
 #logo_banner
 {
 	width:961px;
@@ -483,13 +494,3 @@ body, background
 }
 #footer p a:visited{text-decoration:underline}
 #footer p a:hover{text-decoration:none}
-
-.StaticMenu
-{
-   padding:0 12px;
-}
-
-.StaticMenuItem
-{
-   padding:0 2px;
-}
