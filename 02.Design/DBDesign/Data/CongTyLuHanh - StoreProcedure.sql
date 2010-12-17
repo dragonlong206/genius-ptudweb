@@ -2281,14 +2281,7 @@ AS
 
 SET NOCOUNT ON
 
-IF EXISTS(SELECT [MaTrang], [MaChucNang] FROM [dbo].[PAGE_CHUCNANG] WHERE [MaTrang] = @MaTrang AND [MaChucNang] = @MaChucNang)
-BEGIN
-	UPDATE [dbo].[PAGE_CHUCNANG] SET
-	WHERE
-		[MaTrang] = @MaTrang
-		AND [MaChucNang] = @MaChucNang
-END
-ELSE
+IF NOT EXISTS(SELECT [MaTrang], [MaChucNang] FROM [dbo].[PAGE_CHUCNANG] WHERE [MaTrang] = @MaTrang AND [MaChucNang] = @MaChucNang)
 BEGIN
 	INSERT INTO [dbo].[PAGE_CHUCNANG] (
 		[MaTrang],
