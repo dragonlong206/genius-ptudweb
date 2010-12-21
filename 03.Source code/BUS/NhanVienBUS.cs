@@ -15,5 +15,10 @@ namespace BUS
         {
             return _nhanVienDAO.LayLoaiNhanVien(maNhanVien);
         }
+
+        public String LayTenNhanVien(int maNhanVien)
+        {
+            return _nhanVienDAO.LayTenNhanVien(maNhanVien);
+        }
     }
 }

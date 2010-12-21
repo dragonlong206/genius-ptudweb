@@ -22,7 +22,12 @@ namespace BUS
             return _loaiNhanVienDAO.LayLoaiNhanVien(MaNhanVien);
         }
 
-        public List<String> LayTenLoaiNhanVien(int MaLoaiNhanVien)
+        //public List<String> LayTenLoaiNhanVien(int MaLoaiNhanVien)
+        //{
+        //    return _loaiNhanVienDAO.LayTenLoaiNhanVien(MaLoaiNhanVien);
+        //}
+
+        public String LayTenLoaiNhanVien(int MaLoaiNhanVien)
         {
             return _loaiNhanVienDAO.LayTenLoaiNhanVien(MaLoaiNhanVien);
         }

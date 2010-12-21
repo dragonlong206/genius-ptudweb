@@ -42,10 +42,32 @@ namespace DAO
         //Lấy loại nhân viên
         public int LayLoaiNhanVien(int maNhanVien)
         {
-            return (from nv in _context.NHAN_VIENs
+            var KetQua = (from nv in _context.NHAN_VIENs
                    where nv.MaNhanVien == maNhanVien
-                   select nv.LoaiNhanVien.Value).Single();
+                   select nv.LoaiNhanVien.Value).ToList();
+
+            if (KetQua.Count > 0)
+            {
+                return KetQua[0];
+            }
+            return -1;
         }
+
+        //Lay ten nhan vien
+        public String LayTenNhanVien(int maNhanVien)
+        {
+            var KetQua = (from nv in _context.NHAN_VIENs
+                          where nv.MaNhanVien == maNhanVien
+                          select nv.HoTen).Single();
+
+            if (KetQua != null)
+            {
+                return KetQua;
+            }
+
+            return null;
+        }
+
 
     }
 }
