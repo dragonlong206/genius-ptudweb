@@ -38,19 +38,47 @@ namespace PTUDW_CTLH_C1
 
         protected void btnDangNhap_Click(object sender, EventArgs e)
         {
-            int maNhanVien = new TaiKhoanBUS().LayMaNhanVien(txtUsername.Text, txtPassword.Text);
+            if (txtUsername.Text.ToString().Length > 0 && txtPassword.Text.ToString().Length > 0)
+            {
+                bool IsLogin = new TaiKhoanBUS().DangNhap(txtUsername.Text, txtPassword.Text);
 
-            int maLoaiNhanVien = new NhanVienBUS().LayLoaiNhanVien(maNhanVien);
+                if (IsLogin)
+                {
+                    int MaNhanVien = new TaiKhoanBUS().LayMaNhanVien(txtUsername.Text, txtPassword.Text);
+                    int MaLoaiNhanVien = new NhanVienBUS().LayLoaiNhanVien(MaNhanVien);
 
-            List<String> roles = new LoaiNhanVienBUS().LayTenLoaiNhanVien(maLoaiNhanVien);
+                    Session["IsLogin"] = 1;
+                    Session["HoTen"] = new NhanVienBUS().LayTenNhanVien(MaNhanVien);
+                    Session["Authentication"] = new LoaiNhanVienBUS().LayTenLoaiNhanVien(MaLoaiNhanVien);
 
-            MyIdentity userIdentity = new MyIdentity(txtUsername.Text, 1, true, txtUsername.Text, "someuser@some.com", "role");
+                    //redirect
 
-            MyPrincipal principal = new MyPrincipal(userIdentity, roles);
+                    ThayDoiTrangThai();
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Vui lòng nhập tên đăng nhập và mật khẩu')</script>");
+            }
+        }
 
-            Context.User = principal;
+        private void ThayDoiTrangThai()
+        {
+            txtUsername.Visible = false;
+            txtPassword.Visible = false;
+            btnDangNhap.Visible = false;
+            btnQuenMatKhau.Visible = false;
 
-            MyAuthentication.RedirectFromLoginPage(userIdentity);
+            lblXinChao.Visible = true;
+            btnXinChao.Visible = true;
+            btnXinChao.Text = (String)Session["HoTen"];
+            btnDangXuat.Visible = true;
+        }
+
+        protected void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Session ["IsLogin"] = 0;
+	        Response.Redirect("Default.aspx");
         }
     }
 }

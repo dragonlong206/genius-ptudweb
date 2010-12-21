@@ -18,9 +18,7 @@ namespace BUS
 
         public bool DangNhap(String userName, String encMatKhau)
         {
-            int MaNhanVien = KiemTraDangNhap(userName, encMatKhau);
-            //code chua xong
-            return false;
+            return _taiKhoanDAO.DangNhap(userName, encMatKhau);
         }
 
         public int LayMaNhanVien(int MaTaiKhoan)

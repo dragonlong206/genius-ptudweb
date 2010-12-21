@@ -17,7 +17,7 @@ namespace PTUDW_CTLH_C1
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Session["IsLogin"] = 0;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

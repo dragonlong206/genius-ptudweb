@@ -13,7 +13,7 @@ namespace DAO
         // Kiểm tra đăng nhập theo tên đăng nhập và mật khẩu đã mã hóa
         public int KiemTraDangNhap(String userName, String encPasaword)
         {
-            return -1;
+            return LayMaNhanVien(userName, encPasaword);
         }
 
         //test password
@@ -22,20 +22,38 @@ namespace DAO
             return -1;
         }
 
+        /// <summary>
+        /// Đăng nhập
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="encMatKhau"></param>
+        /// <returns>tồn tại nhân viên: true, ngược lại: false</returns>
         public bool DangNhap(String userName, String encMatKhau)
         {
-            int MaNhanVien = KiemTraDangNhap(userName, encMatKhau);
-
-            //code chua xong
-
+            if (LayMaNhanVien(userName, encMatKhau) != -1)
+            {
+                return true;
+            }
             return false;
         }
 
+        /// <summary>
+        /// Lấy mã nhân viên theo mã tài khoản
+        /// </summary>
+        /// <param name="MaTaiKhoan">mã tài khoản</param>
+        /// <returns>mã nhân viên, -1 nếu ko tìm thấy mã nhân viên nào</returns>
         public int LayMaNhanVien(int MaTaiKhoan)
         {
-            return (from tk in _context.TAI_KHOANs
+            var KetQua = (from tk in _context.TAI_KHOANs
                    where tk.MaTaiKhoan == MaTaiKhoan
-                   select tk.MaNhanVien.Value).Single();
+                   select tk.MaNhanVien.Value).ToList();
+
+            if (KetQua.Count > 0)
+            {
+                return KetQua[0];
+            }
+            return -1;
+
         }
 
         public TAI_KHOAN LayTaiKhoan(int MaTaiKhoan)
@@ -45,11 +63,25 @@ namespace DAO
                     select tk).Single();
         }
 
+        /// <summary>
+        /// Lấy mã nhân viên
+        /// </summary>
+        /// <param name="userName">tên đăng nhập</param>
+        /// <param name="password">mật khẩu</param>
+        /// <returns>mã nhân viên, -1 nếu không tìm thấy</returns>
         public int LayMaNhanVien(string userName, string password)
         {
-            return (from tk in _context.TAI_KHOANs
-                    where (tk.Username == userName && tk.Password == password)
-                    select tk.MaNhanVien.Value).Single();
+            var KetQua = (from tk in _context.TAI_KHOANs
+                            where (tk.Username == userName && tk.Password == password)
+                            select tk.MaNhanVien.Value).ToList();
+
+
+            if (KetQua.Count > 0)
+            {
+                return KetQua[0];
+            }
+
+            return -1;
         }
     }
 }

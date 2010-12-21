@@ -23,11 +23,24 @@ namespace DAO
                     select lnv).ToList();
         }
 
-        public List<String> LayTenLoaiNhanVien(int MaLoaiNhanVien)
+        //public List<String> LayTenLoaiNhanVien(int MaLoaiNhanVien)
+        //{
+        //    return (from lnv in _context.LOAI_NHAN_VIENs
+        //            where lnv.MaLoaiNhanVien == MaLoaiNhanVien
+        //            select lnv.TenLoai).ToList();
+        //}
+
+        public String LayTenLoaiNhanVien(int MaLoaiNhanVien)
         {
-            return (from lnv in _context.LOAI_NHAN_VIENs
-                    where lnv.MaLoaiNhanVien == MaLoaiNhanVien
-                    select lnv.TenLoai).ToList();
+            var KetQua = (from lnv in _context.LOAI_NHAN_VIENs
+                          where lnv.MaLoaiNhanVien == MaLoaiNhanVien
+                          select lnv.TenLoai).Single();
+
+            if (KetQua != null)
+            {
+                return KetQua;
+            }
+            return null;
         }
     }
 }
