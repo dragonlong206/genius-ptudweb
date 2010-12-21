@@ -21,7 +21,8 @@
                         Text="Tên đăng nhập"></asp:TextBox>
                     <asp:TextBox ID="txtPassword" runat="server" CssClass="textbox" TextMode="Password"
                         ToolTip="Mật khẩu" Text="123456"></asp:TextBox>
-                    <asp:Button ID="txtButton" runat="server" CssClass="login_button" Text="Đăng nhập" />
+                    <asp:Button ID="btnDangNhap" runat="server" CssClass="login_button" 
+                        Text="Đăng nhập" onclick="btnDangNhap_Click" />
                     <div class="links">
                         <a href="#">Quên mật khẩu</a> | <a href="#">Đăng ký</a>
                     </div>
