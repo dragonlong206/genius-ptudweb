@@ -53,75 +53,75 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
+    <Content Include="Common\Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatVe.aspx.cs">
+    <Compile Include="Common\DatVe.aspx.cs">
       <DependentUpon>DatVe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DatVe.aspx.designer.cs">
+    <Compile Include="Common\DatVe.aspx.designer.cs">
       <DependentUpon>DatVe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Common\Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="Common\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Detail.aspx.cs">
+    <Compile Include="Common\Detail.aspx.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Detail.aspx.designer.cs">
+    <Compile Include="Common\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GioiThieu.aspx.cs">
+    <Compile Include="Common\GioiThieu.aspx.cs">
       <DependentUpon>GioiThieu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GioiThieu.aspx.designer.cs">
+    <Compile Include="Common\GioiThieu.aspx.designer.cs">
       <DependentUpon>GioiThieu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HotTours.aspx.cs">
+    <Compile Include="Common\HotTours.aspx.cs">
       <DependentUpon>HotTours.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HotTours.aspx.designer.cs">
+    <Compile Include="Common\HotTours.aspx.designer.cs">
       <DependentUpon>HotTours.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KhachSan.aspx.cs">
+    <Compile Include="Common\KhachSan.aspx.cs">
       <DependentUpon>KhachSan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KhachSan.aspx.designer.cs">
+    <Compile Include="Common\KhachSan.aspx.designer.cs">
       <DependentUpon>KhachSan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LienHe.aspx.cs">
+    <Compile Include="Common\LienHe.aspx.cs">
       <DependentUpon>LienHe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LienHe.aspx.designer.cs">
+    <Compile Include="Common\LienHe.aspx.designer.cs">
       <DependentUpon>LienHe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main_3col.Master.cs">
+    <Compile Include="Shared\Main_3col.Master.cs">
       <DependentUpon>Main_3col.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main_3col.Master.designer.cs">
+    <Compile Include="Shared\Main_3col.Master.designer.cs">
       <DependentUpon>Main_3col.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TinTuc.aspx.cs">
+    <Compile Include="Common\TinTuc.aspx.cs">
       <DependentUpon>TinTuc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TinTuc.aspx.designer.cs">
+    <Compile Include="Common\TinTuc.aspx.designer.cs">
       <DependentUpon>TinTuc.aspx</DependentUpon>
     </Compile>
     <Compile Include="WUC\wucSearch.ascx.cs">
@@ -133,7 +133,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Main_3col.Master" />
+    <Content Include="Shared\Main_3col.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\AnotherTheme\AnotherStyle.css" />
@@ -162,7 +162,7 @@
     <Content Include="App_Themes\MainTheme\images\top_textbox.gif" />
     <Content Include="App_Themes\MainTheme\Skin.skin" />
     <Content Include="App_Themes\MainTheme\Style.css" />
-    <Content Include="Detail.aspx" />
+    <Content Include="Common\Detail.aspx" />
     <Content Include="WUC\wucSearch.ascx" />
   </ItemGroup>
   <ItemGroup>
@@ -184,14 +184,18 @@
     <Content Include="App_Data\CongTyLuHanh_log.ldf">
       <DependentUpon>CongTyLuHanh.mdf</DependentUpon>
     </Content>
-    <Content Include="DatVe.aspx" />
-    <Content Include="GioiThieu.aspx" />
+    <Content Include="Common\DatVe.aspx" />
+    <Content Include="Common\GioiThieu.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="HotTours.aspx" />
-    <Content Include="KhachSan.aspx" />
-    <Content Include="LienHe.aspx" />
-    <Content Include="TinTuc.aspx" />
+    <Content Include="Common\HotTours.aspx" />
+    <Content Include="Common\KhachSan.aspx" />
+    <Content Include="Common\LienHe.aspx" />
+    <Content Include="Common\TinTuc.aspx" />
     <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administration\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

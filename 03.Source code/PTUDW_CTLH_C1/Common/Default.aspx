@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Main_3col.Master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/Shared/Main_3col.Master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="PTUDW_CTLH_C1._Default" %>
 
-<%@ MasterType VirtualPath="~/Main_3col.Master" %>
+<%@ MasterType VirtualPath="~/Shared/Main_3col.Master" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="welcome">
@@ -17,22 +17,22 @@ Hiện tại, Genius cung cấp hai loại dịch vụ chính: dịch vụ xe kh
         <div id="img_block">
             <div class="hottour_img">
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic1.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Detail.aspx" />
+                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
                 <span>Phan Thiết</span>
             </div>
             <div class="hottour_img">
                 <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic2.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Detail.aspx" />
+                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
                 <span>Đà Lạt</span>
             </div>
             <div class="hottour_img">
                 <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic3.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Detail.aspx" />
+                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
                 <span>Điện Biên</span>
             </div>
             <div class="hottour_img">
                 <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic4.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Detail.aspx" />
+                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
                 <span>Hạ Long</span>
             </div>
         </div>
