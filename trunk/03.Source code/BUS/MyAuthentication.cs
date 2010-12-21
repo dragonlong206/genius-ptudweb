@@ -125,7 +125,7 @@ namespace BUS
             }
             else
             {
-                response.Redirect("~/Detail.aspx", false);
+                response.Redirect("~/Common/Detail.aspx", false);
             }
         }
 

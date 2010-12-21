@@ -53,7 +53,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Common\Default.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -64,11 +64,11 @@
     <Compile Include="Common\DatVe.aspx.designer.cs">
       <DependentUpon>DatVe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Common\Default.aspx.cs">
+    <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Common\Default.aspx.designer.cs">
+    <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Detail.aspx.cs">
