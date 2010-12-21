@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />      
+    <link href="~/App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />      
 </head>
 <body>
     <form id="MainForm" runat="server">
@@ -36,7 +36,7 @@
                     <!--menu background-->
                     <ul>
                         <li>                    
-                            <asp:Menu ID="Menu1" runat="server" DataSourceID="smdsMaster" 
+                            <asp:Menu ID="mnuMain" runat="server" DataSourceID="smdsMaster" 
                                 MaximumDynamicDisplayLevels="0" Orientation="Horizontal" 
                                 StaticDisplayLevels="2"> 
                                 <StaticMenuStyle CssClass="StaticMenu" />                              
@@ -59,7 +59,7 @@
                        
             <div id="logo_banner">
                 <div id="logo_block">
-                    <img src="App_Themes/MainTheme/images/logo.png" alt="" width="145" height="186" />
+                    <img src="../App_Themes/MainTheme/images/logo.png" alt="" width="145" height="186" />
                     <br />
                     <p class="text_slogan">
                         Mỗi chuyến xe an toàn, thoải mái đối với các bạn là niềm vui của chúng tôi. Hãy
