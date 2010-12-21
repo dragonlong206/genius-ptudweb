@@ -85,6 +85,9 @@
     <Compile Include="GioiThieu.aspx.designer.cs">
       <DependentUpon>GioiThieu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="HotTours.aspx.cs">
       <DependentUpon>HotTours.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,16 +179,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CongTyLuHanh.mdf">
+    </Content>
+    <Content Include="App_Data\CongTyLuHanh_log.ldf">
+      <DependentUpon>CongTyLuHanh.mdf</DependentUpon>
+    </Content>
     <Content Include="DatVe.aspx" />
     <Content Include="GioiThieu.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="HotTours.aspx" />
     <Content Include="KhachSan.aspx" />
     <Content Include="LienHe.aspx" />
     <Content Include="TinTuc.aspx" />
     <Content Include="Web.sitemap" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
