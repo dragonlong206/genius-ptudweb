@@ -1334,13 +1334,6 @@ namespace DTO
 			return ((ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDenResult>)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.usp_SelectTUYEN_XEsByAndMaTramDi")]
-		public ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult> usp_SelectTUYEN_XEsByAndMaTramDi([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi);
-			return ((ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult>)(result.ReturnValue));
-		}
-		
 		[Function(Name="dbo.usp_SelectXE")]
 		public ISingleResult<usp_SelectXEResult> usp_SelectXE([Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe)
 		{
@@ -1507,6 +1500,27 @@ namespace DTO
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTuyenXe, tenTuyenXe, khoangThoiGianDi, tanSuatChuyen, luongTaiXe, maTramDi, maTramDen, giaVe, gioChayChuyenDauTienTrongNgay, gioChayChuyenCuoiCungTrongNgay);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SelectTUYEN_XEsByAndMaTramDi")]
+		public ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult> usp_SelectTUYEN_XEsByAndMaTramDi([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi);
+			return ((ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SelectTuyenXeByMaTramDiAndMaTramDen")]
+		public ISingleResult<usp_SelectTuyenXeByMaTramDiAndMaTramDenResult> usp_SelectTuyenXeByMaTramDiAndMaTramDen([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi, maTramDen);
+			return ((ISingleResult<usp_SelectTuyenXeByMaTramDiAndMaTramDenResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SelectTUYEN_XEByTramAndGia")]
+		public ISingleResult<usp_SelectTUYEN_XEByTramAndGiaResult> usp_SelectTUYEN_XEByTramAndGia([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVeTu", DbType="Int")] System.Nullable<int> giaVeTu, [Parameter(Name="GiaVeDen", DbType="Int")] System.Nullable<int> giaVeDen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi, maTramDen, giaVeTu, giaVeDen);
+			return ((ISingleResult<usp_SelectTUYEN_XEByTramAndGiaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -10985,194 +10999,6 @@ namespace DTO
 		}
 	}
 	
-	public partial class usp_SelectTUYEN_XEsByAndMaTramDiResult
-	{
-		
-		private int _MaTuyenXe;
-		
-		private string _TenTuyenXe;
-		
-		private System.Nullable<double> _KhoangThoiGianDi;
-		
-		private System.Nullable<double> _TanSuatChuyen;
-		
-		private System.Nullable<int> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaTramDi;
-		
-		private int _MaTramDen;
-		
-		private System.Nullable<int> _GiaVe;
-		
-		private double _GioChayChuyenDauTienTrongNgay;
-		
-		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
-		
-		public usp_SelectTUYEN_XEsByAndMaTramDiResult()
-		{
-		}
-		
-		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
-		public int MaTuyenXe
-		{
-			get
-			{
-				return this._MaTuyenXe;
-			}
-			set
-			{
-				if ((this._MaTuyenXe != value))
-				{
-					this._MaTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
-		public string TenTuyenXe
-		{
-			get
-			{
-				return this._TenTuyenXe;
-			}
-			set
-			{
-				if ((this._TenTuyenXe != value))
-				{
-					this._TenTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
-		public System.Nullable<double> KhoangThoiGianDi
-		{
-			get
-			{
-				return this._KhoangThoiGianDi;
-			}
-			set
-			{
-				if ((this._KhoangThoiGianDi != value))
-				{
-					this._KhoangThoiGianDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TanSuatChuyen", DbType="Float")]
-		public System.Nullable<double> TanSuatChuyen
-		{
-			get
-			{
-				return this._TanSuatChuyen;
-			}
-			set
-			{
-				if ((this._TanSuatChuyen != value))
-				{
-					this._TanSuatChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Int")]
-		public System.Nullable<int> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTramDi", DbType="Int")]
-		public System.Nullable<int> MaTramDi
-		{
-			get
-			{
-				return this._MaTramDi;
-			}
-			set
-			{
-				if ((this._MaTramDi != value))
-				{
-					this._MaTramDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTramDen", DbType="Int NOT NULL")]
-		public int MaTramDen
-		{
-			get
-			{
-				return this._MaTramDen;
-			}
-			set
-			{
-				if ((this._MaTramDen != value))
-				{
-					this._MaTramDen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Int")]
-		public System.Nullable<int> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
-		public double GioChayChuyenDauTienTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenDauTienTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenDauTienTrongNgay != value))
-				{
-					this._GioChayChuyenDauTienTrongNgay = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
-		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenCuoiCungTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
-				{
-					this._GioChayChuyenCuoiCungTrongNgay = value;
-				}
-			}
-		}
-	}
-	
 	public partial class usp_SelectXEResult
 	{
 		
@@ -11748,6 +11574,570 @@ namespace DTO
 				if ((this._TinhTrang != value))
 				{
 					this._TinhTrang = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectTUYEN_XEsByAndMaTramDiResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private string _TenTuyenXe;
+		
+		private System.Nullable<double> _KhoangThoiGianDi;
+		
+		private System.Nullable<double> _TanSuatChuyen;
+		
+		private System.Nullable<int> _LuongTaiXe;
+		
+		private System.Nullable<int> _MaTramDi;
+		
+		private int _MaTramDen;
+		
+		private System.Nullable<int> _GiaVe;
+		
+		private double _GioChayChuyenDauTienTrongNgay;
+		
+		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
+		
+		public usp_SelectTUYEN_XEsByAndMaTramDiResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
+		public System.Nullable<double> KhoangThoiGianDi
+		{
+			get
+			{
+				return this._KhoangThoiGianDi;
+			}
+			set
+			{
+				if ((this._KhoangThoiGianDi != value))
+				{
+					this._KhoangThoiGianDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TanSuatChuyen", DbType="Float")]
+		public System.Nullable<double> TanSuatChuyen
+		{
+			get
+			{
+				return this._TanSuatChuyen;
+			}
+			set
+			{
+				if ((this._TanSuatChuyen != value))
+				{
+					this._TanSuatChuyen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Int")]
+		public System.Nullable<int> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this._LuongTaiXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTramDi", DbType="Int")]
+		public System.Nullable<int> MaTramDi
+		{
+			get
+			{
+				return this._MaTramDi;
+			}
+			set
+			{
+				if ((this._MaTramDi != value))
+				{
+					this._MaTramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTramDen", DbType="Int NOT NULL")]
+		public int MaTramDen
+		{
+			get
+			{
+				return this._MaTramDen;
+			}
+			set
+			{
+				if ((this._MaTramDen != value))
+				{
+					this._MaTramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GiaVe", DbType="Int")]
+		public System.Nullable<int> GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this._GiaVe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
+		public double GioChayChuyenDauTienTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenDauTienTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenDauTienTrongNgay != value))
+				{
+					this._GioChayChuyenDauTienTrongNgay = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
+		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenCuoiCungTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
+				{
+					this._GioChayChuyenCuoiCungTrongNgay = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectTuyenXeByMaTramDiAndMaTramDenResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private string _TenTuyenXe;
+		
+		private System.Nullable<double> _KhoangThoiGianDi;
+		
+		private System.Nullable<double> _TanSuatChuyen;
+		
+		private System.Nullable<int> _LuongTaiXe;
+		
+		private string _TenTramDi;
+		
+		private string _TenTramDen;
+		
+		private System.Nullable<int> _GiaVe;
+		
+		private double _GioChayChuyenDauTienTrongNgay;
+		
+		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
+		
+		public usp_SelectTuyenXeByMaTramDiAndMaTramDenResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
+		public System.Nullable<double> KhoangThoiGianDi
+		{
+			get
+			{
+				return this._KhoangThoiGianDi;
+			}
+			set
+			{
+				if ((this._KhoangThoiGianDi != value))
+				{
+					this._KhoangThoiGianDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TanSuatChuyen", DbType="Float")]
+		public System.Nullable<double> TanSuatChuyen
+		{
+			get
+			{
+				return this._TanSuatChuyen;
+			}
+			set
+			{
+				if ((this._TanSuatChuyen != value))
+				{
+					this._TanSuatChuyen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Int")]
+		public System.Nullable<int> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this._LuongTaiXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDi", DbType="NVarChar(50)")]
+		public string TenTramDi
+		{
+			get
+			{
+				return this._TenTramDi;
+			}
+			set
+			{
+				if ((this._TenTramDi != value))
+				{
+					this._TenTramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDen", DbType="NVarChar(50)")]
+		public string TenTramDen
+		{
+			get
+			{
+				return this._TenTramDen;
+			}
+			set
+			{
+				if ((this._TenTramDen != value))
+				{
+					this._TenTramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GiaVe", DbType="Int")]
+		public System.Nullable<int> GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this._GiaVe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
+		public double GioChayChuyenDauTienTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenDauTienTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenDauTienTrongNgay != value))
+				{
+					this._GioChayChuyenDauTienTrongNgay = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
+		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenCuoiCungTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
+				{
+					this._GioChayChuyenCuoiCungTrongNgay = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectTUYEN_XEByTramAndGiaResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private string _TenTuyenXe;
+		
+		private System.Nullable<double> _KhoangThoiGianDi;
+		
+		private System.Nullable<double> _TanSuatChuyen;
+		
+		private System.Nullable<int> _LuongTaiXe;
+		
+		private string _TenTramDi;
+		
+		private string _TenTramDen;
+		
+		private System.Nullable<int> _GiaVe;
+		
+		private double _GioChayChuyenDauTienTrongNgay;
+		
+		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
+		
+		public usp_SelectTUYEN_XEByTramAndGiaResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
+		public System.Nullable<double> KhoangThoiGianDi
+		{
+			get
+			{
+				return this._KhoangThoiGianDi;
+			}
+			set
+			{
+				if ((this._KhoangThoiGianDi != value))
+				{
+					this._KhoangThoiGianDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TanSuatChuyen", DbType="Float")]
+		public System.Nullable<double> TanSuatChuyen
+		{
+			get
+			{
+				return this._TanSuatChuyen;
+			}
+			set
+			{
+				if ((this._TanSuatChuyen != value))
+				{
+					this._TanSuatChuyen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Int")]
+		public System.Nullable<int> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this._LuongTaiXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDi", DbType="NVarChar(50)")]
+		public string TenTramDi
+		{
+			get
+			{
+				return this._TenTramDi;
+			}
+			set
+			{
+				if ((this._TenTramDi != value))
+				{
+					this._TenTramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDen", DbType="NVarChar(50)")]
+		public string TenTramDen
+		{
+			get
+			{
+				return this._TenTramDen;
+			}
+			set
+			{
+				if ((this._TenTramDen != value))
+				{
+					this._TenTramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GiaVe", DbType="Int")]
+		public System.Nullable<int> GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this._GiaVe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
+		public double GioChayChuyenDauTienTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenDauTienTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenDauTienTrongNgay != value))
+				{
+					this._GioChayChuyenDauTienTrongNgay = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
+		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenCuoiCungTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
+				{
+					this._GioChayChuyenCuoiCungTrongNgay = value;
 				}
 			}
 		}
