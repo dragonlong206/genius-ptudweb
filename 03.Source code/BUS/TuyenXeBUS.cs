@@ -25,5 +25,10 @@ namespace BUS
                 return TuyenXeDAO.TimKiemNangCao(iMaTramDi, iMaTramDen, iGiaVeTu, iGiaVeDen);
             }
         }
+
+        public static void ThemTuyenXe(TUYEN_XE TuyenXeDTO)
+        {
+            TuyenXeDAO.ThemTuyenXe(TuyenXeDTO);
+        }
     }
 }

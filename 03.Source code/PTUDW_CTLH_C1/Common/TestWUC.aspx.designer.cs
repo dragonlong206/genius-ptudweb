@@ -39,5 +39,14 @@ namespace PTUDW_CTLH_C1.Common {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTUDW_CTLH_C1.WUC.TuyenXe.wucTimTuyenNangCao wucTimTuyenNangCao;
+        
+        /// <summary>
+        /// wucThemTuyen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTUDW_CTLH_C1.WUC.TuyenXe.wucThemTuyen wucThemTuyen;
     }
 }

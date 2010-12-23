@@ -131,6 +131,20 @@
     <Compile Include="Common\TinTuc.aspx.designer.cs">
       <DependentUpon>TinTuc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\ChuyenXe\wucThemChuyenXe.ascx.cs">
+      <DependentUpon>wucThemChuyenXe.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucThemChuyenXe.ascx.designer.cs">
+      <DependentUpon>wucThemChuyenXe.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\TuyenXe\wucCapNhatTuyen.ascx.cs">
+      <DependentUpon>wucCapNhatTuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\TuyenXe\wucCapNhatTuyen.ascx.designer.cs">
+      <DependentUpon>wucCapNhatTuyen.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\TuyenXe\wucThemTuyen.ascx.cs">
       <DependentUpon>wucThemTuyen.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,6 +235,8 @@
     <Content Include="Common\LienHe.aspx" />
     <Content Include="Common\TinTuc.aspx" />
     <Content Include="Web.sitemap" />
+    <Content Include="WUC\ChuyenXe\wucThemChuyenXe.ascx" />
+    <Content Include="WUC\TuyenXe\wucCapNhatTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucThemTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimNhanhTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimTuyenNangCao.ascx" />
@@ -249,6 +265,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
