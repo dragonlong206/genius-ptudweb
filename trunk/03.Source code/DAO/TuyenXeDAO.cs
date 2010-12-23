@@ -22,5 +22,21 @@ namespace DAO
             ISingleResult<usp_SelectTUYEN_XEByTramAndGiaResult> dsTuyen = db.usp_SelectTUYEN_XEByTramAndGia(iMaTramDi, iMaTramDen, iGiaVeTu, iGiaVeDen);
             return dsTuyen.ToList();
         }
+
+        public static void ThemTuyenXe(TUYEN_XE TuyenXeDTO)
+        {
+            int? MaTuyen = 0;
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            db.usp_InsertTUYEN_XE(TuyenXeDTO.TenTuyenXe,
+                TuyenXeDTO.KhoangThoiGianDi,
+                TuyenXeDTO.TanSuatChuyen,
+                TuyenXeDTO.LuongTaiXe,
+                TuyenXeDTO.MaTramDi,
+                TuyenXeDTO.MaTramDen,
+                TuyenXeDTO.GiaVe,
+                TuyenXeDTO.GioChayChuyenDauTienTrongNgay,
+                TuyenXeDTO.GioChayChuyenCuoiCungTrongNgay,
+                ref MaTuyen);
+        }
     }
 }
