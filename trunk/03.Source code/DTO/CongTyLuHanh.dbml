@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="CongTyLuHanh" Class="CongTyLuHanhDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=&quot;E:\Long's Documents\hoc ki 7\PTUDW\Subversion\03.Source code\PTUDW_CTLH_C1\App_Data\CongTyLuHanh.mdf&quot;;Integrated Security=True;User Instance=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="CongTyLuHanhConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\CongTyLuHanh.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="CongTyLuHanhConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHI_TIET_CHUYEN" Member="CHI_TIET_CHUYENs">
     <Type Name="CHI_TIET_CHUYEN">
       <Column Name="MaChiTiet" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -1230,21 +1230,6 @@
       <Column Name="GioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_SelectTUYEN_XEsByAndMaTramDi" Method="usp_SelectTUYEN_XEsByAndMaTramDi">
-    <Parameter Name="MaTramDi" Parameter="maTramDi" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectTUYEN_XEsByAndMaTramDiResult">
-      <Column Name="MaTuyenXe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TenTuyenXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="KhoangThoiGianDi" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TanSuatChuyen" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="LuongTaiXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaTramDi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaTramDen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="GiaVe" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="GioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_SelectXE" Method="usp_SelectXE">
     <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" />
     <ElementType Name="usp_SelectXEResult">
@@ -1433,5 +1418,54 @@
     <Parameter Name="GioChayChuyenDauTienTrongNgay" Parameter="gioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float" />
     <Parameter Name="GioChayChuyenCuoiCungTrongNgay" Parameter="gioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectTUYEN_XEsByAndMaTramDi" Method="usp_SelectTUYEN_XEsByAndMaTramDi">
+    <Parameter Name="MaTramDi" Parameter="maTramDi" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectTUYEN_XEsByAndMaTramDiResult">
+      <Column Name="MaTuyenXe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTuyenXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KhoangThoiGianDi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TanSuatChuyen" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LuongTaiXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTramDi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTramDen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GiaVe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="GioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectTuyenXeByMaTramDiAndMaTramDen" Method="usp_SelectTuyenXeByMaTramDiAndMaTramDen">
+    <Parameter Name="MaTramDi" Parameter="maTramDi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaTramDen" Parameter="maTramDen" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectTuyenXeByMaTramDiAndMaTramDenResult">
+      <Column Name="MaTuyenXe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTuyenXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KhoangThoiGianDi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TanSuatChuyen" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LuongTaiXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenTramDi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenTramDen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaVe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="GioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectTUYEN_XEByTramAndGia" Method="usp_SelectTUYEN_XEByTramAndGia">
+    <Parameter Name="MaTramDi" Parameter="maTramDi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaTramDen" Parameter="maTramDen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GiaVeTu" Parameter="giaVeTu" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GiaVeDen" Parameter="giaVeDen" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectTUYEN_XEByTramAndGiaResult">
+      <Column Name="MaTuyenXe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTuyenXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KhoangThoiGianDi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TanSuatChuyen" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LuongTaiXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenTramDi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenTramDen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaVe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="GioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
