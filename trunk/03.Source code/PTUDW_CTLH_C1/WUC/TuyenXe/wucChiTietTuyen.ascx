@@ -8,6 +8,13 @@
     <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
     <Fields>
     
+        <%-- <asp:TemplateField>
+            <HeaderTemplate>
+                <asp:HyperLink ID="hlThemTuyen" NavigateUrl="~/Administration/DieuHanhCongTy/ThemTuyen.aspx" runat="server">Thêm tuyến</asp:HyperLink>
+            </HeaderTemplate>
+        </asp:TemplateField>
+        --%>
+            
         <asp:BoundField DataField="MaTuyenXe" HeaderText="Mã tuyến xe" 
             InsertVisible="False" ReadOnly="True" SortExpression="MaTuyenXe" />
         <asp:BoundField DataField="TenTuyenXe" HeaderText="Tên tuyến xe" 
@@ -19,21 +26,23 @@
         <asp:BoundField DataField="LuongTaiXe" HeaderText="Lương tài xế" 
             SortExpression="LuongTaiXe" />
         
-        <asp:TemplateField>
+        <asp:TemplateField HeaderText="Trạm đi">
             <ItemTemplate>        
+                <%#Eval("TRAM_XE1.TenTramXe")%>
+            </ItemTemplate>
+
+            <EditItemTemplate>
                 <asp:DropDownList id="ddlTramDi" runat="server" BackColor="White" ForeColor="Black" DataSourceID="ldsTramXe" DataValueField="MaTramXe" DataTextField="TenTramXe" SelectedValue='<%#Bind("MaTramDi")%>'></asp:DropDownList>
-            </ItemTemplate>
-            <HeaderTemplate>
-                Trạm đi
-            </HeaderTemplate>
+            </EditItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField>
+        <asp:TemplateField HeaderText="Trạm đến">
             <ItemTemplate>        
-                <asp:DropDownList id="ddlTramDen" runat="server" BackColor="White" ForeColor="Black" DataSourceID="ldsTramXe" DataValueField="MaTramXe" DataTextField="TenTramXe" SelectedValue='<%#Bind("MaTramDen")%>'></asp:DropDownList>
+                <%#Eval("TRAM_XE.TenTramXe")%>                
             </ItemTemplate>
-            <HeaderTemplate>
-                Trạm đến
-            </HeaderTemplate>
+            
+            <EditItemTemplate>
+                <asp:DropDownList id="ddlTramDen" runat="server" BackColor="White" ForeColor="Black" DataSourceID="ldsTramXe" DataValueField="MaTramXe" DataTextField="TenTramXe" SelectedValue='<%#Bind("MaTramDen")%>'></asp:DropDownList>
+            </EditItemTemplate>
         </asp:TemplateField>
         <asp:BoundField DataField="GiaVe" HeaderText="Giá Vé" SortExpression="GiaVe" />
         <asp:BoundField DataField="GioChayChuyenDauTienTrongNgay" 
@@ -43,14 +52,14 @@
             HeaderText="Giờ chạy chuyến cuối cùng trong ngày" 
             SortExpression="GioChayChuyenCuoiCungTrongNgay" />
         
-        <asp:CommandField ShowInsertButton="True" />
-        <asp:CommandField ShowEditButton="True" />
-        <asp:CommandField ShowDeleteButton="True" />
+        <asp:CommandField CancelText="Hủy" InsertText="Thêm" NewText="Thêm mới" 
+            ShowInsertButton="True" />
+        <asp:CommandField ShowEditButton="True" EditText="Cập nhật" CancelText="Hủy" 
+            UpdateText="Cập nhật" />
+        <asp:CommandField ShowDeleteButton="True" DeleteText="Xóa tuyến" />
     </Fields>
-
     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
     <EditRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-
 </asp:DetailsView>
 <asp:LinqDataSource ID="ldsTramXe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" 
