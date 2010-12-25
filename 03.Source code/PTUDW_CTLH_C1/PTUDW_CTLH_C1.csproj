@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F0ED646A-663F-4186-BA96-E90075140AD1}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -166,6 +166,20 @@
     <Compile Include="WUC\TuyenXe\wucTimTuyenNangCao.ascx.designer.cs">
       <DependentUpon>wucTimTuyenNangCao.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\TuyenXe\wucXoaTuyen.ascx.cs">
+      <DependentUpon>wucXoaTuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\TuyenXe\wucXoaTuyen.ascx.designer.cs">
+      <DependentUpon>wucXoaTuyen.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\wucSearch.ascx.cs">
       <DependentUpon>wucSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +254,8 @@
     <Content Include="WUC\TuyenXe\wucThemTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimNhanhTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimTuyenNangCao.ascx" />
+    <Content Include="WUC\TuyenXe\wucXoaTuyen.ascx" />
+    <Content Include="WUC\WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administration\" />
@@ -265,9 +281,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

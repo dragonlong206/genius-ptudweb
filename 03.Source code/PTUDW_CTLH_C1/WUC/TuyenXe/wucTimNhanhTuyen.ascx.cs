@@ -32,8 +32,18 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
             int iMaTramDi = int.Parse(this.ddlTramKhoiHanh.SelectedValue.ToString());
             int iMaTramDen = int.Parse(this.ddlTramDen.SelectedValue.ToString());
             List<usp_SelectTuyenXeByMaTramDiAndMaTramDenResult> dsTuyen = TuyenXeBUS.TimNhanhTuyen(iMaTramDi, iMaTramDen);
-            this.grvDanhSachTuyen.DataSource = dsTuyen;
-            this.grvDanhSachTuyen.DataBind();
+            if (dsTuyen.Count > 0)
+            {
+                this.lblKetQua.Text = string.Empty;
+                this.grvDanhSachTuyen.DataSource = dsTuyen;
+                this.grvDanhSachTuyen.DataBind();
+                this.grvDanhSachTuyen.Visible = true;
+            }
+            else
+            {
+                this.grvDanhSachTuyen.Visible = false;
+                this.lblKetQua.Text = "Không tìm thấy kết quả phù hợp";
+            }
         }
     }
 }

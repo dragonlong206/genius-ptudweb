@@ -6,7 +6,7 @@
         Select="new (MaTramXe, TenTramXe)" TableName="TRAM_XEs">
     </asp:LinqDataSource>
     <div>
-        <asp:Label ID="lblTitle" runat="server" Text="Tìm nhanh tuyến xe"></asp:Label>
+        <asp:Label ID="lblTitle" runat="server" Text="Tìm tuyến xe"></asp:Label>
     </div>
     
     <div id="SearcRegion">
