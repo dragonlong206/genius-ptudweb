@@ -56,8 +56,17 @@
                         <asp:BoundField DataField="TenTramDi" HeaderText="Trạm đi" />
                         <asp:BoundField DataField="TenTramDen" HeaderText="Trạm đến" />
                         <asp:BoundField DataField="GiaVe" HeaderText="Giá vé" />
-                        <asp:CommandField SelectText="Chi tiết" ShowSelectButton="True" 
-                            HeaderText="Chi tiết" />
+                        
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                Chi tiết
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:HyperLink runat="server" Text="Chi tiết" NavigateUrl='<%# "~/ChiTietTuyen.aspx?MaTuyenXe=" + Eval("MaTuyenXe")%>' />                      
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
+                        
                     </Columns>
                 </asp:GridView>
             </fieldset>            
