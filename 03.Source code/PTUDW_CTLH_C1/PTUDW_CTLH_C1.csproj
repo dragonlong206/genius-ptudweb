@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\AjaxControlToolkit.Binary.NET35\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -57,6 +61,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietTuyen.aspx.cs">
+      <DependentUpon>ChiTietTuyen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChiTietTuyen.aspx.designer.cs">
+      <DependentUpon>ChiTietTuyen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\DatVe.aspx.cs">
       <DependentUpon>DatVe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,6 +142,13 @@
     <Compile Include="Common\TinTuc.aspx.designer.cs">
       <DependentUpon>TinTuc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TimNhanhTuyen.aspx.cs">
+      <DependentUpon>TimNhanhTuyen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TimNhanhTuyen.aspx.designer.cs">
+      <DependentUpon>TimNhanhTuyen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\ChuyenXe\wucThemChuyenXe.ascx.cs">
       <DependentUpon>wucThemChuyenXe.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,6 +162,13 @@
     </Compile>
     <Compile Include="WUC\TuyenXe\wucCapNhatTuyen.ascx.designer.cs">
       <DependentUpon>wucCapNhatTuyen.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\TuyenXe\wucChiTietTuyen.ascx.cs">
+      <DependentUpon>wucChiTietTuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\TuyenXe\wucChiTietTuyen.ascx.designer.cs">
+      <DependentUpon>wucChiTietTuyen.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\TuyenXe\wucThemTuyen.ascx.cs">
       <DependentUpon>wucThemTuyen.ascx</DependentUpon>
@@ -240,6 +265,7 @@
     <Content Include="App_Data\CongTyLuHanh_log.ldf">
       <DependentUpon>CongTyLuHanh.mdf</DependentUpon>
     </Content>
+    <Content Include="ChiTietTuyen.aspx" />
     <Content Include="Common\DatVe.aspx" />
     <Content Include="Common\GioiThieu.aspx" />
     <Content Include="Common\TestWUC.aspx" />
@@ -248,9 +274,11 @@
     <Content Include="Common\KhachSan.aspx" />
     <Content Include="Common\LienHe.aspx" />
     <Content Include="Common\TinTuc.aspx" />
+    <Content Include="TimNhanhTuyen.aspx" />
     <Content Include="Web.sitemap" />
     <Content Include="WUC\ChuyenXe\wucThemChuyenXe.ascx" />
     <Content Include="WUC\TuyenXe\wucCapNhatTuyen.ascx" />
+    <Content Include="WUC\TuyenXe\wucChiTietTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucThemTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimNhanhTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimTuyenNangCao.ascx" />
