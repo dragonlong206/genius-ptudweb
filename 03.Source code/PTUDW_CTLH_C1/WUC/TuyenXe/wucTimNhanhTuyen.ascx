@@ -46,7 +46,6 @@
                 </div>
             </div>        
             
-           
                 <asp:Label ID="lblKetQua" runat="server" Text=""></asp:Label>         
                 <asp:GridView ID="grvDanhSachTuyen" runat="server" AllowPaging="True" 
                 AutoGenerateColumns="False">
@@ -62,7 +61,7 @@
                                 Chi tiết
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <asp:HyperLink runat="server" Text="Chi tiết" NavigateUrl='<%# "~/ChiTietTuyen.aspx?MaTuyenXe=" + Eval("MaTuyenXe")%>' />                      
+                                <asp:HyperLink runat="server" Text="Chi tiết" NavigateUrl='<%# "~/Common/ChiTietTuyen.aspx?MaTuyenXe=" + Eval("MaTuyenXe")%>' />                      
                             </ItemTemplate>
                         </asp:TemplateField>
                         
