@@ -1,6 +1,0 @@
-C:\Users\pvhuy\Desktop\PTUDW\03.Source code\DTO\bin\Debug\DTO.dll.config
-C:\Users\pvhuy\Desktop\PTUDW\03.Source code\DTO\bin\Debug\DTO.dll
-C:\Users\pvhuy\Desktop\PTUDW\03.Source code\DTO\bin\Debug\DTO.pdb
-C:\Users\pvhuy\Desktop\PTUDW\03.Source code\DTO\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\pvhuy\Desktop\PTUDW\03.Source code\DTO\obj\Debug\DTO.dll
-C:\Users\pvhuy\Desktop\PTUDW\03.Source code\DTO\obj\Debug\DTO.pdb
