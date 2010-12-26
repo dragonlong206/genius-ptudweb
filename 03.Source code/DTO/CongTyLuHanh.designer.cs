@@ -30,15 +30,12 @@ namespace DTO
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCHI_TIET_CHUYEN(CHI_TIET_CHUYEN instance);
-    partial void UpdateCHI_TIET_CHUYEN(CHI_TIET_CHUYEN instance);
-    partial void DeleteCHI_TIET_CHUYEN(CHI_TIET_CHUYEN instance);
-    partial void InsertTUYEN_XE(TUYEN_XE instance);
-    partial void UpdateTUYEN_XE(TUYEN_XE instance);
-    partial void DeleteTUYEN_XE(TUYEN_XE instance);
     partial void InsertCHO_NGOI(CHO_NGOI instance);
     partial void UpdateCHO_NGOI(CHO_NGOI instance);
     partial void DeleteCHO_NGOI(CHO_NGOI instance);
+    partial void InsertXE(XE instance);
+    partial void UpdateXE(XE instance);
+    partial void DeleteXE(XE instance);
     partial void InsertCHUC_NANG(CHUC_NANG instance);
     partial void UpdateCHUC_NANG(CHUC_NANG instance);
     partial void DeleteCHUC_NANG(CHUC_NANG instance);
@@ -90,9 +87,9 @@ namespace DTO
     partial void InsertTRAM_XE(TRAM_XE instance);
     partial void UpdateTRAM_XE(TRAM_XE instance);
     partial void DeleteTRAM_XE(TRAM_XE instance);
-    partial void InsertXE(XE instance);
-    partial void UpdateXE(XE instance);
-    partial void DeleteXE(XE instance);
+    partial void InsertTUYEN_XE(TUYEN_XE instance);
+    partial void UpdateTUYEN_XE(TUYEN_XE instance);
+    partial void DeleteTUYEN_XE(TUYEN_XE instance);
     #endregion
 		
 		public CongTyLuHanhDataContext() : 
@@ -125,27 +122,19 @@ namespace DTO
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<CHI_TIET_CHUYEN> CHI_TIET_CHUYENs
-		{
-			get
-			{
-				return this.GetTable<CHI_TIET_CHUYEN>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TUYEN_XE> TUYEN_XEs
-		{
-			get
-			{
-				return this.GetTable<TUYEN_XE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<CHO_NGOI> CHO_NGOIs
 		{
 			get
 			{
 				return this.GetTable<CHO_NGOI>();
+			}
+		}
+		
+		public System.Data.Linq.Table<XE> XEs
+		{
+			get
+			{
+				return this.GetTable<XE>();
 			}
 		}
 		
@@ -285,53 +274,25 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<XE> XEs
+		public System.Data.Linq.Table<TUYEN_XE> TUYEN_XEs
 		{
 			get
 			{
-				return this.GetTable<XE>();
+				return this.GetTable<TUYEN_XE>();
 			}
-		}
-		
-		[Function(Name="dbo.usp_UpdateXE")]
-		public int usp_UpdateXE([Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe, [Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maXe, bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_DeleteCHI_TIET_CHUYEN")]
-		public int usp_DeleteCHI_TIET_CHUYEN([Parameter(Name="MaChiTiet", DbType="Int")] System.Nullable<int> maChiTiet)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChiTiet);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_DeleteCHI_TIET_CHUYENsByAndMaChuyen")]
-		public int usp_DeleteCHI_TIET_CHUYENsByAndMaChuyen([Parameter(Name="MaChuyen", DbType="Int")] System.Nullable<int> maChuyen)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChuyen);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_DeleteCHI_TIET_CHUYENsByAndMaTinhTrang")]
-		public int usp_DeleteCHI_TIET_CHUYENsByAndMaTinhTrang([Parameter(Name="MaTinhTrang", DbType="Int")] System.Nullable<int> maTinhTrang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTinhTrang);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_DeleteCHI_TIET_CHUYENsByAndMaXe")]
-		public int usp_DeleteCHI_TIET_CHUYENsByAndMaXe([Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maXe);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_DeleteCHO_NGOI")]
 		public int usp_DeleteCHO_NGOI([Parameter(Name="MaChoNgoi", DbType="Int")] System.Nullable<int> maChoNgoi)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChoNgoi);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_DeleteXEsByAndTinhTrang")]
+		public int usp_DeleteXEsByAndTinhTrang([Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tinhTrang);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -601,25 +562,19 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.usp_DeleteXEsByAndTinhTrang")]
-		public int usp_DeleteXEsByAndTinhTrang([Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tinhTrang);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_InsertCHI_TIET_CHUYEN")]
-		public int usp_InsertCHI_TIET_CHUYEN([Parameter(Name="MaChiTiet", DbType="Int")] System.Nullable<int> maChiTiet, [Parameter(Name="MaChuyen", DbType="Int")] System.Nullable<int> maChuyen, [Parameter(Name="GiaVe", DbType="Float")] System.Nullable<double> giaVe, [Parameter(Name="LuongTaiXe", DbType="Float")] System.Nullable<double> luongTaiXe, [Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe, [Parameter(Name="ThoiGianDenTram", DbType="DateTime")] System.Nullable<System.DateTime> thoiGianDenTram, [Parameter(Name="MaTinhTrang", DbType="Int")] System.Nullable<int> maTinhTrang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChiTiet, maChuyen, giaVe, luongTaiXe, maXe, thoiGianDenTram, maTinhTrang);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[Function(Name="dbo.usp_InsertCHO_NGOI")]
 		public int usp_InsertCHO_NGOI([Parameter(DbType="Int")] System.Nullable<int> x, [Parameter(DbType="Int")] System.Nullable<int> y, [Parameter(Name="MaChoNgoi", DbType="Int")] ref System.Nullable<int> maChoNgoi)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x, y, maChoNgoi);
 			maChoNgoi = ((System.Nullable<int>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_InsertTUYEN_XE")]
+		public int usp_InsertTUYEN_XE([Parameter(Name="TenTuyenXe", DbType="NVarChar(50)")] string tenTuyenXe, [Parameter(Name="KhoangThoiGianDi", DbType="Float")] System.Nullable<double> khoangThoiGianDi, [Parameter(Name="TanSuatChuyen", DbType="Float")] System.Nullable<double> tanSuatChuyen, [Parameter(Name="LuongTaiXe", DbType="Int")] System.Nullable<int> luongTaiXe, [Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVe", DbType="Int")] System.Nullable<int> giaVe, [Parameter(Name="GioChayChuyenDauTienTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenDauTienTrongNgay, [Parameter(Name="GioChayChuyenCuoiCungTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenCuoiCungTrongNgay, [Parameter(Name="MaTuyenXe", DbType="Int")] ref System.Nullable<int> maTuyenXe)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenTuyenXe, khoangThoiGianDi, tanSuatChuyen, luongTaiXe, maTramDi, maTramDen, giaVe, gioChayChuyenDauTienTrongNgay, gioChayChuyenCuoiCungTrongNgay, maTuyenXe);
+			maTuyenXe = ((System.Nullable<int>)(result.GetParameterValue(9)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -758,25 +713,18 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.usp_InsertTUYEN_XE")]
-		public int usp_InsertTUYEN_XE([Parameter(Name="TenTuyenXe", DbType="NVarChar(50)")] string tenTuyenXe, [Parameter(Name="KhoangThoiGianDi", DbType="Float")] System.Nullable<double> khoangThoiGianDi, [Parameter(Name="TanSuatChuyen", DbType="Float")] System.Nullable<double> tanSuatChuyen, [Parameter(Name="LuongTaiXe", DbType="Int")] System.Nullable<int> luongTaiXe, [Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVe", DbType="Int")] System.Nullable<int> giaVe, [Parameter(Name="GioChayChuyenDauTienTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenDauTienTrongNgay, [Parameter(Name="GioChayChuyenCuoiCungTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenCuoiCungTrongNgay, [Parameter(Name="MaTuyenXe", DbType="Int")] ref System.Nullable<int> maTuyenXe)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenTuyenXe, khoangThoiGianDi, tanSuatChuyen, luongTaiXe, maTramDi, maTramDen, giaVe, gioChayChuyenDauTienTrongNgay, gioChayChuyenCuoiCungTrongNgay, maTuyenXe);
-			maTuyenXe = ((System.Nullable<int>)(result.GetParameterValue(9)));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_InsertUpdateCHI_TIET_CHUYEN")]
-		public int usp_InsertUpdateCHI_TIET_CHUYEN([Parameter(Name="MaChiTiet", DbType="Int")] System.Nullable<int> maChiTiet, [Parameter(Name="MaChuyen", DbType="Int")] System.Nullable<int> maChuyen, [Parameter(Name="GiaVe", DbType="Float")] System.Nullable<double> giaVe, [Parameter(Name="LuongTaiXe", DbType="Float")] System.Nullable<double> luongTaiXe, [Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe, [Parameter(Name="ThoiGianDenTram", DbType="DateTime")] System.Nullable<System.DateTime> thoiGianDenTram, [Parameter(Name="MaTinhTrang", DbType="Int")] System.Nullable<int> maTinhTrang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChiTiet, maChuyen, giaVe, luongTaiXe, maXe, thoiGianDenTram, maTinhTrang);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[Function(Name="dbo.usp_InsertUpdateCHO_NGOI")]
 		public int usp_InsertUpdateCHO_NGOI([Parameter(Name="MaChoNgoi", DbType="Int")] System.Nullable<int> maChoNgoi, [Parameter(DbType="Int")] System.Nullable<int> x, [Parameter(DbType="Int")] System.Nullable<int> y)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChoNgoi, x, y);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_InsertXE")]
+		public int usp_InsertXE([Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang, [Parameter(Name="MaXe", DbType="Int")] ref System.Nullable<int> maXe)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang, maXe);
+			maXe = ((System.Nullable<int>)(result.GetParameterValue(5)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -913,54 +861,18 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.usp_InsertXE")]
-		public int usp_InsertXE([Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang, [Parameter(Name="MaXe", DbType="Int")] ref System.Nullable<int> maXe)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang, maXe);
-			maXe = ((System.Nullable<int>)(result.GetParameterValue(5)));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_SelectCHI_TIET_CHUYEN")]
-		public ISingleResult<usp_SelectCHI_TIET_CHUYENResult> usp_SelectCHI_TIET_CHUYEN([Parameter(Name="MaChiTiet", DbType="Int")] System.Nullable<int> maChiTiet)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChiTiet);
-			return ((ISingleResult<usp_SelectCHI_TIET_CHUYENResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_SelectCHI_TIET_CHUYENsAll")]
-		public ISingleResult<usp_SelectCHI_TIET_CHUYENsAllResult> usp_SelectCHI_TIET_CHUYENsAll()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_SelectCHI_TIET_CHUYENsAllResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_SelectCHI_TIET_CHUYENsByAndMaChuyen")]
-		public ISingleResult<usp_SelectCHI_TIET_CHUYENsByAndMaChuyenResult> usp_SelectCHI_TIET_CHUYENsByAndMaChuyen([Parameter(Name="MaChuyen", DbType="Int")] System.Nullable<int> maChuyen)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChuyen);
-			return ((ISingleResult<usp_SelectCHI_TIET_CHUYENsByAndMaChuyenResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_SelectCHI_TIET_CHUYENsByAndMaTinhTrang")]
-		public ISingleResult<usp_SelectCHI_TIET_CHUYENsByAndMaTinhTrangResult> usp_SelectCHI_TIET_CHUYENsByAndMaTinhTrang([Parameter(Name="MaTinhTrang", DbType="Int")] System.Nullable<int> maTinhTrang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTinhTrang);
-			return ((ISingleResult<usp_SelectCHI_TIET_CHUYENsByAndMaTinhTrangResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_SelectCHI_TIET_CHUYENsByAndMaXe")]
-		public ISingleResult<usp_SelectCHI_TIET_CHUYENsByAndMaXeResult> usp_SelectCHI_TIET_CHUYENsByAndMaXe([Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maXe);
-			return ((ISingleResult<usp_SelectCHI_TIET_CHUYENsByAndMaXeResult>)(result.ReturnValue));
-		}
-		
 		[Function(Name="dbo.usp_SelectCHO_NGOI")]
 		public ISingleResult<usp_SelectCHO_NGOIResult> usp_SelectCHO_NGOI([Parameter(Name="MaChoNgoi", DbType="Int")] System.Nullable<int> maChoNgoi)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChoNgoi);
 			return ((ISingleResult<usp_SelectCHO_NGOIResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_UpdateXE")]
+		public int usp_UpdateXE([Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe, [Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maXe, bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectCHO_NGOIsAll")]
@@ -1003,6 +915,13 @@ namespace DTO
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTuyenXe);
 			return ((ISingleResult<usp_SelectCHUYEN_XEsByAndMaTuyenXeResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SelectChuyenXesByMaTramDiAndsMaTramDen")]
+		public ISingleResult<usp_SelectChuyenXesByMaTramDiAndsMaTramDenResult> usp_SelectChuyenXesByMaTramDiAndsMaTramDen([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="NgayKhoiHanh", DbType="DateTime")] System.Nullable<System.DateTime> ngayKhoiHanh, [Parameter(Name="GioKhoiHanh", DbType="Int")] System.Nullable<int> gioKhoiHanh, [Parameter(Name="GioDen", DbType="Int")] System.Nullable<int> gioDen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi, maTramDen, ngayKhoiHanh, gioKhoiHanh, gioDen);
+			return ((ISingleResult<usp_SelectChuyenXesByMaTramDiAndsMaTramDenResult>)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectDAT_CHO")]
@@ -1320,6 +1239,13 @@ namespace DTO
 			return ((ISingleResult<usp_SelectTUYEN_XEResult>)(result.ReturnValue));
 		}
 		
+		[Function(Name="dbo.usp_SelectTUYEN_XEByTramAndGia")]
+		public ISingleResult<usp_SelectTUYEN_XEByTramAndGiaResult> usp_SelectTUYEN_XEByTramAndGia([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVeTu", DbType="Int")] System.Nullable<int> giaVeTu, [Parameter(Name="GiaVeDen", DbType="Int")] System.Nullable<int> giaVeDen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi, maTramDen, giaVeTu, giaVeDen);
+			return ((ISingleResult<usp_SelectTUYEN_XEByTramAndGiaResult>)(result.ReturnValue));
+		}
+		
 		[Function(Name="dbo.usp_SelectTUYEN_XEsAll")]
 		public ISingleResult<usp_SelectTUYEN_XEsAllResult> usp_SelectTUYEN_XEsAll()
 		{
@@ -1332,6 +1258,20 @@ namespace DTO
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDen);
 			return ((ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDenResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SelectTUYEN_XEsByAndMaTramDi")]
+		public ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult> usp_SelectTUYEN_XEsByAndMaTramDi([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi);
+			return ((ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SelectTuyenXeByMaTramDiAndMaTramDen")]
+		public ISingleResult<usp_SelectTuyenXeByMaTramDiAndMaTramDenResult> usp_SelectTuyenXeByMaTramDiAndMaTramDen([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi, maTramDen);
+			return ((ISingleResult<usp_SelectTuyenXeByMaTramDiAndMaTramDenResult>)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectXE")]
@@ -1501,772 +1441,6 @@ namespace DTO
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTuyenXe, tenTuyenXe, khoangThoiGianDi, tanSuatChuyen, luongTaiXe, maTramDi, maTramDen, giaVe, gioChayChuyenDauTienTrongNgay, gioChayChuyenCuoiCungTrongNgay);
 			return ((int)(result.ReturnValue));
 		}
-		
-		[Function(Name="dbo.usp_SelectTUYEN_XEsByAndMaTramDi")]
-		public ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult> usp_SelectTUYEN_XEsByAndMaTramDi([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi);
-			return ((ISingleResult<usp_SelectTUYEN_XEsByAndMaTramDiResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_SelectTuyenXeByMaTramDiAndMaTramDen")]
-		public ISingleResult<usp_SelectTuyenXeByMaTramDiAndMaTramDenResult> usp_SelectTuyenXeByMaTramDiAndMaTramDen([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi, maTramDen);
-			return ((ISingleResult<usp_SelectTuyenXeByMaTramDiAndMaTramDenResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_SelectTUYEN_XEByTramAndGia")]
-		public ISingleResult<usp_SelectTUYEN_XEByTramAndGiaResult> usp_SelectTUYEN_XEByTramAndGia([Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVeTu", DbType="Int")] System.Nullable<int> giaVeTu, [Parameter(Name="GiaVeDen", DbType="Int")] System.Nullable<int> giaVeDen)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTramDi, maTramDen, giaVeTu, giaVeDen);
-			return ((ISingleResult<usp_SelectTUYEN_XEByTramAndGiaResult>)(result.ReturnValue));
-		}
-	}
-	
-	[Table(Name="dbo.CHI_TIET_CHUYEN")]
-	public partial class CHI_TIET_CHUYEN : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaChiTiet;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<double> _GiaVe;
-		
-		private System.Nullable<double> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaXe;
-		
-		private System.Nullable<System.DateTime> _ThoiGianDenTram;
-		
-		private System.Nullable<int> _MaTinhTrang;
-		
-		private EntitySet<DAT_CHO> _DAT_CHOs;
-		
-		private EntityRef<CHUYEN_XE> _CHUYEN_XE;
-		
-		private EntityRef<TINH_TRANG_CHUYEN> _TINH_TRANG_CHUYEN;
-		
-		private EntityRef<XE> _XE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaChiTietChanging(int value);
-    partial void OnMaChiTietChanged();
-    partial void OnMaChuyenChanging(System.Nullable<int> value);
-    partial void OnMaChuyenChanged();
-    partial void OnGiaVeChanging(System.Nullable<double> value);
-    partial void OnGiaVeChanged();
-    partial void OnLuongTaiXeChanging(System.Nullable<double> value);
-    partial void OnLuongTaiXeChanged();
-    partial void OnMaXeChanging(System.Nullable<int> value);
-    partial void OnMaXeChanged();
-    partial void OnThoiGianDenTramChanging(System.Nullable<System.DateTime> value);
-    partial void OnThoiGianDenTramChanged();
-    partial void OnMaTinhTrangChanging(System.Nullable<int> value);
-    partial void OnMaTinhTrangChanged();
-    #endregion
-		
-		public CHI_TIET_CHUYEN()
-		{
-			this._DAT_CHOs = new EntitySet<DAT_CHO>(new Action<DAT_CHO>(this.attach_DAT_CHOs), new Action<DAT_CHO>(this.detach_DAT_CHOs));
-			this._CHUYEN_XE = default(EntityRef<CHUYEN_XE>);
-			this._TINH_TRANG_CHUYEN = default(EntityRef<TINH_TRANG_CHUYEN>);
-			this._XE = default(EntityRef<XE>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_MaChiTiet", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaChiTiet
-		{
-			get
-			{
-				return this._MaChiTiet;
-			}
-			set
-			{
-				if ((this._MaChiTiet != value))
-				{
-					this.OnMaChiTietChanging(value);
-					this.SendPropertyChanging();
-					this._MaChiTiet = value;
-					this.SendPropertyChanged("MaChiTiet");
-					this.OnMaChiTietChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					if (this._CHUYEN_XE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaChuyenChanging(value);
-					this.SendPropertyChanging();
-					this._MaChuyen = value;
-					this.SendPropertyChanged("MaChuyen");
-					this.OnMaChuyenChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Float")]
-		public System.Nullable<double> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this.OnGiaVeChanging(value);
-					this.SendPropertyChanging();
-					this._GiaVe = value;
-					this.SendPropertyChanged("GiaVe");
-					this.OnGiaVeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Float")]
-		public System.Nullable<double> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this.OnLuongTaiXeChanging(value);
-					this.SendPropertyChanging();
-					this._LuongTaiXe = value;
-					this.SendPropertyChanged("LuongTaiXe");
-					this.OnLuongTaiXeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MaXe", DbType="Int")]
-		public System.Nullable<int> MaXe
-		{
-			get
-			{
-				return this._MaXe;
-			}
-			set
-			{
-				if ((this._MaXe != value))
-				{
-					if (this._XE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaXeChanging(value);
-					this.SendPropertyChanging();
-					this._MaXe = value;
-					this.SendPropertyChanged("MaXe");
-					this.OnMaXeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_ThoiGianDenTram", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianDenTram
-		{
-			get
-			{
-				return this._ThoiGianDenTram;
-			}
-			set
-			{
-				if ((this._ThoiGianDenTram != value))
-				{
-					this.OnThoiGianDenTramChanging(value);
-					this.SendPropertyChanging();
-					this._ThoiGianDenTram = value;
-					this.SendPropertyChanged("ThoiGianDenTram");
-					this.OnThoiGianDenTramChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTinhTrang", DbType="Int")]
-		public System.Nullable<int> MaTinhTrang
-		{
-			get
-			{
-				return this._MaTinhTrang;
-			}
-			set
-			{
-				if ((this._MaTinhTrang != value))
-				{
-					if (this._TINH_TRANG_CHUYEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaTinhTrangChanging(value);
-					this.SendPropertyChanging();
-					this._MaTinhTrang = value;
-					this.SendPropertyChanged("MaTinhTrang");
-					this.OnMaTinhTrangChanged();
-				}
-			}
-		}
-		
-		[Association(Name="CHI_TIET_CHUYEN_DAT_CHO", Storage="_DAT_CHOs", ThisKey="MaChiTiet", OtherKey="MaChiTietChuyen")]
-		public EntitySet<DAT_CHO> DAT_CHOs
-		{
-			get
-			{
-				return this._DAT_CHOs;
-			}
-			set
-			{
-				this._DAT_CHOs.Assign(value);
-			}
-		}
-		
-		[Association(Name="CHUYEN_XE_CHI_TIET_CHUYEN", Storage="_CHUYEN_XE", ThisKey="MaChuyen", OtherKey="MaChuyenXe", IsForeignKey=true)]
-		public CHUYEN_XE CHUYEN_XE
-		{
-			get
-			{
-				return this._CHUYEN_XE.Entity;
-			}
-			set
-			{
-				CHUYEN_XE previousValue = this._CHUYEN_XE.Entity;
-				if (((previousValue != value) 
-							|| (this._CHUYEN_XE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CHUYEN_XE.Entity = null;
-						previousValue.CHI_TIET_CHUYENs.Remove(this);
-					}
-					this._CHUYEN_XE.Entity = value;
-					if ((value != null))
-					{
-						value.CHI_TIET_CHUYENs.Add(this);
-						this._MaChuyen = value.MaChuyenXe;
-					}
-					else
-					{
-						this._MaChuyen = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("CHUYEN_XE");
-				}
-			}
-		}
-		
-		[Association(Name="TINH_TRANG_CHUYEN_CHI_TIET_CHUYEN", Storage="_TINH_TRANG_CHUYEN", ThisKey="MaTinhTrang", OtherKey="MaTinhTrang", IsForeignKey=true)]
-		public TINH_TRANG_CHUYEN TINH_TRANG_CHUYEN
-		{
-			get
-			{
-				return this._TINH_TRANG_CHUYEN.Entity;
-			}
-			set
-			{
-				TINH_TRANG_CHUYEN previousValue = this._TINH_TRANG_CHUYEN.Entity;
-				if (((previousValue != value) 
-							|| (this._TINH_TRANG_CHUYEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TINH_TRANG_CHUYEN.Entity = null;
-						previousValue.CHI_TIET_CHUYENs.Remove(this);
-					}
-					this._TINH_TRANG_CHUYEN.Entity = value;
-					if ((value != null))
-					{
-						value.CHI_TIET_CHUYENs.Add(this);
-						this._MaTinhTrang = value.MaTinhTrang;
-					}
-					else
-					{
-						this._MaTinhTrang = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TINH_TRANG_CHUYEN");
-				}
-			}
-		}
-		
-		[Association(Name="XE_CHI_TIET_CHUYEN", Storage="_XE", ThisKey="MaXe", OtherKey="MaXe", IsForeignKey=true)]
-		public XE XE
-		{
-			get
-			{
-				return this._XE.Entity;
-			}
-			set
-			{
-				XE previousValue = this._XE.Entity;
-				if (((previousValue != value) 
-							|| (this._XE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._XE.Entity = null;
-						previousValue.CHI_TIET_CHUYENs.Remove(this);
-					}
-					this._XE.Entity = value;
-					if ((value != null))
-					{
-						value.CHI_TIET_CHUYENs.Add(this);
-						this._MaXe = value.MaXe;
-					}
-					else
-					{
-						this._MaXe = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("XE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DAT_CHOs(DAT_CHO entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHI_TIET_CHUYEN = this;
-		}
-		
-		private void detach_DAT_CHOs(DAT_CHO entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHI_TIET_CHUYEN = null;
-		}
-	}
-	
-	[Table(Name="dbo.TUYEN_XE")]
-	public partial class TUYEN_XE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaTuyenXe;
-		
-		private System.Nullable<double> _KhoangThoiGianDi;
-		
-		private System.Nullable<double> _TanSuatChuyen;
-		
-		private System.Nullable<int> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaTramDi;
-		
-		private int _MaTramDen;
-		
-		private System.Nullable<int> _GiaVe;
-		
-		private double _GioChayChuyenDauTienTrongNgay;
-		
-		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
-		
-		private string _TenTuyenXe;
-		
-		private EntitySet<CHUYEN_XE> _CHUYEN_XEs;
-		
-		private EntityRef<TRAM_XE> _TRAM_XE;
-		
-		private EntityRef<TRAM_XE> _TRAM_XE1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaTuyenXeChanging(int value);
-    partial void OnMaTuyenXeChanged();
-    partial void OnKhoangThoiGianDiChanging(System.Nullable<double> value);
-    partial void OnKhoangThoiGianDiChanged();
-    partial void OnTanSuatChuyenChanging(System.Nullable<double> value);
-    partial void OnTanSuatChuyenChanged();
-    partial void OnLuongTaiXeChanging(System.Nullable<int> value);
-    partial void OnLuongTaiXeChanged();
-    partial void OnMaTramDiChanging(System.Nullable<int> value);
-    partial void OnMaTramDiChanged();
-    partial void OnMaTramDenChanging(int value);
-    partial void OnMaTramDenChanged();
-    partial void OnGiaVeChanging(System.Nullable<int> value);
-    partial void OnGiaVeChanged();
-    partial void OnGioChayChuyenDauTienTrongNgayChanging(double value);
-    partial void OnGioChayChuyenDauTienTrongNgayChanged();
-    partial void OnGioChayChuyenCuoiCungTrongNgayChanging(System.Nullable<double> value);
-    partial void OnGioChayChuyenCuoiCungTrongNgayChanged();
-    partial void OnTenTuyenXeChanging(string value);
-    partial void OnTenTuyenXeChanged();
-    #endregion
-		
-		public TUYEN_XE()
-		{
-			this._CHUYEN_XEs = new EntitySet<CHUYEN_XE>(new Action<CHUYEN_XE>(this.attach_CHUYEN_XEs), new Action<CHUYEN_XE>(this.detach_CHUYEN_XEs));
-			this._TRAM_XE = default(EntityRef<TRAM_XE>);
-			this._TRAM_XE1 = default(EntityRef<TRAM_XE>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_MaTuyenXe", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MaTuyenXe
-		{
-			get
-			{
-				return this._MaTuyenXe;
-			}
-			set
-			{
-				if ((this._MaTuyenXe != value))
-				{
-					this.OnMaTuyenXeChanging(value);
-					this.SendPropertyChanging();
-					this._MaTuyenXe = value;
-					this.SendPropertyChanged("MaTuyenXe");
-					this.OnMaTuyenXeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
-		public System.Nullable<double> KhoangThoiGianDi
-		{
-			get
-			{
-				return this._KhoangThoiGianDi;
-			}
-			set
-			{
-				if ((this._KhoangThoiGianDi != value))
-				{
-					this.OnKhoangThoiGianDiChanging(value);
-					this.SendPropertyChanging();
-					this._KhoangThoiGianDi = value;
-					this.SendPropertyChanged("KhoangThoiGianDi");
-					this.OnKhoangThoiGianDiChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_TanSuatChuyen", DbType="Float")]
-		public System.Nullable<double> TanSuatChuyen
-		{
-			get
-			{
-				return this._TanSuatChuyen;
-			}
-			set
-			{
-				if ((this._TanSuatChuyen != value))
-				{
-					this.OnTanSuatChuyenChanging(value);
-					this.SendPropertyChanging();
-					this._TanSuatChuyen = value;
-					this.SendPropertyChanged("TanSuatChuyen");
-					this.OnTanSuatChuyenChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Int")]
-		public System.Nullable<int> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this.OnLuongTaiXeChanging(value);
-					this.SendPropertyChanging();
-					this._LuongTaiXe = value;
-					this.SendPropertyChanged("LuongTaiXe");
-					this.OnLuongTaiXeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTramDi", DbType="Int")]
-		public System.Nullable<int> MaTramDi
-		{
-			get
-			{
-				return this._MaTramDi;
-			}
-			set
-			{
-				if ((this._MaTramDi != value))
-				{
-					if (this._TRAM_XE1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaTramDiChanging(value);
-					this.SendPropertyChanging();
-					this._MaTramDi = value;
-					this.SendPropertyChanged("MaTramDi");
-					this.OnMaTramDiChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTramDen", DbType="Int NOT NULL")]
-		public int MaTramDen
-		{
-			get
-			{
-				return this._MaTramDen;
-			}
-			set
-			{
-				if ((this._MaTramDen != value))
-				{
-					if (this._TRAM_XE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaTramDenChanging(value);
-					this.SendPropertyChanging();
-					this._MaTramDen = value;
-					this.SendPropertyChanged("MaTramDen");
-					this.OnMaTramDenChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Int")]
-		public System.Nullable<int> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this.OnGiaVeChanging(value);
-					this.SendPropertyChanging();
-					this._GiaVe = value;
-					this.SendPropertyChanged("GiaVe");
-					this.OnGiaVeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
-		public double GioChayChuyenDauTienTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenDauTienTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenDauTienTrongNgay != value))
-				{
-					this.OnGioChayChuyenDauTienTrongNgayChanging(value);
-					this.SendPropertyChanging();
-					this._GioChayChuyenDauTienTrongNgay = value;
-					this.SendPropertyChanged("GioChayChuyenDauTienTrongNgay");
-					this.OnGioChayChuyenDauTienTrongNgayChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
-		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenCuoiCungTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
-				{
-					this.OnGioChayChuyenCuoiCungTrongNgayChanging(value);
-					this.SendPropertyChanging();
-					this._GioChayChuyenCuoiCungTrongNgay = value;
-					this.SendPropertyChanged("GioChayChuyenCuoiCungTrongNgay");
-					this.OnGioChayChuyenCuoiCungTrongNgayChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
-		public string TenTuyenXe
-		{
-			get
-			{
-				return this._TenTuyenXe;
-			}
-			set
-			{
-				if ((this._TenTuyenXe != value))
-				{
-					this.OnTenTuyenXeChanging(value);
-					this.SendPropertyChanging();
-					this._TenTuyenXe = value;
-					this.SendPropertyChanged("TenTuyenXe");
-					this.OnTenTuyenXeChanged();
-				}
-			}
-		}
-		
-		[Association(Name="TUYEN_XE_CHUYEN_XE", Storage="_CHUYEN_XEs", ThisKey="MaTuyenXe", OtherKey="MaTuyenXe")]
-		public EntitySet<CHUYEN_XE> CHUYEN_XEs
-		{
-			get
-			{
-				return this._CHUYEN_XEs;
-			}
-			set
-			{
-				this._CHUYEN_XEs.Assign(value);
-			}
-		}
-		
-		[Association(Name="TRAM_XE_TUYEN_XE", Storage="_TRAM_XE", ThisKey="MaTramDen", OtherKey="MaTramXe", IsForeignKey=true)]
-		public TRAM_XE TRAM_XE
-		{
-			get
-			{
-				return this._TRAM_XE.Entity;
-			}
-			set
-			{
-				TRAM_XE previousValue = this._TRAM_XE.Entity;
-				if (((previousValue != value) 
-							|| (this._TRAM_XE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TRAM_XE.Entity = null;
-						previousValue.TUYEN_XEs.Remove(this);
-					}
-					this._TRAM_XE.Entity = value;
-					if ((value != null))
-					{
-						value.TUYEN_XEs.Add(this);
-						this._MaTramDen = value.MaTramXe;
-					}
-					else
-					{
-						this._MaTramDen = default(int);
-					}
-					this.SendPropertyChanged("TRAM_XE");
-				}
-			}
-		}
-		
-		[Association(Name="TRAM_XE_TUYEN_XE1", Storage="_TRAM_XE1", ThisKey="MaTramDi", OtherKey="MaTramXe", IsForeignKey=true)]
-		public TRAM_XE TRAM_XE1
-		{
-			get
-			{
-				return this._TRAM_XE1.Entity;
-			}
-			set
-			{
-				TRAM_XE previousValue = this._TRAM_XE1.Entity;
-				if (((previousValue != value) 
-							|| (this._TRAM_XE1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TRAM_XE1.Entity = null;
-						previousValue.TUYEN_XEs1.Remove(this);
-					}
-					this._TRAM_XE1.Entity = value;
-					if ((value != null))
-					{
-						value.TUYEN_XEs1.Add(this);
-						this._MaTramDi = value.MaTramXe;
-					}
-					else
-					{
-						this._MaTramDi = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TRAM_XE1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CHUYEN_XEs(CHUYEN_XE entity)
-		{
-			this.SendPropertyChanging();
-			entity.TUYEN_XE = this;
-		}
-		
-		private void detach_CHUYEN_XEs(CHUYEN_XE entity)
-		{
-			this.SendPropertyChanging();
-			entity.TUYEN_XE = null;
-		}
 	}
 	
 	[Table(Name="dbo.CHO_NGOI")]
@@ -2404,6 +1578,339 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.CHO_NGOI = null;
+		}
+	}
+	
+	[Table(Name="dbo.XE")]
+	public partial class XE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaXe;
+		
+		private string _BienSoXe;
+		
+		private System.Nullable<int> _MaTaiXe;
+		
+		private System.Nullable<System.DateTime> _NgayNhap;
+		
+		private System.Nullable<int> _MaLoaiXe;
+		
+		private System.Nullable<int> _TinhTrang;
+		
+		private EntitySet<CHUYEN_XE> _CHUYEN_XEs;
+		
+		private EntityRef<LOAI_XE> _LOAI_XE;
+		
+		private EntityRef<NHAN_VIEN> _NHAN_VIEN;
+		
+		private EntityRef<TINH_TRANG_XE> _TINH_TRANG_XE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaXeChanging(int value);
+    partial void OnMaXeChanged();
+    partial void OnBienSoXeChanging(string value);
+    partial void OnBienSoXeChanged();
+    partial void OnMaTaiXeChanging(System.Nullable<int> value);
+    partial void OnMaTaiXeChanged();
+    partial void OnNgayNhapChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayNhapChanged();
+    partial void OnMaLoaiXeChanging(System.Nullable<int> value);
+    partial void OnMaLoaiXeChanged();
+    partial void OnTinhTrangChanging(System.Nullable<int> value);
+    partial void OnTinhTrangChanged();
+    #endregion
+		
+		public XE()
+		{
+			this._CHUYEN_XEs = new EntitySet<CHUYEN_XE>(new Action<CHUYEN_XE>(this.attach_CHUYEN_XEs), new Action<CHUYEN_XE>(this.detach_CHUYEN_XEs));
+			this._LOAI_XE = default(EntityRef<LOAI_XE>);
+			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
+			this._TINH_TRANG_XE = default(EntityRef<TINH_TRANG_XE>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_MaXe", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaXe
+		{
+			get
+			{
+				return this._MaXe;
+			}
+			set
+			{
+				if ((this._MaXe != value))
+				{
+					this.OnMaXeChanging(value);
+					this.SendPropertyChanging();
+					this._MaXe = value;
+					this.SendPropertyChanged("MaXe");
+					this.OnMaXeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BienSoXe", DbType="NVarChar(50)")]
+		public string BienSoXe
+		{
+			get
+			{
+				return this._BienSoXe;
+			}
+			set
+			{
+				if ((this._BienSoXe != value))
+				{
+					this.OnBienSoXeChanging(value);
+					this.SendPropertyChanging();
+					this._BienSoXe = value;
+					this.SendPropertyChanged("BienSoXe");
+					this.OnBienSoXeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTaiXe", DbType="Int")]
+		public System.Nullable<int> MaTaiXe
+		{
+			get
+			{
+				return this._MaTaiXe;
+			}
+			set
+			{
+				if ((this._MaTaiXe != value))
+				{
+					if (this._NHAN_VIEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaTaiXeChanging(value);
+					this.SendPropertyChanging();
+					this._MaTaiXe = value;
+					this.SendPropertyChanged("MaTaiXe");
+					this.OnMaTaiXeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_NgayNhap", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayNhap
+		{
+			get
+			{
+				return this._NgayNhap;
+			}
+			set
+			{
+				if ((this._NgayNhap != value))
+				{
+					this.OnNgayNhapChanging(value);
+					this.SendPropertyChanging();
+					this._NgayNhap = value;
+					this.SendPropertyChanged("NgayNhap");
+					this.OnNgayNhapChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MaLoaiXe", DbType="Int")]
+		public System.Nullable<int> MaLoaiXe
+		{
+			get
+			{
+				return this._MaLoaiXe;
+			}
+			set
+			{
+				if ((this._MaLoaiXe != value))
+				{
+					if (this._LOAI_XE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaLoaiXeChanging(value);
+					this.SendPropertyChanging();
+					this._MaLoaiXe = value;
+					this.SendPropertyChanged("MaLoaiXe");
+					this.OnMaLoaiXeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_TinhTrang", DbType="Int")]
+		public System.Nullable<int> TinhTrang
+		{
+			get
+			{
+				return this._TinhTrang;
+			}
+			set
+			{
+				if ((this._TinhTrang != value))
+				{
+					if (this._TINH_TRANG_XE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._TinhTrang = value;
+					this.SendPropertyChanged("TinhTrang");
+					this.OnTinhTrangChanged();
+				}
+			}
+		}
+		
+		[Association(Name="XE_CHUYEN_XE", Storage="_CHUYEN_XEs", ThisKey="MaXe", OtherKey="MaXe")]
+		public EntitySet<CHUYEN_XE> CHUYEN_XEs
+		{
+			get
+			{
+				return this._CHUYEN_XEs;
+			}
+			set
+			{
+				this._CHUYEN_XEs.Assign(value);
+			}
+		}
+		
+		[Association(Name="LOAI_XE_XE", Storage="_LOAI_XE", ThisKey="MaLoaiXe", OtherKey="MaLoaixe", IsForeignKey=true)]
+		public LOAI_XE LOAI_XE
+		{
+			get
+			{
+				return this._LOAI_XE.Entity;
+			}
+			set
+			{
+				LOAI_XE previousValue = this._LOAI_XE.Entity;
+				if (((previousValue != value) 
+							|| (this._LOAI_XE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._LOAI_XE.Entity = null;
+						previousValue.XEs.Remove(this);
+					}
+					this._LOAI_XE.Entity = value;
+					if ((value != null))
+					{
+						value.XEs.Add(this);
+						this._MaLoaiXe = value.MaLoaixe;
+					}
+					else
+					{
+						this._MaLoaiXe = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("LOAI_XE");
+				}
+			}
+		}
+		
+		[Association(Name="NHAN_VIEN_XE", Storage="_NHAN_VIEN", ThisKey="MaTaiXe", OtherKey="MaNhanVien", IsForeignKey=true)]
+		public NHAN_VIEN NHAN_VIEN
+		{
+			get
+			{
+				return this._NHAN_VIEN.Entity;
+			}
+			set
+			{
+				NHAN_VIEN previousValue = this._NHAN_VIEN.Entity;
+				if (((previousValue != value) 
+							|| (this._NHAN_VIEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NHAN_VIEN.Entity = null;
+						previousValue.XEs.Remove(this);
+					}
+					this._NHAN_VIEN.Entity = value;
+					if ((value != null))
+					{
+						value.XEs.Add(this);
+						this._MaTaiXe = value.MaNhanVien;
+					}
+					else
+					{
+						this._MaTaiXe = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("NHAN_VIEN");
+				}
+			}
+		}
+		
+		[Association(Name="TINH_TRANG_XE_XE", Storage="_TINH_TRANG_XE", ThisKey="TinhTrang", OtherKey="MaTinhTrangXe", IsForeignKey=true)]
+		public TINH_TRANG_XE TINH_TRANG_XE
+		{
+			get
+			{
+				return this._TINH_TRANG_XE.Entity;
+			}
+			set
+			{
+				TINH_TRANG_XE previousValue = this._TINH_TRANG_XE.Entity;
+				if (((previousValue != value) 
+							|| (this._TINH_TRANG_XE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TINH_TRANG_XE.Entity = null;
+						previousValue.XEs.Remove(this);
+					}
+					this._TINH_TRANG_XE.Entity = value;
+					if ((value != null))
+					{
+						value.XEs.Add(this);
+						this._TinhTrang = value.MaTinhTrangXe;
+					}
+					else
+					{
+						this._TinhTrang = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TINH_TRANG_XE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CHUYEN_XEs(CHUYEN_XE entity)
+		{
+			this.SendPropertyChanging();
+			entity.XE = this;
+		}
+		
+		private void detach_CHUYEN_XEs(CHUYEN_XE entity)
+		{
+			this.SendPropertyChanging();
+			entity.XE = null;
 		}
 	}
 	
@@ -2563,9 +2070,19 @@ namespace DTO
 		
 		private System.Nullable<int> _MaTuyenXe;
 		
-		private EntitySet<CHI_TIET_CHUYEN> _CHI_TIET_CHUYENs;
+		private System.Nullable<double> _GiaVe;
+		
+		private System.Nullable<double> _LuongTaiXe;
+		
+		private System.Nullable<int> _MaXe;
+		
+		private System.Nullable<int> _MaTinhTrang;
 		
 		private EntitySet<PHAN_HOI> _PHAN_HOIs;
+		
+		private EntityRef<XE> _XE;
+		
+		private EntityRef<TINH_TRANG_CHUYEN> _TINH_TRANG_CHUYEN;
 		
 		private EntityRef<TUYEN_XE> _TUYEN_XE;
 		
@@ -2581,12 +2098,21 @@ namespace DTO
     partial void OnDuKienDenChanged();
     partial void OnMaTuyenXeChanging(System.Nullable<int> value);
     partial void OnMaTuyenXeChanged();
+    partial void OnGiaVeChanging(System.Nullable<double> value);
+    partial void OnGiaVeChanged();
+    partial void OnLuongTaiXeChanging(System.Nullable<double> value);
+    partial void OnLuongTaiXeChanged();
+    partial void OnMaXeChanging(System.Nullable<int> value);
+    partial void OnMaXeChanged();
+    partial void OnMaTinhTrangChanging(System.Nullable<int> value);
+    partial void OnMaTinhTrangChanged();
     #endregion
 		
 		public CHUYEN_XE()
 		{
-			this._CHI_TIET_CHUYENs = new EntitySet<CHI_TIET_CHUYEN>(new Action<CHI_TIET_CHUYEN>(this.attach_CHI_TIET_CHUYENs), new Action<CHI_TIET_CHUYEN>(this.detach_CHI_TIET_CHUYENs));
 			this._PHAN_HOIs = new EntitySet<PHAN_HOI>(new Action<PHAN_HOI>(this.attach_PHAN_HOIs), new Action<PHAN_HOI>(this.detach_PHAN_HOIs));
+			this._XE = default(EntityRef<XE>);
+			this._TINH_TRANG_CHUYEN = default(EntityRef<TINH_TRANG_CHUYEN>);
 			this._TUYEN_XE = default(EntityRef<TUYEN_XE>);
 			OnCreated();
 		}
@@ -2675,16 +2201,91 @@ namespace DTO
 			}
 		}
 		
-		[Association(Name="CHUYEN_XE_CHI_TIET_CHUYEN", Storage="_CHI_TIET_CHUYENs", ThisKey="MaChuyenXe", OtherKey="MaChuyen")]
-		public EntitySet<CHI_TIET_CHUYEN> CHI_TIET_CHUYENs
+		[Column(Storage="_GiaVe", DbType="Float")]
+		public System.Nullable<double> GiaVe
 		{
 			get
 			{
-				return this._CHI_TIET_CHUYENs;
+				return this._GiaVe;
 			}
 			set
 			{
-				this._CHI_TIET_CHUYENs.Assign(value);
+				if ((this._GiaVe != value))
+				{
+					this.OnGiaVeChanging(value);
+					this.SendPropertyChanging();
+					this._GiaVe = value;
+					this.SendPropertyChanged("GiaVe");
+					this.OnGiaVeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Float")]
+		public System.Nullable<double> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this.OnLuongTaiXeChanging(value);
+					this.SendPropertyChanging();
+					this._LuongTaiXe = value;
+					this.SendPropertyChanged("LuongTaiXe");
+					this.OnLuongTaiXeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MaXe", DbType="Int")]
+		public System.Nullable<int> MaXe
+		{
+			get
+			{
+				return this._MaXe;
+			}
+			set
+			{
+				if ((this._MaXe != value))
+				{
+					if (this._XE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaXeChanging(value);
+					this.SendPropertyChanging();
+					this._MaXe = value;
+					this.SendPropertyChanged("MaXe");
+					this.OnMaXeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTinhTrang", DbType="Int")]
+		public System.Nullable<int> MaTinhTrang
+		{
+			get
+			{
+				return this._MaTinhTrang;
+			}
+			set
+			{
+				if ((this._MaTinhTrang != value))
+				{
+					if (this._TINH_TRANG_CHUYEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._MaTinhTrang = value;
+					this.SendPropertyChanged("MaTinhTrang");
+					this.OnMaTinhTrangChanged();
+				}
 			}
 		}
 		
@@ -2698,6 +2299,74 @@ namespace DTO
 			set
 			{
 				this._PHAN_HOIs.Assign(value);
+			}
+		}
+		
+		[Association(Name="XE_CHUYEN_XE", Storage="_XE", ThisKey="MaXe", OtherKey="MaXe", IsForeignKey=true)]
+		public XE XE
+		{
+			get
+			{
+				return this._XE.Entity;
+			}
+			set
+			{
+				XE previousValue = this._XE.Entity;
+				if (((previousValue != value) 
+							|| (this._XE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._XE.Entity = null;
+						previousValue.CHUYEN_XEs.Remove(this);
+					}
+					this._XE.Entity = value;
+					if ((value != null))
+					{
+						value.CHUYEN_XEs.Add(this);
+						this._MaXe = value.MaXe;
+					}
+					else
+					{
+						this._MaXe = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("XE");
+				}
+			}
+		}
+		
+		[Association(Name="TINH_TRANG_CHUYEN_CHUYEN_XE", Storage="_TINH_TRANG_CHUYEN", ThisKey="MaTinhTrang", OtherKey="MaTinhTrang", IsForeignKey=true)]
+		public TINH_TRANG_CHUYEN TINH_TRANG_CHUYEN
+		{
+			get
+			{
+				return this._TINH_TRANG_CHUYEN.Entity;
+			}
+			set
+			{
+				TINH_TRANG_CHUYEN previousValue = this._TINH_TRANG_CHUYEN.Entity;
+				if (((previousValue != value) 
+							|| (this._TINH_TRANG_CHUYEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TINH_TRANG_CHUYEN.Entity = null;
+						previousValue.CHUYEN_XEs.Remove(this);
+					}
+					this._TINH_TRANG_CHUYEN.Entity = value;
+					if ((value != null))
+					{
+						value.CHUYEN_XEs.Add(this);
+						this._MaTinhTrang = value.MaTinhTrang;
+					}
+					else
+					{
+						this._MaTinhTrang = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TINH_TRANG_CHUYEN");
+				}
 			}
 		}
 		
@@ -2755,18 +2424,6 @@ namespace DTO
 			}
 		}
 		
-		private void attach_CHI_TIET_CHUYENs(CHI_TIET_CHUYEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUYEN_XE = this;
-		}
-		
-		private void detach_CHI_TIET_CHUYENs(CHI_TIET_CHUYEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUYEN_XE = null;
-		}
-		
 		private void attach_PHAN_HOIs(PHAN_HOI entity)
 		{
 			this.SendPropertyChanging();
@@ -2794,8 +2451,6 @@ namespace DTO
 		
 		private System.Nullable<int> _TinhTrang;
 		
-		private EntityRef<CHI_TIET_CHUYEN> _CHI_TIET_CHUYEN;
-		
 		private EntityRef<CHO_NGOI> _CHO_NGOI;
 		
 		private EntityRef<TINH_TRANG_DAT_CHO> _TINH_TRANG_DAT_CHO;
@@ -2816,7 +2471,6 @@ namespace DTO
 		
 		public DAT_CHO()
 		{
-			this._CHI_TIET_CHUYEN = default(EntityRef<CHI_TIET_CHUYEN>);
 			this._CHO_NGOI = default(EntityRef<CHO_NGOI>);
 			this._TINH_TRANG_DAT_CHO = default(EntityRef<TINH_TRANG_DAT_CHO>);
 			OnCreated();
@@ -2877,10 +2531,6 @@ namespace DTO
 			{
 				if ((this._MaChiTietChuyen != value))
 				{
-					if (this._CHI_TIET_CHUYEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMaChiTietChuyenChanging(value);
 					this.SendPropertyChanging();
 					this._MaChiTietChuyen = value;
@@ -2910,40 +2560,6 @@ namespace DTO
 					this._TinhTrang = value;
 					this.SendPropertyChanged("TinhTrang");
 					this.OnTinhTrangChanged();
-				}
-			}
-		}
-		
-		[Association(Name="CHI_TIET_CHUYEN_DAT_CHO", Storage="_CHI_TIET_CHUYEN", ThisKey="MaChiTietChuyen", OtherKey="MaChiTiet", IsForeignKey=true)]
-		public CHI_TIET_CHUYEN CHI_TIET_CHUYEN
-		{
-			get
-			{
-				return this._CHI_TIET_CHUYEN.Entity;
-			}
-			set
-			{
-				CHI_TIET_CHUYEN previousValue = this._CHI_TIET_CHUYEN.Entity;
-				if (((previousValue != value) 
-							|| (this._CHI_TIET_CHUYEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CHI_TIET_CHUYEN.Entity = null;
-						previousValue.DAT_CHOs.Remove(this);
-					}
-					this._CHI_TIET_CHUYEN.Entity = value;
-					if ((value != null))
-					{
-						value.DAT_CHOs.Add(this);
-						this._MaChiTietChuyen = value.MaChiTiet;
-					}
-					else
-					{
-						this._MaChiTietChuyen = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("CHI_TIET_CHUYEN");
 				}
 			}
 		}
@@ -3359,6 +2975,8 @@ namespace DTO
 		
 		private System.Nullable<double> _LuongTrongThang;
 		
+		private EntitySet<XE> _XEs;
+		
 		private EntitySet<PHAN_HOI> _PHAN_HOIs;
 		
 		private EntitySet<TAI_KHOAN> _TAI_KHOANs;
@@ -3366,8 +2984,6 @@ namespace DTO
 		private EntitySet<TIN_TUC> _TIN_TUCs;
 		
 		private EntitySet<TRAM_XE> _TRAM_XEs;
-		
-		private EntitySet<XE> _XEs;
 		
 		private EntityRef<LOAI_NHAN_VIEN> _LOAI_NHAN_VIEN;
 		
@@ -3391,11 +3007,11 @@ namespace DTO
 		
 		public NHAN_VIEN()
 		{
+			this._XEs = new EntitySet<XE>(new Action<XE>(this.attach_XEs), new Action<XE>(this.detach_XEs));
 			this._PHAN_HOIs = new EntitySet<PHAN_HOI>(new Action<PHAN_HOI>(this.attach_PHAN_HOIs), new Action<PHAN_HOI>(this.detach_PHAN_HOIs));
 			this._TAI_KHOANs = new EntitySet<TAI_KHOAN>(new Action<TAI_KHOAN>(this.attach_TAI_KHOANs), new Action<TAI_KHOAN>(this.detach_TAI_KHOANs));
 			this._TIN_TUCs = new EntitySet<TIN_TUC>(new Action<TIN_TUC>(this.attach_TIN_TUCs), new Action<TIN_TUC>(this.detach_TIN_TUCs));
 			this._TRAM_XEs = new EntitySet<TRAM_XE>(new Action<TRAM_XE>(this.attach_TRAM_XEs), new Action<TRAM_XE>(this.detach_TRAM_XEs));
-			this._XEs = new EntitySet<XE>(new Action<XE>(this.attach_XEs), new Action<XE>(this.detach_XEs));
 			this._LOAI_NHAN_VIEN = default(EntityRef<LOAI_NHAN_VIEN>);
 			OnCreated();
 		}
@@ -3524,6 +3140,19 @@ namespace DTO
 			}
 		}
 		
+		[Association(Name="NHAN_VIEN_XE", Storage="_XEs", ThisKey="MaNhanVien", OtherKey="MaTaiXe")]
+		public EntitySet<XE> XEs
+		{
+			get
+			{
+				return this._XEs;
+			}
+			set
+			{
+				this._XEs.Assign(value);
+			}
+		}
+		
 		[Association(Name="NHAN_VIEN_PHAN_HOI", Storage="_PHAN_HOIs", ThisKey="MaNhanVien", OtherKey="MaNhanVienDuyet")]
 		public EntitySet<PHAN_HOI> PHAN_HOIs
 		{
@@ -3573,19 +3202,6 @@ namespace DTO
 			set
 			{
 				this._TRAM_XEs.Assign(value);
-			}
-		}
-		
-		[Association(Name="NHAN_VIEN_XE", Storage="_XEs", ThisKey="MaNhanVien", OtherKey="MaTaiXe")]
-		public EntitySet<XE> XEs
-		{
-			get
-			{
-				return this._XEs;
-			}
-			set
-			{
-				this._XEs.Assign(value);
 			}
 		}
 		
@@ -3643,6 +3259,18 @@ namespace DTO
 			}
 		}
 		
+		private void attach_XEs(XE entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHAN_VIEN = this;
+		}
+		
+		private void detach_XEs(XE entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHAN_VIEN = null;
+		}
+		
 		private void attach_PHAN_HOIs(PHAN_HOI entity)
 		{
 			this.SendPropertyChanging();
@@ -3686,18 +3314,6 @@ namespace DTO
 		}
 		
 		private void detach_TRAM_XEs(TRAM_XE entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHAN_VIEN = null;
-		}
-		
-		private void attach_XEs(XE entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHAN_VIEN = this;
-		}
-		
-		private void detach_XEs(XE entity)
 		{
 			this.SendPropertyChanging();
 			entity.NHAN_VIEN = null;
@@ -5053,7 +4669,7 @@ namespace DTO
 		
 		private string _MoTa;
 		
-		private EntitySet<CHI_TIET_CHUYEN> _CHI_TIET_CHUYENs;
+		private EntitySet<CHUYEN_XE> _CHUYEN_XEs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5067,7 +4683,7 @@ namespace DTO
 		
 		public TINH_TRANG_CHUYEN()
 		{
-			this._CHI_TIET_CHUYENs = new EntitySet<CHI_TIET_CHUYEN>(new Action<CHI_TIET_CHUYEN>(this.attach_CHI_TIET_CHUYENs), new Action<CHI_TIET_CHUYEN>(this.detach_CHI_TIET_CHUYENs));
+			this._CHUYEN_XEs = new EntitySet<CHUYEN_XE>(new Action<CHUYEN_XE>(this.attach_CHUYEN_XEs), new Action<CHUYEN_XE>(this.detach_CHUYEN_XEs));
 			OnCreated();
 		}
 		
@@ -5111,16 +4727,16 @@ namespace DTO
 			}
 		}
 		
-		[Association(Name="TINH_TRANG_CHUYEN_CHI_TIET_CHUYEN", Storage="_CHI_TIET_CHUYENs", ThisKey="MaTinhTrang", OtherKey="MaTinhTrang")]
-		public EntitySet<CHI_TIET_CHUYEN> CHI_TIET_CHUYENs
+		[Association(Name="TINH_TRANG_CHUYEN_CHUYEN_XE", Storage="_CHUYEN_XEs", ThisKey="MaTinhTrang", OtherKey="MaTinhTrang")]
+		public EntitySet<CHUYEN_XE> CHUYEN_XEs
 		{
 			get
 			{
-				return this._CHI_TIET_CHUYENs;
+				return this._CHUYEN_XEs;
 			}
 			set
 			{
-				this._CHI_TIET_CHUYENs.Assign(value);
+				this._CHUYEN_XEs.Assign(value);
 			}
 		}
 		
@@ -5144,13 +4760,13 @@ namespace DTO
 			}
 		}
 		
-		private void attach_CHI_TIET_CHUYENs(CHI_TIET_CHUYEN entity)
+		private void attach_CHUYEN_XEs(CHUYEN_XE entity)
 		{
 			this.SendPropertyChanging();
 			entity.TINH_TRANG_CHUYEN = this;
 		}
 		
-		private void detach_CHI_TIET_CHUYENs(CHI_TIET_CHUYEN entity)
+		private void detach_CHUYEN_XEs(CHUYEN_XE entity)
 		{
 			this.SendPropertyChanging();
 			entity.TINH_TRANG_CHUYEN = null;
@@ -5640,302 +5256,357 @@ namespace DTO
 		}
 	}
 	
-	[Table(Name="dbo.XE")]
-	public partial class XE : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.TUYEN_XE")]
+	public partial class TUYEN_XE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _MaXe;
+		private int _MaTuyenXe;
 		
-		private string _BienSoXe;
+		private System.Nullable<double> _KhoangThoiGianDi;
 		
-		private System.Nullable<int> _MaTaiXe;
+		private System.Nullable<double> _TanSuatChuyen;
 		
-		private System.Nullable<System.DateTime> _NgayNhap;
+		private System.Nullable<int> _LuongTaiXe;
 		
-		private System.Nullable<int> _MaLoaiXe;
+		private System.Nullable<int> _MaTramDi;
 		
-		private System.Nullable<int> _TinhTrang;
+		private int _MaTramDen;
 		
-		private EntitySet<CHI_TIET_CHUYEN> _CHI_TIET_CHUYENs;
+		private System.Nullable<int> _GiaVe;
 		
-		private EntityRef<LOAI_XE> _LOAI_XE;
+		private double _GioChayChuyenDauTienTrongNgay;
 		
-		private EntityRef<NHAN_VIEN> _NHAN_VIEN;
+		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
 		
-		private EntityRef<TINH_TRANG_XE> _TINH_TRANG_XE;
+		private string _TenTuyenXe;
+		
+		private EntitySet<CHUYEN_XE> _CHUYEN_XEs;
+		
+		private EntityRef<TRAM_XE> _TRAM_XE;
+		
+		private EntityRef<TRAM_XE> _TRAM_XE1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMaXeChanging(int value);
-    partial void OnMaXeChanged();
-    partial void OnBienSoXeChanging(string value);
-    partial void OnBienSoXeChanged();
-    partial void OnMaTaiXeChanging(System.Nullable<int> value);
-    partial void OnMaTaiXeChanged();
-    partial void OnNgayNhapChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgayNhapChanged();
-    partial void OnMaLoaiXeChanging(System.Nullable<int> value);
-    partial void OnMaLoaiXeChanged();
-    partial void OnTinhTrangChanging(System.Nullable<int> value);
-    partial void OnTinhTrangChanged();
+    partial void OnMaTuyenXeChanging(int value);
+    partial void OnMaTuyenXeChanged();
+    partial void OnKhoangThoiGianDiChanging(System.Nullable<double> value);
+    partial void OnKhoangThoiGianDiChanged();
+    partial void OnTanSuatChuyenChanging(System.Nullable<double> value);
+    partial void OnTanSuatChuyenChanged();
+    partial void OnLuongTaiXeChanging(System.Nullable<int> value);
+    partial void OnLuongTaiXeChanged();
+    partial void OnMaTramDiChanging(System.Nullable<int> value);
+    partial void OnMaTramDiChanged();
+    partial void OnMaTramDenChanging(int value);
+    partial void OnMaTramDenChanged();
+    partial void OnGiaVeChanging(System.Nullable<int> value);
+    partial void OnGiaVeChanged();
+    partial void OnGioChayChuyenDauTienTrongNgayChanging(double value);
+    partial void OnGioChayChuyenDauTienTrongNgayChanged();
+    partial void OnGioChayChuyenCuoiCungTrongNgayChanging(System.Nullable<double> value);
+    partial void OnGioChayChuyenCuoiCungTrongNgayChanged();
+    partial void OnTenTuyenXeChanging(string value);
+    partial void OnTenTuyenXeChanged();
     #endregion
 		
-		public XE()
+		public TUYEN_XE()
 		{
-			this._CHI_TIET_CHUYENs = new EntitySet<CHI_TIET_CHUYEN>(new Action<CHI_TIET_CHUYEN>(this.attach_CHI_TIET_CHUYENs), new Action<CHI_TIET_CHUYEN>(this.detach_CHI_TIET_CHUYENs));
-			this._LOAI_XE = default(EntityRef<LOAI_XE>);
-			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
-			this._TINH_TRANG_XE = default(EntityRef<TINH_TRANG_XE>);
+			this._CHUYEN_XEs = new EntitySet<CHUYEN_XE>(new Action<CHUYEN_XE>(this.attach_CHUYEN_XEs), new Action<CHUYEN_XE>(this.detach_CHUYEN_XEs));
+			this._TRAM_XE = default(EntityRef<TRAM_XE>);
+			this._TRAM_XE1 = default(EntityRef<TRAM_XE>);
 			OnCreated();
 		}
 		
-		[Column(Storage="_MaXe", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MaXe
+		[Column(Storage="_MaTuyenXe", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaTuyenXe
 		{
 			get
 			{
-				return this._MaXe;
+				return this._MaTuyenXe;
 			}
 			set
 			{
-				if ((this._MaXe != value))
+				if ((this._MaTuyenXe != value))
 				{
-					this.OnMaXeChanging(value);
+					this.OnMaTuyenXeChanging(value);
 					this.SendPropertyChanging();
-					this._MaXe = value;
-					this.SendPropertyChanged("MaXe");
-					this.OnMaXeChanged();
+					this._MaTuyenXe = value;
+					this.SendPropertyChanged("MaTuyenXe");
+					this.OnMaTuyenXeChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_BienSoXe", DbType="NVarChar(50)")]
-		public string BienSoXe
+		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
+		public System.Nullable<double> KhoangThoiGianDi
 		{
 			get
 			{
-				return this._BienSoXe;
+				return this._KhoangThoiGianDi;
 			}
 			set
 			{
-				if ((this._BienSoXe != value))
+				if ((this._KhoangThoiGianDi != value))
 				{
-					this.OnBienSoXeChanging(value);
+					this.OnKhoangThoiGianDiChanging(value);
 					this.SendPropertyChanging();
-					this._BienSoXe = value;
-					this.SendPropertyChanged("BienSoXe");
-					this.OnBienSoXeChanged();
+					this._KhoangThoiGianDi = value;
+					this.SendPropertyChanged("KhoangThoiGianDi");
+					this.OnKhoangThoiGianDiChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_MaTaiXe", DbType="Int")]
-		public System.Nullable<int> MaTaiXe
+		[Column(Storage="_TanSuatChuyen", DbType="Float")]
+		public System.Nullable<double> TanSuatChuyen
 		{
 			get
 			{
-				return this._MaTaiXe;
+				return this._TanSuatChuyen;
 			}
 			set
 			{
-				if ((this._MaTaiXe != value))
+				if ((this._TanSuatChuyen != value))
 				{
-					if (this._NHAN_VIEN.HasLoadedOrAssignedValue)
+					this.OnTanSuatChuyenChanging(value);
+					this.SendPropertyChanging();
+					this._TanSuatChuyen = value;
+					this.SendPropertyChanged("TanSuatChuyen");
+					this.OnTanSuatChuyenChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Int")]
+		public System.Nullable<int> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this.OnLuongTaiXeChanging(value);
+					this.SendPropertyChanging();
+					this._LuongTaiXe = value;
+					this.SendPropertyChanged("LuongTaiXe");
+					this.OnLuongTaiXeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTramDi", DbType="Int")]
+		public System.Nullable<int> MaTramDi
+		{
+			get
+			{
+				return this._MaTramDi;
+			}
+			set
+			{
+				if ((this._MaTramDi != value))
+				{
+					if (this._TRAM_XE1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnMaTaiXeChanging(value);
+					this.OnMaTramDiChanging(value);
 					this.SendPropertyChanging();
-					this._MaTaiXe = value;
-					this.SendPropertyChanged("MaTaiXe");
-					this.OnMaTaiXeChanged();
+					this._MaTramDi = value;
+					this.SendPropertyChanged("MaTramDi");
+					this.OnMaTramDiChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_NgayNhap", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NgayNhap
+		[Column(Storage="_MaTramDen", DbType="Int NOT NULL")]
+		public int MaTramDen
 		{
 			get
 			{
-				return this._NgayNhap;
+				return this._MaTramDen;
 			}
 			set
 			{
-				if ((this._NgayNhap != value))
+				if ((this._MaTramDen != value))
 				{
-					this.OnNgayNhapChanging(value);
-					this.SendPropertyChanging();
-					this._NgayNhap = value;
-					this.SendPropertyChanged("NgayNhap");
-					this.OnNgayNhapChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MaLoaiXe", DbType="Int")]
-		public System.Nullable<int> MaLoaiXe
-		{
-			get
-			{
-				return this._MaLoaiXe;
-			}
-			set
-			{
-				if ((this._MaLoaiXe != value))
-				{
-					if (this._LOAI_XE.HasLoadedOrAssignedValue)
+					if (this._TRAM_XE.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnMaLoaiXeChanging(value);
+					this.OnMaTramDenChanging(value);
 					this.SendPropertyChanging();
-					this._MaLoaiXe = value;
-					this.SendPropertyChanged("MaLoaiXe");
-					this.OnMaLoaiXeChanged();
+					this._MaTramDen = value;
+					this.SendPropertyChanged("MaTramDen");
+					this.OnMaTramDenChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_TinhTrang", DbType="Int")]
-		public System.Nullable<int> TinhTrang
+		[Column(Storage="_GiaVe", DbType="Int")]
+		public System.Nullable<int> GiaVe
 		{
 			get
 			{
-				return this._TinhTrang;
+				return this._GiaVe;
 			}
 			set
 			{
-				if ((this._TinhTrang != value))
+				if ((this._GiaVe != value))
 				{
-					if (this._TINH_TRANG_XE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTinhTrangChanging(value);
+					this.OnGiaVeChanging(value);
 					this.SendPropertyChanging();
-					this._TinhTrang = value;
-					this.SendPropertyChanged("TinhTrang");
-					this.OnTinhTrangChanged();
+					this._GiaVe = value;
+					this.SendPropertyChanged("GiaVe");
+					this.OnGiaVeChanged();
 				}
 			}
 		}
 		
-		[Association(Name="XE_CHI_TIET_CHUYEN", Storage="_CHI_TIET_CHUYENs", ThisKey="MaXe", OtherKey="MaXe")]
-		public EntitySet<CHI_TIET_CHUYEN> CHI_TIET_CHUYENs
+		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
+		public double GioChayChuyenDauTienTrongNgay
 		{
 			get
 			{
-				return this._CHI_TIET_CHUYENs;
+				return this._GioChayChuyenDauTienTrongNgay;
 			}
 			set
 			{
-				this._CHI_TIET_CHUYENs.Assign(value);
+				if ((this._GioChayChuyenDauTienTrongNgay != value))
+				{
+					this.OnGioChayChuyenDauTienTrongNgayChanging(value);
+					this.SendPropertyChanging();
+					this._GioChayChuyenDauTienTrongNgay = value;
+					this.SendPropertyChanged("GioChayChuyenDauTienTrongNgay");
+					this.OnGioChayChuyenDauTienTrongNgayChanged();
+				}
 			}
 		}
 		
-		[Association(Name="LOAI_XE_XE", Storage="_LOAI_XE", ThisKey="MaLoaiXe", OtherKey="MaLoaixe", IsForeignKey=true)]
-		public LOAI_XE LOAI_XE
+		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
+		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
 		{
 			get
 			{
-				return this._LOAI_XE.Entity;
+				return this._GioChayChuyenCuoiCungTrongNgay;
 			}
 			set
 			{
-				LOAI_XE previousValue = this._LOAI_XE.Entity;
+				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
+				{
+					this.OnGioChayChuyenCuoiCungTrongNgayChanging(value);
+					this.SendPropertyChanging();
+					this._GioChayChuyenCuoiCungTrongNgay = value;
+					this.SendPropertyChanged("GioChayChuyenCuoiCungTrongNgay");
+					this.OnGioChayChuyenCuoiCungTrongNgayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this.OnTenTuyenXeChanging(value);
+					this.SendPropertyChanging();
+					this._TenTuyenXe = value;
+					this.SendPropertyChanged("TenTuyenXe");
+					this.OnTenTuyenXeChanged();
+				}
+			}
+		}
+		
+		[Association(Name="TUYEN_XE_CHUYEN_XE", Storage="_CHUYEN_XEs", ThisKey="MaTuyenXe", OtherKey="MaTuyenXe")]
+		public EntitySet<CHUYEN_XE> CHUYEN_XEs
+		{
+			get
+			{
+				return this._CHUYEN_XEs;
+			}
+			set
+			{
+				this._CHUYEN_XEs.Assign(value);
+			}
+		}
+		
+		[Association(Name="TRAM_XE_TUYEN_XE", Storage="_TRAM_XE", ThisKey="MaTramDen", OtherKey="MaTramXe", IsForeignKey=true)]
+		public TRAM_XE TRAM_XE
+		{
+			get
+			{
+				return this._TRAM_XE.Entity;
+			}
+			set
+			{
+				TRAM_XE previousValue = this._TRAM_XE.Entity;
 				if (((previousValue != value) 
-							|| (this._LOAI_XE.HasLoadedOrAssignedValue == false)))
+							|| (this._TRAM_XE.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._LOAI_XE.Entity = null;
-						previousValue.XEs.Remove(this);
+						this._TRAM_XE.Entity = null;
+						previousValue.TUYEN_XEs.Remove(this);
 					}
-					this._LOAI_XE.Entity = value;
+					this._TRAM_XE.Entity = value;
 					if ((value != null))
 					{
-						value.XEs.Add(this);
-						this._MaLoaiXe = value.MaLoaixe;
+						value.TUYEN_XEs.Add(this);
+						this._MaTramDen = value.MaTramXe;
 					}
 					else
 					{
-						this._MaLoaiXe = default(Nullable<int>);
+						this._MaTramDen = default(int);
 					}
-					this.SendPropertyChanged("LOAI_XE");
+					this.SendPropertyChanged("TRAM_XE");
 				}
 			}
 		}
 		
-		[Association(Name="NHAN_VIEN_XE", Storage="_NHAN_VIEN", ThisKey="MaTaiXe", OtherKey="MaNhanVien", IsForeignKey=true)]
-		public NHAN_VIEN NHAN_VIEN
+		[Association(Name="TRAM_XE_TUYEN_XE1", Storage="_TRAM_XE1", ThisKey="MaTramDi", OtherKey="MaTramXe", IsForeignKey=true)]
+		public TRAM_XE TRAM_XE1
 		{
 			get
 			{
-				return this._NHAN_VIEN.Entity;
+				return this._TRAM_XE1.Entity;
 			}
 			set
 			{
-				NHAN_VIEN previousValue = this._NHAN_VIEN.Entity;
+				TRAM_XE previousValue = this._TRAM_XE1.Entity;
 				if (((previousValue != value) 
-							|| (this._NHAN_VIEN.HasLoadedOrAssignedValue == false)))
+							|| (this._TRAM_XE1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._NHAN_VIEN.Entity = null;
-						previousValue.XEs.Remove(this);
+						this._TRAM_XE1.Entity = null;
+						previousValue.TUYEN_XEs1.Remove(this);
 					}
-					this._NHAN_VIEN.Entity = value;
+					this._TRAM_XE1.Entity = value;
 					if ((value != null))
 					{
-						value.XEs.Add(this);
-						this._MaTaiXe = value.MaNhanVien;
+						value.TUYEN_XEs1.Add(this);
+						this._MaTramDi = value.MaTramXe;
 					}
 					else
 					{
-						this._MaTaiXe = default(Nullable<int>);
+						this._MaTramDi = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("NHAN_VIEN");
-				}
-			}
-		}
-		
-		[Association(Name="TINH_TRANG_XE_XE", Storage="_TINH_TRANG_XE", ThisKey="TinhTrang", OtherKey="MaTinhTrangXe", IsForeignKey=true)]
-		public TINH_TRANG_XE TINH_TRANG_XE
-		{
-			get
-			{
-				return this._TINH_TRANG_XE.Entity;
-			}
-			set
-			{
-				TINH_TRANG_XE previousValue = this._TINH_TRANG_XE.Entity;
-				if (((previousValue != value) 
-							|| (this._TINH_TRANG_XE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TINH_TRANG_XE.Entity = null;
-						previousValue.XEs.Remove(this);
-					}
-					this._TINH_TRANG_XE.Entity = value;
-					if ((value != null))
-					{
-						value.XEs.Add(this);
-						this._TinhTrang = value.MaTinhTrangXe;
-					}
-					else
-					{
-						this._TinhTrang = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TINH_TRANG_XE");
+					this.SendPropertyChanged("TRAM_XE1");
 				}
 			}
 		}
@@ -5960,686 +5631,16 @@ namespace DTO
 			}
 		}
 		
-		private void attach_CHI_TIET_CHUYENs(CHI_TIET_CHUYEN entity)
+		private void attach_CHUYEN_XEs(CHUYEN_XE entity)
 		{
 			this.SendPropertyChanging();
-			entity.XE = this;
+			entity.TUYEN_XE = this;
 		}
 		
-		private void detach_CHI_TIET_CHUYENs(CHI_TIET_CHUYEN entity)
+		private void detach_CHUYEN_XEs(CHUYEN_XE entity)
 		{
 			this.SendPropertyChanging();
-			entity.XE = null;
-		}
-	}
-	
-	public partial class usp_SelectCHI_TIET_CHUYENResult
-	{
-		
-		private int _MaChiTiet;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<double> _GiaVe;
-		
-		private System.Nullable<double> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaXe;
-		
-		private System.Nullable<System.DateTime> _ThoiGianDenTram;
-		
-		private System.Nullable<int> _MaTinhTrang;
-		
-		public usp_SelectCHI_TIET_CHUYENResult()
-		{
-		}
-		
-		[Column(Storage="_MaChiTiet", DbType="Int NOT NULL")]
-		public int MaChiTiet
-		{
-			get
-			{
-				return this._MaChiTiet;
-			}
-			set
-			{
-				if ((this._MaChiTiet != value))
-				{
-					this._MaChiTiet = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Float")]
-		public System.Nullable<double> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Float")]
-		public System.Nullable<double> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaXe", DbType="Int")]
-		public System.Nullable<int> MaXe
-		{
-			get
-			{
-				return this._MaXe;
-			}
-			set
-			{
-				if ((this._MaXe != value))
-				{
-					this._MaXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_ThoiGianDenTram", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianDenTram
-		{
-			get
-			{
-				return this._ThoiGianDenTram;
-			}
-			set
-			{
-				if ((this._ThoiGianDenTram != value))
-				{
-					this._ThoiGianDenTram = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTinhTrang", DbType="Int")]
-		public System.Nullable<int> MaTinhTrang
-		{
-			get
-			{
-				return this._MaTinhTrang;
-			}
-			set
-			{
-				if ((this._MaTinhTrang != value))
-				{
-					this._MaTinhTrang = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectCHI_TIET_CHUYENsAllResult
-	{
-		
-		private int _MaChiTiet;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<double> _GiaVe;
-		
-		private System.Nullable<double> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaXe;
-		
-		private System.Nullable<System.DateTime> _ThoiGianDenTram;
-		
-		private System.Nullable<int> _MaTinhTrang;
-		
-		public usp_SelectCHI_TIET_CHUYENsAllResult()
-		{
-		}
-		
-		[Column(Storage="_MaChiTiet", DbType="Int NOT NULL")]
-		public int MaChiTiet
-		{
-			get
-			{
-				return this._MaChiTiet;
-			}
-			set
-			{
-				if ((this._MaChiTiet != value))
-				{
-					this._MaChiTiet = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Float")]
-		public System.Nullable<double> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Float")]
-		public System.Nullable<double> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaXe", DbType="Int")]
-		public System.Nullable<int> MaXe
-		{
-			get
-			{
-				return this._MaXe;
-			}
-			set
-			{
-				if ((this._MaXe != value))
-				{
-					this._MaXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_ThoiGianDenTram", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianDenTram
-		{
-			get
-			{
-				return this._ThoiGianDenTram;
-			}
-			set
-			{
-				if ((this._ThoiGianDenTram != value))
-				{
-					this._ThoiGianDenTram = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTinhTrang", DbType="Int")]
-		public System.Nullable<int> MaTinhTrang
-		{
-			get
-			{
-				return this._MaTinhTrang;
-			}
-			set
-			{
-				if ((this._MaTinhTrang != value))
-				{
-					this._MaTinhTrang = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectCHI_TIET_CHUYENsByAndMaChuyenResult
-	{
-		
-		private int _MaChiTiet;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<double> _GiaVe;
-		
-		private System.Nullable<double> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaXe;
-		
-		private System.Nullable<System.DateTime> _ThoiGianDenTram;
-		
-		private System.Nullable<int> _MaTinhTrang;
-		
-		public usp_SelectCHI_TIET_CHUYENsByAndMaChuyenResult()
-		{
-		}
-		
-		[Column(Storage="_MaChiTiet", DbType="Int NOT NULL")]
-		public int MaChiTiet
-		{
-			get
-			{
-				return this._MaChiTiet;
-			}
-			set
-			{
-				if ((this._MaChiTiet != value))
-				{
-					this._MaChiTiet = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Float")]
-		public System.Nullable<double> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Float")]
-		public System.Nullable<double> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaXe", DbType="Int")]
-		public System.Nullable<int> MaXe
-		{
-			get
-			{
-				return this._MaXe;
-			}
-			set
-			{
-				if ((this._MaXe != value))
-				{
-					this._MaXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_ThoiGianDenTram", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianDenTram
-		{
-			get
-			{
-				return this._ThoiGianDenTram;
-			}
-			set
-			{
-				if ((this._ThoiGianDenTram != value))
-				{
-					this._ThoiGianDenTram = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTinhTrang", DbType="Int")]
-		public System.Nullable<int> MaTinhTrang
-		{
-			get
-			{
-				return this._MaTinhTrang;
-			}
-			set
-			{
-				if ((this._MaTinhTrang != value))
-				{
-					this._MaTinhTrang = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectCHI_TIET_CHUYENsByAndMaTinhTrangResult
-	{
-		
-		private int _MaChiTiet;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<double> _GiaVe;
-		
-		private System.Nullable<double> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaXe;
-		
-		private System.Nullable<System.DateTime> _ThoiGianDenTram;
-		
-		private System.Nullable<int> _MaTinhTrang;
-		
-		public usp_SelectCHI_TIET_CHUYENsByAndMaTinhTrangResult()
-		{
-		}
-		
-		[Column(Storage="_MaChiTiet", DbType="Int NOT NULL")]
-		public int MaChiTiet
-		{
-			get
-			{
-				return this._MaChiTiet;
-			}
-			set
-			{
-				if ((this._MaChiTiet != value))
-				{
-					this._MaChiTiet = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Float")]
-		public System.Nullable<double> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Float")]
-		public System.Nullable<double> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaXe", DbType="Int")]
-		public System.Nullable<int> MaXe
-		{
-			get
-			{
-				return this._MaXe;
-			}
-			set
-			{
-				if ((this._MaXe != value))
-				{
-					this._MaXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_ThoiGianDenTram", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianDenTram
-		{
-			get
-			{
-				return this._ThoiGianDenTram;
-			}
-			set
-			{
-				if ((this._ThoiGianDenTram != value))
-				{
-					this._ThoiGianDenTram = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTinhTrang", DbType="Int")]
-		public System.Nullable<int> MaTinhTrang
-		{
-			get
-			{
-				return this._MaTinhTrang;
-			}
-			set
-			{
-				if ((this._MaTinhTrang != value))
-				{
-					this._MaTinhTrang = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectCHI_TIET_CHUYENsByAndMaXeResult
-	{
-		
-		private int _MaChiTiet;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<double> _GiaVe;
-		
-		private System.Nullable<double> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaXe;
-		
-		private System.Nullable<System.DateTime> _ThoiGianDenTram;
-		
-		private System.Nullable<int> _MaTinhTrang;
-		
-		public usp_SelectCHI_TIET_CHUYENsByAndMaXeResult()
-		{
-		}
-		
-		[Column(Storage="_MaChiTiet", DbType="Int NOT NULL")]
-		public int MaChiTiet
-		{
-			get
-			{
-				return this._MaChiTiet;
-			}
-			set
-			{
-				if ((this._MaChiTiet != value))
-				{
-					this._MaChiTiet = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Float")]
-		public System.Nullable<double> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Float")]
-		public System.Nullable<double> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaXe", DbType="Int")]
-		public System.Nullable<int> MaXe
-		{
-			get
-			{
-				return this._MaXe;
-			}
-			set
-			{
-				if ((this._MaXe != value))
-				{
-					this._MaXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_ThoiGianDenTram", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianDenTram
-		{
-			get
-			{
-				return this._ThoiGianDenTram;
-			}
-			set
-			{
-				if ((this._ThoiGianDenTram != value))
-				{
-					this._ThoiGianDenTram = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTinhTrang", DbType="Int")]
-		public System.Nullable<int> MaTinhTrang
-		{
-			get
-			{
-				return this._MaTinhTrang;
-			}
-			set
-			{
-				if ((this._MaTinhTrang != value))
-				{
-					this._MaTinhTrang = value;
-				}
-			}
+			entity.TUYEN_XE = null;
 		}
 	}
 	
@@ -7090,6 +6091,176 @@ namespace DTO
 				if ((this._MaTuyenXe != value))
 				{
 					this._MaTuyenXe = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectChuyenXesByMaTramDiAndsMaTramDenResult
+	{
+		
+		private int _MaChuyenXe;
+		
+		private System.Nullable<System.DateTime> _KhoiHanh;
+		
+		private System.Nullable<System.DateTime> _DuKienDen;
+		
+		private int _MaTuyenXe;
+		
+		private System.Nullable<double> _GiaVe;
+		
+		private System.Nullable<double> _LuongTaiXe;
+		
+		private System.Nullable<int> _MaXe;
+		
+		private System.Nullable<int> _MaTinhTrang;
+		
+		private string _TenTuyenXe;
+		
+		public usp_SelectChuyenXesByMaTramDiAndsMaTramDenResult()
+		{
+		}
+		
+		[Column(Storage="_MaChuyenXe", DbType="Int NOT NULL")]
+		public int MaChuyenXe
+		{
+			get
+			{
+				return this._MaChuyenXe;
+			}
+			set
+			{
+				if ((this._MaChuyenXe != value))
+				{
+					this._MaChuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_KhoiHanh", DbType="DateTime")]
+		public System.Nullable<System.DateTime> KhoiHanh
+		{
+			get
+			{
+				return this._KhoiHanh;
+			}
+			set
+			{
+				if ((this._KhoiHanh != value))
+				{
+					this._KhoiHanh = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_DuKienDen", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DuKienDen
+		{
+			get
+			{
+				return this._DuKienDen;
+			}
+			set
+			{
+				if ((this._DuKienDen != value))
+				{
+					this._DuKienDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GiaVe", DbType="Float")]
+		public System.Nullable<double> GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this._GiaVe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Float")]
+		public System.Nullable<double> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this._LuongTaiXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaXe", DbType="Int")]
+		public System.Nullable<int> MaXe
+		{
+			get
+			{
+				return this._MaXe;
+			}
+			set
+			{
+				if ((this._MaXe != value))
+				{
+					this._MaXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTinhTrang", DbType="Int")]
+		public System.Nullable<int> MaTinhTrang
+		{
+			get
+			{
+				return this._MaTinhTrang;
+			}
+			set
+			{
+				if ((this._MaTinhTrang != value))
+				{
+					this._MaTinhTrang = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
 				}
 			}
 		}
@@ -10623,6 +9794,194 @@ namespace DTO
 		}
 	}
 	
+	public partial class usp_SelectTUYEN_XEByTramAndGiaResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private string _TenTuyenXe;
+		
+		private System.Nullable<double> _KhoangThoiGianDi;
+		
+		private System.Nullable<double> _TanSuatChuyen;
+		
+		private System.Nullable<int> _LuongTaiXe;
+		
+		private string _TenTramDi;
+		
+		private string _TenTramDen;
+		
+		private System.Nullable<int> _GiaVe;
+		
+		private double _GioChayChuyenDauTienTrongNgay;
+		
+		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
+		
+		public usp_SelectTUYEN_XEByTramAndGiaResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
+		public System.Nullable<double> KhoangThoiGianDi
+		{
+			get
+			{
+				return this._KhoangThoiGianDi;
+			}
+			set
+			{
+				if ((this._KhoangThoiGianDi != value))
+				{
+					this._KhoangThoiGianDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TanSuatChuyen", DbType="Float")]
+		public System.Nullable<double> TanSuatChuyen
+		{
+			get
+			{
+				return this._TanSuatChuyen;
+			}
+			set
+			{
+				if ((this._TanSuatChuyen != value))
+				{
+					this._TanSuatChuyen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Int")]
+		public System.Nullable<int> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this._LuongTaiXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDi", DbType="NVarChar(50)")]
+		public string TenTramDi
+		{
+			get
+			{
+				return this._TenTramDi;
+			}
+			set
+			{
+				if ((this._TenTramDi != value))
+				{
+					this._TenTramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDen", DbType="NVarChar(50)")]
+		public string TenTramDen
+		{
+			get
+			{
+				return this._TenTramDen;
+			}
+			set
+			{
+				if ((this._TenTramDen != value))
+				{
+					this._TenTramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GiaVe", DbType="Int")]
+		public System.Nullable<int> GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this._GiaVe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
+		public double GioChayChuyenDauTienTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenDauTienTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenDauTienTrongNgay != value))
+				{
+					this._GioChayChuyenDauTienTrongNgay = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
+		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenCuoiCungTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
+				{
+					this._GioChayChuyenCuoiCungTrongNgay = value;
+				}
+			}
+		}
+	}
+	
 	public partial class usp_SelectTUYEN_XEsAllResult
 	{
 		
@@ -10946,6 +10305,382 @@ namespace DTO
 				if ((this._MaTramDen != value))
 				{
 					this._MaTramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GiaVe", DbType="Int")]
+		public System.Nullable<int> GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this._GiaVe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
+		public double GioChayChuyenDauTienTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenDauTienTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenDauTienTrongNgay != value))
+				{
+					this._GioChayChuyenDauTienTrongNgay = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
+		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenCuoiCungTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
+				{
+					this._GioChayChuyenCuoiCungTrongNgay = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectTUYEN_XEsByAndMaTramDiResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private string _TenTuyenXe;
+		
+		private System.Nullable<double> _KhoangThoiGianDi;
+		
+		private System.Nullable<double> _TanSuatChuyen;
+		
+		private System.Nullable<int> _LuongTaiXe;
+		
+		private System.Nullable<int> _MaTramDi;
+		
+		private int _MaTramDen;
+		
+		private System.Nullable<int> _GiaVe;
+		
+		private double _GioChayChuyenDauTienTrongNgay;
+		
+		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
+		
+		public usp_SelectTUYEN_XEsByAndMaTramDiResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
+		public System.Nullable<double> KhoangThoiGianDi
+		{
+			get
+			{
+				return this._KhoangThoiGianDi;
+			}
+			set
+			{
+				if ((this._KhoangThoiGianDi != value))
+				{
+					this._KhoangThoiGianDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TanSuatChuyen", DbType="Float")]
+		public System.Nullable<double> TanSuatChuyen
+		{
+			get
+			{
+				return this._TanSuatChuyen;
+			}
+			set
+			{
+				if ((this._TanSuatChuyen != value))
+				{
+					this._TanSuatChuyen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Int")]
+		public System.Nullable<int> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this._LuongTaiXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTramDi", DbType="Int")]
+		public System.Nullable<int> MaTramDi
+		{
+			get
+			{
+				return this._MaTramDi;
+			}
+			set
+			{
+				if ((this._MaTramDi != value))
+				{
+					this._MaTramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTramDen", DbType="Int NOT NULL")]
+		public int MaTramDen
+		{
+			get
+			{
+				return this._MaTramDen;
+			}
+			set
+			{
+				if ((this._MaTramDen != value))
+				{
+					this._MaTramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GiaVe", DbType="Int")]
+		public System.Nullable<int> GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this._GiaVe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
+		public double GioChayChuyenDauTienTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenDauTienTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenDauTienTrongNgay != value))
+				{
+					this._GioChayChuyenDauTienTrongNgay = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
+		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
+		{
+			get
+			{
+				return this._GioChayChuyenCuoiCungTrongNgay;
+			}
+			set
+			{
+				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
+				{
+					this._GioChayChuyenCuoiCungTrongNgay = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectTuyenXeByMaTramDiAndMaTramDenResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private string _TenTuyenXe;
+		
+		private System.Nullable<double> _KhoangThoiGianDi;
+		
+		private System.Nullable<double> _TanSuatChuyen;
+		
+		private System.Nullable<int> _LuongTaiXe;
+		
+		private string _TenTramDi;
+		
+		private string _TenTramDen;
+		
+		private System.Nullable<int> _GiaVe;
+		
+		private double _GioChayChuyenDauTienTrongNgay;
+		
+		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
+		
+		public usp_SelectTuyenXeByMaTramDiAndMaTramDenResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
+		public System.Nullable<double> KhoangThoiGianDi
+		{
+			get
+			{
+				return this._KhoangThoiGianDi;
+			}
+			set
+			{
+				if ((this._KhoangThoiGianDi != value))
+				{
+					this._KhoangThoiGianDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TanSuatChuyen", DbType="Float")]
+		public System.Nullable<double> TanSuatChuyen
+		{
+			get
+			{
+				return this._TanSuatChuyen;
+			}
+			set
+			{
+				if ((this._TanSuatChuyen != value))
+				{
+					this._TanSuatChuyen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_LuongTaiXe", DbType="Int")]
+		public System.Nullable<int> LuongTaiXe
+		{
+			get
+			{
+				return this._LuongTaiXe;
+			}
+			set
+			{
+				if ((this._LuongTaiXe != value))
+				{
+					this._LuongTaiXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDi", DbType="NVarChar(50)")]
+		public string TenTramDi
+		{
+			get
+			{
+				return this._TenTramDi;
+			}
+			set
+			{
+				if ((this._TenTramDi != value))
+				{
+					this._TenTramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTramDen", DbType="NVarChar(50)")]
+		public string TenTramDen
+		{
+			get
+			{
+				return this._TenTramDen;
+			}
+			set
+			{
+				if ((this._TenTramDen != value))
+				{
+					this._TenTramDen = value;
 				}
 			}
 		}
@@ -11574,570 +11309,6 @@ namespace DTO
 				if ((this._TinhTrang != value))
 				{
 					this._TinhTrang = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectTUYEN_XEsByAndMaTramDiResult
-	{
-		
-		private int _MaTuyenXe;
-		
-		private string _TenTuyenXe;
-		
-		private System.Nullable<double> _KhoangThoiGianDi;
-		
-		private System.Nullable<double> _TanSuatChuyen;
-		
-		private System.Nullable<int> _LuongTaiXe;
-		
-		private System.Nullable<int> _MaTramDi;
-		
-		private int _MaTramDen;
-		
-		private System.Nullable<int> _GiaVe;
-		
-		private double _GioChayChuyenDauTienTrongNgay;
-		
-		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
-		
-		public usp_SelectTUYEN_XEsByAndMaTramDiResult()
-		{
-		}
-		
-		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
-		public int MaTuyenXe
-		{
-			get
-			{
-				return this._MaTuyenXe;
-			}
-			set
-			{
-				if ((this._MaTuyenXe != value))
-				{
-					this._MaTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
-		public string TenTuyenXe
-		{
-			get
-			{
-				return this._TenTuyenXe;
-			}
-			set
-			{
-				if ((this._TenTuyenXe != value))
-				{
-					this._TenTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
-		public System.Nullable<double> KhoangThoiGianDi
-		{
-			get
-			{
-				return this._KhoangThoiGianDi;
-			}
-			set
-			{
-				if ((this._KhoangThoiGianDi != value))
-				{
-					this._KhoangThoiGianDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TanSuatChuyen", DbType="Float")]
-		public System.Nullable<double> TanSuatChuyen
-		{
-			get
-			{
-				return this._TanSuatChuyen;
-			}
-			set
-			{
-				if ((this._TanSuatChuyen != value))
-				{
-					this._TanSuatChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Int")]
-		public System.Nullable<int> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTramDi", DbType="Int")]
-		public System.Nullable<int> MaTramDi
-		{
-			get
-			{
-				return this._MaTramDi;
-			}
-			set
-			{
-				if ((this._MaTramDi != value))
-				{
-					this._MaTramDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaTramDen", DbType="Int NOT NULL")]
-		public int MaTramDen
-		{
-			get
-			{
-				return this._MaTramDen;
-			}
-			set
-			{
-				if ((this._MaTramDen != value))
-				{
-					this._MaTramDen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Int")]
-		public System.Nullable<int> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
-		public double GioChayChuyenDauTienTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenDauTienTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenDauTienTrongNgay != value))
-				{
-					this._GioChayChuyenDauTienTrongNgay = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
-		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenCuoiCungTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
-				{
-					this._GioChayChuyenCuoiCungTrongNgay = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectTuyenXeByMaTramDiAndMaTramDenResult
-	{
-		
-		private int _MaTuyenXe;
-		
-		private string _TenTuyenXe;
-		
-		private System.Nullable<double> _KhoangThoiGianDi;
-		
-		private System.Nullable<double> _TanSuatChuyen;
-		
-		private System.Nullable<int> _LuongTaiXe;
-		
-		private string _TenTramDi;
-		
-		private string _TenTramDen;
-		
-		private System.Nullable<int> _GiaVe;
-		
-		private double _GioChayChuyenDauTienTrongNgay;
-		
-		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
-		
-		public usp_SelectTuyenXeByMaTramDiAndMaTramDenResult()
-		{
-		}
-		
-		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
-		public int MaTuyenXe
-		{
-			get
-			{
-				return this._MaTuyenXe;
-			}
-			set
-			{
-				if ((this._MaTuyenXe != value))
-				{
-					this._MaTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
-		public string TenTuyenXe
-		{
-			get
-			{
-				return this._TenTuyenXe;
-			}
-			set
-			{
-				if ((this._TenTuyenXe != value))
-				{
-					this._TenTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
-		public System.Nullable<double> KhoangThoiGianDi
-		{
-			get
-			{
-				return this._KhoangThoiGianDi;
-			}
-			set
-			{
-				if ((this._KhoangThoiGianDi != value))
-				{
-					this._KhoangThoiGianDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TanSuatChuyen", DbType="Float")]
-		public System.Nullable<double> TanSuatChuyen
-		{
-			get
-			{
-				return this._TanSuatChuyen;
-			}
-			set
-			{
-				if ((this._TanSuatChuyen != value))
-				{
-					this._TanSuatChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Int")]
-		public System.Nullable<int> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTramDi", DbType="NVarChar(50)")]
-		public string TenTramDi
-		{
-			get
-			{
-				return this._TenTramDi;
-			}
-			set
-			{
-				if ((this._TenTramDi != value))
-				{
-					this._TenTramDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTramDen", DbType="NVarChar(50)")]
-		public string TenTramDen
-		{
-			get
-			{
-				return this._TenTramDen;
-			}
-			set
-			{
-				if ((this._TenTramDen != value))
-				{
-					this._TenTramDen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Int")]
-		public System.Nullable<int> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
-		public double GioChayChuyenDauTienTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenDauTienTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenDauTienTrongNgay != value))
-				{
-					this._GioChayChuyenDauTienTrongNgay = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
-		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenCuoiCungTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
-				{
-					this._GioChayChuyenCuoiCungTrongNgay = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectTUYEN_XEByTramAndGiaResult
-	{
-		
-		private int _MaTuyenXe;
-		
-		private string _TenTuyenXe;
-		
-		private System.Nullable<double> _KhoangThoiGianDi;
-		
-		private System.Nullable<double> _TanSuatChuyen;
-		
-		private System.Nullable<int> _LuongTaiXe;
-		
-		private string _TenTramDi;
-		
-		private string _TenTramDen;
-		
-		private System.Nullable<int> _GiaVe;
-		
-		private double _GioChayChuyenDauTienTrongNgay;
-		
-		private System.Nullable<double> _GioChayChuyenCuoiCungTrongNgay;
-		
-		public usp_SelectTUYEN_XEByTramAndGiaResult()
-		{
-		}
-		
-		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
-		public int MaTuyenXe
-		{
-			get
-			{
-				return this._MaTuyenXe;
-			}
-			set
-			{
-				if ((this._MaTuyenXe != value))
-				{
-					this._MaTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
-		public string TenTuyenXe
-		{
-			get
-			{
-				return this._TenTuyenXe;
-			}
-			set
-			{
-				if ((this._TenTuyenXe != value))
-				{
-					this._TenTuyenXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_KhoangThoiGianDi", DbType="Float")]
-		public System.Nullable<double> KhoangThoiGianDi
-		{
-			get
-			{
-				return this._KhoangThoiGianDi;
-			}
-			set
-			{
-				if ((this._KhoangThoiGianDi != value))
-				{
-					this._KhoangThoiGianDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TanSuatChuyen", DbType="Float")]
-		public System.Nullable<double> TanSuatChuyen
-		{
-			get
-			{
-				return this._TanSuatChuyen;
-			}
-			set
-			{
-				if ((this._TanSuatChuyen != value))
-				{
-					this._TanSuatChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_LuongTaiXe", DbType="Int")]
-		public System.Nullable<int> LuongTaiXe
-		{
-			get
-			{
-				return this._LuongTaiXe;
-			}
-			set
-			{
-				if ((this._LuongTaiXe != value))
-				{
-					this._LuongTaiXe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTramDi", DbType="NVarChar(50)")]
-		public string TenTramDi
-		{
-			get
-			{
-				return this._TenTramDi;
-			}
-			set
-			{
-				if ((this._TenTramDi != value))
-				{
-					this._TenTramDi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_TenTramDen", DbType="NVarChar(50)")]
-		public string TenTramDen
-		{
-			get
-			{
-				return this._TenTramDen;
-			}
-			set
-			{
-				if ((this._TenTramDen != value))
-				{
-					this._TenTramDen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GiaVe", DbType="Int")]
-		public System.Nullable<int> GiaVe
-		{
-			get
-			{
-				return this._GiaVe;
-			}
-			set
-			{
-				if ((this._GiaVe != value))
-				{
-					this._GiaVe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenDauTienTrongNgay", DbType="Float NOT NULL")]
-		public double GioChayChuyenDauTienTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenDauTienTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenDauTienTrongNgay != value))
-				{
-					this._GioChayChuyenDauTienTrongNgay = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GioChayChuyenCuoiCungTrongNgay", DbType="Float")]
-		public System.Nullable<double> GioChayChuyenCuoiCungTrongNgay
-		{
-			get
-			{
-				return this._GioChayChuyenCuoiCungTrongNgay;
-			}
-			set
-			{
-				if ((this._GioChayChuyenCuoiCungTrongNgay != value))
-				{
-					this._GioChayChuyenCuoiCungTrongNgay = value;
 				}
 			}
 		}
