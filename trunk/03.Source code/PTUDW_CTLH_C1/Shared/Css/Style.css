@@ -1,0 +1,57 @@
+﻿/*------------------combo box-----------------------------------*/
+
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input
+{
+    margin: 0;
+    background-image: url(Images/aqua-bg.gif);
+    background-position: top left;
+    border: 0px none;
+    padding: 2px 0px 0px 8px;
+    font-size: 11px;
+    height: 17px;
+    width: 150px;
+}
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button
+{
+    background-image: url(Images/aqua-arrow.gif);
+    background-position: top left;
+    border: 0px none;
+    height: 19px;
+    width: 19px;
+}
+.AquaStyle .ajax__combobox_itemlist
+{
+    border-color: #000000;
+    background-color: #FFFFFF;
+}
+
+/*.WindowsStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input
+{
+    margin: 0;
+    margin-top: 0px;
+    border: solid 1px #7F9DB9;
+    border-right: 0px none;
+    padding: 0px 0px 0px 0px;
+    /*font-size: 13px;
+    height: 18px;
+    width: 107px;
+}
+.WindowsStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button
+{
+    margin: 0 2px;
+    padding: 0;
+    background-image: url(Images/windows-arrow.gif);
+    background-position: top left;
+    border: 0px none;
+    height: 17px;
+}
+.WindowsStyle .ajax__combobox_itemlist
+{
+    border-color: #7F9DB9;
+}*/
+
+.TableColumnNormal
+{
+	width: 200px;
+	margin: 2px;
+}

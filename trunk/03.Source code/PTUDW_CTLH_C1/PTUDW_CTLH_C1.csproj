@@ -163,12 +163,26 @@
     <Compile Include="Common\TimNhanhTuyen.aspx.designer.cs">
       <DependentUpon>TimNhanhTuyen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\ChuyenXe\wucChiTietChuyen.ascx.cs">
+      <DependentUpon>wucChiTietChuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucChiTietChuyen.ascx.designer.cs">
+      <DependentUpon>wucChiTietChuyen.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\ChuyenXe\wucThemChuyenXe.ascx.cs">
       <DependentUpon>wucThemChuyenXe.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WUC\ChuyenXe\wucThemChuyenXe.ascx.designer.cs">
       <DependentUpon>wucThemChuyenXe.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucTimChuyen.ascx.cs">
+      <DependentUpon>wucTimChuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucTimChuyen.ascx.designer.cs">
+      <DependentUpon>wucTimChuyen.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\PhanHoi\wucPhanHoi.ascx.cs">
       <DependentUpon>wucPhanHoi.ascx</DependentUpon>
@@ -285,14 +299,23 @@
     <Content Include="Common\TinTuc.aspx" />
     <Content Include="Images\indicator.gif" />
     <Content Include="Common\TimNhanhTuyen.aspx" />
+    <Content Include="Shared\Css\Images\aqua-arrow.gif" />
+    <Content Include="Shared\Css\Images\aqua-bg.gif" />
+    <Content Include="Shared\Css\Images\windows-arrow.gif" />
+    <Content Include="Shared\Css\Style.css" />
     <Content Include="Web.sitemap" />
+    <Content Include="WUC\ChuyenXe\wucChiTietChuyen.ascx" />
     <Content Include="WUC\ChuyenXe\wucThemChuyenXe.ascx" />
+    <Content Include="WUC\ChuyenXe\wucTimChuyen.ascx" />
     <Content Include="WUC\PhanHoi\wucPhanHoi.ascx" />
     <Content Include="WUC\TuyenXe\wucCapNhatTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucChiTietTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucThemTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimNhanhTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucTimTuyenNangCao.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WUC\Xe\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
