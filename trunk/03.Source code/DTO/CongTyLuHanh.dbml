@@ -41,7 +41,6 @@
       <Column Name="LuongTaiXe" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="MaXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaTinhTrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="CHUYEN_XE_PHAN_HOI" Member="PHAN_HOIs" ThisKey="MaChuyenXe" OtherKey="MaChuyen" Type="PHAN_HOI" />
       <Association Name="XE_CHUYEN_XE" Member="XE" ThisKey="MaXe" OtherKey="MaXe" Type="XE" IsForeignKey="true" />
       <Association Name="TINH_TRANG_CHUYEN_CHUYEN_XE" Member="TINH_TRANG_CHUYEN" ThisKey="MaTinhTrang" OtherKey="MaTinhTrang" Type="TINH_TRANG_CHUYEN" IsForeignKey="true" />
       <Association Name="TUYEN_XE_CHUYEN_XE" Member="TUYEN_XE" ThisKey="MaTuyenXe" OtherKey="MaTuyenXe" Type="TUYEN_XE" IsForeignKey="true" />
@@ -84,6 +83,7 @@
       <Column Name="LuongTrongThang" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="NHAN_VIEN_XE" Member="XEs" ThisKey="MaNhanVien" OtherKey="MaTaiXe" Type="XE" />
       <Association Name="NHAN_VIEN_PHAN_HOI" Member="PHAN_HOIs" ThisKey="MaNhanVien" OtherKey="MaNhanVienDuyet" Type="PHAN_HOI" />
+      <Association Name="NHAN_VIEN_PHAN_HOI1" Member="PHAN_HOIs1" ThisKey="MaNhanVien" OtherKey="MaTaiXe" Type="PHAN_HOI" />
       <Association Name="NHAN_VIEN_TAI_KHOAN" Member="TAI_KHOANs" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="TAI_KHOAN" />
       <Association Name="NHAN_VIEN_TIN_TUC" Member="TIN_TUCs" ThisKey="MaNhanVien" OtherKey="MaAdminDuyet" Type="TIN_TUC" />
       <Association Name="NHAN_VIEN_TRAM_XE" Member="TRAM_XEs" ThisKey="MaNhanVien" OtherKey="MaTruongTram" Type="TRAM_XE" />
@@ -108,11 +108,11 @@
   <Table Name="dbo.PHAN_HOI" Member="PHAN_HOIs">
     <Type Name="PHAN_HOI">
       <Column Name="MaPhanHoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MaChuyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTaiXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaPhanHoiKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaNhanVienDuyet" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="CHUYEN_XE_PHAN_HOI" Member="CHUYEN_XE" ThisKey="MaChuyen" OtherKey="MaChuyenXe" Type="CHUYEN_XE" IsForeignKey="true" />
       <Association Name="NHAN_VIEN_PHAN_HOI" Member="NHAN_VIEN" ThisKey="MaNhanVienDuyet" OtherKey="MaNhanVien" Type="NHAN_VIEN" IsForeignKey="true" />
+      <Association Name="NHAN_VIEN_PHAN_HOI1" Member="NHAN_VIEN1" ThisKey="MaTaiXe" OtherKey="MaNhanVien" Type="NHAN_VIEN" IsForeignKey="true" />
       <Association Name="PHAN_HOI_KHACH_HANG_PHAN_HOI" Member="PHAN_HOI_KHACH_HANG" ThisKey="MaPhanHoiKhach" OtherKey="MaPhanHoi" Type="PHAN_HOI_KHACH_HANG" IsForeignKey="true" />
     </Type>
   </Table>
@@ -219,7 +219,12 @@
     <Parameter Name="MaChoNgoi" Parameter="maChoNgoi" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_DeleteXEsByAndTinhTrang" Method="usp_DeleteXEsByAndTinhTrang">
+  <Function Name="dbo.usp_UpdateXE" Method="usp_UpdateXE">
+    <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BienSoXe" Parameter="bienSoXe" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaTaiXe" Parameter="maTaiXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NgayNhap" Parameter="ngayNhap" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MaLoaiXe" Parameter="maLoaiXe" Type="System.Int32" DbType="Int" />
     <Parameter Name="TinhTrang" Parameter="tinhTrang" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
@@ -376,23 +381,14 @@
     <Parameter Name="MaTaiXe" Parameter="maTaiXe" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.usp_DeleteXEsByAndTinhTrang" Method="usp_DeleteXEsByAndTinhTrang">
+    <Parameter Name="TinhTrang" Parameter="tinhTrang" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.usp_InsertCHO_NGOI" Method="usp_InsertCHO_NGOI">
     <Parameter Name="x" Type="System.Int32" DbType="Int" />
     <Parameter Name="y" Type="System.Int32" DbType="Int" />
     <Parameter Name="MaChoNgoi" Parameter="maChoNgoi" Type="System.Int32" DbType="Int" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.usp_InsertTUYEN_XE" Method="usp_InsertTUYEN_XE">
-    <Parameter Name="TenTuyenXe" Parameter="tenTuyenXe" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="KhoangThoiGianDi" Parameter="khoangThoiGianDi" Type="System.Double" DbType="Float" />
-    <Parameter Name="TanSuatChuyen" Parameter="tanSuatChuyen" Type="System.Double" DbType="Float" />
-    <Parameter Name="LuongTaiXe" Parameter="luongTaiXe" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaTramDi" Parameter="maTramDi" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaTramDen" Parameter="maTramDen" Type="System.Int32" DbType="Int" />
-    <Parameter Name="GiaVe" Parameter="giaVe" Type="System.Int32" DbType="Int" />
-    <Parameter Name="GioChayChuyenDauTienTrongNgay" Parameter="gioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float" />
-    <Parameter Name="GioChayChuyenCuoiCungTrongNgay" Parameter="gioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" />
-    <Parameter Name="MaTuyenXe" Parameter="maTuyenXe" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertCHUC_NANG" Method="usp_InsertCHUC_NANG">
@@ -506,19 +502,23 @@
     <Parameter Name="MaTramXe" Parameter="maTramXe" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.usp_InsertTUYEN_XE" Method="usp_InsertTUYEN_XE">
+    <Parameter Name="TenTuyenXe" Parameter="tenTuyenXe" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="KhoangThoiGianDi" Parameter="khoangThoiGianDi" Type="System.Double" DbType="Float" />
+    <Parameter Name="TanSuatChuyen" Parameter="tanSuatChuyen" Type="System.Double" DbType="Float" />
+    <Parameter Name="LuongTaiXe" Parameter="luongTaiXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaTramDi" Parameter="maTramDi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaTramDen" Parameter="maTramDen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GiaVe" Parameter="giaVe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GioChayChuyenDauTienTrongNgay" Parameter="gioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float" />
+    <Parameter Name="GioChayChuyenCuoiCungTrongNgay" Parameter="gioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" />
+    <Parameter Name="MaTuyenXe" Parameter="maTuyenXe" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.usp_InsertUpdateCHO_NGOI" Method="usp_InsertUpdateCHO_NGOI">
     <Parameter Name="MaChoNgoi" Parameter="maChoNgoi" Type="System.Int32" DbType="Int" />
     <Parameter Name="x" Type="System.Int32" DbType="Int" />
     <Parameter Name="y" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.usp_InsertXE" Method="usp_InsertXE">
-    <Parameter Name="BienSoXe" Parameter="bienSoXe" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="MaTaiXe" Parameter="maTaiXe" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NgayNhap" Parameter="ngayNhap" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="MaLoaiXe" Parameter="maLoaiXe" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TinhTrang" Parameter="tinhTrang" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertUpdateCHUC_NANG" Method="usp_InsertUpdateCHUC_NANG">
@@ -654,6 +654,15 @@
     <Parameter Name="TinhTrang" Parameter="tinhTrang" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.usp_InsertXE" Method="usp_InsertXE">
+    <Parameter Name="BienSoXe" Parameter="bienSoXe" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaTaiXe" Parameter="maTaiXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NgayNhap" Parameter="ngayNhap" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MaLoaiXe" Parameter="maLoaiXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TinhTrang" Parameter="tinhTrang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.usp_SelectCHO_NGOI" Method="usp_SelectCHO_NGOI">
     <Parameter Name="MaChoNgoi" Parameter="maChoNgoi" Type="System.Int32" DbType="Int" />
     <ElementType Name="usp_SelectCHO_NGOIResult">
@@ -661,15 +670,6 @@
       <Column Name="x" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="y" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.usp_UpdateXE" Method="usp_UpdateXE">
-    <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" />
-    <Parameter Name="BienSoXe" Parameter="bienSoXe" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="MaTaiXe" Parameter="maTaiXe" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NgayNhap" Parameter="ngayNhap" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="MaLoaiXe" Parameter="maLoaiXe" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TinhTrang" Parameter="tinhTrang" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_SelectCHO_NGOIsAll" Method="usp_SelectCHO_NGOIsAll">
     <ElementType Name="usp_SelectCHO_NGOIsAllResult">
@@ -809,6 +809,17 @@
       <Column Name="SoGhe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.usp_SelectNHAN_VIEN" Method="usp_SelectNHAN_VIEN">
+    <Parameter Name="HoTen" Parameter="hoTen" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="usp_SelectNHAN_VIENResult">
+      <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoaiNhanVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LuongTrongThang" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.usp_SelectNHAN_VIENsAll" Method="usp_SelectNHAN_VIENsAll">
     <ElementType Name="usp_SelectNHAN_VIENsAllResult">
       <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -873,12 +884,7 @@
   </Function>
   <Function Name="dbo.usp_SelectPHAN_HOI" Method="usp_SelectPHAN_HOI">
     <Parameter Name="MaPhanHoi" Parameter="maPhanHoi" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectPHAN_HOIResult">
-      <Column Name="MaPhanHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaChuyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaPhanHoiKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaNhanVienDuyet" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_SelectPHAN_HOI_KHACH_HANG" Method="usp_SelectPHAN_HOI_KHACH_HANG">
     <Parameter Name="MaPhanHoi" Parameter="maPhanHoi" Type="System.Int32" DbType="Int" />
@@ -896,39 +902,19 @@
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectPHAN_HOIsAll" Method="usp_SelectPHAN_HOIsAll">
-    <ElementType Name="usp_SelectPHAN_HOIsAllResult">
-      <Column Name="MaPhanHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaChuyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaPhanHoiKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaNhanVienDuyet" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_SelectPHAN_HOIsByAndMaChuyen" Method="usp_SelectPHAN_HOIsByAndMaChuyen">
     <Parameter Name="MaChuyen" Parameter="maChuyen" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectPHAN_HOIsByAndMaChuyenResult">
-      <Column Name="MaPhanHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaChuyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaPhanHoiKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaNhanVienDuyet" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_SelectPHAN_HOIsByAndMaNhanVienDuyet" Method="usp_SelectPHAN_HOIsByAndMaNhanVienDuyet">
     <Parameter Name="MaNhanVienDuyet" Parameter="maNhanVienDuyet" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectPHAN_HOIsByAndMaNhanVienDuyetResult">
-      <Column Name="MaPhanHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaChuyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaPhanHoiKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaNhanVienDuyet" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_SelectPHAN_HOIsByAndMaPhanHoiKhach" Method="usp_SelectPHAN_HOIsByAndMaPhanHoiKhach">
     <Parameter Name="MaPhanHoiKhach" Parameter="maPhanHoiKhach" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectPHAN_HOIsByAndMaPhanHoiKhachResult">
-      <Column Name="MaPhanHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaChuyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaPhanHoiKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaNhanVienDuyet" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_SelectPHAN_QUYEN" Method="usp_SelectPHAN_QUYEN">
     <Parameter Name="MaPhanQuyen" Parameter="maPhanQuyen" Type="System.Int32" DbType="Int" />
@@ -1377,16 +1363,5 @@
     <Parameter Name="GioChayChuyenDauTienTrongNgay" Parameter="gioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float" />
     <Parameter Name="GioChayChuyenCuoiCungTrongNgay" Parameter="gioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.usp_SelectNHAN_VIEN" Method="usp_SelectNHAN_VIEN">
-    <Parameter Name="HoTen" Parameter="hoTen" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="usp_SelectNHAN_VIENResult">
-      <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LoaiNhanVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LuongTrongThang" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </ElementType>
   </Function>
 </Database>
