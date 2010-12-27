@@ -81,6 +81,9 @@ namespace DTO
     partial void InsertTINH_TRANG_DAT_CHO(TINH_TRANG_DAT_CHO instance);
     partial void UpdateTINH_TRANG_DAT_CHO(TINH_TRANG_DAT_CHO instance);
     partial void DeleteTINH_TRANG_DAT_CHO(TINH_TRANG_DAT_CHO instance);
+    partial void InsertTINH_TRANG_PHAN_HOI(TINH_TRANG_PHAN_HOI instance);
+    partial void UpdateTINH_TRANG_PHAN_HOI(TINH_TRANG_PHAN_HOI instance);
+    partial void DeleteTINH_TRANG_PHAN_HOI(TINH_TRANG_PHAN_HOI instance);
     partial void InsertTINH_TRANG_XE(TINH_TRANG_XE instance);
     partial void UpdateTINH_TRANG_XE(TINH_TRANG_XE instance);
     partial void DeleteTINH_TRANG_XE(TINH_TRANG_XE instance);
@@ -258,6 +261,14 @@ namespace DTO
 			}
 		}
 		
+		public System.Data.Linq.Table<TINH_TRANG_PHAN_HOI> TINH_TRANG_PHAN_HOIs
+		{
+			get
+			{
+				return this.GetTable<TINH_TRANG_PHAN_HOI>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TINH_TRANG_XE> TINH_TRANG_XEs
 		{
 			get
@@ -289,10 +300,10 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.usp_DeleteXEsByAndTinhTrang")]
-		public int usp_DeleteXEsByAndTinhTrang([Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
+		[Function(Name="dbo.usp_UpdateXE")]
+		public int usp_UpdateXE([Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe, [Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tinhTrang);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maXe, bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -562,19 +573,18 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
+		[Function(Name="dbo.usp_DeleteXEsByAndTinhTrang")]
+		public int usp_DeleteXEsByAndTinhTrang([Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tinhTrang);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[Function(Name="dbo.usp_InsertCHO_NGOI")]
 		public int usp_InsertCHO_NGOI([Parameter(DbType="Int")] System.Nullable<int> x, [Parameter(DbType="Int")] System.Nullable<int> y, [Parameter(Name="MaChoNgoi", DbType="Int")] ref System.Nullable<int> maChoNgoi)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x, y, maChoNgoi);
 			maChoNgoi = ((System.Nullable<int>)(result.GetParameterValue(2)));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_InsertTUYEN_XE")]
-		public int usp_InsertTUYEN_XE([Parameter(Name="TenTuyenXe", DbType="NVarChar(50)")] string tenTuyenXe, [Parameter(Name="KhoangThoiGianDi", DbType="Float")] System.Nullable<double> khoangThoiGianDi, [Parameter(Name="TanSuatChuyen", DbType="Float")] System.Nullable<double> tanSuatChuyen, [Parameter(Name="LuongTaiXe", DbType="Int")] System.Nullable<int> luongTaiXe, [Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVe", DbType="Int")] System.Nullable<int> giaVe, [Parameter(Name="GioChayChuyenDauTienTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenDauTienTrongNgay, [Parameter(Name="GioChayChuyenCuoiCungTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenCuoiCungTrongNgay, [Parameter(Name="MaTuyenXe", DbType="Int")] ref System.Nullable<int> maTuyenXe)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenTuyenXe, khoangThoiGianDi, tanSuatChuyen, luongTaiXe, maTramDi, maTramDen, giaVe, gioChayChuyenDauTienTrongNgay, gioChayChuyenCuoiCungTrongNgay, maTuyenXe);
-			maTuyenXe = ((System.Nullable<int>)(result.GetParameterValue(9)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -713,18 +723,18 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
+		[Function(Name="dbo.usp_InsertTUYEN_XE")]
+		public int usp_InsertTUYEN_XE([Parameter(Name="TenTuyenXe", DbType="NVarChar(50)")] string tenTuyenXe, [Parameter(Name="KhoangThoiGianDi", DbType="Float")] System.Nullable<double> khoangThoiGianDi, [Parameter(Name="TanSuatChuyen", DbType="Float")] System.Nullable<double> tanSuatChuyen, [Parameter(Name="LuongTaiXe", DbType="Int")] System.Nullable<int> luongTaiXe, [Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVe", DbType="Int")] System.Nullable<int> giaVe, [Parameter(Name="GioChayChuyenDauTienTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenDauTienTrongNgay, [Parameter(Name="GioChayChuyenCuoiCungTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenCuoiCungTrongNgay, [Parameter(Name="MaTuyenXe", DbType="Int")] ref System.Nullable<int> maTuyenXe)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenTuyenXe, khoangThoiGianDi, tanSuatChuyen, luongTaiXe, maTramDi, maTramDen, giaVe, gioChayChuyenDauTienTrongNgay, gioChayChuyenCuoiCungTrongNgay, maTuyenXe);
+			maTuyenXe = ((System.Nullable<int>)(result.GetParameterValue(9)));
+			return ((int)(result.ReturnValue));
+		}
+		
 		[Function(Name="dbo.usp_InsertUpdateCHO_NGOI")]
 		public int usp_InsertUpdateCHO_NGOI([Parameter(Name="MaChoNgoi", DbType="Int")] System.Nullable<int> maChoNgoi, [Parameter(DbType="Int")] System.Nullable<int> x, [Parameter(DbType="Int")] System.Nullable<int> y)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChoNgoi, x, y);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_InsertXE")]
-		public int usp_InsertXE([Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang, [Parameter(Name="MaXe", DbType="Int")] ref System.Nullable<int> maXe)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang, maXe);
-			maXe = ((System.Nullable<int>)(result.GetParameterValue(5)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -861,18 +871,19 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
+		[Function(Name="dbo.usp_InsertXE")]
+		public int usp_InsertXE([Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang, [Parameter(Name="MaXe", DbType="Int")] ref System.Nullable<int> maXe)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang, maXe);
+			maXe = ((System.Nullable<int>)(result.GetParameterValue(5)));
+			return ((int)(result.ReturnValue));
+		}
+		
 		[Function(Name="dbo.usp_SelectCHO_NGOI")]
 		public ISingleResult<usp_SelectCHO_NGOIResult> usp_SelectCHO_NGOI([Parameter(Name="MaChoNgoi", DbType="Int")] System.Nullable<int> maChoNgoi)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChoNgoi);
 			return ((ISingleResult<usp_SelectCHO_NGOIResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.usp_UpdateXE")]
-		public int usp_UpdateXE([Parameter(Name="MaXe", DbType="Int")] System.Nullable<int> maXe, [Parameter(Name="BienSoXe", DbType="NVarChar(50)")] string bienSoXe, [Parameter(Name="MaTaiXe", DbType="Int")] System.Nullable<int> maTaiXe, [Parameter(Name="NgayNhap", DbType="DateTime")] System.Nullable<System.DateTime> ngayNhap, [Parameter(Name="MaLoaiXe", DbType="Int")] System.Nullable<int> maLoaiXe, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maXe, bienSoXe, maTaiXe, ngayNhap, maLoaiXe, tinhTrang);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectCHO_NGOIsAll")]
@@ -988,9 +999,9 @@ namespace DTO
 		}
 		
 		[Function(Name="dbo.usp_SelectNHAN_VIEN")]
-		public ISingleResult<usp_SelectNHAN_VIENResult> usp_SelectNHAN_VIEN([Parameter(Name="MaNhanVien", DbType="Int")] System.Nullable<int> maNhanVien)
+		public ISingleResult<usp_SelectNHAN_VIENResult> usp_SelectNHAN_VIEN([Parameter(Name="HoTen", DbType="NVarChar(50)")] string hoTen)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNhanVien);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), hoTen);
 			return ((ISingleResult<usp_SelectNHAN_VIENResult>)(result.ReturnValue));
 		}
 		
@@ -1051,10 +1062,10 @@ namespace DTO
 		}
 		
 		[Function(Name="dbo.usp_SelectPHAN_HOI")]
-		public ISingleResult<usp_SelectPHAN_HOIResult> usp_SelectPHAN_HOI([Parameter(Name="MaPhanHoi", DbType="Int")] System.Nullable<int> maPhanHoi)
+		public int usp_SelectPHAN_HOI([Parameter(Name="MaPhanHoi", DbType="Int")] System.Nullable<int> maPhanHoi)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhanHoi);
-			return ((ISingleResult<usp_SelectPHAN_HOIResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectPHAN_HOI_KHACH_HANG")]
@@ -1072,31 +1083,31 @@ namespace DTO
 		}
 		
 		[Function(Name="dbo.usp_SelectPHAN_HOIsAll")]
-		public ISingleResult<usp_SelectPHAN_HOIsAllResult> usp_SelectPHAN_HOIsAll()
+		public int usp_SelectPHAN_HOIsAll()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_SelectPHAN_HOIsAllResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectPHAN_HOIsByAndMaChuyen")]
-		public ISingleResult<usp_SelectPHAN_HOIsByAndMaChuyenResult> usp_SelectPHAN_HOIsByAndMaChuyen([Parameter(Name="MaChuyen", DbType="Int")] System.Nullable<int> maChuyen)
+		public int usp_SelectPHAN_HOIsByAndMaChuyen([Parameter(Name="MaChuyen", DbType="Int")] System.Nullable<int> maChuyen)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maChuyen);
-			return ((ISingleResult<usp_SelectPHAN_HOIsByAndMaChuyenResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectPHAN_HOIsByAndMaNhanVienDuyet")]
-		public ISingleResult<usp_SelectPHAN_HOIsByAndMaNhanVienDuyetResult> usp_SelectPHAN_HOIsByAndMaNhanVienDuyet([Parameter(Name="MaNhanVienDuyet", DbType="Int")] System.Nullable<int> maNhanVienDuyet)
+		public int usp_SelectPHAN_HOIsByAndMaNhanVienDuyet([Parameter(Name="MaNhanVienDuyet", DbType="Int")] System.Nullable<int> maNhanVienDuyet)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNhanVienDuyet);
-			return ((ISingleResult<usp_SelectPHAN_HOIsByAndMaNhanVienDuyetResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectPHAN_HOIsByAndMaPhanHoiKhach")]
-		public ISingleResult<usp_SelectPHAN_HOIsByAndMaPhanHoiKhachResult> usp_SelectPHAN_HOIsByAndMaPhanHoiKhach([Parameter(Name="MaPhanHoiKhach", DbType="Int")] System.Nullable<int> maPhanHoiKhach)
+		public int usp_SelectPHAN_HOIsByAndMaPhanHoiKhach([Parameter(Name="MaPhanHoiKhach", DbType="Int")] System.Nullable<int> maPhanHoiKhach)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhanHoiKhach);
-			return ((ISingleResult<usp_SelectPHAN_HOIsByAndMaPhanHoiKhachResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.usp_SelectPHAN_QUYEN")]
@@ -2078,8 +2089,6 @@ namespace DTO
 		
 		private System.Nullable<int> _MaTinhTrang;
 		
-		private EntitySet<PHAN_HOI> _PHAN_HOIs;
-		
 		private EntityRef<XE> _XE;
 		
 		private EntityRef<TINH_TRANG_CHUYEN> _TINH_TRANG_CHUYEN;
@@ -2110,7 +2119,6 @@ namespace DTO
 		
 		public CHUYEN_XE()
 		{
-			this._PHAN_HOIs = new EntitySet<PHAN_HOI>(new Action<PHAN_HOI>(this.attach_PHAN_HOIs), new Action<PHAN_HOI>(this.detach_PHAN_HOIs));
 			this._XE = default(EntityRef<XE>);
 			this._TINH_TRANG_CHUYEN = default(EntityRef<TINH_TRANG_CHUYEN>);
 			this._TUYEN_XE = default(EntityRef<TUYEN_XE>);
@@ -2289,19 +2297,6 @@ namespace DTO
 			}
 		}
 		
-		[Association(Name="CHUYEN_XE_PHAN_HOI", Storage="_PHAN_HOIs", ThisKey="MaChuyenXe", OtherKey="MaChuyen")]
-		public EntitySet<PHAN_HOI> PHAN_HOIs
-		{
-			get
-			{
-				return this._PHAN_HOIs;
-			}
-			set
-			{
-				this._PHAN_HOIs.Assign(value);
-			}
-		}
-		
 		[Association(Name="XE_CHUYEN_XE", Storage="_XE", ThisKey="MaXe", OtherKey="MaXe", IsForeignKey=true)]
 		public XE XE
 		{
@@ -2422,18 +2417,6 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_PHAN_HOIs(PHAN_HOI entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUYEN_XE = this;
-		}
-		
-		private void detach_PHAN_HOIs(PHAN_HOI entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUYEN_XE = null;
 		}
 	}
 	
@@ -2979,6 +2962,8 @@ namespace DTO
 		
 		private EntitySet<PHAN_HOI> _PHAN_HOIs;
 		
+		private EntitySet<PHAN_HOI> _PHAN_HOIs1;
+		
 		private EntitySet<TAI_KHOAN> _TAI_KHOANs;
 		
 		private EntitySet<TIN_TUC> _TIN_TUCs;
@@ -3009,6 +2994,7 @@ namespace DTO
 		{
 			this._XEs = new EntitySet<XE>(new Action<XE>(this.attach_XEs), new Action<XE>(this.detach_XEs));
 			this._PHAN_HOIs = new EntitySet<PHAN_HOI>(new Action<PHAN_HOI>(this.attach_PHAN_HOIs), new Action<PHAN_HOI>(this.detach_PHAN_HOIs));
+			this._PHAN_HOIs1 = new EntitySet<PHAN_HOI>(new Action<PHAN_HOI>(this.attach_PHAN_HOIs1), new Action<PHAN_HOI>(this.detach_PHAN_HOIs1));
 			this._TAI_KHOANs = new EntitySet<TAI_KHOAN>(new Action<TAI_KHOAN>(this.attach_TAI_KHOANs), new Action<TAI_KHOAN>(this.detach_TAI_KHOANs));
 			this._TIN_TUCs = new EntitySet<TIN_TUC>(new Action<TIN_TUC>(this.attach_TIN_TUCs), new Action<TIN_TUC>(this.detach_TIN_TUCs));
 			this._TRAM_XEs = new EntitySet<TRAM_XE>(new Action<TRAM_XE>(this.attach_TRAM_XEs), new Action<TRAM_XE>(this.detach_TRAM_XEs));
@@ -3166,6 +3152,19 @@ namespace DTO
 			}
 		}
 		
+		[Association(Name="NHAN_VIEN_PHAN_HOI1", Storage="_PHAN_HOIs1", ThisKey="MaNhanVien", OtherKey="MaTaiXe")]
+		public EntitySet<PHAN_HOI> PHAN_HOIs1
+		{
+			get
+			{
+				return this._PHAN_HOIs1;
+			}
+			set
+			{
+				this._PHAN_HOIs1.Assign(value);
+			}
+		}
+		
 		[Association(Name="NHAN_VIEN_TAI_KHOAN", Storage="_TAI_KHOANs", ThisKey="MaNhanVien", OtherKey="MaNhanVien")]
 		public EntitySet<TAI_KHOAN> TAI_KHOANs
 		{
@@ -3281,6 +3280,18 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.NHAN_VIEN = null;
+		}
+		
+		private void attach_PHAN_HOIs1(PHAN_HOI entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHAN_VIEN1 = this;
+		}
+		
+		private void detach_PHAN_HOIs1(PHAN_HOI entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHAN_VIEN1 = null;
 		}
 		
 		private void attach_TAI_KHOANs(TAI_KHOAN entity)
@@ -3610,15 +3621,15 @@ namespace DTO
 		
 		private int _MaPhanHoi;
 		
-		private System.Nullable<int> _MaChuyen;
+		private System.Nullable<int> _MaTaiXe;
 		
 		private System.Nullable<int> _MaPhanHoiKhach;
 		
 		private System.Nullable<int> _MaNhanVienDuyet;
 		
-		private EntityRef<CHUYEN_XE> _CHUYEN_XE;
-		
 		private EntityRef<NHAN_VIEN> _NHAN_VIEN;
+		
+		private EntityRef<NHAN_VIEN> _NHAN_VIEN1;
 		
 		private EntityRef<PHAN_HOI_KHACH_HANG> _PHAN_HOI_KHACH_HANG;
 		
@@ -3628,8 +3639,8 @@ namespace DTO
     partial void OnCreated();
     partial void OnMaPhanHoiChanging(int value);
     partial void OnMaPhanHoiChanged();
-    partial void OnMaChuyenChanging(System.Nullable<int> value);
-    partial void OnMaChuyenChanged();
+    partial void OnMaTaiXeChanging(System.Nullable<int> value);
+    partial void OnMaTaiXeChanged();
     partial void OnMaPhanHoiKhachChanging(System.Nullable<int> value);
     partial void OnMaPhanHoiKhachChanged();
     partial void OnMaNhanVienDuyetChanging(System.Nullable<int> value);
@@ -3638,8 +3649,8 @@ namespace DTO
 		
 		public PHAN_HOI()
 		{
-			this._CHUYEN_XE = default(EntityRef<CHUYEN_XE>);
 			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
+			this._NHAN_VIEN1 = default(EntityRef<NHAN_VIEN>);
 			this._PHAN_HOI_KHACH_HANG = default(EntityRef<PHAN_HOI_KHACH_HANG>);
 			OnCreated();
 		}
@@ -3664,26 +3675,26 @@ namespace DTO
 			}
 		}
 		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
+		[Column(Storage="_MaTaiXe", DbType="Int")]
+		public System.Nullable<int> MaTaiXe
 		{
 			get
 			{
-				return this._MaChuyen;
+				return this._MaTaiXe;
 			}
 			set
 			{
-				if ((this._MaChuyen != value))
+				if ((this._MaTaiXe != value))
 				{
-					if (this._CHUYEN_XE.HasLoadedOrAssignedValue)
+					if (this._NHAN_VIEN1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnMaChuyenChanging(value);
+					this.OnMaTaiXeChanging(value);
 					this.SendPropertyChanging();
-					this._MaChuyen = value;
-					this.SendPropertyChanged("MaChuyen");
-					this.OnMaChuyenChanged();
+					this._MaTaiXe = value;
+					this.SendPropertyChanged("MaTaiXe");
+					this.OnMaTaiXeChanged();
 				}
 			}
 		}
@@ -3736,40 +3747,6 @@ namespace DTO
 			}
 		}
 		
-		[Association(Name="CHUYEN_XE_PHAN_HOI", Storage="_CHUYEN_XE", ThisKey="MaChuyen", OtherKey="MaChuyenXe", IsForeignKey=true)]
-		public CHUYEN_XE CHUYEN_XE
-		{
-			get
-			{
-				return this._CHUYEN_XE.Entity;
-			}
-			set
-			{
-				CHUYEN_XE previousValue = this._CHUYEN_XE.Entity;
-				if (((previousValue != value) 
-							|| (this._CHUYEN_XE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CHUYEN_XE.Entity = null;
-						previousValue.PHAN_HOIs.Remove(this);
-					}
-					this._CHUYEN_XE.Entity = value;
-					if ((value != null))
-					{
-						value.PHAN_HOIs.Add(this);
-						this._MaChuyen = value.MaChuyenXe;
-					}
-					else
-					{
-						this._MaChuyen = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("CHUYEN_XE");
-				}
-			}
-		}
-		
 		[Association(Name="NHAN_VIEN_PHAN_HOI", Storage="_NHAN_VIEN", ThisKey="MaNhanVienDuyet", OtherKey="MaNhanVien", IsForeignKey=true)]
 		public NHAN_VIEN NHAN_VIEN
 		{
@@ -3800,6 +3777,40 @@ namespace DTO
 						this._MaNhanVienDuyet = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("NHAN_VIEN");
+				}
+			}
+		}
+		
+		[Association(Name="NHAN_VIEN_PHAN_HOI1", Storage="_NHAN_VIEN1", ThisKey="MaTaiXe", OtherKey="MaNhanVien", IsForeignKey=true)]
+		public NHAN_VIEN NHAN_VIEN1
+		{
+			get
+			{
+				return this._NHAN_VIEN1.Entity;
+			}
+			set
+			{
+				NHAN_VIEN previousValue = this._NHAN_VIEN1.Entity;
+				if (((previousValue != value) 
+							|| (this._NHAN_VIEN1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NHAN_VIEN1.Entity = null;
+						previousValue.PHAN_HOIs1.Remove(this);
+					}
+					this._NHAN_VIEN1.Entity = value;
+					if ((value != null))
+					{
+						value.PHAN_HOIs1.Add(this);
+						this._MaTaiXe = value.MaNhanVien;
+					}
+					else
+					{
+						this._MaTaiXe = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("NHAN_VIEN1");
 				}
 			}
 		}
@@ -3871,7 +3882,11 @@ namespace DTO
 		
 		private System.Nullable<System.DateTime> _NgayDang;
 		
+		private System.Nullable<int> _TinhTrang;
+		
 		private EntitySet<PHAN_HOI> _PHAN_HOIs;
+		
+		private EntityRef<TINH_TRANG_PHAN_HOI> _TINH_TRANG_PHAN_HOI;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3883,11 +3898,14 @@ namespace DTO
     partial void OnNoiDungChanged();
     partial void OnNgayDangChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayDangChanged();
+    partial void OnTinhTrangChanging(System.Nullable<int> value);
+    partial void OnTinhTrangChanged();
     #endregion
 		
 		public PHAN_HOI_KHACH_HANG()
 		{
 			this._PHAN_HOIs = new EntitySet<PHAN_HOI>(new Action<PHAN_HOI>(this.attach_PHAN_HOIs), new Action<PHAN_HOI>(this.detach_PHAN_HOIs));
+			this._TINH_TRANG_PHAN_HOI = default(EntityRef<TINH_TRANG_PHAN_HOI>);
 			OnCreated();
 		}
 		
@@ -3951,6 +3969,30 @@ namespace DTO
 			}
 		}
 		
+		[Column(Storage="_TinhTrang", DbType="Int")]
+		public System.Nullable<int> TinhTrang
+		{
+			get
+			{
+				return this._TinhTrang;
+			}
+			set
+			{
+				if ((this._TinhTrang != value))
+				{
+					if (this._TINH_TRANG_PHAN_HOI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._TinhTrang = value;
+					this.SendPropertyChanged("TinhTrang");
+					this.OnTinhTrangChanged();
+				}
+			}
+		}
+		
 		[Association(Name="PHAN_HOI_KHACH_HANG_PHAN_HOI", Storage="_PHAN_HOIs", ThisKey="MaPhanHoi", OtherKey="MaPhanHoiKhach")]
 		public EntitySet<PHAN_HOI> PHAN_HOIs
 		{
@@ -3961,6 +4003,40 @@ namespace DTO
 			set
 			{
 				this._PHAN_HOIs.Assign(value);
+			}
+		}
+		
+		[Association(Name="TINH_TRANG_PHAN_HOI_PHAN_HOI_KHACH_HANG", Storage="_TINH_TRANG_PHAN_HOI", ThisKey="TinhTrang", OtherKey="MaTinhTrang", IsForeignKey=true)]
+		public TINH_TRANG_PHAN_HOI TINH_TRANG_PHAN_HOI
+		{
+			get
+			{
+				return this._TINH_TRANG_PHAN_HOI.Entity;
+			}
+			set
+			{
+				TINH_TRANG_PHAN_HOI previousValue = this._TINH_TRANG_PHAN_HOI.Entity;
+				if (((previousValue != value) 
+							|| (this._TINH_TRANG_PHAN_HOI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TINH_TRANG_PHAN_HOI.Entity = null;
+						previousValue.PHAN_HOI_KHACH_HANGs.Remove(this);
+					}
+					this._TINH_TRANG_PHAN_HOI.Entity = value;
+					if ((value != null))
+					{
+						value.PHAN_HOI_KHACH_HANGs.Add(this);
+						this._TinhTrang = value.MaTinhTrang;
+					}
+					else
+					{
+						this._TinhTrang = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TINH_TRANG_PHAN_HOI");
+				}
 			}
 		}
 		
@@ -4884,6 +4960,120 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.TINH_TRANG_DAT_CHO = null;
+		}
+	}
+	
+	[Table(Name="dbo.TINH_TRANG_PHAN_HOI")]
+	public partial class TINH_TRANG_PHAN_HOI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaTinhTrang;
+		
+		private string _TenTinhTrang;
+		
+		private EntitySet<PHAN_HOI_KHACH_HANG> _PHAN_HOI_KHACH_HANGs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaTinhTrangChanging(int value);
+    partial void OnMaTinhTrangChanged();
+    partial void OnTenTinhTrangChanging(string value);
+    partial void OnTenTinhTrangChanged();
+    #endregion
+		
+		public TINH_TRANG_PHAN_HOI()
+		{
+			this._PHAN_HOI_KHACH_HANGs = new EntitySet<PHAN_HOI_KHACH_HANG>(new Action<PHAN_HOI_KHACH_HANG>(this.attach_PHAN_HOI_KHACH_HANGs), new Action<PHAN_HOI_KHACH_HANG>(this.detach_PHAN_HOI_KHACH_HANGs));
+			OnCreated();
+		}
+		
+		[Column(Storage="_MaTinhTrang", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaTinhTrang
+		{
+			get
+			{
+				return this._MaTinhTrang;
+			}
+			set
+			{
+				if ((this._MaTinhTrang != value))
+				{
+					this.OnMaTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._MaTinhTrang = value;
+					this.SendPropertyChanged("MaTinhTrang");
+					this.OnMaTinhTrangChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTinhTrang", DbType="NVarChar(50)")]
+		public string TenTinhTrang
+		{
+			get
+			{
+				return this._TenTinhTrang;
+			}
+			set
+			{
+				if ((this._TenTinhTrang != value))
+				{
+					this.OnTenTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._TenTinhTrang = value;
+					this.SendPropertyChanged("TenTinhTrang");
+					this.OnTenTinhTrangChanged();
+				}
+			}
+		}
+		
+		[Association(Name="TINH_TRANG_PHAN_HOI_PHAN_HOI_KHACH_HANG", Storage="_PHAN_HOI_KHACH_HANGs", ThisKey="MaTinhTrang", OtherKey="TinhTrang")]
+		public EntitySet<PHAN_HOI_KHACH_HANG> PHAN_HOI_KHACH_HANGs
+		{
+			get
+			{
+				return this._PHAN_HOI_KHACH_HANGs;
+			}
+			set
+			{
+				this._PHAN_HOI_KHACH_HANGs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PHAN_HOI_KHACH_HANGs(PHAN_HOI_KHACH_HANG entity)
+		{
+			this.SendPropertyChanging();
+			entity.TINH_TRANG_PHAN_HOI = this;
+		}
+		
+		private void detach_PHAN_HOI_KHACH_HANGs(PHAN_HOI_KHACH_HANG entity)
+		{
+			this.SendPropertyChanging();
+			entity.TINH_TRANG_PHAN_HOI = null;
 		}
 	}
 	
@@ -7526,86 +7716,6 @@ namespace DTO
 		}
 	}
 	
-	public partial class usp_SelectPHAN_HOIResult
-	{
-		
-		private int _MaPhanHoi;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<int> _MaPhanHoiKhach;
-		
-		private System.Nullable<int> _MaNhanVienDuyet;
-		
-		public usp_SelectPHAN_HOIResult()
-		{
-		}
-		
-		[Column(Storage="_MaPhanHoi", DbType="Int NOT NULL")]
-		public int MaPhanHoi
-		{
-			get
-			{
-				return this._MaPhanHoi;
-			}
-			set
-			{
-				if ((this._MaPhanHoi != value))
-				{
-					this._MaPhanHoi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaPhanHoiKhach", DbType="Int")]
-		public System.Nullable<int> MaPhanHoiKhach
-		{
-			get
-			{
-				return this._MaPhanHoiKhach;
-			}
-			set
-			{
-				if ((this._MaPhanHoiKhach != value))
-				{
-					this._MaPhanHoiKhach = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaNhanVienDuyet", DbType="Int")]
-		public System.Nullable<int> MaNhanVienDuyet
-		{
-			get
-			{
-				return this._MaNhanVienDuyet;
-			}
-			set
-			{
-				if ((this._MaNhanVienDuyet != value))
-				{
-					this._MaNhanVienDuyet = value;
-				}
-			}
-		}
-	}
-	
 	public partial class usp_SelectPHAN_HOI_KHACH_HANGResult
 	{
 		
@@ -7725,326 +7835,6 @@ namespace DTO
 				if ((this._NgayDang != value))
 				{
 					this._NgayDang = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectPHAN_HOIsAllResult
-	{
-		
-		private int _MaPhanHoi;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<int> _MaPhanHoiKhach;
-		
-		private System.Nullable<int> _MaNhanVienDuyet;
-		
-		public usp_SelectPHAN_HOIsAllResult()
-		{
-		}
-		
-		[Column(Storage="_MaPhanHoi", DbType="Int NOT NULL")]
-		public int MaPhanHoi
-		{
-			get
-			{
-				return this._MaPhanHoi;
-			}
-			set
-			{
-				if ((this._MaPhanHoi != value))
-				{
-					this._MaPhanHoi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaPhanHoiKhach", DbType="Int")]
-		public System.Nullable<int> MaPhanHoiKhach
-		{
-			get
-			{
-				return this._MaPhanHoiKhach;
-			}
-			set
-			{
-				if ((this._MaPhanHoiKhach != value))
-				{
-					this._MaPhanHoiKhach = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaNhanVienDuyet", DbType="Int")]
-		public System.Nullable<int> MaNhanVienDuyet
-		{
-			get
-			{
-				return this._MaNhanVienDuyet;
-			}
-			set
-			{
-				if ((this._MaNhanVienDuyet != value))
-				{
-					this._MaNhanVienDuyet = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectPHAN_HOIsByAndMaChuyenResult
-	{
-		
-		private int _MaPhanHoi;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<int> _MaPhanHoiKhach;
-		
-		private System.Nullable<int> _MaNhanVienDuyet;
-		
-		public usp_SelectPHAN_HOIsByAndMaChuyenResult()
-		{
-		}
-		
-		[Column(Storage="_MaPhanHoi", DbType="Int NOT NULL")]
-		public int MaPhanHoi
-		{
-			get
-			{
-				return this._MaPhanHoi;
-			}
-			set
-			{
-				if ((this._MaPhanHoi != value))
-				{
-					this._MaPhanHoi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaPhanHoiKhach", DbType="Int")]
-		public System.Nullable<int> MaPhanHoiKhach
-		{
-			get
-			{
-				return this._MaPhanHoiKhach;
-			}
-			set
-			{
-				if ((this._MaPhanHoiKhach != value))
-				{
-					this._MaPhanHoiKhach = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaNhanVienDuyet", DbType="Int")]
-		public System.Nullable<int> MaNhanVienDuyet
-		{
-			get
-			{
-				return this._MaNhanVienDuyet;
-			}
-			set
-			{
-				if ((this._MaNhanVienDuyet != value))
-				{
-					this._MaNhanVienDuyet = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectPHAN_HOIsByAndMaNhanVienDuyetResult
-	{
-		
-		private int _MaPhanHoi;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<int> _MaPhanHoiKhach;
-		
-		private System.Nullable<int> _MaNhanVienDuyet;
-		
-		public usp_SelectPHAN_HOIsByAndMaNhanVienDuyetResult()
-		{
-		}
-		
-		[Column(Storage="_MaPhanHoi", DbType="Int NOT NULL")]
-		public int MaPhanHoi
-		{
-			get
-			{
-				return this._MaPhanHoi;
-			}
-			set
-			{
-				if ((this._MaPhanHoi != value))
-				{
-					this._MaPhanHoi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaPhanHoiKhach", DbType="Int")]
-		public System.Nullable<int> MaPhanHoiKhach
-		{
-			get
-			{
-				return this._MaPhanHoiKhach;
-			}
-			set
-			{
-				if ((this._MaPhanHoiKhach != value))
-				{
-					this._MaPhanHoiKhach = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaNhanVienDuyet", DbType="Int")]
-		public System.Nullable<int> MaNhanVienDuyet
-		{
-			get
-			{
-				return this._MaNhanVienDuyet;
-			}
-			set
-			{
-				if ((this._MaNhanVienDuyet != value))
-				{
-					this._MaNhanVienDuyet = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectPHAN_HOIsByAndMaPhanHoiKhachResult
-	{
-		
-		private int _MaPhanHoi;
-		
-		private System.Nullable<int> _MaChuyen;
-		
-		private System.Nullable<int> _MaPhanHoiKhach;
-		
-		private System.Nullable<int> _MaNhanVienDuyet;
-		
-		public usp_SelectPHAN_HOIsByAndMaPhanHoiKhachResult()
-		{
-		}
-		
-		[Column(Storage="_MaPhanHoi", DbType="Int NOT NULL")]
-		public int MaPhanHoi
-		{
-			get
-			{
-				return this._MaPhanHoi;
-			}
-			set
-			{
-				if ((this._MaPhanHoi != value))
-				{
-					this._MaPhanHoi = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaChuyen", DbType="Int")]
-		public System.Nullable<int> MaChuyen
-		{
-			get
-			{
-				return this._MaChuyen;
-			}
-			set
-			{
-				if ((this._MaChuyen != value))
-				{
-					this._MaChuyen = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaPhanHoiKhach", DbType="Int")]
-		public System.Nullable<int> MaPhanHoiKhach
-		{
-			get
-			{
-				return this._MaPhanHoiKhach;
-			}
-			set
-			{
-				if ((this._MaPhanHoiKhach != value))
-				{
-					this._MaPhanHoiKhach = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_MaNhanVienDuyet", DbType="Int")]
-		public System.Nullable<int> MaNhanVienDuyet
-		{
-			get
-			{
-				return this._MaNhanVienDuyet;
-			}
-			set
-			{
-				if ((this._MaNhanVienDuyet != value))
-				{
-					this._MaNhanVienDuyet = value;
 				}
 			}
 		}
