@@ -121,7 +121,9 @@
       <Column Name="MaPhanHoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NoiDung" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="NgayDang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TinhTrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="PHAN_HOI_KHACH_HANG_PHAN_HOI" Member="PHAN_HOIs" ThisKey="MaPhanHoi" OtherKey="MaPhanHoiKhach" Type="PHAN_HOI" />
+      <Association Name="TINH_TRANG_PHAN_HOI_PHAN_HOI_KHACH_HANG" Member="TINH_TRANG_PHAN_HOI" ThisKey="TinhTrang" OtherKey="MaTinhTrang" Type="TINH_TRANG_PHAN_HOI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PHAN_QUYEN" Member="PHAN_QUYENs">
@@ -168,6 +170,13 @@
       <Column Name="MaTinhTrangDatCho" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenTinhTrangDatCho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="TINH_TRANG_DAT_CHO_DAT_CHO" Member="DAT_CHOs" ThisKey="MaTinhTrangDatCho" OtherKey="TinhTrang" Type="DAT_CHO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TINH_TRANG_PHAN_HOI" Member="TINH_TRANG_PHAN_HOIs">
+    <Type Name="TINH_TRANG_PHAN_HOI">
+      <Column Name="MaTinhTrang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTinhTrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TINH_TRANG_PHAN_HOI_PHAN_HOI_KHACH_HANG" Member="PHAN_HOI_KHACH_HANGs" ThisKey="MaTinhTrang" OtherKey="TinhTrang" Type="PHAN_HOI_KHACH_HANG" />
     </Type>
   </Table>
   <Table Name="dbo.TINH_TRANG_XE" Member="TINH_TRANG_XEs">
@@ -800,17 +809,6 @@
       <Column Name="SoGhe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_SelectNHAN_VIEN" Method="usp_SelectNHAN_VIEN">
-    <Parameter Name="MaNhanVien" Parameter="maNhanVien" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectNHAN_VIENResult">
-      <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LoaiNhanVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LuongTrongThang" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_SelectNHAN_VIENsAll" Method="usp_SelectNHAN_VIENsAll">
     <ElementType Name="usp_SelectNHAN_VIENsAllResult">
       <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -1379,5 +1377,16 @@
     <Parameter Name="GioChayChuyenDauTienTrongNgay" Parameter="gioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float" />
     <Parameter Name="GioChayChuyenCuoiCungTrongNgay" Parameter="gioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectNHAN_VIEN" Method="usp_SelectNHAN_VIEN">
+    <Parameter Name="HoTen" Parameter="hoTen" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="usp_SelectNHAN_VIENResult">
+      <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoaiNhanVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LuongTrongThang" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
