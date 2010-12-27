@@ -61,6 +61,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\DieuHanhTram\PhanHoi.aspx.cs">
+      <DependentUpon>PhanHoi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\DieuHanhTram\PhanHoi.aspx.designer.cs">
+      <DependentUpon>PhanHoi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\ChiTietTuyen.aspx.cs">
       <DependentUpon>ChiTietTuyen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -184,12 +191,26 @@
     <Compile Include="WUC\ChuyenXe\wucTimChuyen.ascx.designer.cs">
       <DependentUpon>wucTimChuyen.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WUC\PhanHoi\wucPhanHoi.ascx.cs">
-      <DependentUpon>wucPhanHoi.ascx</DependentUpon>
+    <Compile Include="WUC\NhanVien\wucThemNhanVien.ascx.cs">
+      <DependentUpon>wucThemNhanVien.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WUC\PhanHoi\wucPhanHoi.ascx.designer.cs">
-      <DependentUpon>wucPhanHoi.ascx</DependentUpon>
+    <Compile Include="WUC\NhanVien\wucThemNhanVien.ascx.designer.cs">
+      <DependentUpon>wucThemNhanVien.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\PhanHoi\wucDuyetPhanHoi.ascx.cs">
+      <DependentUpon>wucDuyetPhanHoi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\PhanHoi\wucDuyetPhanHoi.ascx.designer.cs">
+      <DependentUpon>wucDuyetPhanHoi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\PhanHoi\wucThemPhanHoi.ascx.cs">
+      <DependentUpon>wucThemPhanHoi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\PhanHoi\wucThemPhanHoi.ascx.designer.cs">
+      <DependentUpon>wucThemPhanHoi.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\TuyenXe\wucCapNhatTuyen.ascx.cs">
       <DependentUpon>wucCapNhatTuyen.ascx</DependentUpon>
@@ -281,6 +302,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\DieuHanhTram\PhanHoi.aspx" />
     <Content Include="App_Data\CongTyLuHanh.mdf">
     </Content>
     <Content Include="App_Data\CongTyLuHanh_log.ldf">
@@ -307,7 +329,9 @@
     <Content Include="WUC\ChuyenXe\wucChiTietChuyen.ascx" />
     <Content Include="WUC\ChuyenXe\wucThemChuyenXe.ascx" />
     <Content Include="WUC\ChuyenXe\wucTimChuyen.ascx" />
-    <Content Include="WUC\PhanHoi\wucPhanHoi.ascx" />
+    <Content Include="WUC\NhanVien\wucThemNhanVien.ascx" />
+    <Content Include="WUC\PhanHoi\wucDuyetPhanHoi.ascx" />
+    <Content Include="WUC\PhanHoi\wucThemPhanHoi.ascx" />
     <Content Include="WUC\TuyenXe\wucCapNhatTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucChiTietTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucThemTuyen.ascx" />
