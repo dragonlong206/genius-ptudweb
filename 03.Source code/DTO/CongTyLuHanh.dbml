@@ -1297,12 +1297,6 @@
     <Parameter Name="MaNhanVienDuyet" Parameter="maNhanVienDuyet" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_UpdatePHAN_HOI_KHACH_HANG" Method="usp_UpdatePHAN_HOI_KHACH_HANG">
-    <Parameter Name="MaPhanHoi" Parameter="maPhanHoi" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NText" />
-    <Parameter Name="NgayDang" Parameter="ngayDang" Type="System.DateTime" DbType="DateTime" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.usp_UpdatePHAN_QUYEN" Method="usp_UpdatePHAN_QUYEN">
     <Parameter Name="MaPhanQuyen" Parameter="maPhanQuyen" Type="System.Int32" DbType="Int" />
     <Parameter Name="MaLoaiNhanVien" Parameter="maLoaiNhanVien" Type="System.Int32" DbType="Int" />
@@ -1362,6 +1356,24 @@
     <Parameter Name="GiaVe" Parameter="giaVe" Type="System.Int32" DbType="Int" />
     <Parameter Name="GioChayChuyenDauTienTrongNgay" Parameter="gioChayChuyenDauTienTrongNgay" Type="System.Double" DbType="Float" />
     <Parameter Name="GioChayChuyenCuoiCungTrongNgay" Parameter="gioChayChuyenCuoiCungTrongNgay" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectTaiXesAll" Method="usp_SelectTaiXesAll">
+    <ElementType Name="usp_SelectTaiXesAllResult">
+      <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_UpdatePHAN_HOI_KHACH_HANG" Method="usp_UpdatePHAN_HOI_KHACH_HANG">
+    <Parameter Name="MaPhanHoi" Parameter="maPhanHoi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NText" />
+    <Parameter Name="NgayDang" Parameter="ngayDang" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TinhTrang" Parameter="tinhTrang" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdateTinhTrangPhanHoi" Method="usp_UpdateTinhTrangPhanHoi">
+    <Parameter Name="MaPhanHoi" Parameter="maPhanHoi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaTinhTrang" Parameter="maTinhTrang" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

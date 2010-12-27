@@ -65,6 +65,10 @@ namespace DAO
             return null;
         }
 
-
+        public List<usp_SelectTaiXesAllResult> SelectTaiXesAll()
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            return db.usp_SelectTaiXesAll().ToList();
+        }
     }
 }

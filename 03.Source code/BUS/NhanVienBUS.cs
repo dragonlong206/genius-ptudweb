@@ -21,6 +21,11 @@ namespace BUS
             return _nhanVienDAO.LayTenNhanVien(maNhanVien);
         }
 
+        public List<usp_SelectTaiXesAllResult> SelectTaiXesAll()
+        {
+            return _nhanVienDAO.SelectTaiXesAll();
+        }
+
         public List<usp_SelectNHAN_VIENResult> TimKiemNhanVien(string HoTen)
         {
             return _nhanVienDAO.TimKiemNhanVien(HoTen);

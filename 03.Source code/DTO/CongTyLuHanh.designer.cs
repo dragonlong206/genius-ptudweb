@@ -1390,13 +1390,6 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.usp_UpdatePHAN_HOI_KHACH_HANG")]
-		public int usp_UpdatePHAN_HOI_KHACH_HANG([Parameter(Name="MaPhanHoi", DbType="Int")] System.Nullable<int> maPhanHoi, [Parameter(Name="NoiDung", DbType="NText")] string noiDung, [Parameter(Name="NgayDang", DbType="DateTime")] System.Nullable<System.DateTime> ngayDang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhanHoi, noiDung, ngayDang);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[Function(Name="dbo.usp_UpdatePHAN_QUYEN")]
 		public int usp_UpdatePHAN_QUYEN([Parameter(Name="MaPhanQuyen", DbType="Int")] System.Nullable<int> maPhanQuyen, [Parameter(Name="MaLoaiNhanVien", DbType="Int")] System.Nullable<int> maLoaiNhanVien, [Parameter(Name="MaChucNang", DbType="Int")] System.Nullable<int> maChucNang)
 		{
@@ -1450,6 +1443,27 @@ namespace DTO
 		public int usp_UpdateTUYEN_XE([Parameter(Name="MaTuyenXe", DbType="Int")] System.Nullable<int> maTuyenXe, [Parameter(Name="TenTuyenXe", DbType="NVarChar(50)")] string tenTuyenXe, [Parameter(Name="KhoangThoiGianDi", DbType="Float")] System.Nullable<double> khoangThoiGianDi, [Parameter(Name="TanSuatChuyen", DbType="Float")] System.Nullable<double> tanSuatChuyen, [Parameter(Name="LuongTaiXe", DbType="Int")] System.Nullable<int> luongTaiXe, [Parameter(Name="MaTramDi", DbType="Int")] System.Nullable<int> maTramDi, [Parameter(Name="MaTramDen", DbType="Int")] System.Nullable<int> maTramDen, [Parameter(Name="GiaVe", DbType="Int")] System.Nullable<int> giaVe, [Parameter(Name="GioChayChuyenDauTienTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenDauTienTrongNgay, [Parameter(Name="GioChayChuyenCuoiCungTrongNgay", DbType="Float")] System.Nullable<double> gioChayChuyenCuoiCungTrongNgay)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTuyenXe, tenTuyenXe, khoangThoiGianDi, tanSuatChuyen, luongTaiXe, maTramDi, maTramDen, giaVe, gioChayChuyenDauTienTrongNgay, gioChayChuyenCuoiCungTrongNgay);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SelectTaiXesAll")]
+		public ISingleResult<usp_SelectTaiXesAllResult> usp_SelectTaiXesAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_SelectTaiXesAllResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_UpdatePHAN_HOI_KHACH_HANG")]
+		public int usp_UpdatePHAN_HOI_KHACH_HANG([Parameter(Name="MaPhanHoi", DbType="Int")] System.Nullable<int> maPhanHoi, [Parameter(Name="NoiDung", DbType="NText")] string noiDung, [Parameter(Name="NgayDang", DbType="DateTime")] System.Nullable<System.DateTime> ngayDang, [Parameter(Name="TinhTrang", DbType="Int")] System.Nullable<int> tinhTrang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhanHoi, noiDung, ngayDang, tinhTrang);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_UpdateTinhTrangPhanHoi")]
+		public int usp_UpdateTinhTrangPhanHoi([Parameter(Name="MaPhanHoi", DbType="Int")] System.Nullable<int> maPhanHoi, [Parameter(Name="MaTinhTrang", DbType="Int")] System.Nullable<int> maTinhTrang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhanHoi, maTinhTrang);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -11099,6 +11113,50 @@ namespace DTO
 				if ((this._TinhTrang != value))
 				{
 					this._TinhTrang = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectTaiXesAllResult
+	{
+		
+		private int _MaNhanVien;
+		
+		private string _HoTen;
+		
+		public usp_SelectTaiXesAllResult()
+		{
+		}
+		
+		[Column(Storage="_MaNhanVien", DbType="Int NOT NULL")]
+		public int MaNhanVien
+		{
+			get
+			{
+				return this._MaNhanVien;
+			}
+			set
+			{
+				if ((this._MaNhanVien != value))
+				{
+					this._MaNhanVien = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_HoTen", DbType="NVarChar(50)")]
+		public string HoTen
+		{
+			get
+			{
+				return this._HoTen;
+			}
+			set
+			{
+				if ((this._HoTen != value))
+				{
+					this._HoTen = value;
 				}
 			}
 		}
