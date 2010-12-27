@@ -35,5 +35,10 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
             TuyenXeDTO.GioChayChuyenCuoiCungTrongNgay = float.Parse(txtGioChayChuyenCuoi.Text);
             TuyenXeBUS.ThemTuyenXe(TuyenXeDTO);
         }
+
+        protected void btnNhapLai_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
