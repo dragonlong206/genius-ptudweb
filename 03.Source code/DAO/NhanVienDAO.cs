@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Linq;
 using DTO;
 
 namespace DAO
@@ -12,20 +13,16 @@ namespace DAO
 
         //Thêm một nhân viên mới
         public void ThemNhanVienMoi(/*các tham số*/)
-        {    
+        {
             
         }
 
-        //Tìm tiếm nhân viên theo mã nhân viên
-        public NHAN_VIEN TimKiemNhanVien(int maNhanVien)
+        //Tìm tiếm nhân viên theo tên nhân viên
+        public List<usp_SelectNHAN_VIENResult> TimKiemNhanVien(String HoTen)
         {
-            return null;
-        }
-
-        //Tìm kiếm nhân viên theo địa chỉ email (Overload TimKiemNhanVien)
-        public NHAN_VIEN TimKiemNhanVien(string email)
-        {
-            return null;    
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            ISingleResult<usp_SelectNHAN_VIENResult> dsNhanVien = db.usp_SelectNHAN_VIEN(HoTen);
+            return dsNhanVien.ToList();
         }
 
         //Cập nhật nhân viên
