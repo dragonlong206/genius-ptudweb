@@ -7,7 +7,6 @@
 <head runat="server">
     <title></title>
     <link href="~/App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />      
-    <link href="Css/Style.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
     <form id="MainForm" runat="server">
@@ -28,6 +27,7 @@
                     <asp:LinkButton ID="btnXinChao" runat="server" ForeColor="White" 
                         Visible="False">LinkButton</asp:LinkButton>
                     &nbsp&nbsp|&nbsp&nbsp
+                    
                     <asp:LinkButton ID="btnQuenMatKhau" runat="server" ForeColor="White">Quên mật khẩu</asp:LinkButton>
                     <asp:LinkButton ID="btnDangXuat" runat="server" ForeColor="White" 
                         Visible="False" onclick="btnDangXuat_Click">Đăng xuất</asp:LinkButton>
