@@ -35,5 +35,29 @@ namespace BUS
         {
             return _taiKhoanDAO.LayMaNhanVien(userName, password);
         }
+        public bool KiemTraTonTaiEmail(string Email)
+        {
+            return _taiKhoanDAO.KiemTraTonTaiEmail(Email);
+        }
+
+        public void DoiMatKhau(int MaTaiKhoan, string PasswordMoi)
+        {
+            _taiKhoanDAO.DoiMatKhau(MaTaiKhoan, PasswordMoi);
+        }
+
+        public int LayMaTaiKhoan(string username)
+        {
+            return _taiKhoanDAO.LayMaTaiKhoan(username);
+        }
+
+        public string LayMatKhauTheoMaTaiKhoan(int MaTaiKhoan)
+        {
+            return _taiKhoanDAO.LayMatKhauTheoMaTaiKhoan(MaTaiKhoan);
+        }
+
+        public TAI_KHOAN LayThongTinTaiKhoanTheoMaTaiKhoan(int MaTaiKhoan)
+        {
+            return _taiKhoanDAO.LayThongTinTaiKhoanTheoMaTaiKhoan(MaTaiKhoan);
+        }
     }
 }

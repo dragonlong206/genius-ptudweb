@@ -83,5 +83,52 @@ namespace DAO
 
             return -1;
         }
+        public int LayMaTaiKhoan(string username)
+        {
+            var KetQua = (from tk in _context.TAI_KHOANs
+                          where (tk.Username == username)
+                          select tk.MaTaiKhoan).ToList();
+            if (KetQua.Count > 0)
+            {
+                return KetQua[0];
+            }
+            return -1;
+        }
+
+        public string LayMatKhauTheoMaTaiKhoan(int MaTaiKhoan)
+        {
+            var KetQua = (from tk in _context.TAI_KHOANs
+                          where (tk.MaTaiKhoan == MaTaiKhoan)
+                          select tk.Password).ToList();
+            if (KetQua.Count > 0)
+            {
+                return KetQua[0];
+            }
+            return "";
+        }
+        public bool KiemTraTonTaiEmail(string Email)
+        {
+            bool KiemTra = false;
+            var TaiKhoan = from tk in _context.TAI_KHOANs where tk.Email == Email select tk;
+            if (TaiKhoan != null)
+            {
+                return true;
+            }
+            return KiemTra;
+        }
+
+        public bool DoiMatKhau(int MaTaiKhoan, string passwordMoi)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            db.usp_UpdateTAI_KHOAN_MAT_KHAU(MaTaiKhoan, passwordMoi);
+            return false;
+        }
+
+        public TAI_KHOAN LayThongTinTaiKhoanTheoMaTaiKhoan(int MaTaiKhoan)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            var tk = db.usp_SelectTAI_KHOAN(MaTaiKhoan);
+            return (TAI_KHOAN)tk;
+        }
     }
 }

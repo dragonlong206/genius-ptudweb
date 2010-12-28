@@ -70,5 +70,20 @@ namespace DAO
             CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
             return db.usp_SelectTaiXesAll().ToList();
         }
+        public NHAN_VIEN LayThongTinNhanVienTheoMaNhanVien(int MaNhanVien)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            NHAN_VIEN NhanVien = (from nv in db.NHAN_VIENs
+                                  where (nv.MaNhanVien == MaNhanVien)
+                                  select nv).Single();
+            return NhanVien;
+        }
+
+        public void CapNhatThongTin(NHAN_VIEN nv)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            db.usp_UpdateNHAN_VIEN(nv.MaNhanVien, nv.HoTen, nv.DienThoai, nv.DiaChi);
+
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="CongTyLuHanh" Class="CongTyLuHanhDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\CongTyLuHanh.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="CongTyLuHanhConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=&quot;C:\Documents and Settings\NgocNhi\Desktop\PTUDW\PTUDW_CTLH_C1\App_Data\CongTyLuHanh.mdf&quot;;Integrated Security=True;User Instance=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="CongTyLuHanhConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHO_NGOI" Member="CHO_NGOIs">
     <Type Name="CHO_NGOI">
       <Column Name="MaChoNgoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1276,15 +1276,6 @@
     <Parameter Name="SoGhe" Parameter="soGhe" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_UpdateNHAN_VIEN" Method="usp_UpdateNHAN_VIEN">
-    <Parameter Name="MaNhanVien" Parameter="maNhanVien" Type="System.Int32" DbType="Int" />
-    <Parameter Name="HoTen" Parameter="hoTen" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DienThoai" Parameter="dienThoai" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="LoaiNhanVien" Parameter="loaiNhanVien" Type="System.Int32" DbType="Int" />
-    <Parameter Name="LuongTrongThang" Parameter="luongTrongThang" Type="System.Double" DbType="Float" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.usp_UpdatePAGE" Method="usp_UpdatePAGE">
     <Parameter Name="MaTrang" Parameter="maTrang" Type="System.Int32" DbType="Int" />
     <Parameter Name="Url" Parameter="url" Type="System.String" DbType="VarChar(50)" />
@@ -1374,6 +1365,18 @@
   <Function Name="dbo.usp_UpdateTinhTrangPhanHoi" Method="usp_UpdateTinhTrangPhanHoi">
     <Parameter Name="MaPhanHoi" Parameter="maPhanHoi" Type="System.Int32" DbType="Int" />
     <Parameter Name="MaTinhTrang" Parameter="maTinhTrang" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdateTAI_KHOAN_MAT_KHAU" Method="usp_UpdateTAI_KHOAN_MAT_KHAU">
+    <Parameter Name="MaTaiKhoan" Parameter="maTaiKhoan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdateNHAN_VIEN" Method="usp_UpdateNHAN_VIEN">
+    <Parameter Name="MaNhanVien" Parameter="maNhanVien" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HoTen" Parameter="hoTen" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DienThoai" Parameter="dienThoai" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

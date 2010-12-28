@@ -96,7 +96,7 @@ namespace DTO
     #endregion
 		
 		public CongTyLuHanhDataContext() : 
-				base(global::DTO.Properties.Settings.Default.CongTyLuHanhConnectionString, mappingSource)
+				base(global::DTO.Properties.Settings.Default.CongTyLuHanhConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1369,13 +1369,6 @@ namespace DTO
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.usp_UpdateNHAN_VIEN")]
-		public int usp_UpdateNHAN_VIEN([Parameter(Name="MaNhanVien", DbType="Int")] System.Nullable<int> maNhanVien, [Parameter(Name="HoTen", DbType="NVarChar(50)")] string hoTen, [Parameter(Name="DienThoai", DbType="NVarChar(50)")] string dienThoai, [Parameter(Name="DiaChi", DbType="NVarChar(50)")] string diaChi, [Parameter(Name="LoaiNhanVien", DbType="Int")] System.Nullable<int> loaiNhanVien, [Parameter(Name="LuongTrongThang", DbType="Float")] System.Nullable<double> luongTrongThang)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNhanVien, hoTen, dienThoai, diaChi, loaiNhanVien, luongTrongThang);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[Function(Name="dbo.usp_UpdatePAGE")]
 		public int usp_UpdatePAGE([Parameter(Name="MaTrang", DbType="Int")] System.Nullable<int> maTrang, [Parameter(Name="Url", DbType="VarChar(50)")] string url)
 		{
@@ -1464,6 +1457,20 @@ namespace DTO
 		public int usp_UpdateTinhTrangPhanHoi([Parameter(Name="MaPhanHoi", DbType="Int")] System.Nullable<int> maPhanHoi, [Parameter(Name="MaTinhTrang", DbType="Int")] System.Nullable<int> maTinhTrang)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhanHoi, maTinhTrang);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_UpdateTAI_KHOAN_MAT_KHAU")]
+		public int usp_UpdateTAI_KHOAN_MAT_KHAU([Parameter(Name="MaTaiKhoan", DbType="Int")] System.Nullable<int> maTaiKhoan, [Parameter(Name="Password", DbType="NVarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maTaiKhoan, password);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_UpdateNHAN_VIEN")]
+		public int usp_UpdateNHAN_VIEN([Parameter(Name="MaNhanVien", DbType="Int")] System.Nullable<int> maNhanVien, [Parameter(Name="HoTen", DbType="NVarChar(50)")] string hoTen, [Parameter(Name="DienThoai", DbType="NVarChar(50)")] string dienThoai, [Parameter(Name="DiaChi", DbType="NVarChar(50)")] string diaChi)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNhanVien, hoTen, dienThoai, diaChi);
 			return ((int)(result.ReturnValue));
 		}
 	}
