@@ -17,7 +17,13 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblThongBao.Visible = false;
+        }
 
+        protected void fvThemNhanVien_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            lblThongBao.Text = "Đã thêm thành công một nhân viên!";
+            lblThongBao.Visible = true;
         }
     }
 }

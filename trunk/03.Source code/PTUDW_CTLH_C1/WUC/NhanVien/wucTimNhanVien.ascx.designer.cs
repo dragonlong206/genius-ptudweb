@@ -68,6 +68,15 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien {
         protected global::System.Web.UI.WebControls.ValidationSummary vldThongBaoLoi;
         
         /// <summary>
+        /// gvNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvNhanVien;
+        
+        /// <summary>
         /// lblKetQua control.
         /// </summary>
         /// <remarks>
@@ -77,12 +86,21 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien {
         protected global::System.Web.UI.WebControls.Label lblKetQua;
         
         /// <summary>
-        /// gvNhanVien control.
+        /// ldsNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvNhanVien;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsNhanVien;
+        
+        /// <summary>
+        /// ldsLoaiNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsLoaiNhanVien;
     }
 }
