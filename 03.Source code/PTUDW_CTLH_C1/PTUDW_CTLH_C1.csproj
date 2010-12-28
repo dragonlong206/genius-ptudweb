@@ -303,11 +303,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administration\DieuHanhTram\PhanHoi.aspx" />
-    <Content Include="App_Data\CongTyLuHanh.mdf">
-    </Content>
-    <Content Include="App_Data\CongTyLuHanh_log.ldf">
-      <DependentUpon>CongTyLuHanh.mdf</DependentUpon>
-    </Content>
     <Content Include="Common\ChiTietTuyen.aspx" />
     <Content Include="Common\DatVe.aspx" />
     <Content Include="Common\GioiThieu.aspx" />
@@ -339,6 +334,7 @@
     <Content Include="WUC\TuyenXe\wucTimTuyenNangCao.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="WUC\Xe\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
