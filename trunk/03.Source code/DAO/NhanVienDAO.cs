@@ -85,7 +85,6 @@ namespace DAO
             db.usp_UpdateNHAN_VIEN(nv.MaNhanVien, nv.HoTen, nv.DienThoai, nv.DiaChi);
 
         }
-<<<<<<< .mine
 
         public List<NHAN_VIEN> LayDSTaiXeChuaPhanCong()
         {
@@ -93,13 +92,11 @@ namespace DAO
             var KQ = from nv in db.NHAN_VIENs where (!(from xe in db.XEs select xe.MaTaiXe).Contains(nv.MaNhanVien) && nv.LoaiNhanVien==1) select nv;
             return KQ.ToList() ;
         }
-=======
 
         public List<usp_SelectNhanVienLaDieuHanhTramResult> SelectNhanVienLaDieuHanhTramResult()
         {
             CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
             return db.usp_SelectNhanVienLaDieuHanhTram().ToList();
         }
->>>>>>> .r86
     }
 }
