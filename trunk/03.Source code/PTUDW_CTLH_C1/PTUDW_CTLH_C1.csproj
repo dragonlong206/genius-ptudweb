@@ -282,6 +282,20 @@
     <Compile Include="WUC\PhanHoi\wucThemPhanHoi.ascx.designer.cs">
       <DependentUpon>wucThemPhanHoi.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\TaiKhoan\ThemTaiKhoan.ascx.cs">
+      <DependentUpon>ThemTaiKhoan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\TaiKhoan\ThemTaiKhoan.ascx.designer.cs">
+      <DependentUpon>ThemTaiKhoan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\TaiKhoan\XoaTaiKhoan.ascx.cs">
+      <DependentUpon>XoaTaiKhoan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\TaiKhoan\XoaTaiKhoan.ascx.designer.cs">
+      <DependentUpon>XoaTaiKhoan.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\TinTuc\wucQuanLyTinTuc.ascx.cs">
       <DependentUpon>wucQuanLyTinTuc.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,6 +434,8 @@
     <Content Include="WUC\NhanVien\wucTimNhanVien.ascx" />
     <Content Include="WUC\PhanHoi\wucDuyetPhanHoi.ascx" />
     <Content Include="WUC\PhanHoi\wucThemPhanHoi.ascx" />
+    <Content Include="WUC\TaiKhoan\ThemTaiKhoan.ascx" />
+    <Content Include="WUC\TaiKhoan\XoaTaiKhoan.ascx" />
     <Content Include="WUC\TinTuc\wucQuanLyTinTuc.ascx" />
     <Content Include="WUC\TuyenXe\wucCapNhatTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucChiTietTuyen.ascx" />
@@ -445,7 +461,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3604</DevelopmentServerPort>
+          <DevelopmentServerPort>54371</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
