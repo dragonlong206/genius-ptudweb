@@ -14,13 +14,13 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien {
     public partial class wucThemNhanVien {
         
         /// <summary>
-        /// lblThemNhanVien control.
+        /// ToolkitScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblThemNhanVien;
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
         
         /// <summary>
         /// ldsLoaiNhanVien control.
@@ -32,21 +32,39 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien {
         protected global::System.Web.UI.WebControls.LinqDataSource ldsLoaiNhanVien;
         
         /// <summary>
-        /// ldsThemNhanVien control.
+        /// ldsNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource ldsThemNhanVien;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsNhanVien;
         
         /// <summary>
-        /// DetailsView1 control.
+        /// fvThemNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
+        protected global::System.Web.UI.WebControls.FormView fvThemNhanVien;
+        
+        /// <summary>
+        /// vdsThongBaoLoi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vdsThongBaoLoi;
+        
+        /// <summary>
+        /// lblThongBao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblThongBao;
     }
 }

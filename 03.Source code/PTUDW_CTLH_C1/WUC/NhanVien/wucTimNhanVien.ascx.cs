@@ -20,27 +20,30 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblKetQua.Visible = false;
         }
 
         protected void btnTim_Click(object sender, EventArgs e)
         {
-            string HoTen = txtHoTen.Text.ToString();
-            NhanVienBUS nvBUS = new NhanVienBUS();
-            List<usp_SelectNHAN_VIENResult> dsNhanVien = nvBUS.TimKiemNhanVien(HoTen);
+            gvNhanVien.DataBind();
 
-            if (dsNhanVien.Count > 0)
+            if (gvNhanVien.Rows.Count > 0)
             {
-                this.lblKetQua.Text = "Kết quả";
-                this.gvNhanVien.DataSource = dsNhanVien;
-                this.gvNhanVien.DataBind();
-                this.gvNhanVien.Visible = true;
+                gvNhanVien.Visible = true;
             }
             else
             {
-                this.lblKetQua.Text = "Không tìm thấy kết quả phù hợp";
-                this.gvNhanVien.Visible = false;
+                lblKetQua.Text = "Không tìm thấy kết quả!";
+                lblKetQua.Visible = true;
             }
+
         }
+
+        protected void gvNhanVien_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        {
+            lblKetQua.Text = "Đã cập nhật thành công!";
+            lblKetQua.Visible = true;
+        }
+
     }
 }

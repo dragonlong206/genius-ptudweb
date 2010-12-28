@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td>
-            <asp:Label ID="lblHoTen" runat="server" Text="Họ tên"></asp:Label>
+            <asp:Label ID="lblHoTen" runat="server" Text="Họ tên có chứa: "></asp:Label>
         </td>
         <td>
             <asp:TextBox ID="txtHoTen" runat="server"></asp:TextBox>
@@ -15,8 +15,6 @@
                 ErrorMessage="Chưa nhập tên nhân viên cần tìm" Text="(*)" 
                 ControlToValidate="txtHoTen">(*)</asp:RequiredFieldValidator>
         </td>
-    </tr>
-    <tr>
         <td colspan="2" style="text-align:center">
             <asp:Button ID="btnTim" runat="server" Text="Tìm kiếm" onclick="btnTim_Click" />
         </td>
@@ -26,20 +24,56 @@
     </tr>
 </table>
 
-<asp:Label ID="lblKetQua" runat="server"></asp:Label> 
-
-<asp:GridView ID="gvNhanVien" runat="server" AutoGenerateColumns="False">
+<asp:GridView ID="gvNhanVien" runat="server" AutoGenerateColumns="False" 
+    DataSourceID="ldsNhanVien" Visible="False" DataKeyNames="MaNhanVien"
+    onrowupdated="gvNhanVien_RowUpdated">
     <Columns>
-        <asp:BoundField DataField="MaNhanVien" HeaderText="MaNhanVien" 
-            InsertVisible="False" ReadOnly="True" SortExpression="MaNhanVien" />
-        <asp:BoundField DataField="HoTen" HeaderText="HoTen" SortExpression="HoTen" />
-        <asp:BoundField DataField="DienThoai" HeaderText="DienThoai" 
-            SortExpression="DienThoai" />
-        <asp:BoundField DataField="DiaChi" HeaderText="DiaChi" 
-            SortExpression="DiaChi" />
-        <asp:BoundField DataField="LoaiNhanVien" HeaderText="LoaiNhanVien" 
-            SortExpression="LoaiNhanVien" />
-        <asp:BoundField DataField="LuongTrongThang" HeaderText="LuongTrongThang" 
+        <asp:TemplateField HeaderText="STT">  
+            <ItemTemplate>  
+                <%# Container.DataItemIndex + 1 %>  
+            </ItemTemplate>  
+        </asp:TemplateField> 
+        <asp:BoundField DataField="MaNhanVien" HeaderText="Mã nhân viên" ReadOnly="True" Visible="false"
+            SortExpression="MaNhanVien" InsertVisible="False" />
+        <asp:BoundField DataField="HoTen" HeaderText="Họ tên" SortExpression="HoTen" ReadOnly="True"/>
+        <asp:BoundField DataField="DienThoai" HeaderText="Điện thoại" 
+            SortExpression="DienThoai" ReadOnly="True"/>
+        <asp:BoundField DataField="DiaChi" HeaderText="Địa chỉ" 
+            SortExpression="DiaChi" ReadOnly="True"/>
+        <asp:TemplateField HeaderText="Loại nhân viên" SortExpression="LoaiNhanVien">
+            <ItemTemplate>        
+                <%#Eval("LOAI_NHAN_VIEN.TenLoai")%>                
+            </ItemTemplate>
+            <EditItemTemplate>
+                <asp:DropDownList ID="ddlLoaiNhanVien" runat="server" DataSourceID="ldsLoaiNhanVien"
+                     DataValueField="MaLoaiNhanVien" DataTextField="TenLoai" SelectedValue='<%#Bind("LoaiNhanVien")%>'></asp:DropDownList>
+            </EditItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="LuongTrongThang" HeaderText="Lương trong tháng" 
             SortExpression="LuongTrongThang" />
+        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
+            CancelText="Hủy" DeleteText="Xóa" EditText="Cập nhật" UpdateText="Lưu" />
     </Columns>
 </asp:GridView>
+<p>
+
+<asp:Label ID="lblKetQua" runat="server" ForeColor="#CC0000"></asp:Label> 
+
+</p>
+<asp:LinqDataSource ID="ldsNhanVien" runat="server"  EnableUpdate="True" EnableDelete="true"
+    ContextTypeName="DTO.CongTyLuHanhDataContext" 
+    TableName="NHAN_VIENs" Where="HoTen.Contains(@HoTen)">
+    <WhereParameters>
+        <asp:ControlParameter ControlID="txtHoTen" DefaultValue="&quot;Nam&quot;" 
+            Name="HoTen" PropertyName="Text" Type="String" />
+    </WhereParameters>
+</asp:LinqDataSource>
+
+
+<asp:LinqDataSource ID="ldsLoaiNhanVien" runat="server" 
+    ContextTypeName="DTO.CongTyLuHanhDataContext" 
+    Select="new (MaLoaiNhanVien, TenLoai)" TableName="LOAI_NHAN_VIENs">
+</asp:LinqDataSource>
+
+
+
