@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucThemTuyen.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TuyenXe.wucThemTuyen" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <style type="text/css">
     .style2
     {
@@ -45,6 +46,9 @@
         <td>
             &nbsp;
             <asp:TextBox ID="txtGiaVe" runat="server"></asp:TextBox></td>
+        <asp:FilteredTextBoxExtender ID="vldGiaVe" runat="server" 
+            TargetControlID="txtGiaVe" FilterType="Numbers">
+        </asp:FilteredTextBoxExtender>
     </tr>
     <tr>
         <td class="style2">
