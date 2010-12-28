@@ -14,12 +14,30 @@ namespace PTUDW_CTLH_C1.Common {
     public partial class TestWUC {
         
         /// <summary>
-        /// wucPhanHoi control.
+        /// wucTimNhanhtuyen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PTUDW_CTLH_C1.WUC.PhanHoi.wucPhanHoi wucPhanHoi;
+        protected global::PTUDW_CTLH_C1.WUC.TuyenXe.wucTimNhanhTuyen wucTimNhanhtuyen;
+        
+        /// <summary>
+        /// hlDoiMatKhau control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlDoiMatKhau;
+        
+        /// <summary>
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
     }
 }

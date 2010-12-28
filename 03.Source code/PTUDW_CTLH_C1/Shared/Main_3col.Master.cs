@@ -50,7 +50,9 @@ namespace PTUDW_CTLH_C1
                     Session["IsLogin"] = 1;
                     Session["HoTen"] = new NhanVienBUS().LayTenNhanVien(MaNhanVien);
                     Session["Authentication"] = new LoaiNhanVienBUS().LayTenLoaiNhanVien(MaLoaiNhanVien);
-
+                    Session["TaiKhoan"] = txtUsername.Text;
+                    Session["MaTaiKhoan"] = new TaiKhoanBUS().LayMaTaiKhoan((String)(Session["TaiKhoan"]));
+                    Session["MaNhanVien"] = MaNhanVien;
                     //redirect
 
                     ThayDoiTrangThai();
