@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F0ED646A-663F-4186-BA96-E90075140AD1}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -123,6 +123,13 @@
     </Compile>
     <Compile Include="Administration\DieuHanhCongTy\ThemTuyen.aspx.designer.cs">
       <DependentUpon>ThemTuyen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ThemNhanVien.aspx.cs">
+      <DependentUpon>ThemNhanVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\ThemNhanVien.aspx.designer.cs">
+      <DependentUpon>ThemNhanVien.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\ThemPhanHoiKhachHang.aspx.cs">
       <DependentUpon>ThemPhanHoiKhachHang.aspx</DependentUpon>
@@ -303,6 +310,27 @@
     <Compile Include="WUC\TinTuc\wucQuanLyTinTuc.ascx.designer.cs">
       <DependentUpon>wucQuanLyTinTuc.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\Tram\wucCapNhatTram.ascx.cs">
+      <DependentUpon>wucCapNhatTram.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\Tram\wucCapNhatTram.ascx.designer.cs">
+      <DependentUpon>wucCapNhatTram.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\Tram\wucThemTram.ascx.cs">
+      <DependentUpon>wucThemTram.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\Tram\wucThemTram.ascx.designer.cs">
+      <DependentUpon>wucThemTram.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\Tram\wucXoaTram.ascx.cs">
+      <DependentUpon>wucXoaTram.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\Tram\wucXoaTram.ascx.designer.cs">
+      <DependentUpon>wucXoaTram.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\TuyenXe\wucCapNhatTuyen.ascx.cs">
       <DependentUpon>wucCapNhatTuyen.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,6 +436,7 @@
     <Content Include="Common\QuenMatKhau.aspx" />
     <Content Include="Common\TestWUC.aspx" />
     <Content Include="Administration\DieuHanhCongTy\ThemTuyen.aspx" />
+    <Content Include="Common\ThemNhanVien.aspx" />
     <Content Include="Common\ThemPhanHoiKhachHang.aspx" />
     <Content Include="Common\TimNhanVien.aspx" />
     <Content Include="Global.asax" />
@@ -437,6 +466,9 @@
     <Content Include="WUC\TaiKhoan\ThemTaiKhoan.ascx" />
     <Content Include="WUC\TaiKhoan\XoaTaiKhoan.ascx" />
     <Content Include="WUC\TinTuc\wucQuanLyTinTuc.ascx" />
+    <Content Include="WUC\Tram\wucCapNhatTram.ascx" />
+    <Content Include="WUC\Tram\wucThemTram.ascx" />
+    <Content Include="WUC\Tram\wucXoaTram.ascx" />
     <Content Include="WUC\TuyenXe\wucCapNhatTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucChiTietTuyen.ascx" />
     <Content Include="WUC\TuyenXe\wucThemTuyen.ascx" />
@@ -466,6 +498,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

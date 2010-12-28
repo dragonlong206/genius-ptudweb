@@ -85,5 +85,11 @@ namespace DAO
             db.usp_UpdateNHAN_VIEN(nv.MaNhanVien, nv.HoTen, nv.DienThoai, nv.DiaChi);
 
         }
+
+        public List<usp_SelectNhanVienLaDieuHanhTramResult> SelectNhanVienLaDieuHanhTramResult()
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            return db.usp_SelectNhanVienLaDieuHanhTram().ToList();
+        }
     }
 }
