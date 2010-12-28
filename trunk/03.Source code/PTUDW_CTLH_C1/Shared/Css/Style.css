@@ -86,3 +86,68 @@
 	border-top: none 0px;
 	margin-bottom: 10px;
 }
+
+
+/*-------------------------------- tin tức -----------------------*/
+.TinTucHeader
+{
+	border: solid 1px #000000;
+	background: #009999;
+	height: 20px;
+	vertical-align: middle;
+	padding: 0 0 0 3px;
+}
+
+.TinTucHeader .TieuDe
+{
+	font-family: Tahoma;
+	font-size: 14px;
+}
+
+.TinTucHeader .NgayDang
+{
+	font-style: italic;
+}
+
+.TinTucContent
+{
+	border: solid 1px #000000;
+	border-top: none 0px;
+	width: auto;
+}
+
+.TinTucContent .HinhDaiDien
+{
+	max-height: 150px;
+	max-width: 150px;
+	vertical-align: middle;
+	
+}
+
+.TinTucContent .HinhDaiDienWrapper
+{
+	height: 150px;
+	max-width: 150px;
+	text-align: center;
+}
+
+.TinTucContent .TomTat
+{
+	font-family: Tahoma;
+	font-size: 13px;
+	padding: 3px;
+}
+
+.TinTucContent .TomTatWrapper
+{
+	float: left;
+	font-family: Tahoma;
+	font-size: 13px;
+	
+}
+
+.TinTucContent .ChiTietWrapper
+{
+	float: left;
+	text-align: right;
+}
