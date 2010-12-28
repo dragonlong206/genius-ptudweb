@@ -39,5 +39,10 @@ namespace BUS
         {
             _nhanVienDAO.CapNhatThongTin(nv);
         }
+
+        public List<usp_SelectNhanVienLaDieuHanhTramResult> SelectNhanVienLaDieuHanhTramResult()
+        {
+            return _nhanVienDAO.SelectNhanVienLaDieuHanhTramResult();
+        }
     }
 }
