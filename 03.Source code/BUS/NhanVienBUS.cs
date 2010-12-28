@@ -30,5 +30,14 @@ namespace BUS
         {
             return _nhanVienDAO.TimKiemNhanVien(HoTen);
         }
+        public NHAN_VIEN LayThongTinNhanVienTheoMaNhanVien(int MaNhanVien)
+        {
+            return _nhanVienDAO.LayThongTinNhanVienTheoMaNhanVien(MaNhanVien);
+        }
+
+        public void CapNhatThongTin(NHAN_VIEN nv)
+        {
+            _nhanVienDAO.CapNhatThongTin(nv);
+        }
     }
 }
