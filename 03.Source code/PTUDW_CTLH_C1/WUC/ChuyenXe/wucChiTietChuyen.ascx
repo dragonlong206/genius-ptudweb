@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucChiTietChuyen.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.ChuyenXe.wucChiTietChuyen" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+<asp:ToolkitScriptManager runat="server">
 </asp:ToolkitScriptManager>
 <asp:LinqDataSource ID="ldsChuyenXe" runat="server" 
                 ContextTypeName="DTO.CongTyLuHanhDataContext" EnableDelete="True" 

@@ -7,6 +7,7 @@
 <head runat="server">
     <title></title>
     <link href="~/App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />      
+    <link href="Css/Style.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
     <form id="MainForm" runat="server">
