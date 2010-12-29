@@ -102,33 +102,46 @@
 {
 	font-family: Tahoma;
 	font-size: 14px;
+	color: #FF0;
+	font-weight: bold;
 }
 
 .TinTucHeader .NgayDang
 {
 	font-style: italic;
+	float: right;
 }
 
 .TinTucContent
 {
 	border: solid 1px #000000;
 	border-top: none 0px;
+	height: 150px;
 	width: auto;
 }
 
 .TinTucContent .HinhDaiDien
 {
-	max-height: 150px;
-	max-width: 150px;
-	vertical-align: middle;
-	
+	max-height: 140px;
+	max-width: 140px;
+	border: none 0px;
 }
 
 .TinTucContent .HinhDaiDienWrapper
 {
-	height: 150px;
-	max-width: 150px;
+	height: 140px;
+	width: 140px;
+	padding: 5px;
 	text-align: center;
+	vertical-align: middle;
+	float:: left;
+}
+
+.TinTucContent .MainContentWrapper
+{
+	height: 140px;
+	width: auto;
+	padding: 5px;
 }
 
 .TinTucContent .TomTat
@@ -136,18 +149,17 @@
 	font-family: Tahoma;
 	font-size: 13px;
 	padding: 3px;
+	width: 100%;
 }
 
 .TinTucContent .TomTatWrapper
-{
-	float: left;
-	font-family: Tahoma;
-	font-size: 13px;
-	
+{	
+	width: 100%;
 }
 
 .TinTucContent .ChiTietWrapper
 {
-	float: left;
+	/*float: left;*/
 	text-align: right;
+	width: 100%;
 }
