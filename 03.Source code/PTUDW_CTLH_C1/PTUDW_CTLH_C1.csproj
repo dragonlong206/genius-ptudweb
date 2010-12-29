@@ -61,6 +61,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Admin\TinTuc.aspx.cs">
+      <DependentUpon>TinTuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Admin\TinTuc.aspx.designer.cs">
+      <DependentUpon>TinTuc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\DieuHanhTram\PhanHoi.aspx.cs">
       <DependentUpon>PhanHoi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -421,6 +428,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\Admin\TinTuc.aspx" />
     <Content Include="Administration\DieuHanhTram\PhanHoi.aspx" />
     <Content Include="App_Data\CongTyLuHanh.mdf">
     </Content>

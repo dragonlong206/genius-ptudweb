@@ -18,17 +18,19 @@
         <div class="TinTucContent">
             <div class="HinhDaiDienWrapper">
                 <asp:Image ID="imgHinhDaiDien" CssClass="HinhDaiDien" runat="server" 
-                ImageUrl='<%# "~/Images/TinTuc/" + Eval("HinhAnh") %>'/>
+                ImageUrl='<%# "~/Images/TinTuc/" + Eval("HinhAnh") %>' AlternateText="Hình đại diện" />
             </div>
             
-            <div class="TomTatWrapper">
-                <asp:TextBox ID="txtTomTat" CssClass="TomTat" Wrap="true" ReadOnly="true" BorderStyle="None" BorderWidth="0px"
-                    TextMode="MultiLine" Rows="3" Text='<%# Eval("TomTat") %>' runat="server">
-                </asp:TextBox>
-            </div>
-            
-            <div class="ChiTietWrapper">
-                <asp:LinkButton ID="lbtChiTiet" Text="Chi tiết" runat="server"></asp:LinkButton>
+            <div class="MainContentWrapper">
+                <div class="TomTatWrapper">
+                    <asp:TextBox ID="txtTomTat" CssClass="TomTat" Wrap="true" ReadOnly="true" BorderStyle="None" BorderWidth="0px"
+                        TextMode="MultiLine" Text='<%# Eval("TomTat") %>' runat="server">
+                    </asp:TextBox>
+                </div>
+                
+                <div class="ChiTietWrapper">
+                    <asp:LinkButton ID="lbtChiTiet" CssClass="hyperlink" Text="Chi tiết" runat="server"></asp:LinkButton>
+                </div>
             </div>
         </div>        
     </ItemTemplate>
