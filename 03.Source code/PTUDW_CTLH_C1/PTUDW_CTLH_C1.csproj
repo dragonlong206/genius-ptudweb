@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F0ED646A-663F-4186-BA96-E90075140AD1}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -61,6 +61,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Admin\ChiTietTinTuc.aspx.cs">
+      <DependentUpon>ChiTietTinTuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Admin\ChiTietTinTuc.aspx.designer.cs">
+      <DependentUpon>ChiTietTinTuc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\Admin\TinTuc.aspx.cs">
       <DependentUpon>TinTuc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,12 +317,26 @@
     <Compile Include="WUC\TaiKhoan\XoaTaiKhoan.ascx.designer.cs">
       <DependentUpon>XoaTaiKhoan.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\TinTuc\wucChiTietTinTuc.ascx.cs">
+      <DependentUpon>wucChiTietTinTuc.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\TinTuc\wucChiTietTinTuc.ascx.designer.cs">
+      <DependentUpon>wucChiTietTinTuc.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\TinTuc\wucQuanLyTinTuc.ascx.cs">
       <DependentUpon>wucQuanLyTinTuc.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WUC\TinTuc\wucQuanLyTinTuc.ascx.designer.cs">
       <DependentUpon>wucQuanLyTinTuc.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\TinTuc\wucThemTinTuc.ascx.cs">
+      <DependentUpon>wucThemTinTuc.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\TinTuc\wucThemTinTuc.ascx.designer.cs">
+      <DependentUpon>wucThemTinTuc.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\Tram\wucCapNhatTram.ascx.cs">
       <DependentUpon>wucCapNhatTram.ascx</DependentUpon>
@@ -428,6 +449,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\Admin\ChiTietTinTuc.aspx" />
     <Content Include="Administration\Admin\TinTuc.aspx" />
     <Content Include="Administration\DieuHanhTram\PhanHoi.aspx" />
     <Content Include="App_Data\CongTyLuHanh.mdf">
@@ -473,7 +495,9 @@
     <Content Include="WUC\PhanHoi\wucThemPhanHoi.ascx" />
     <Content Include="WUC\TaiKhoan\ThemTaiKhoan.ascx" />
     <Content Include="WUC\TaiKhoan\XoaTaiKhoan.ascx" />
+    <Content Include="WUC\TinTuc\wucChiTietTinTuc.ascx" />
     <Content Include="WUC\TinTuc\wucQuanLyTinTuc.ascx" />
+    <Content Include="WUC\TinTuc\wucThemTinTuc.ascx" />
     <Content Include="WUC\Tram\wucCapNhatTram.ascx" />
     <Content Include="WUC\Tram\wucThemTram.ascx" />
     <Content Include="WUC\Tram\wucXoaTram.ascx" />
@@ -501,14 +525,11 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54371</DevelopmentServerPort>
+          <DevelopmentServerPort>49344</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
