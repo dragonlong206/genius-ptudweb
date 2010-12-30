@@ -92,7 +92,7 @@
 .TinTucHeader
 {
 	border: solid 1px #000000;
-	background: #009999;
+	background: #95B6F2;
 	height: 20px;
 	vertical-align: middle;
 	padding: 0 0 0 3px;
@@ -102,7 +102,7 @@
 {
 	font-family: Tahoma;
 	font-size: 14px;
-	color: #FF0;
+	color: #0D3071;
 	font-weight: bold;
 }
 
@@ -110,6 +110,7 @@
 {
 	font-style: italic;
 	float: right;
+	color: #0D3071;
 }
 
 .TinTucContent
@@ -118,9 +119,10 @@
 	border-top: none 0px;
 	height: 150px;
 	width: auto;
+	margin-bottom: 10px;
 }
 
-.TinTucContent .HinhDaiDien
+.HinhDaiDien
 {
 	max-height: 140px;
 	max-width: 140px;
@@ -134,14 +136,15 @@
 	padding: 5px;
 	text-align: center;
 	vertical-align: middle;
-	float:: left;
+	float: left;
 }
 
 .TinTucContent .MainContentWrapper
 {
 	height: 140px;
-	width: auto;
+	width: 310px;
 	padding: 5px;
+	float: left;
 }
 
 .TinTucContent .TomTat
@@ -150,11 +153,13 @@
 	font-size: 13px;
 	padding: 3px;
 	width: 100%;
+	
 }
 
 .TinTucContent .TomTatWrapper
 {	
 	width: 100%;
+	
 }
 
 .TinTucContent .ChiTietWrapper
@@ -162,4 +167,13 @@
 	/*float: left;*/
 	text-align: right;
 	width: 100%;
+	padding:5px 5px;
+}
+
+
+.MultilineTextBox
+{
+	width: 100%;
+	height: auto;
+	overflow: auto;
 }

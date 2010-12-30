@@ -6,24 +6,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 
-namespace PTUDW_CTLH_C1.WUC.TinTuc
+namespace PTUDW_CTLH_C1.Administration.Admin
 {
-    public partial class wucQuanLyTinTuc : System.Web.UI.UserControl
+    public partial class ChiTietTinTuc : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void btnInsert_Click(object sender, EventArgs e)
-        {
-            this.wucThemTinTuc.Visible = true;
-            this.btnInsert.Visible = false;
         }
     }
 }
