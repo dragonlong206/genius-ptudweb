@@ -15,7 +15,10 @@ namespace PTUDW_CTLH_C1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((int)Session["IsLogin"] == 1)
+            {
+                ThayDoiTrangThai();
+            }
         }
 
         protected void ddlThemes_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +59,10 @@ namespace PTUDW_CTLH_C1
                     //redirect
 
                     ThayDoiTrangThai();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Tên đăng nhập và mật khẩu không phù hợp')</script>");
                 }
             }
             else

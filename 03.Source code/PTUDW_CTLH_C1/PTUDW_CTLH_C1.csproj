@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F0ED646A-663F-4186-BA96-E90075140AD1}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -32,7 +32,7 @@
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\AjaxControlToolkit.Binary.NET35\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\AjaxControlToolkit.Binary.NET35\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -81,6 +81,13 @@
     </Compile>
     <Compile Include="Administration\DieuHanhTram\PhanHoi.aspx.designer.cs">
       <DependentUpon>PhanHoi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CacChuyenTrongNgay.aspx.cs">
+      <DependentUpon>CacChuyenTrongNgay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\CacChuyenTrongNgay.aspx.designer.cs">
+      <DependentUpon>CacChuyenTrongNgay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\CapNhatThongTinCaNhan.aspx.cs">
       <DependentUpon>CapNhatThongTinCaNhan.aspx</DependentUpon>
@@ -152,12 +159,26 @@
     <Compile Include="Common\ThemPhanHoiKhachHang.aspx.designer.cs">
       <DependentUpon>ThemPhanHoiKhachHang.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Common\TimNangCaoTuyen.aspx.cs">
+      <DependentUpon>TimNangCaoTuyen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\TimNangCaoTuyen.aspx.designer.cs">
+      <DependentUpon>TimNangCaoTuyen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\TimNhanVien.aspx.cs">
       <DependentUpon>TimNhanVien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\TimNhanVien.aspx.designer.cs">
       <DependentUpon>TimNhanVien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PhanHoi.aspx.cs">
+      <DependentUpon>PhanHoi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\PhanHoi.aspx.designer.cs">
+      <DependentUpon>PhanHoi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -225,6 +246,13 @@
     </Compile>
     <Compile Include="Common\TimNhanhTuyen.aspx.designer.cs">
       <DependentUpon>TimNhanhTuyen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucCacChuyenChayTrongNgay.ascx.cs">
+      <DependentUpon>wucCacChuyenChayTrongNgay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucCacChuyenChayTrongNgay.ascx.designer.cs">
+      <DependentUpon>wucCacChuyenChayTrongNgay.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\ChuyenXe\wucChiTietChuyen.ascx.cs">
       <DependentUpon>wucChiTietChuyen.ascx</DependentUpon>
@@ -345,6 +373,13 @@
     <Compile Include="WUC\Tram\wucCapNhatTram.ascx.designer.cs">
       <DependentUpon>wucCapNhatTram.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\Tram\wucDanhSachTram.ascx.cs">
+      <DependentUpon>wucDanhSachTram.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\Tram\wucDanhSachTram.ascx.designer.cs">
+      <DependentUpon>wucDanhSachTram.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\Tram\wucThemTram.ascx.cs">
       <DependentUpon>wucThemTram.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -457,6 +492,7 @@
     <Content Include="App_Data\CongTyLuHanh_log.ldf">
       <DependentUpon>CongTyLuHanh.mdf</DependentUpon>
     </Content>
+    <Content Include="Common\CacChuyenTrongNgay.aspx" />
     <Content Include="Common\CapNhatThongTinCaNhan.aspx" />
     <Content Include="Common\ChiTietTuyen.aspx" />
     <Content Include="Common\DatVe.aspx" />
@@ -468,7 +504,9 @@
     <Content Include="Administration\DieuHanhCongTy\ThemTuyen.aspx" />
     <Content Include="Common\ThemNhanVien.aspx" />
     <Content Include="Common\ThemPhanHoiKhachHang.aspx" />
+    <Content Include="Common\TimNangCaoTuyen.aspx" />
     <Content Include="Common\TimNhanVien.aspx" />
+    <Content Include="Common\PhanHoi.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Common\HotTours.aspx" />
     <Content Include="Common\KhachSan.aspx" />
@@ -482,6 +520,7 @@
     <Content Include="Shared\Css\Images\windows-arrow.gif" />
     <Content Include="Shared\Css\Style.css" />
     <Content Include="Web.sitemap" />
+    <Content Include="WUC\ChuyenXe\wucCacChuyenChayTrongNgay.ascx" />
     <Content Include="WUC\ChuyenXe\wucChiTietChuyen.ascx" />
     <Content Include="WUC\ChuyenXe\wucThemChuyenXe.ascx" />
     <Content Include="WUC\ChuyenXe\wucTimChuyen.ascx" />
@@ -499,6 +538,7 @@
     <Content Include="WUC\TinTuc\wucQuanLyTinTuc.ascx" />
     <Content Include="WUC\TinTuc\wucThemTinTuc.ascx" />
     <Content Include="WUC\Tram\wucCapNhatTram.ascx" />
+    <Content Include="WUC\Tram\wucDanhSachTram.ascx" />
     <Content Include="WUC\Tram\wucThemTram.ascx" />
     <Content Include="WUC\Tram\wucXoaTram.ascx" />
     <Content Include="WUC\TuyenXe\wucCapNhatTuyen.ascx" />
@@ -530,6 +570,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

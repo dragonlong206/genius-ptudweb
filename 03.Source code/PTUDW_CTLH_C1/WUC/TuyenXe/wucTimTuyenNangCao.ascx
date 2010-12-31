@@ -9,7 +9,7 @@
         <asp:Label ID="lblTitle" runat="server" Text="Tìm tuyến xe"></asp:Label>
     </div>
     
-    <div id="SearcRegion">
+    <div id="SearchRegion">
         <div>
             <div>
                 <asp:Label ID="lblTramKhoiHanh" runat="server" Text="Trạm khởi hành"></asp:Label>

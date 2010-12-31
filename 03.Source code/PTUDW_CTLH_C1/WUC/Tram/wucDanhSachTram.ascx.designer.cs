@@ -8,27 +8,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PTUDW_CTLH_C1 {
+namespace PTUDW_CTLH_C1.WUC.Tram {
     
     
-    public partial class TimNhanhTuyen {
+    public partial class wucDanhSachTram {
         
         /// <summary>
-        /// lblTieuDe control.
+        /// rptDanhSachTram control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTieuDe;
+        protected global::System.Web.UI.WebControls.Repeater rptDanhSachTram;
         
         /// <summary>
-        /// lbtnTimNangCao control.
+        /// ldsTramXe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnTimNangCao;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsTramXe;
     }
 }

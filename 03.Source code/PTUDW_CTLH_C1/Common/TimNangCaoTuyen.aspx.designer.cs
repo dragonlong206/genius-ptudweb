@@ -11,6 +11,15 @@
 namespace PTUDW_CTLH_C1.Common {
     
     
-    public partial class TestWUC {
+    public partial class TimNangCaoTuyen {
+        
+        /// <summary>
+        /// lblTieuDe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTieuDe;
     }
 }

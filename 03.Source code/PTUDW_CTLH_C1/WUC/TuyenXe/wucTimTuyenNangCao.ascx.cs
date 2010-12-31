@@ -25,6 +25,15 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
                 this.ddlTramKhoiHanh.DataBind();
                 this.ddlTramDen.DataBind();
             }
+
+            if ((int)Session["IsLogin"] == 0)
+            {
+                this.grvDanhSachTuyenNangCao.Columns[4].Visible = false;
+            }
+            else
+            {
+                this.grvDanhSachTuyenNangCao.Columns[4].Visible = true;
+            }
         }
 
         protected void btnTimKiem_Click(object sender, EventArgs e)
