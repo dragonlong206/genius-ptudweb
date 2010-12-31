@@ -20,11 +20,21 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!IsPostBack)
             {
                 this.ddlTramKhoiHanh.DataBind();
                 this.ddlTramDen.DataBind();
             }
+
+            if ((int)Session["IsLogin"] == 0)
+            {
+                this.grvDanhSachTuyen.Columns[4].Visible = false;
+            }
+            else
+            {
+                this.grvDanhSachTuyen.Columns[4].Visible = true;
+            }
+
         }
 
         protected void btnTimKiem_Click(object sender, EventArgs e)

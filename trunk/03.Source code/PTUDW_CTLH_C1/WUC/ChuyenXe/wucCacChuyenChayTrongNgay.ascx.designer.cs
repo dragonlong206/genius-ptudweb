@@ -8,27 +8,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PTUDW_CTLH_C1 {
+namespace PTUDW_CTLH_C1.WUC.ChuyenXe {
     
     
-    public partial class TimNhanhTuyen {
+    public partial class wucCacChuyenChayTrongNgay {
         
         /// <summary>
-        /// lblTieuDe control.
+        /// lblThongBao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTieuDe;
+        protected global::System.Web.UI.WebControls.Label lblThongBao;
         
         /// <summary>
-        /// lbtnTimNangCao control.
+        /// gvChuyenXe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnTimNangCao;
+        protected global::System.Web.UI.WebControls.GridView gvChuyenXe;
+        
+        /// <summary>
+        /// ldsChuyenXe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsChuyenXe;
     }
 }

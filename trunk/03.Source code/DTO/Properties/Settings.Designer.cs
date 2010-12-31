@@ -33,5 +33,17 @@ namespace DTO.Properties {
                 return ((string)(this["CongTyLuHanhConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Users\\pvhuy\\Desktop\\PTUDW\\03.Source" +
+            " code\\PTUDW_CTLH_C1\\App_Data\\CongTyLuHanh.mdf\";Integrated Security=True;User Ins" +
+            "tance=True")]
+        public string CongTyLuHanhConnectionString1 {
+            get {
+                return ((string)(this["CongTyLuHanhConnectionString1"]));
+            }
+        }
     }
 }
