@@ -11,6 +11,6 @@
 namespace PTUDW_CTLH_C1.Common {
     
     
-    public partial class PhanHoi {
+    public partial class TheoDoiTinhTrangXe {
     }
 }
