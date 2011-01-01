@@ -51,6 +51,17 @@
         </asp:TemplateField>
         <asp:BoundField DataField="LuongTrongThang" HeaderText="Lương trong tháng" 
             SortExpression="LuongTrongThang" />
+         
+        <asp:TemplateField HeaderText="Trạm">
+            <ItemTemplate>        
+                <%#Eval("TRAM_XE.TenTramXe")%>                
+            </ItemTemplate>
+            <EditItemTemplate>
+                <asp:DropDownList ID="ddlTramXe" runat="server" DataSourceID="ldsTramXe"
+                     DataValueField="MaTramXe" DataTextField="TenTramXe" SelectedValue='<%#Bind("MaTram")%>'></asp:DropDownList>
+            </EditItemTemplate>
+        </asp:TemplateField>
+        
         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
             CancelText="Hủy" DeleteText="Xóa" EditText="Cập nhật" UpdateText="Lưu" />
     </Columns>
@@ -74,6 +85,13 @@
     ContextTypeName="DTO.CongTyLuHanhDataContext" 
     Select="new (MaLoaiNhanVien, TenLoai)" TableName="LOAI_NHAN_VIENs">
 </asp:LinqDataSource>
+
+
+
+<asp:LinqDataSource ID="ldsTramXe" runat="server" 
+    ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="TRAM_XEs">
+</asp:LinqDataSource>
+
 
 
 

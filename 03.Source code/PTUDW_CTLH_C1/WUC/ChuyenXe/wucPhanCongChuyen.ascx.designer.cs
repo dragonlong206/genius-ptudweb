@@ -8,19 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PTUDW_CTLH_C1.WUC.TaiKhoan {
+namespace PTUDW_CTLH_C1.WUC.ChuyenXe {
     
     
-    public partial class TimTaiKhoan {
-        
-        /// <summary>
-        /// ToolkitScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+    public partial class wucPhanCongChuyen {
         
         /// <summary>
         /// Label1 control.
@@ -29,42 +20,42 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblThongBao;
         
         /// <summary>
-        /// txtTaiKhoan control.
+        /// gvChuyen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTaiKhoan;
+        protected global::System.Web.UI.WebControls.GridView gvChuyen;
         
         /// <summary>
-        /// btTimKiem control.
+        /// ldsChuyen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btTimKiem;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsChuyen;
         
         /// <summary>
-        /// ldsDSNhanVien control.
+        /// ldsTaiXe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource ldsDSNhanVien;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsTaiXe;
         
         /// <summary>
-        /// GridView1 control.
+        /// ldsXe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsXe;
     }
 }

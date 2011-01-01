@@ -17,15 +17,14 @@
     </WhereParameters>
 </asp:LinqDataSource>
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-    DataKeyNames="MaTaiKhoan" DataSourceID="ldsDSNhanVien">
+    DataKeyNames="MaTaiKhoan" DataSourceID="ldsDSNhanVien" 
+    onrowupdating="GridView1_RowUpdating">
     <Columns>
         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
         <asp:BoundField DataField="MaTaiKhoan" HeaderText="Mã tài khoản" 
             InsertVisible="False" ReadOnly="True" SortExpression="MaTaiKhoan" />
         <asp:BoundField DataField="Username" HeaderText="Tên tài khoản" 
             SortExpression="Username" />
-        <asp:BoundField DataField="Password" HeaderText="Mật khẩu" 
-            SortExpression="Password" />
         <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
         <asp:BoundField DataField="NgayKichHoat" HeaderText="Ngày kích hoạt" 
             SortExpression="NgayKichHoat" />

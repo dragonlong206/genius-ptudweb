@@ -2,45 +2,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
 </asp:ToolkitScriptManager>
-<table>
-    <tr>
-        <td colspan="2" style="text-align:center">
-            <asp:Label ID="lblTieuDe" runat="server" Text="Cập nhật thông tin cá nhân" 
-                Font-Size="X-Large"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:Label ID="lbHoTen" runat="server" Text="Họ tên"></asp:Label>
-        </td>
-        <td>
-            <asp:TextBox ID="txtHoTen" runat="server"></asp:TextBox>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:Label ID="lblDiaChi" runat="server" Text="Địa chỉ"></asp:Label>
-        </td>
-        <td>
-            <asp:TextBox ID="txtDiaChi" runat="server"></asp:TextBox>
-        </td>    
-    </tr>
-    <tr>
-        <td>
-            <asp:Label ID="lblDienThoai" runat="server" Text="Điện thoại"></asp:Label>
-        </td>
-        <td>
-            <asp:TextBox ID="txtDienThoai" runat="server"></asp:TextBox>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center">
-            <asp:Button ID="btnLuu" runat="server" Text="Lưu" onclick="btnLuu_Click" />
-            <asp:Button ID="btnHuy" runat="server" Text="Hủy" />
-        </td>
-            
-    </tr>
-</table>
+
 <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" 
     AutoGenerateRows="False" DataSourceID="ldsNhanVien" 
     DataKeyNames="MaNhanVien">

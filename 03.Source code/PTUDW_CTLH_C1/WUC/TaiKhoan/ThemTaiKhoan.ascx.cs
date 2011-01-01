@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using BUS;
 
 namespace PTUDW_CTLH_C1.WUC.TaiKhoan
 {
@@ -17,7 +18,12 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string strTaiKhoan = ((TextBox)FormView1.FindControl("txtPassword")).Text;
+            if (strTaiKhoan.Length > 0)
+            {
+                MyEncryption Encrypt = new MyEncryption();
+                ((TextBox)FormView1.FindControl("txtPassword")).Text = MyEncryption.Encrypt(strTaiKhoan);
+            }
         }
 
         protected void lnkThemTaiKhoan_Click(object sender, EventArgs e)
@@ -25,6 +31,7 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan
          if(pnlThemTaiKhoan.Visible==false)
          {
              pnlThemTaiKhoan.Visible=true;
+             
          }
          else
          {
