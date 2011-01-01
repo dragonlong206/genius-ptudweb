@@ -18,6 +18,7 @@ namespace PTUDW_CTLH_C1
             if ((int)Session["IsLogin"] == 1)
             {
                 ThayDoiTrangThai();
+              //  txtUsername.Attributes.Add("onfocus", "this.value=''");
             }
         }
 
@@ -54,14 +55,29 @@ namespace PTUDW_CTLH_C1
 
                     Session["IsLogin"] = 1;
                     Session["HoTen"] = nvBUS.LayTenNhanVien(MaNhanVien);
-                    Session["VaiTro"] = new LoaiNhanVienBUS().LayTenLoaiNhanVien(MaLoaiNhanVien);
+                    String strVaiTro = new LoaiNhanVienBUS().LayTenLoaiNhanVien(MaLoaiNhanVien);
+                    Session["VaiTro"] = strVaiTro;
                     Session["TaiKhoan"] = txtUsername.Text;
                     Session["MaTaiKhoan"] = new TaiKhoanBUS().LayMaTaiKhoan((String)(Session["TaiKhoan"]));
                     Session["MaNhanVien"] = MaNhanVien;
-                    
-                    //redirect
 
                     ThayDoiTrangThai();
+
+                    switch (MaLoaiNhanVien)
+                    {
+                        case 1:
+                            Response.Redirect("~/Administration/Admin/Default.aspx");
+                            break;
+                        case 2:
+                            Response.Redirect("~/Administration/DieuHanhTram/Default.aspx");
+                            break;
+                        case 3:
+                            Response.Redirect("~/Administration/DieuHanhCongTy/Default.aspx");
+                            break;
+                        case 4:
+                            Response.Redirect("~/Administration/TaiXe/Default.aspx");
+                            break;
+                    }                   
                     
                 }
                 else

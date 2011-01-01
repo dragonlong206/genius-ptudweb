@@ -6,6 +6,13 @@
 <%@ Register TagPrefix="wuc" TagName="DanhSachTram" Src="~/WUC/Tram/wucDanhSachTram.ascx" %>
 
 
+
+<script language="javascript">
+    function setfocus() {
+        var username = document.getElementById("txtUsername");
+        username.attributes("Text") = "";
+    }
+</script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -14,7 +21,8 @@
     <link href="Css/Style.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="MainForm" runat="server">
+    <form id="MainForm" runat="server" defaultfocus="">
+    <asp:toolkitscriptmanager ID="Toolkitscriptmanager1" runat="server"></asp:toolkitscriptmanager>
     <asp:SiteMapDataSource ID="smdsMaster" runat="server" />
     <div id="background">
         <div id="header">
@@ -22,10 +30,14 @@
             <div id="top_header">
                 <div id="login">
                     <!--login-->
-                    <asp:TextBox ID="txtUsername" runat="server" CssClass="textbox" ToolTip="Tên đăng nhập"
-                        Text="Tên đăng nhập"></asp:TextBox> 
+                    <asp:TextBox ID="txtUsername"  runat="server" CssClass="textbox" ToolTip="Tên đăng nhập"
+                        Text="Tên đăng nhập"></asp:TextBox>     
+                    <asp:TextBoxWatermarkExtender ID="twmUsername" runat="server" TargetControlID="txtUsername" WatermarkText="Tên đăng nhập">
+                    </asp:TextBoxWatermarkExtender>                
                     <asp:TextBox ID="txtPassword" runat="server" CssClass="textbox" TextMode="Password"
-                        ToolTip="Mật khẩu" Text="123456"></asp:TextBox>
+                        ToolTip="Mật khẩu" Text="123456"></asp:TextBox>                        
+                    <asp:TextBoxWatermarkExtender ID="twmPassword" runat="server" TargetControlID="txtPassword" WatermarkText="******">
+                    </asp:TextBoxWatermarkExtender>
                     <asp:Button ID="btnDangNhap" runat="server" CssClass="login_button" CausesValidation="false"
                         Text="Đăng nhập" onclick="btnDangNhap_Click" />
                     <asp:Label ID="lblXinChao" runat="server" Text="Xin chào &nbsp&nbsp" Visible="False"></asp:Label>
