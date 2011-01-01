@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WucCapNhapXe.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.Xe.WucCapNhapXe" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+<asp:ToolkitScriptManager ID="ToolkitScriptManager1"  runat="server">
 </asp:ToolkitScriptManager>
 
             
@@ -11,10 +11,10 @@
 
 <asp:LinqDataSource ID="LdsXe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="XEs" 
-    Where="MaXe == @MaXe">
+    Where="MaXe == @MaXe" EnableUpdate="true" EnableDelete="true">
     <WhereParameters>
         <asp:ControlParameter ControlID="cboDanhSachXe" Name="MaXe" 
-            PropertyName="SelectedValue" Type="Int32" />
+            PropertyName="SelectedValue" Type="Int32"/>
     </WhereParameters>
 </asp:LinqDataSource>
 

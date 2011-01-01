@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using BUS;
 
 namespace PTUDW_CTLH_C1.WUC.TaiKhoan
 {
@@ -23,6 +24,15 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan
         protected void btTimKiem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+           /* if (((TextBox)GridView1.FindControl("password")).Text.Length > 0)
+            {
+                ((TextBox)GridView1.FindControl("password")).Text = MyEncryption.Encrypt(((TextBox)GridView1.FindControl("password")).Text);
+            }
+            */
         }
     }
 }

@@ -14,13 +14,22 @@ namespace PTUDW_CTLH_C1.WUC.Xe {
     public partial class wucPCXe {
         
         /// <summary>
-        /// LinqDataSource1 control.
+        /// ldsXe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource LinqDataSource1;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsXe;
+        
+        /// <summary>
+        /// ldsNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsNhanVien;
         
         /// <summary>
         /// ddlPhanCong control.
@@ -32,12 +41,12 @@ namespace PTUDW_CTLH_C1.WUC.Xe {
         protected global::System.Web.UI.WebControls.DropDownList ddlPhanCong;
         
         /// <summary>
-        /// GridView1 control.
+        /// gvXe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvXe;
     }
 }

@@ -16,6 +16,10 @@
     </InsertParameters>
 </asp:LinqDataSource>
 
+<asp:LinqDataSource ID="ldsTram" runat="server" 
+    ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="TRAM_XEs">
+</asp:LinqDataSource>
+
 <asp:FormView ID="fvThemNhanVien" runat="server" DataKeyNames="MaNhanVien" 
     DataSourceID="ldsNhanVien" DefaultMode="Insert" Height="257px" 
     Width="238px" oniteminserted="fvThemNhanVien_ItemInserted" >
@@ -60,7 +64,19 @@
                <td>
                     <asp:TextBox ID="txtLuong" runat="server"
                         Text='<%# Bind("LuongTrongThang") %>'/>
-               </td>            
+               </td>  
+            </tr> 
+            
+            <tr>
+               <td>Trạm:</td>
+               <td>
+                   <asp:ComboBox ID="cboTram" runat="server" AutoCompleteMode="SuggestAppend" 
+                       DataSourceID="ldsTram" DataTextField="TenTramXe" DataValueField="MaTramXe"
+                       MaxLength="0" style="display: inline;" 
+                       SelectedValue='<%# Bind("MaTram") %>'>
+                   </asp:ComboBox>
+               </td>
+           </tr>         
        </table>
           <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
                     CommandName="Insert" Text="Thêm nhân viên" />

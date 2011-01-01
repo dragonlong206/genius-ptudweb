@@ -111,5 +111,10 @@ namespace PTUDW_CTLH_C1.WUC.Xe
             NhanVienBUS NhanVienBUS = new NhanVienBUS();
             e.Result = NhanVienBUS.LayDSTaiXeChuaPhanCong();
         }
+
+        protected void gvXe_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+
+        }
     }
 }

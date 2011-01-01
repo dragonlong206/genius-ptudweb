@@ -14,7 +14,8 @@
     <asp:ListItem Value="2">Tất cả</asp:ListItem>
 </asp:DropDownList>
 <asp:GridView ID="gvXe" runat="server" AutoGenerateColumns="False" 
-    onselectedindexchanged="gvXe_SelectedIndexChanged" DataKeyNames="MaXe">
+    onselectedindexchanged="gvXe_SelectedIndexChanged" DataKeyNames="MaXe" 
+    onrowediting="gvXe_RowEditing">
     <Columns>
         <asp:BoundField DataField="BienSoXe" HeaderText="Biển số xe"/>        
         <asp:BoundField DataField="NgayNhap" HeaderText="Ngày nhập" ReadOnly="true"/>
@@ -30,12 +31,17 @@
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Tài Xế" >
             <ItemTemplate>
-                <asp:DropDownList runat="server" ID="ddlTaiXe" DataSourceID="ldsTaiXe"
+                <%# Eval("MaTaiXe") %>
+            </ItemTemplate>
+            <EditItemTemplate>
+                <asp:DropDownList runat="server" ID="ddlTaiXe" DataSourceID="ldsDSTaiXe"
                 DataValueField="MaNhanVien" DataTextField="HoTen"
                 ></asp:DropDownList>
-            </ItemTemplate>
+            </EditItemTemplate>
         </asp:TemplateField>
         <asp:CommandField SelectText="Lưu" ShowSelectButton="True" />
+        <asp:CommandField CancelText="Hủy" EditText="Cập nhật" ShowEditButton="True" 
+            UpdateText="Lưu" />
     </Columns>
 </asp:GridView>
 <asp:Label ID="lblThongBao" runat="server" Text=""></asp:Label>
@@ -44,30 +50,41 @@
 </asp:LinqDataSource>
 <asp:LinqDataSource ID="ldsDSXe" runat="server" onselecting="ldsDSXe_Selecting">
 </asp:LinqDataSource>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <asp:LinqDataSource ID="ldsAllXe" runat="server" 
     onselecting="ldsAllXe_Selecting" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="XEs">
 </asp:LinqDataSource>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<asp:LinqDataSource ID="ldsDSTaiXe" runat="server" 
+    ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="NHAN_VIENs" 
+    Where="MaNhanVien == @MaNhanVien">
+    <WhereParameters>
+        <asp:ControlParameter ControlID="gvXe" DefaultValue="1" Name="MaNhanVien" 
+            PropertyName="SelectedValue" Type="Int32" />
+    </WhereParameters>
+</asp:LinqDataSource>
+
 
 
 

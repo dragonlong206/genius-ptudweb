@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ThemTaiKhoan.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TaiKhoan.ThemTaiKhoan" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-    
+<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+</asp:ToolkitScriptManager>
 <asp:LinqDataSource ID="ldsTaiKhoan" runat="server" 
         ContextTypeName="DTO.CongTyLuHanhDataContext" EnableInsert="True" 
         TableName="TAI_KHOANs">
@@ -25,7 +26,9 @@
                 </td>
                 <td>
                    <asp:TextBox ID="txtUsername" runat="server" Text='<%# Bind("Username") %>' />
+                   <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ErrorMessage="Chưa nhập tên tài khoản" Font-Italic="True" ControlToValidate="txtUsername"></asp:RequiredFieldValidator>
                 </td>
+                
              </tr>
              <tr>
                 <td>
@@ -34,7 +37,8 @@
                 <td>
                      <asp:TextBox ID="txtPassword" runat="server"   Text='<%# Bind("Password") %>' /> 
                     <asp:PasswordStrength ID="PasswordStrength1" runat="server" TargetControlID="txtPassword">
-                    </asp:PasswordStrength>               
+                    </asp:PasswordStrength>
+                    <asp:RequiredFieldValidator ID="rfvPassword" runat="server" Font-Italic="true" ErrorMessage="Chưa nhập mật khẩu" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>               
                 </td>
              </tr>
              <tr>

@@ -19,16 +19,15 @@ namespace PTUDW_CTLH_C1.WUC.MatKhau
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int MaTaiKhoan = (int)Session["MaTaiKhoan"];
-            lblTaiKhoan.Text = MaTaiKhoan.ToString();
+           /* int MaTaiKhoan = (int)Session["MaTaiKhoan"];
+            lblTaiKhoan.Text = MaTaiKhoan.ToString();*/
             if (!IsPostBack)
             {
                 if (Session["IsLogin"] != null)
                 {
-                   // this.Visible = false;
+                    // this.Visible = false;
                 }
-            }
-
+            }            
         }
 
         protected void btnLuu_Click(object sender, EventArgs e)
@@ -36,8 +35,8 @@ namespace PTUDW_CTLH_C1.WUC.MatKhau
             TaiKhoanBUS TaiKhoanBUS = new TaiKhoanBUS();
             String strMatKhauCu = txtMatKhauCu.Text;
             int MaTaiKhoan = (int)Session["MaTaiKhoan"];
-           // int MaTaiKhoan = 1;
-            
+           // int MaTaiKhoan = 2;
+            strMatKhauCu = MyEncryption.Encrypt(strMatKhauCu);
             string password = TaiKhoanBUS.LayMatKhauTheoMaTaiKhoan(MaTaiKhoan);
                 if (password == strMatKhauCu)
                 {
@@ -45,7 +44,8 @@ namespace PTUDW_CTLH_C1.WUC.MatKhau
                     String strConfirmMatKhau = txtConfirmMatKhau.Text;
                     if (strMatKhauMoi == strConfirmMatKhau)
                     {
-                        TaiKhoanBUS.DoiMatKhau(MaTaiKhoan,strMatKhauMoi);
+                        strConfirmMatKhau = MyEncryption.Encrypt(strConfirmMatKhau);
+                        TaiKhoanBUS.DoiMatKhau(MaTaiKhoan,strConfirmMatKhau);
                     }
                 }
         }

@@ -13,7 +13,7 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
         {
             DateTime myDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
-            ldsChuyenXe.Where = @"1==1 OR TUYEN_XE.MaTramDi == @MaTramXe AND KhoiHanh >= DateTime.Parse(""" + myDate + @""") AND KhoiHanh < DateTime.Parse(""" + myDate.AddDays(1) + @""")";
+            ldsChuyenXe.Where = @"TUYEN_XE.MaTramDi == @MaTramXe AND KhoiHanh >= DateTime.Parse(""" + myDate + @""") AND KhoiHanh < DateTime.Parse(""" + myDate.AddDays(1) + @""")";
 
             lblThongBao.Text = "HÔM NAY KHÔNG CÓ CHUYẾN NÀO CHẠY CẢ";
         }

@@ -11,15 +11,16 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using BUS;
-using DTO;
 
-namespace PTUDW_CTLH_C1.WUC.MatKhau
+namespace PTUDW_CTLH_C1.WUC.PhanHoi
 {
-    public partial class wucCapNhatThongTin : System.Web.UI.UserControl
+    public partial class wucXemPhanHoiChiTiet : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            PhanHoiBUS PhanHoiBUS = new PhanHoiBUS();
+            int MaPhanHoi = int.Parse(Request.QueryString["MaPhanHoi"]);
+            PhanHoiBUS.CapNhatTinhTrangPhanHoiDaDoc(MaPhanHoi);
         }
     }
 }

@@ -8,36 +8,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PTUDW_CTLH_C1.WUC.MatKhau {
+namespace PTUDW_CTLH_C1.WUC.PhanHoi {
     
     
-    public partial class wucCapNhatThongTin {
+    public partial class wucXemPhanHoi {
         
         /// <summary>
-        /// ToolkitScriptManager1 control.
+        /// ldsPhanHoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        protected global::System.Web.UI.WebControls.LinqDataSource ldsPhanHoi;
         
         /// <summary>
-        /// DetailsView1 control.
+        /// gvPhanHoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
-        
-        /// <summary>
-        /// ldsNhanVien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource ldsNhanVien;
+        protected global::System.Web.UI.WebControls.GridView gvPhanHoi;
     }
 }
