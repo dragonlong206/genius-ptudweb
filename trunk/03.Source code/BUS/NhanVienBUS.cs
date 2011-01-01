@@ -48,5 +48,15 @@ namespace BUS
         {
             return _nhanVienDAO.SelectNhanVienLaDieuHanhTramResult();
         }
+
+        public List<usp_SelectNamResult> XemDanhSachNam(int MaNhanVien)
+        {
+            return _nhanVienDAO.XemDanhSachNam(MaNhanVien);
+        }
+        public double LuongCoDinhTrongThang(int MaNhanVien)
+        {
+            NhanVienDAO NhanVien = new NhanVienDAO();
+            return NhanVien.LuongCoDinhTrongThang(MaNhanVien);
+        }
     }
 }
