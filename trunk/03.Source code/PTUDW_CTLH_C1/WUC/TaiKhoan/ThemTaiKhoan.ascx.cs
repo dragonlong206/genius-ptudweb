@@ -20,6 +20,26 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan
 
         }
 
+        protected void lnkThemTaiKhoan_Click(object sender, EventArgs e)
+        {
+         if(pnlThemTaiKhoan.Visible==false)
+         {
+             pnlThemTaiKhoan.Visible=true;
+         }
+         else
+         {
+             pnlThemTaiKhoan.Visible=false;
+         }
+        }
+
+        protected void FormView1_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+            if(e.CommandName.Equals("Cancel"))
+            {
+                pnlThemTaiKhoan.Visible=false;
+            }
+        }
+
         
     }
 }

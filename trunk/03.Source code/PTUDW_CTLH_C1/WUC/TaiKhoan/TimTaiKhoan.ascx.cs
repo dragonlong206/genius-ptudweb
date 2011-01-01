@@ -13,26 +13,16 @@ using System.Xml.Linq;
 
 namespace PTUDW_CTLH_C1.WUC.TaiKhoan
 {
-    public partial class XoaTaiKhoan : System.Web.UI.UserControl
+    public partial class TimTaiKhoan : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-                
-            
+
         }
 
         protected void btTimKiem_Click(object sender, EventArgs e)
         {
-            dgvThongTinTaiKhoan.DataBind();
-            cbTaiKhoan.DataBind();
-            
-          
-        }
 
-        protected void dgvThongTinTaiKhoan_RowDeleted(object sender, GridViewDeletedEventArgs e)
-        {
-            cbTaiKhoan.DataBind();
         }
     }
 }

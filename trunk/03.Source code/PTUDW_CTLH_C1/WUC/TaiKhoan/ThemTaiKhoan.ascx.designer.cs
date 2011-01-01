@@ -14,15 +14,6 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan {
     public partial class ThemTaiKhoan {
         
         /// <summary>
-        /// ToolkitScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
-        
-        /// <summary>
         /// ldsTaiKhoan control.
         /// </summary>
         /// <remarks>
@@ -39,6 +30,24 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinqDataSource ldsNhanVien;
+        
+        /// <summary>
+        /// lnkThemTaiKhoan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkThemTaiKhoan;
+        
+        /// <summary>
+        /// pnlThemTaiKhoan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlThemTaiKhoan;
         
         /// <summary>
         /// FormView1 control.
