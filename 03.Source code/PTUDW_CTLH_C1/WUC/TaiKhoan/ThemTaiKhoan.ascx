@@ -1,10 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ThemTaiKhoan.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TaiKhoan.ThemTaiKhoan" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-    <h2> Thêm Tài Khoản</h2>
-    <br />
-    <br />
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
+    
 <asp:LinqDataSource ID="ldsTaiKhoan" runat="server" 
         ContextTypeName="DTO.CongTyLuHanhDataContext" EnableInsert="True" 
         TableName="TAI_KHOANs">
@@ -13,14 +9,19 @@
         ContextTypeName="DTO.CongTyLuHanhDataContext" Select="new (MaNhanVien, HoTen)" 
         TableName="NHAN_VIENs">
 </asp:LinqDataSource>
+<asp:LinkButton ID="lnkThemTaiKhoan" runat="server" onclick="lnkThemTaiKhoan_Click">Thêm tài khoản</asp:LinkButton>
+<asp:Panel ID="pnlThemTaiKhoan" runat="server" Visible="false">
+    <h2>Thêm Tài Khoản</h2>    
+    <br />
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="MaTaiKhoan" 
-        DataSourceID="ldsTaiKhoan" DefaultMode="Insert">
+        DataSourceID="ldsTaiKhoan" DefaultMode="Insert" 
+        onitemcommand="FormView1_ItemCommand">
         
         <InsertItemTemplate>
         <table>
             <tr>
                 <td>
-                      Username:
+                      Tên tài khoản:
                 </td>
                 <td>
                    <asp:TextBox ID="txtUsername" runat="server" Text='<%# Bind("Username") %>' />
@@ -28,7 +29,7 @@
              </tr>
              <tr>
                 <td>
-                    Password:
+                    Mật khẩu:
                 </td>
                 <td>
                      <asp:TextBox ID="txtPassword" runat="server"   Text='<%# Bind("Password") %>' /> 
@@ -47,7 +48,7 @@
              </tr>
              <tr>
                 <td>
-                      NgayKichHoat:
+                      Ngày kích hoạt:
                 </td>
                 <td>                
                     <asp:TextBox ID="txtNgayKichHoat" runat="server" Text='<%# Bind("NgayKichHoat") %>' />
@@ -56,7 +57,7 @@
              </tr>
              <tr>
                 <td>
-                     MaNhanVien:
+                     Tên Nhân Viên:
                 </td>
                 <td>
                 
@@ -77,4 +78,4 @@
        
     </asp:FormView>
 
-
+</asp:Panel>
