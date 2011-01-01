@@ -43,22 +43,26 @@ namespace PTUDW_CTLH_C1
         {
             if (txtUsername.Text.ToString().Length > 0 && txtPassword.Text.ToString().Length > 0)
             {
-                bool IsLogin = new TaiKhoanBUS().DangNhap(txtUsername.Text, txtPassword.Text);
+                NhanVienBUS nvBUS = new NhanVienBUS();
+                string password = MyEncryption.Encrypt(txtPassword.Text);
+                bool IsLogin = new TaiKhoanBUS().DangNhap(txtUsername.Text, password);
 
                 if (IsLogin)
                 {
-                    int MaNhanVien = new TaiKhoanBUS().LayMaNhanVien(txtUsername.Text, txtPassword.Text);
-                    int MaLoaiNhanVien = new NhanVienBUS().LayLoaiNhanVien(MaNhanVien);
+                    int MaNhanVien = new TaiKhoanBUS().LayMaNhanVien(txtUsername.Text, password);
+                    int MaLoaiNhanVien = nvBUS.LayLoaiNhanVien(MaNhanVien);
 
                     Session["IsLogin"] = 1;
-                    Session["HoTen"] = new NhanVienBUS().LayTenNhanVien(MaNhanVien);
-                    Session["Authentication"] = new LoaiNhanVienBUS().LayTenLoaiNhanVien(MaLoaiNhanVien);
+                    Session["HoTen"] = nvBUS.LayTenNhanVien(MaNhanVien);
+                    Session["VaiTro"] = new LoaiNhanVienBUS().LayTenLoaiNhanVien(MaLoaiNhanVien);
                     Session["TaiKhoan"] = txtUsername.Text;
                     Session["MaTaiKhoan"] = new TaiKhoanBUS().LayMaTaiKhoan((String)(Session["TaiKhoan"]));
                     Session["MaNhanVien"] = MaNhanVien;
+                    
                     //redirect
 
                     ThayDoiTrangThai();
+                    
                 }
                 else
                 {
@@ -82,12 +86,24 @@ namespace PTUDW_CTLH_C1
             btnXinChao.Visible = true;
             btnXinChao.Text = (String)Session["HoTen"];
             btnDangXuat.Visible = true;
+
+            PhanHoiBUS phBUS = new PhanHoiBUS();
+            int iPhanHoi = phBUS.DemPhanHoiChuaDoc((int)(Session["MaNhanVien"])).SoLuong.Value;
+            if (iPhanHoi > 0)
+            {
+                lbtnPhanHoi.Text = "Có " + iPhanHoi.ToString() + " tin chưa đọc";
+                lbtnPhanHoi.Visible = true;
+            }
+            else
+            {
+                lbtnPhanHoi.Visible = false;
+            }
         }
 
         protected void btnDangXuat_Click(object sender, EventArgs e)
         {
             Session ["IsLogin"] = 0;
-	        Response.Redirect("Default.aspx");
+	        Response.Redirect("~/Default.aspx");
         }
     }
 }

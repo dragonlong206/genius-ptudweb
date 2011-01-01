@@ -26,15 +26,15 @@
                         Text="Tên đăng nhập"></asp:TextBox> 
                     <asp:TextBox ID="txtPassword" runat="server" CssClass="textbox" TextMode="Password"
                         ToolTip="Mật khẩu" Text="123456"></asp:TextBox>
-                    <asp:Button ID="btnDangNhap" runat="server" CssClass="login_button" 
+                    <asp:Button ID="btnDangNhap" runat="server" CssClass="login_button" CausesValidation="false"
                         Text="Đăng nhập" onclick="btnDangNhap_Click" />
                     <asp:Label ID="lblXinChao" runat="server" Text="Xin chào &nbsp&nbsp" Visible="False"></asp:Label>
-                    <asp:LinkButton ID="btnXinChao" runat="server" ForeColor="White" 
+                    <asp:LinkButton ID="btnXinChao" runat="server" ForeColor="White" PostBackUrl="~/Administration/CapNhatThongTinCaNhan.aspx" CausesValidation="false"
                         Visible="False">LinkButton</asp:LinkButton>
                     &nbsp&nbsp|&nbsp&nbsp
-                    
-                    <asp:LinkButton ID="btnQuenMatKhau" runat="server" ForeColor="White">Quên mật khẩu</asp:LinkButton>
-                    <asp:LinkButton ID="btnDangXuat" runat="server" ForeColor="White" 
+                    <asp:LinkButton ID="lbtnPhanHoi" runat="server" CausesValidation="false" Visible="false" PostBackUrl="~/Administration/TaiXe/XemPhanHoi.aspx"></asp:LinkButton>
+                    <asp:LinkButton ID="btnQuenMatKhau" runat="server" CausesValidation="false" ForeColor="White">Quên mật khẩu</asp:LinkButton>
+                    <asp:LinkButton ID="btnDangXuat" runat="server" ForeColor="White" CausesValidation="false"
                         Visible="False" onclick="btnDangXuat_Click">Đăng xuất</asp:LinkButton>
                     <!--div class="links">
                         <a href="#">Quên mật khẩu</a> | <a href="#">Đăng ký</a>
