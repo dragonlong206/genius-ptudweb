@@ -1,8 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucCacChuyenChayTrongNgay.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.ChuyenXe.wucCacChuyenChayTrongNgay" %>
+<link href="../../Shared/Css/GridView.css" rel="Stylesheet" type="text/css" />
+
 <asp:Label ID="lblThongBao" runat="server" Text="" Font-Size="X-Large" ForeColor="Red"></asp:Label>
-<asp:GridView ID="gvChuyenXe" runat="server" AutoGenerateColumns="False" 
+<asp:GridView ID="gvChuyenXe" runat="server" AutoGenerateColumns="False" AllowPaging="true"
     DataKeyNames="MaChuyenXe" DataSourceID="ldsChuyenXe" 
-    onrowcreated="gvChuyenXe_RowCreated">
+    CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
+    onrowcreated="gvChuyenXe_RowCreated" PageSize="10">
     <Columns>
         <asp:TemplateField HeaderText="STT">   
             <ItemTemplate>
