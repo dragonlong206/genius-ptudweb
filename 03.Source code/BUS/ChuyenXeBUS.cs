@@ -18,6 +18,29 @@ namespace BUS
        //{
        //    ChuyenXeDAO chuyenXe = new ChuyenXeDAO();
        //    return chuyenXe.SelectChiTietChuyenXeByMaChuyenXe(maChuyenXe);
-       //}
+
+       public List<usp_SelectChuyenALLByMaNhanVienAndNgayKhoiHanhResult> SelectChuyenALLByMaNhanVienAndNgayKhoiHanhResult(int MaNhanVien, DateTime NgayKhoiHanh)
+       {
+           ChuyenXeDAO chuyenxe = new ChuyenXeDAO();
+           return chuyenxe.SelectChuyenALLByMaNhanVienAndNgayKhoiHanhResult(MaNhanVien, NgayKhoiHanh);
+       }
+
+       public List<usp_SelectCHUYEN_XEsKeTiepResult> XemDanhSachChuyenKeTiep(int MaNhanVien)
+       {
+           ChuyenXeDAO ChuyenXe = new ChuyenXeDAO();
+           return ChuyenXe.XemDanhSachChuyenKeTiep(MaNhanVien);
+       }
+
+       public List<usp_SelectCHUYEN_XEsByMaNhanVienAndThangResult> XemChuyenDaChayTheoThang(int MaNhanVien, int Thang, int Nam)
+       {
+           ChuyenXeDAO ChuyenXe = new ChuyenXeDAO();
+           return ChuyenXe.XemChuyenDaChayTheoThang(MaNhanVien, Thang, Nam);
+       }
+       public double TongLuongTrongThang(int MaNhanVien, int Thang, int Nam)
+       {
+           ChuyenXeDAO Chuyenxe = new ChuyenXeDAO();
+           return Chuyenxe.TongLuongTrongThang(MaNhanVien, Thang, Nam);
+       }
     }
+    
 }

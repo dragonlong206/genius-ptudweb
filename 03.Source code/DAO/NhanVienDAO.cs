@@ -98,5 +98,19 @@ namespace DAO
             CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
             return db.usp_SelectNhanVienLaDieuHanhTram().ToList();
         }
+
+        public List<usp_SelectNamResult> XemDanhSachNam(int MaNhanVien)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            ISingleResult<usp_SelectNamResult> dsNam = db.usp_SelectNam(MaNhanVien);
+            return dsNam.ToList();
+        }
+
+        public double LuongCoDinhTrongThang(int MaNhanVien)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            ISingleResult<usp_SelectLuongCoDinhResult> kq = db.usp_SelectLuongCoDinh(MaNhanVien);
+            return (double)kq.Single().LuongTrongThang;
+        }
     }
 }
