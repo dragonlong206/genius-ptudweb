@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucTimNhanhTuyen.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TuyenXe.wucTimNhanhTuyen" %>
-
+<link href="../../Shared/Css/GridView.css" rel="Stylesheet" type="text/css" />
 <div id="Wrapper">
    <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
@@ -47,8 +47,8 @@
             </div>        
             
                 <asp:Label ID="lblKetQua" runat="server" Text=""></asp:Label>         
-                <asp:GridView ID="grvDanhSachTuyen" runat="server" AllowPaging="True" 
-                AutoGenerateColumns="False">
+                <asp:GridView ID="grvDanhSachTuyen" runat="server" AllowPaging="True"
+                    CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False">
                     <Columns>
                         <asp:BoundField DataField="TenTuyenXe" HeaderText="Tên tuyến" 
                             NullDisplayText="Chưa xác định" />

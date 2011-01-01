@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucTimTuyenNangCao.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TuyenXe.wucTimTuyenNangCao" %>
-
+<link href="../../Shared/Css/GridView.css" rel="Stylesheet" type="text/css" />
 <div id="Wrapper">
     <asp:LinqDataSource ID="ldsTramXe" runat="server" 
         ContextTypeName="DTO.CongTyLuHanhDataContext" OrderBy="TenTramXe" 
@@ -64,7 +64,7 @@
         <div>
             <asp:Label ID="lblKetQua" runat="server" Text="Các kết quả phù hợp"></asp:Label>
             <asp:GridView ID="grvDanhSachTuyenNangCao" runat="server" AllowPaging="True" 
-            AutoGenerateColumns="False">
+            CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="TenTuyenXe" HeaderText="Tên tuyến" 
                         NullDisplayText="Chưa xác định" />
