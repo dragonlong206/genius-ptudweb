@@ -23,6 +23,15 @@ namespace PTUDW_CTLH_C1 {
         protected global::System.Web.UI.HtmlControls.HtmlForm MainForm;
         
         /// <summary>
+        /// Toolkitscriptmanager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager Toolkitscriptmanager1;
+        
+        /// <summary>
         /// smdsMaster control.
         /// </summary>
         /// <remarks>
@@ -41,6 +50,15 @@ namespace PTUDW_CTLH_C1 {
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
+        /// twmUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender twmUsername;
+        
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -48,6 +66,15 @@ namespace PTUDW_CTLH_C1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        
+        /// <summary>
+        /// twmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender twmPassword;
         
         /// <summary>
         /// btnDangNhap control.
