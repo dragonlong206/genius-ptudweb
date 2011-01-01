@@ -1,0 +1,40 @@
+﻿.navcontainer {
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffffff 1px solid; 
+	DISPLAY: block; 
+	PADDING-LEFT: 4px; 
+	PADDING-BOTTOM: 1px; 
+	WIDTH: 160px; 
+	COLOR: #333333; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #dadada 1px solid; 
+	BACKGROUND-COLOR: #f4f4f4; 
+	TEXT-DECORATION: none;
+}
+.navcontainer:hover {
+	FONT-WEIGHT: 800; 
+	COLOR: #ae269e; 
+	BACKGROUND-COLOR: #e9e9e9;
+}
+
+A:link  
+{
+	Font-family: Arial;
+	color:Blue; 
+	Text-Decoration:none
+}
+
+A:visited  
+{
+	color:Purple
+}
+
+A:active 
+{
+	 color:Purple;
+}
+
+A:hover  
+{
+	Text-Decoration:underline;
+}
