@@ -11,10 +11,16 @@ img
 	border:0px;
 }
 
-body, background
+body, background, form
 {
 	width:1000px;
 	margin:0 auto;
+	text-align:center;
+}
+
+div#background
+{
+	text-align: left;
 }
 
 .mytitle
@@ -22,7 +28,7 @@ body, background
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:22px;
 	color:#414141;
-	padding:3px 0px 10px 5px;
+	padding:3px 0px 10px 10px;
 }
 
 .normal_text
@@ -44,29 +50,35 @@ body, background
 	background-image:url(images/top_header_bg.gif);
 	background-repeat:repeat-x;
 	background-position:top left;
-	padding-top:13px;
-	height:37px;		
+	/*vertical-align: middle;*/
+	height:50px;		
 	color:#D8DCE0;
 	overflow:hidden;
 }
 #login 
 {
 	padding:0 0 0 477px;
+	margin-top:13px;
 }
 
 #login .textbox
 {
-	background:url(images/top_textbox.gif);
+	background: url(images/top_textbox.gif);
 	background-position:top left;
 	background-repeat:no-repeat;
 	margin:0 8px 0 0;
 	border:none;
-	width:120px;
+	width:130px;
 	height:19px;
-	padding:0px 7px 3px 7px;
+	padding:2px 7px 3px 7px;
 	color:#FFF;
 	float:left;
-	overflow:hidden;
+	overflow:hidden;	
+}
+
+.text_account
+{
+	vertical-align: text-bottom;
 }
 
 .login_button
@@ -103,7 +115,7 @@ body, background
 	height:30px;
 	background:#FFF;
 	float:left;	
-	padding: 10px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 #menu_bg
@@ -173,12 +185,18 @@ body, background
 {
 	text-align: center;
 	/*padding:0px 2px 0px 0px;*/
+	color:#009edc;
+}
+
+.StaticMenuItemBottom
+{
+	color:#E8E9E9;
 }
 
 #change_theme
 {
 	float: right;
-	padding: 10px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 	width: 147px;
 	height: 30px;
 	text-align: right;
@@ -186,25 +204,34 @@ body, background
 
 #menu_banner
 {
-	width:737px;
-	height:193px;
+	width:740px;
+	height:183px;
 	float:left;
-	padding:0px 0px 0px 25px;
+	margin:10px 0px 0px 30px;
+	overflow: hidden;
 }
 
 #logo_block
 {
-	width:158px;
+	width:185px;
 	overflow:hidden;
 	float:left;
-	padding:5px 0px 0px 40px;	
+	padding:5px 0px 0px 0px;	
+	/*text-align: center;
+	vertical-align: middle;*/
+}
+
+#logo_block img
+{	
+	float:right;
+	padding: 0px;
 }
 
 #banner_block
 {
 	width:737px;
 	height:150px;
-	background:url(images/banner.jpg);
+	background:url(images/banner1.jpg);
 	background-position:top left;
 	background-repeat:no-repeat;
 	float:left;
@@ -262,7 +289,7 @@ body, background
 #left_col
 {
 	font-size:11px;
-	width:183px;
+	width:163px;
 	float:left;
 	overflow:hidden;
 }
@@ -322,7 +349,7 @@ body, background
 
 #center_col
 {
-	width:490px;
+	width:500px;
 	float:left;
 	overflow:hidden;
 }
@@ -330,7 +357,7 @@ body, background
 #right_col
 {
 	width:253px;
-	float:right;
+	float:left;
 	padding:5px;
 	overflow:hidden;	
 	background: url(images/line.gif);
@@ -426,7 +453,7 @@ body, background
 
 #hottour_block .mytitle
 {
-	padding:10px 0 10px 10px;
+	padding:10px 0 10px 20px;
 }
 
 #hottour_block #img_block
@@ -456,7 +483,7 @@ body, background
 
 #welcome
 {
-	padding:0px 20px 0px 10px;
+	padding:0px 20px 0px 20px;
 }
 
 /*---------------------------------Footer------------------------------*/
@@ -489,7 +516,7 @@ body, background
 	text-decoration:none
 }
 #footer li a:visited{text-decoration:none}
-#footer li a:hover{text-decoration:underline}
+.MenuHover{text-decoration:underline}
 
 #footer p
 {
