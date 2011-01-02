@@ -18,6 +18,10 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
         protected void Page_Load(object sender, EventArgs e)
         {
            // dvChiTietTuyen.FindControl("DropDownList1").
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 3)
+            {
+                Response.Redirect("~/Default.aspx?showMessage=true");
+            }
         }
     }
 }
