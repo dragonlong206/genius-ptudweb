@@ -2,8 +2,6 @@
     Inherits="PTUDW_CTLH_C1.WUC.ChuyenXe.wucThemChuyenXe" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <div id="Wrapper">
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-    </asp:ToolkitScriptManager>
     <asp:LinqDataSource ID="ldsChuyenXe" runat="server" ContextTypeName="DTO.CongTyLuHanhDataContext"
         TableName="CHUYEN_XEs" EnableInsert="True">
     </asp:LinqDataSource>
@@ -14,7 +12,9 @@
         Select="new (MaXe, BienSoXe)" TableName="XEs">
     </asp:LinqDataSource>
     <asp:FormView ID="fvChuyenXe" runat="server" DataKeyNames="MaChuyenXe" DataSourceID="ldsChuyenXe"
-        CellPadding="4" DefaultMode="Insert" ForeColor="#333333" OnItemInserted="fvChuyenXe_ItemInserted">
+        CellPadding="4" DefaultMode="Insert" ForeColor="#333333" 
+        OnItemInserted="fvChuyenXe_ItemInserted" 
+        oniteminserting="fvChuyenXe_ItemInserting">
         <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
         <RowStyle BackColor="#EFF3FB" />
         <InsertItemTemplate>
@@ -32,7 +32,7 @@
                         <asp:MaskedEditValidator ID="MaskedEditValidator6" runat="server" ControlExtender="MaskedEditExtender6"
                             ControlToValidate="KhoiHanhTextBox" IsValidEmpty="False" EmptyValueMessage="Date and time are required"
                             InvalidValueMessage="Date and/or time is invalid" Display="Dynamic" TooltipMessage="(thang/ngay/nam)"
-                            EmptyValueBlurredText="*" InvalidValueBlurredMessage="Nhap" ValidationGroup="MKE" />
+                            EmptyValueBlurredText="*" InvalidValueBlurredMessage="*" ValidationGroup="MKE" />
                     </td>
                 </tr>
                 <tr class="TableColumnNormal">
@@ -66,7 +66,9 @@
                         Giá vé:
                     </td>
                     <td>
-                        <asp:TextBox ID="GiaVeTextBox" runat="server" Text='<%# Bind("GiaVe") %>' />
+                        <asp:TextBox ID="GiaVeTextBox" runat="server" Text='<%# Bind("GiaVe") %>' TextMode="SingleLine" />
+                        <asp:FilteredTextBoxExtender ID="ftxtGiaVe" runat="server" FilterType="Numbers" TargetControlID="GiaVeTextBox">
+                        </asp:FilteredTextBoxExtender>
                     </td>
                 </tr>
                 <tr>
@@ -75,6 +77,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="LuongTaiXeTextBox" runat="server" Text='<%# Bind("LuongTaiXe") %>' />
+                        <asp:FilteredTextBoxExtender ID="ftxtLuongTaiXe" runat="server" TargetControlID="LuongTaiXeTextBox" FilterType="Numbers">
+                        </asp:FilteredTextBoxExtender>
                     </td>
                 </tr>
                 <tr>

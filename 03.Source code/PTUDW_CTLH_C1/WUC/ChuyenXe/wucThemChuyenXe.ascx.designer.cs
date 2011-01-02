@@ -14,15 +14,6 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe {
     public partial class wucThemChuyenXe {
         
         /// <summary>
-        /// ToolkitScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
-        
-        /// <summary>
         /// ldsChuyenXe control.
         /// </summary>
         /// <remarks>
