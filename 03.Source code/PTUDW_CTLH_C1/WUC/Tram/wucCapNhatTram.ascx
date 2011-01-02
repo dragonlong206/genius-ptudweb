@@ -1,20 +1,18 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucCapNhatTram.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.Tram.wucCapNhatTram" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
+<asp:Label ID="lblMoiGoi" Text="Chọn trạm cần chỉnh sửa: " runat="server"></asp:Label><br />
 <asp:ComboBox ID="cboTimKiemTram" runat="server" 
     AutoCompleteMode="SuggestAppend" DataSourceID="lbsTram" 
     DataTextField="TenTramXe" DataValueField="MaTramXe" MaxLength="0" 
     style="display: inline;">
 </asp:ComboBox>
+<asp:Button ID="bntTimLiem" runat="server" Text="Tìm" 
+    onclick="bntTimLiem_Click" />
 <asp:LinqDataSource ID="lbsTram" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" 
     TableName="TRAM_XEs">
 </asp:LinqDataSource>
-<br />
 
-<asp:Button ID="bntTimLiem" runat="server" Text="Tim" 
-    onclick="bntTimLiem_Click" />
 <asp:LinqDataSource ID="lbsDsTram" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" EnableUpdate="True" 
     TableName="TRAM_XEs" Where="MaTramXe == @MaTramXe">
@@ -25,7 +23,7 @@
 </asp:LinqDataSource>
 
 
-<asp:FormView ID="fvDsTram" runat="server" DataKeyNames="MaTramXe" 
+<asp:FormView ID="fvDsTram" Visible="false" runat="server" DataKeyNames="MaTramXe" 
     DataSourceID="lbsDsTram" DefaultMode="Edit" Width="377px">
     <EditItemTemplate>
         
@@ -85,9 +83,9 @@
         </tr>
     </table>
      <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" 
-            CommandName="Update" Text="Update" />
+            CommandName="Update" Text="Cập nhật" OnClientClick="return confirm('Bạn muốn cập nhật lại trạm vừa sửa?');" />
         &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" 
-            CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            CausesValidation="False" CommandName="Cancel" Text="Hủy" />
             
     </EditItemTemplate>
        
