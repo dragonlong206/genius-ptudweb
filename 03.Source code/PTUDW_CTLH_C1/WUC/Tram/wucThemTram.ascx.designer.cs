@@ -39,5 +39,14 @@ namespace PTUDW_CTLH_C1.WUC.Tram {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FormView FormView1;
+        
+        /// <summary>
+        /// lblKetQua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKetQua;
     }
 }

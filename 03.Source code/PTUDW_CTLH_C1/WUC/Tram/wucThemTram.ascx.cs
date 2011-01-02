@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using BUS;
 using DTO;
 using System.Collections.Generic;
+using System.IO;
 
 namespace PTUDW_CTLH_C1.WUC.Tram
 {
@@ -28,6 +29,33 @@ namespace PTUDW_CTLH_C1.WUC.Tram
         {
             NhanVienBUS nhanvienbus = new NhanVienBUS();
            e.Result = nhanvienbus.SelectNhanVienLaDieuHanhTramResult();
+        }
+
+        protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
+        {
+            AjaxControlToolkit.AsyncFileUpload afuHinhAnh;
+            afuHinhAnh = (AjaxControlToolkit.AsyncFileUpload)FormView1.FindControl("afuHinhAnh");
+            if (afuHinhAnh.HasFile)
+            {
+                e.Values["HinhAnh"] = afuHinhAnh.FileName;
+            }
+        }
+
+        protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            AjaxControlToolkit.AsyncFileUpload afuHinhAnh;
+            afuHinhAnh = (AjaxControlToolkit.AsyncFileUpload)FormView1.FindControl("afuHinhAnh");
+            if (afuHinhAnh.HasFile)
+            {
+                string strPath = MapPath("~/Images/Tram/") + Path.GetFileName(afuHinhAnh.FileName);
+                afuHinhAnh.SaveAs(strPath);
+            }
+            lblKetQua.Text = " Đã thêm thành trạm thành công";
+        }
+
+        protected void FormView1_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+           
         }
     }
 }

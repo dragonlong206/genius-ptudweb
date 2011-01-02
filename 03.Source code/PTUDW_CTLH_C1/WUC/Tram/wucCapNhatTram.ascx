@@ -30,10 +30,6 @@
       
     <table>
         <tr>
-            
-       
-        
-       
             <td>
             Tên Trạm Xe:
         
