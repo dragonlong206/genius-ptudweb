@@ -46,5 +46,10 @@ namespace BUS
                 throw ex;
             }
         }
+
+        public void ThemPhanHoiDaDuyet(int iMaTaiXe, int iMaPhanHoiKhach, int iMaNhanVienDuyet)
+        {
+            daoPhanHoi.ThemPhanHoiDaDuyet(iMaTaiXe, iMaPhanHoiKhach, iMaNhanVienDuyet);
+        }
     }
 }

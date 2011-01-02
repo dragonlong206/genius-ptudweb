@@ -19,16 +19,35 @@ namespace PTUDW_CTLH_C1.WUC.PhanHoi
         protected void ldsTaiXe_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
             NhanVienBUS busNhanVien = new NhanVienBUS();
-            e.Result = busNhanVien.SelectTaiXesAll();
+            List<usp_SelectTaiXesAllResult> dsTaiXe = busNhanVien.SelectTaiXesAll();
+            if (dsTaiXe.Count > 0)
+            {
+                e.Result = dsTaiXe;
+            }
+            else
+            {
+                this.lblThongBao.Text = "Các phản hồi đã được duyệt hết";
+            }
         }
 
         protected void rptPhanHoi_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Duyet")
             {
-                PHAN_HOI_KHACH_HANG phSelectedItem = (PHAN_HOI_KHACH_HANG)e.Item.DataItem;
-                PhanHoiBUS busPhanHoi = new PhanHoiBUS();
-                busPhanHoi.DuyetPhanHoi(phSelectedItem.MaPhanHoi, 2);
+                if (Session["IsLogin"].ToString().Equals("1"))
+                {
+                    int iMaPhanHoi = int.Parse(e.CommandArgument.ToString());
+                    PhanHoiBUS busPhanHoi = new PhanHoiBUS();
+                    AjaxControlToolkit.ComboBox cboTaiXe = (AjaxControlToolkit.ComboBox)e.Item.FindControl("cboTaiXe");
+                    if (cboTaiXe.Items.Count > 0)
+                    {
+                        int iMaTaiXe = int.Parse(cboTaiXe.SelectedValue.ToString());
+                        busPhanHoi.DuyetPhanHoi(iMaPhanHoi, 2);
+                        busPhanHoi.ThemPhanHoiDaDuyet(iMaTaiXe, iMaPhanHoi, int.Parse(Session["MaNhanVien"].ToString()));
+                        Label lblDaDuyet = (Label)e.Item.FindControl("lblDaDuyet");
+                        lblDaDuyet.Text = "Đã duyệt";
+                    }
+                }
             }
         }
     }
