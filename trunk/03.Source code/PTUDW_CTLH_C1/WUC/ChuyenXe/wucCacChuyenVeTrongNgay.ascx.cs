@@ -21,12 +21,12 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
 
             ldsChuyenXe.Where = @"TUYEN_XE.MaTramDen == @MaTramXe AND DuKienDen >= DateTime.Parse(""" + myDate + @""") AND DuKienDen < DateTime.Parse(""" + myDate.AddDays(1) + @""")";
 
-            lblThongBao.Text = "HÔM NAY KHÔNG CÓ CHUYẾN NÀO Dzìa CẢ";
+            lblThongBao.Text = "HÔM NAY KHÔNG CÓ CHUYẾN NÀO VỀ TRẠM CẢ";
         }
 
         protected void gvChuyenXe_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            lblThongBao.Text = "DANH SÁCH CÁC CHUYẾN VỀ TRONG NGÀY";
+            lblThongBao.Text = "DANH SÁCH CÁC CHUYẾN VỀ TRẠM TRONG NGÀY";
         }
 
         protected void gvChuyenXe_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -38,24 +38,12 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
                 {
                     case 1:
                         e.Row.BackColor = System.Drawing.Color.FromArgb(255, 234, 255); // Full row color
-                        e.Row.BackColor = System.Drawing.Color.Yellow; // Column color
-
-                        e.Row.ForeColor = System.Drawing.Color.Red; // Change the row's Text color
-                        e.Row.Font.Italic = true;
                         break;
                     case 2:
-                        e.Row.BackColor = System.Drawing.Color.FromArgb(255, 0, 0); // Full row color
-                        e.Row.BackColor = System.Drawing.Color.Red; // Column color
-
-                        e.Row.ForeColor = System.Drawing.Color.Red; // Change the row's Text color
-                        e.Row.Font.Italic = true;
+                        e.Row.BackColor = System.Drawing.Color.FromArgb(255, 255, 0); // Full row color
                         break;
                     case 3:
                         e.Row.BackColor = System.Drawing.Color.FromArgb(0, 255, 0); // Full row color
-                        e.Row.BackColor = System.Drawing.Color.Green; // Column color
-
-                        e.Row.ForeColor = System.Drawing.Color.Green; // Change the row's Text color
-                        e.Row.Font.Italic = true;
                         break;
                 }
             }            

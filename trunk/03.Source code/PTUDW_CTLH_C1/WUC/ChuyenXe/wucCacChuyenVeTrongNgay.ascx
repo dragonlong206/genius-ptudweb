@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucCacChuyenVeTrongNgay.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.ChuyenXe.wucCacChuyenVeTrongNgay" %>
 <link href="../../Shared/Css/GridView.css" rel="Stylesheet" type="text/css" />
 
-<asp:Label ID="lblThongBao" runat="server" Text="" Font-Size="X-Large" ForeColor="Red"></asp:Label>
+<asp:Label ID="lblThongBao" CssClass="ThongBao" runat="server"></asp:Label>
 <asp:GridView ID="gvChuyenXe" runat="server" AutoGenerateColumns="False" AllowPaging="true"
     DataKeyNames="MaChuyenXe" DataSourceID="ldsChuyenXe" 
     CssClass="mGrid" PagerStyle-CssClass="pgr"
