@@ -30,5 +30,10 @@ namespace BUS
         {
             TuyenXeDAO.ThemTuyenXe(TuyenXeDTO);
         }
+
+        public List<Int32> LayDanhSachMaTuyen(int MaTramDi)
+        {
+            return new TuyenXeDAO().LayDanhSachMaTuyen(MaTramDi);
+        }
     }
 }

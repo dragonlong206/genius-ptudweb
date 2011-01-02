@@ -41,6 +41,28 @@ namespace BUS
            ChuyenXeDAO Chuyenxe = new ChuyenXeDAO();
            return Chuyenxe.TongLuongTrongThang(MaNhanVien, Thang, Nam);
        }
+
+       public List<CHUYEN_XE> LayDanhSachChuyenXe(List<Int32> danhSachTuyen)
+       {
+           ChuyenXeDAO chuyenXe = new ChuyenXeDAO();
+           return chuyenXe.LayDanhSachChuyenXe(danhSachTuyen);
+       }
+
+       public void CapNhatChuyen(int MaChuyen, int MaXe)
+       {
+           ChuyenXeDAO chuyenXe = new ChuyenXeDAO();
+           chuyenXe.CapNhatChuyen(MaChuyen, MaXe);
+       }
+
+       public bool KiemTraXeCoThePhanCong(int iMaXe, int iMaChuyenXe)
+       {
+           CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+           var ChuyenXe = (from Chuyen in db.CHUYEN_XEs
+                          where Chuyen.MaChuyenXe == iMaChuyenXe
+                          select Chuyen).Single();
+           ChuyenXeDAO chuyenXe = new ChuyenXeDAO();
+           return chuyenXe.KiemTraXeCoThePhanCong(iMaChuyenXe, ChuyenXe);
+       }
     }
     
 }
