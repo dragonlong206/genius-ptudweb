@@ -12,6 +12,10 @@ namespace PTUDW_CTLH_C1
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Title = "Công ty xe khách lữ hành Genius";
+            if (Request.QueryString["showMessage"] == "true")
+            {
+                Response.Write("<script>alert('Bạn không đủ quyền thực hiện chức năng này')</script>");
+            }
         }
 
         protected void Page_PreInit(object sender, EventArgs e)
