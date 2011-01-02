@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Shared/Main_3col.Master" AutoEventWireup="true" CodeBehind="ThemTram.aspx.cs" Inherits="PTUDW_CTLH_C1.Administration.DieuHanhCongTy.ThemTram" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Administration/DieuHanhCongTy/DieuHanhCongTy.Master" AutoEventWireup="true" CodeBehind="ThemTram.aspx.cs" Inherits="PTUDW_CTLH_C1.Administration.DieuHanhCongTy.ThemTram" Title="Thêm trạm" %>
 <%@ Register TagPrefix="wuc" TagName="ThemTram" Src="~/WUC/Tram/wucThemTram.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <link href="../../Shared/Css/Style.css" rel="Stylesheet" type="text/css" />
