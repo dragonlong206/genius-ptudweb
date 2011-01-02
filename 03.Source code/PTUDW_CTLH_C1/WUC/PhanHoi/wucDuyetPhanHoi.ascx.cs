@@ -14,6 +14,12 @@ namespace PTUDW_CTLH_C1.WUC.PhanHoi
         protected void Page_Load(object sender, EventArgs e)
         {
             //this.rptPhanHoi.DataBind();
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 2)
+            {
+                
+                Response.Write("<script>alert('Bạn không đủ quyền thực hiện chức năng này')</script>");
+                Response.Redirect("~/Default.aspx?showMessage=true");
+            }
         }
 
         protected void ldsTaiXe_Selecting(object sender, LinqDataSourceSelectEventArgs e)

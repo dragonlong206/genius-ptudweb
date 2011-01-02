@@ -20,7 +20,14 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 4)
+            {
+                Response.Write("<script>alert('Bạn không đủ quyền thực hiện chức năng này')</script>");
+                Response.Redirect("~/Default.aspx");
+            }
 
+            lblKetQua.Text = "Không có lịch chạy hôm nay!";
+            lblKetQua.Visible = true;
         }
 
         protected void ldsDanhSachChuyenKe_Selecting(object sender, LinqDataSourceSelectEventArgs e)
@@ -30,6 +37,11 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
             e.Result = ChuyenXeBUS.XemDanhSachChuyenKeTiep(iMaNhanVien);
             
 
+        }
+
+        protected void gvDanhSachChuyenKe_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            lblKetQua.Visible = false;
         }
     }
 }

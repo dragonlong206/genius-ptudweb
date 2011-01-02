@@ -19,6 +19,16 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.gvChuyenXe.Columns[4].Visible = false;
+
+            if ((int)Session["IsLogin"] == 1)
+            {
+                if ((int)Session["MaLoaiNhanVien"] == 2)
+                {
+                    this.gvChuyenXe.Columns[4].Visible = false;
+                }
+            }
+
             if (!Page.IsPostBack)
             {
                 this.cleNgayKhoiHanh.SelectedDate = DateTime.Now;

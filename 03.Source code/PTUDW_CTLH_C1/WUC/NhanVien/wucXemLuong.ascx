@@ -6,14 +6,10 @@
  
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
-       
-        <asp:Label ID="lblTieuDe" runat="server" Text="Xem lương trong tháng" CssClass="ThongBao"></asp:Label>
+       <div style="text-align:center">
+        <asp:Label ID="lblTieuDe" runat="server" Text="Xem Lương Trong Tháng" CssClass="ThongBao"></asp:Label>
+        </div>
         <table  >
-            <tr>
-                <td colspan="2" style="text-align: center">
-                    
-                </td>
-            </tr>
             <tr>
                 <td>
                     <asp:Label ID="lblNam" runat="server" Text="Năm"></asp:Label>
@@ -22,8 +18,7 @@
                    <asp:DropDownList ID="ddlNam" runat="server" CssClass="dropdown_Style"  >
                         </asp:DropDownList>
                 </td>
-            </tr>
-            <tr>
+           
                 <td>
                     <asp:Label ID="lblThang" runat="server" Text="Tháng"></asp:Label>
                 </td>
@@ -43,13 +38,15 @@
                         <asp:ListItem>12</asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <td>
+                     <asp:Button ID="btnOk" runat="server" Text="Tra cứu" Width="91px" OnClick="btnOk_Click" />
+                </td>
             </tr>
         </table>
-        <asp:Button ID="btnOk" runat="server" Text="OK" Width="91px" OnClick="btnOk_Click" />
-        <br />
-        <div style="width: 612px; margin-left: 105px">
-            <asp:Label ID="lblThongBao"  ForeColor="Red"
-                Font-Size="X-Large" runat="server" Text = "KHÔNG TÌM  THẤY KẾT QUẢ NÀO" Visible="false"></asp:Label>
+       
+        
+        <div>
+            <asp:Label ID="lblThongBao" runat="server" CssClass="ThongBao" Text = "Không tìm thấy kết quả phù hợp" Visible="false"></asp:Label>
         </div>
         <asp:GridView ID="gvChuyenDaChay" runat="server" AutoGenerateColumns="False" DataKeyNames="MaChuyenXe"
             DataSourceID="ldsChuyenXe" CssClass="mGrid" PagerStyle-CssClass="pgr">

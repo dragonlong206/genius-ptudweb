@@ -21,6 +21,20 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            bool OK = true;
+
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 4)
+            {
+                Response.Write("<script>alert('Bạn không đủ quyền thực hiện chức năng này')</script>");
+
+                OK = false;
+                
+            }
+            if (!OK)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+
             if (!Page.IsPostBack)
             {
                 this.cleNgayKhoiHanh.SelectedDate = DateTime.Now;
