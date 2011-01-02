@@ -42,7 +42,7 @@ namespace PTUDW_CTLH_C1.WUC.TinTuc
 
         protected void fvChiTietTinTuc_ItemDeleted(object sender, FormViewDeletedEventArgs e)
         {
-            Response.Redirect(MapPath("~Administration/Admin/") + "TinTuc.aspx");
+            Response.Redirect("~/Administration/Admin/TinTuc.aspx");
         }
 
         protected void afuHinhAnh_UploadedComplete_Insert(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
@@ -78,6 +78,11 @@ namespace PTUDW_CTLH_C1.WUC.TinTuc
                 e.NewValues["HinhAnh"] = afuHinhAnh.FileName;
             }
             e.NewValues["NgayDang"] = DateTime.Parse(((TextBox)this.fvChiTietTinTuc.FindControl("txtNgayDang")).Text);
+        }
+
+        protected void fvChiTietTinTuc_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+        {
+            Response.Redirect("~/Administration/Admin/TinTuc.aspx");
         }
     }
 }
