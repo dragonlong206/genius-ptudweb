@@ -19,7 +19,10 @@ namespace PTUDW_CTLH_C1.WUC.Tram
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 3)
+            {
+                Response.Redirect("~/Default.aspx?showMessage=true");
+            }
         }
 
         protected void bntTimLiem_Click(object sender, EventArgs e)

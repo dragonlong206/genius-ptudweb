@@ -20,11 +20,16 @@ namespace PTUDW_CTLH_C1.WUC.Xe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 3)
+            {
+                Response.Write("<script>alert('Bạn không đủ quyền thực hiện chức năng này')</script>");
+                Response.Redirect("~/Default.aspx");
+            }
+
             if (!Page.IsPostBack)
             {
                 NhanVienBUS busNhanVien = new NhanVienBUS();
-                List<usp_SelectTaiXesAllResult> dsTaiXe = busNhanVien.SelectTaiXesAll();
-                
+                List<usp_SelectTaiXesAllResult> dsTaiXe = busNhanVien.SelectTaiXesAll();                
             }
          
         }

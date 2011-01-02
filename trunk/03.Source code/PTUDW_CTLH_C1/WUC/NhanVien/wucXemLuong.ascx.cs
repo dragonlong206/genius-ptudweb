@@ -21,32 +21,38 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if ((int)Session["IsLogin"] == 0)
             {
-                NhanVienBUS busNhanVien = new NhanVienBUS();
-                List<usp_SelectNamResult> dsNam = busNhanVien.XemDanhSachNam(2);
-                this.ddlNam.DataSource = dsNam;
-               this.ddlNam.DataValueField = "Nam";
-               this.ddlNam.DataTextField = "Nam";
-              this.ddlNam.DataBind();
+                Response.Redirect("~/Default.aspx?showMessage=true");
+                Response.Write("<script>alert('Bạn không đủ quyền thực hiện chức năng này')</script>");
+               
             }
 
-            
+            if (!IsPostBack)
+            {
+                int MaNhanVien = (int)Session["MaNhanVien"];
+                NhanVienBUS busNhanVien = new NhanVienBUS();
+                List<usp_SelectNamResult> dsNam = busNhanVien.XemDanhSachNam(MaNhanVien);
+                this.ddlNam.DataSource = dsNam;
+                this.ddlNam.DataValueField = "Nam";
+                this.ddlNam.DataTextField = "Nam";
+                this.ddlNam.DataBind();
+            }
         }
 
         protected void ldsChuyenXe_Selecting(object sender, LinqDataSourceSelectEventArgs e)
-        {    
-             ChuyenXeBUS ChuyenXe = new ChuyenXeBUS();
+        {
+            ChuyenXeBUS ChuyenXe = new ChuyenXeBUS();
 
-             if (!IsPostBack)
-             {
-                 e.Result = ChuyenXe.XemChuyenDaChayTheoThang(0, 12, 2010);
-                
-             }
-             else 
-             {                
-                 e.Result = ChuyenXe.XemChuyenDaChayTheoThang(2, int.Parse(ddlThang.SelectedValue), int.Parse(ddlNam.SelectedValue));
-             }
+            if (!IsPostBack)
+            {
+                e.Result = ChuyenXe.XemChuyenDaChayTheoThang(0, 12, 2010);
+
+            }
+            else
+            {
+                e.Result = ChuyenXe.XemChuyenDaChayTheoThang(2, int.Parse(ddlThang.SelectedValue), int.Parse(ddlNam.SelectedValue));
+            }
         }
 
 
@@ -56,17 +62,17 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
 
             if (gvChuyenDaChay.Rows.Count > 0)
             {
-                lblThongBao.Text = "CÁC CHUYẾN TRONG THÁNG";
+                lblThongBao.Text = "Các Chuyến Trong Tháng";
                 lblThongBao.Visible = true;
                 lblLuong.Visible = true;
                 lblLuong.Text = string.Format("Tổng Lương : {0}", TinhTong());
             }
             else
             {
-                lblThongBao.Text = "KHÔNG TÌM THẤY KẾT QUẢ NÀO";
+                lblThongBao.Text = "Không tìm thấy kết quả phù hợp";
                 lblThongBao.Visible = true;
                 lblLuong.Visible = false;
-            }            
+            }
         }
 
         protected double TinhTong()
@@ -75,11 +81,11 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
             NhanVienBUS Nhanvien = new NhanVienBUS();
 
             double TongLuong, LuongCoDinh, TongLuongChuyen;
-            LuongCoDinh =  Nhanvien.LuongCoDinhTrongThang(2);
+            LuongCoDinh = Nhanvien.LuongCoDinhTrongThang(2);
             TongLuongChuyen = Chuyenxe.TongLuongTrongThang(2, int.Parse(ddlThang.SelectedValue), int.Parse(ddlNam.SelectedValue));
             TongLuong = LuongCoDinh + TongLuongChuyen;
             return TongLuong;
-           
+
         }
     }
 }

@@ -18,6 +18,7 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             string strTaiKhoan = ((TextBox)FormView1.FindControl("txtPassword")).Text;
             if (strTaiKhoan.Length > 0)
             {
