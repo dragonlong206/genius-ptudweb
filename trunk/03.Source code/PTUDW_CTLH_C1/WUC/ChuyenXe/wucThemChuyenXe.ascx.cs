@@ -19,5 +19,10 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
         {
             //this.fvChuyenXe.
         }
+
+        protected void fvChuyenXe_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            lbThongBao.Text = "Thêm thành công";
+        }
     }
 }
