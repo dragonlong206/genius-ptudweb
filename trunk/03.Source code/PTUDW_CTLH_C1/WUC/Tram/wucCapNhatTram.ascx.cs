@@ -24,6 +24,7 @@ namespace PTUDW_CTLH_C1.WUC.Tram
 
         protected void bntTimLiem_Click(object sender, EventArgs e)
         {
+            fvDsTram.Visible = true;
             fvDsTram.DataBind();
         }
 

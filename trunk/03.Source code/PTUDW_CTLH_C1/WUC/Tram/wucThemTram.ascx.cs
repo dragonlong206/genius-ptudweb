@@ -27,7 +27,7 @@ namespace PTUDW_CTLH_C1.WUC.Tram
         protected void ldsNhanVienDieuHanhTram_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
             NhanVienBUS nhanvienbus = new NhanVienBUS();
-            e.Result = nhanvienbus.SelectNhanVienLaDieuHanhTramResult();
+           e.Result = nhanvienbus.SelectNhanVienLaDieuHanhTramResult();
         }
     }
 }
