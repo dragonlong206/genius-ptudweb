@@ -20,7 +20,10 @@ namespace PTUDW_CTLH_C1.WUC.TinTuc
         //private static string strFileName;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 1)
+            {
+                Response.Redirect("~/Default.aspx?showMessage=true");
+            }
         }
 
         protected void afuHinhAnh_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
