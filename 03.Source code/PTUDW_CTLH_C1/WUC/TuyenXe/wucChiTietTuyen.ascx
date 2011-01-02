@@ -1,11 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucChiTietTuyen.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TuyenXe.wucChiTietTuyen" %>
-<asp:DetailsView ID="dvChiTietTuyen" runat="server" Height="50px" Width="300px" 
-    AutoGenerateRows="False" DataKeyNames="MaTuyenXe" DataSourceID="ldsTuyen" 
-    BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" 
-    CellPadding="3" GridLines="Vertical">
-    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+<link href="../../Shared/Css/Style.css" rel="Stylesheet" type="text/css" />
+<div>
+<asp:DetailsView ID="dvChiTietTuyen" runat="server" Height="50px" Width="400px"  CssClass="Detailview"
+    AutoGenerateRows="False" DataKeyNames="MaTuyenXe" DataSourceID="ldsTuyen" Font-Size="14pt" 
+    CellPadding="3" GridLines="Vertical" BackColor="White" BorderColor="#999999" 
+        BorderStyle="None" BorderWidth="1px" >
+    <FooterStyle BackColor="#CCCCCC" ForeColor="Black"/>
+    <CommandRowStyle Font-Size="12" />
     <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+    <FieldHeaderStyle Width="250px" CssClass="Detailview"/>
+    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" 
+        CssClass="Detailview" />
     <Fields>
     
         <%-- <asp:TemplateField>
@@ -60,6 +65,7 @@
     <EditRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
     <AlternatingRowStyle BackColor="#DCDCDC" />
 </asp:DetailsView>
+</div>
 <asp:LinqDataSource ID="ldsTramXe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" 
     Select="new (MaTramXe, TenTramXe)" TableName="TRAM_XEs" >
@@ -69,7 +75,7 @@
     ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="TUYEN_XEs" 
     Where="MaTuyenXe == @MaTuyenXe">
     <WhereParameters>
-        <asp:QueryStringParameter DefaultValue="1" Name="MaTuyenXe" 
+        <asp:QueryStringParameter DefaultValue="0" Name="MaTuyenXe" 
             QueryStringField="MaTuyenXe" Type="Int32" />
     </WhereParameters>
 </asp:LinqDataSource>
