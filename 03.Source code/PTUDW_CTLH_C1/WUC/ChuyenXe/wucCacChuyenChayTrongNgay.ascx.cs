@@ -11,7 +11,7 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTime myDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            DateTime myDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
 
             ldsChuyenXe.Where = @"TUYEN_XE.MaTramDi == @MaTramXe AND KhoiHanh >= DateTime.Parse(""" + myDate + @""") AND KhoiHanh < DateTime.Parse(""" + myDate.AddDays(1) + @""")";
 
