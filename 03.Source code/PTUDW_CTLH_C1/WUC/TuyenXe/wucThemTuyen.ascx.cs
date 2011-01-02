@@ -34,6 +34,7 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
             TuyenXeDTO.GioChayChuyenDauTienTrongNgay = float.Parse(txtGioChayChuyenDau.Text);
             TuyenXeDTO.GioChayChuyenCuoiCungTrongNgay = float.Parse(txtGioChayChuyenCuoi.Text);
             TuyenXeBUS.ThemTuyenXe(TuyenXeDTO);
+            lblThongBao.Text = "Đã thêm tuyến thành công";
         }
 
         protected void btnNhapLai_Click(object sender, EventArgs e)
