@@ -20,7 +20,8 @@
     DataSourceID="ldsChiTietTinTuc" 
     onitemdeleted="fvChiTietTinTuc_ItemDeleted" 
     oniteminserted="fvChiTietTinTuc_ItemInserted" 
-    oniteminserting="fvChiTietTinTuc_ItemInserting" onitemupdating="fvChiTietTinTuc_ItemUpdating"
+    oniteminserting="fvChiTietTinTuc_ItemInserting" 
+    onitemupdating="fvChiTietTinTuc_ItemUpdating" onitemupdated="fvChiTietTinTuc_ItemUpdated"
     >
     <EditItemTemplate>
         <table>
@@ -138,7 +139,7 @@
                     Text='<%# Bind("NgayDang") %>' ReadOnly="True" />
                     <asp:CalendarExtender ID="cleNgayDang" runat="server" 
                         TargetControlID="txtNgayDang" TodaysDateFormat="dd/MM/yyyy" 
-                        SelectedDate = '<%# DateTime.Now.Date %>' >
+                        SelectedDate = '<%# DateTime.Now %>' >
                     </asp:CalendarExtender>
                 </td>
             </tr>            
@@ -172,7 +173,8 @@
                     Hình ảnh:
                 </td>
                 <td>
-                     <asp:Image ID="imgHinhAnh" CssClass="HinhDaiDien" ImageUrl='<%# "~/Images/TinTuc/" + Eval("HinhAnh") %>' AlternateText='<%# Eval("TieuDe") %>'
+                     <asp:Image ID="imgHinhAnh" CssClass="HinhDaiDien" 
+                         ImageUrl='<%# "~/Images/TinTuc/" + Eval("HinhAnh") %>' AlternateText='<%# Eval("TieuDe") %>'
                      runat="server" />
                 </td>
             </tr>
