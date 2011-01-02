@@ -45,5 +45,6 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
             lblKetQua.Visible = true;
         }
 
+
     }
 }
