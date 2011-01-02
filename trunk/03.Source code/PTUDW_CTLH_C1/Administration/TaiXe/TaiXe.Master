@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TaiXe.master.cs" MasterPageFile="~/Shared/Head.Master"
+    Inherits="PTUDW_CTLH_C1.Administration.TaiXe.TaiXe" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+    <div class="admin_wrapper">
+        <div class="navigator">
+            <asp:TreeView ID="trvNavigator" runat="server">
+                <Nodes>
+                    <asp:TreeNode Text="Nhật ký chuyến" NavigateUrl="~/Administration/TaiXe/NhatKiChuyenChay.aspx">
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Thống kê lương" NavigateUrl="~/Administration/TaiXe/XemLuong.aspx">
+                    </asp:TreeNode>
+                </Nodes>
+            </asp:TreeView>
+        </div>
+        <div class="admincontent">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
