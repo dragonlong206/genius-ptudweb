@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucXemTinTuc.ascx.cs"
     Inherits="PTUDW_CTLH_C1.WUC.TinTuc.wucXemTinTuc" %>
-    
+
 <script type="text/javascript">
     function resizeTextArea(txtBox) {
         nCols = txtBox.cols;
@@ -16,8 +16,7 @@
     }
 </script>
 
-<asp:Repeater ID="rptTinTuc" runat="server" 
-    onitemcommand="rptTinTuc_ItemCommand">
+<asp:Repeater ID="rptTinTuc" runat="server" OnItemCommand="rptTinTuc_ItemCommand">
     <ItemTemplate>
         <div style="display: block; margin: 10px 5px">
             <div>
@@ -30,15 +29,15 @@
             <div class="HinhAnh">
                 <asp:Image ID="imgHinhAnh" ImageUrl='<%# "~/Images/TinTuc/" + Eval("HinhAnh") %>'
                     AlternateText='<%# Eval("TieuDe") %>' runat="server" />
+            </div>            
+            <br />
+            <asp:TextBox ID="txtTomTat" runat="server" CssClass="TomTat" ReadOnly="true" BorderStyle="None"
+                Text='<%# Eval("TomTat") %>' Rows="3" Columns="25" TextMode="MultiLine" />
+            <br />
+            <div>
+                <asp:LinkButton ID="btnChiTiet" CommandName="ChiTiet" CommandArgument='<%# Eval("MaTinTuc") %>'
+                    CssClass="ChiTiet" Text="Chi tiết" runat="server"></asp:LinkButton>
             </div>
-            <asp:TextBox ID="txtTomTat" runat="server" CssClass="TomTat" ReadOnly="true"
-                BorderStyle="None" Text='<%# Eval("TomTat") %>' Columns="25" TextMode="MultiLine" />            
         </div>
-        <asp:LinkButton ID="btnChiTiet" CommandName="ChiTiet" CommandArgument='<%# Eval("MaTinTuc") %>' CssClass="ChiTiet" Text="Chi tiết" runat="server"></asp:LinkButton>
-        <br />
     </ItemTemplate>
-    
-    <SeparatorTemplate>
-        <div style="width: 100%; height: 15px"; ></div>
-    </SeparatorTemplate>
 </asp:Repeater>
