@@ -176,7 +176,7 @@
 	width: 100%;
 	height: auto;
 	overflow: auto;
-}
+}s
 
 #mytitle
 {
@@ -190,4 +190,16 @@
 	font-family: Cambria;
 	font-size: 18px;
 	color: Red;
+}
+
+.Title
+{
+	font-family:Arial;
+	font-size:large;
+	color: White;
+}
+
+.tieudeTable
+{
+	background: #424242 url(Images/grd_head.png) repeat-x top; 
 }
