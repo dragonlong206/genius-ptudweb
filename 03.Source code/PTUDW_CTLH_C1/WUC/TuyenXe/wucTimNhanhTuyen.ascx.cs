@@ -26,14 +26,16 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
                 this.ddlTramDen.DataBind();
             }
 
-            if ((int)Session["IsLogin"] == 0)
+            this.grvDanhSachTuyen.Columns[4].Visible = false;
+
+            if ((int)Session["IsLogin"] == 1)
             {
-                this.grvDanhSachTuyen.Columns[4].Visible = false;
+                if ((int)Session["MaLoaiNhanVien"] == 3)
+                {
+                    this.grvDanhSachTuyen.Columns[4].Visible = true;
+                }
             }
-            else
-            {
-                this.grvDanhSachTuyen.Columns[4].Visible = true;
-            }
+
 
         }
 
