@@ -34,17 +34,17 @@
 </tr>
     <tr>
         <td class="style2">
-            &nbsp;<asp:Label ID="lblTenTuyen" runat="server" Text="Tên tuyến"></asp:Label>
+            <asp:Label ID="lblTenTuyen" runat="server" Text="Tên tuyến"></asp:Label>
         </td>
         <td class="style3">
-            &nbsp;
+            
             <asp:TextBox ID="txtTenTuyen" runat="server"></asp:TextBox>
         </td>
         <td class="style4">
             <asp:Label ID="Label1" runat="server" Text="Giá vé"></asp:Label>
         </td>
         <td>
-            &nbsp;
+           
             <asp:TextBox ID="txtGiaVe" runat="server"></asp:TextBox></td>
         <asp:FilteredTextBoxExtender ID="vldGiaVe" runat="server" 
             TargetControlID="txtGiaVe" FilterType="Numbers">
@@ -52,7 +52,7 @@
     </tr>
     <tr>
         <td class="style2">
-            &nbsp;<asp:Label ID="lblTramDi" runat="server" Text="Trạm đi"></asp:Label>
+            <asp:Label ID="lblTramDi" runat="server" Text="Trạm đi"></asp:Label>
         </td>
         <td class="style3">
             <asp:DropDownList ID="ddlTramDi" runat="server" DataSourceID="LinqDataSource1" 
@@ -63,7 +63,7 @@
             <asp:Label ID="lblTramDen" runat="server" Text="Trạm đến"></asp:Label>
         </td>
         <td>
-            &nbsp;
+          
             <asp:DropDownList ID="ddlTramDen" runat="server" DataSourceID="LinqDataSource1" 
                 DataTextField="TenTramXe" DataValueField="MaTramXe">
             </asp:DropDownList>
@@ -71,20 +71,20 @@
     </tr>
     <tr>
         <td class="style2">
-            &nbsp;<asp:Label ID="lblChayTrong" runat="server" Text="Chạy trong"></asp:Label>
+            <asp:Label ID="lblChayTrong" runat="server" Text="Chạy trong"></asp:Label>
         </td>
         <td class="style3">
-            &nbsp;
+            
             <span>
                 <asp:TextBox ID="txtChayTrong" runat="server"></asp:TextBox>
-                &nbsp;(giờ)
+             (giờ)
             </span>
         </td>
         <td class="style4">
             <asp:Label ID="lblLuongTaiXe" runat="server" Text="Lương tài xế"></asp:Label>
         </td>
         <td>
-            &nbsp;
+           
             <asp:TextBox ID="txtLuongTaiXe" runat="server"></asp:TextBox>
         </td>
     </tr>
@@ -114,13 +114,13 @@
             <asp:TextBox ID="txtTanSuatChuyen" runat="server"></asp:TextBox>
         </td>
         <td class="style4">
-            &nbsp;</td>
+          </td>
         <td>
-            &nbsp;</td>
+            </td>
     </tr>
     <tr>
         <td class="style2">
-            &nbsp;</td>
+            </td>
         <td colspan="2" class="Luu">
             <asp:Button ID="btnLuu" runat="server" Text="Lưu" onclick="btnLuu_Click" />
             <asp:Button ID="btnNhapLai" runat="server" Text="Nhập lại toàn bộ" />
@@ -130,11 +130,13 @@
     </tr>
     <tr>
         <td class="style2">
-            &nbsp;</td>
+            </td>
         <td colspan="2" class="Luu">
             <asp:ValidationSummary ID="vsErrors" runat="server" />
         </td>
         <td>
-            &nbsp;</td>
+            </td>
     </tr>
 </table>
+<asp:Label ID="lblThongBao" runat="server" CssClass="ThongBao"></asp:Label>
+
