@@ -17,5 +17,14 @@ namespace DAO
             sql.HinhAnh = strFileName;
             db.SubmitChanges();
         }
+
+        public List<TIN_TUC> SelectTinTucMoi(int nSoTinMoi)
+        { 
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            var sql = from TinTuc in db.TIN_TUCs
+                      orderby TinTuc.NgayDang descending
+                      select TinTuc;
+            return sql.Take(nSoTinMoi).ToList();
+        }
     }
 }
