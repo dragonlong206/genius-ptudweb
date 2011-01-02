@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ThongKeChuyen.ascx.cs"
     Inherits="PTUDW_CTLH_C1.WUC.ChuyenXe.ThongKeChuyen" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Label ID="Label1" runat="server" Text="Chế độ:"></asp:Label>
 <asp:DropDownList ID="ddlCheDoChon" runat="server" AutoPostBack="True" 
     onselectedindexchanged="ddlCheDoChon_SelectedIndexChanged">

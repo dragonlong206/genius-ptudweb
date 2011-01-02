@@ -33,7 +33,8 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
             int iTramDen =int.Parse( cbTramDen.SelectedValue.ToString());
             //DateTime dtNgayKhoiHanh = DateTime.Parse(txtNgayKhoiHanh.Text.ToString());
 
-            DateTime dtNgayKhoiHanh = new DateTime(2010, 2, 2);
+            DateTime dtNgayKhoiHanh ;//= new DateTime(2010, 2, 2);
+            DateTime.TryParse(txtNgayKhoiHanh.Text,out  dtNgayKhoiHanh);
             //if (this.cleNgayKhoiHanh.SelectedDate != null)
             //{
             //DateTime dtNgayKhoiHanh = this.cleNgayKhoiHanh.SelectedDate.Value;

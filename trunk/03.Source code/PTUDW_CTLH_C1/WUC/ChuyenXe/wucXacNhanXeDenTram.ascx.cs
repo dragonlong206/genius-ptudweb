@@ -121,7 +121,7 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
                 ListDictionary keyValues = new ListDictionary();
                 ListDictionary newValues = new ListDictionary();
                 ListDictionary oldValues = new ListDictionary();
-
+                int temp = int.Parse(((Label)fvChiTietChuyen.FindControl("MaChuyenXeLabel1")).Text);
                 keyValues.Add("MaChuyenXe", int.Parse(((Label)fvChiTietChuyen.FindControl("MaChuyenXeLabel1")).Text));
                 //ko quan tam gia tri cu~,chi can` co' bien';
                 int giatricu = 0;
@@ -133,7 +133,8 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
                 oldValues.Add("MaTinhTrang", giatricu);
                 newValues.Add("MaTinhTrang", giatrimoi);
                 ldsThongTinChiTietChuyen.Update(keyValues, newValues, oldValues);
-                fvChiTietChuyen.DataBind();
+               // fvChiTietChuyen.DataBind();
+                gvChuyenXe.DataBind();
 
 
             }
