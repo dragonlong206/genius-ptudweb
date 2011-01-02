@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ThemTaiKhoan.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TaiKhoan.ThemTaiKhoan" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-
 <asp:LinqDataSource ID="ldsTaiKhoan" runat="server" 
         ContextTypeName="DTO.CongTyLuHanhDataContext" EnableInsert="True" 
         TableName="TAI_KHOANs">

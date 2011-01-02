@@ -4,11 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Untitled Page</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title></title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    
     <link href="~/App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />
-    <link href="Css/Style.css" rel="Stylesheet" type="text/css" />
+    <link href="~/Shared/Css/Style.css" rel="Stylesheet" type="text/css" />
+    <link href="~/Shared/Css/Admin.css" rel="Stylesheet" type="text/css" />
 
     <script language="javascript" type="text/javascript">
         function setfocus() {
