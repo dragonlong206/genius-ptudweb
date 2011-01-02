@@ -18,7 +18,10 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 1)
+            {
+                Response.Redirect("~/Default.aspx?showMessage=true");
+            }
             string strTaiKhoan = ((TextBox)FormView1.FindControl("txtPassword")).Text;
             if (strTaiKhoan.Length > 0)
             {

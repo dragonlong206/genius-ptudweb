@@ -22,8 +22,7 @@ namespace PTUDW_CTLH_C1.WUC.Xe
         {
             if ((int)Session["IsLogin"] == 0 || (int)Session["MaLoaiNhanVien"] != 3)
             {
-                Response.Write("<script>alert('Bạn không đủ quyền thực hiện chức năng này')</script>");
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Default.aspx?showMessage=true");
             }
 
             if (!Page.IsPostBack)
