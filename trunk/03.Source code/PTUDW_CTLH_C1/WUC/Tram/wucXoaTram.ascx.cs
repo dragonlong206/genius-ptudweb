@@ -22,6 +22,7 @@ namespace PTUDW_CTLH_C1.WUC.Tram
 
         protected void btnTimKiem_Click(object sender, EventArgs e)
         {
+            gvThongTinTram.Visible = true;
             gvThongTinTram.DataBind();
         }
 

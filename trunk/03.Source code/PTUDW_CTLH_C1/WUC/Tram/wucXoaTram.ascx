@@ -1,11 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucXoaTram.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.Tram.wucXoaTram" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
+
 <asp:ComboBox ID="cboTimTram" runat="server" AutoCompleteMode="SuggestAppend" 
     DataSourceID="ldsTimTram" DataTextField="TenTramXe" DataValueField="MaTramXe" 
     MaxLength="0" style="display: inline;">
-</asp:ComboBox><br />
+</asp:ComboBox>
 <asp:Button ID="btnTimKiem" runat="server" Text="Tìm" 
     onclick="btnTimKiem_Click" />
 <asp:LinqDataSource ID="ldsTimTram" runat="server" 
@@ -22,7 +21,7 @@
             PropertyName="SelectedValue" Type="Int32" />
     </WhereParameters>
 </asp:LinqDataSource>
-<asp:GridView ID="gvThongTinTram" runat="server" AllowPaging="True" 
+<asp:GridView ID="gvThongTinTram" runat="server" AllowPaging="True"  Visible="false"
     AutoGenerateColumns="False" DataKeyNames="MaTramXe" 
     DataSourceID="ldsDanhSachTram">
     <Columns>
@@ -44,7 +43,7 @@
             <ItemTemplate>
                  <asp:LinkButton ID="lbtnXoa" Runat="server" CausesValidation="False"
                OnClientClick="return confirm('Bạn có muốn xóa trạm vừa chọn?');"
-               CommandName="Delete">Delete</asp:LinkButton> 
+               CommandName="Delete">Xóa</asp:LinkButton> 
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
