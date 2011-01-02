@@ -50,7 +50,8 @@
                             Visible="False">LinkButton</asp:LinkButton>
                         &nbsp&nbsp|&nbsp&nbsp
                         <asp:LinkButton ID="lbtnPhanHoi" runat="server" CssClass="text_account" CausesValidation="false"
-                            Visible="false" PostBackUrl="~/Administration/TaiXe/XemPhanHoi.aspx"></asp:LinkButton>
+                            Visible="false" PostBackUrl="~/Administration/TaiXe/XemPhanHoi.aspx" ForeColor="White"></asp:LinkButton>
+                            &nbsp&nbsp|&nbsp&nbsp
                         <asp:LinkButton ID="btnQuenMatKhau" runat="server" CssClass="text_account" CausesValidation="false"
                             ForeColor="White">Quên mật khẩu</asp:LinkButton>
                         <asp:LinkButton ID="btnDangXuat" runat="server" ForeColor="White" CssClass="text_account"
