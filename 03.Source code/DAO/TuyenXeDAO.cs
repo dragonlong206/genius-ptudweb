@@ -39,6 +39,27 @@ namespace DAO
                 ref MaTuyen);
         }
 
+        public List<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult> SelectSoLuongChuyenXeTheoTuyenByNam(int Nam)
+        {
+
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult> dsTuyen = db.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNam(Nam);
+            return dsTuyen.ToList();
+        }
+        public List<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult> SelectSoChuyenXeAndKhachHangCuaTuyenByThang(int nam, int thang)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult> dsTuyen = db.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThang(nam, thang);
+            return dsTuyen.ToList();
+        }
+        public List<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult> SelectSoChuyenXeAndHanhKhachCuaTuyenByQuy(int nam, int thangBatDau, int thangKetThuc)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult> dsTuyen = db.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuy(nam, thangBatDau, thangKetThuc);
+            return dsTuyen.ToList();
+        }
+
+
         public List<Int32> LayDanhSachMaTuyen(int MaTramDi)
         {
             CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
