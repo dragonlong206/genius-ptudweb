@@ -159,12 +159,40 @@
     <Compile Include="Administration\DieuHanhTram\DuyetPhanHoi.aspx.designer.cs">
       <DependentUpon>DuyetPhanHoi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\DieuHanhTram\PhanCongChuyen.aspx.cs">
+      <DependentUpon>PhanCongChuyen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\DieuHanhTram\PhanCongChuyen.aspx.designer.cs">
+      <DependentUpon>PhanCongChuyen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\DieuHanhTram\PhanHoi.aspx.cs">
+      <DependentUpon>PhanHoi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\DieuHanhTram\PhanHoi.aspx.designer.cs">
+      <DependentUpon>PhanHoi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\TaiXe\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administration\TaiXe\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\TaiXe\NhatKiChuyenChay.aspx.cs">
+      <DependentUpon>NhatKiChuyenChay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\TaiXe\NhatKiChuyenChay.aspx.designer.cs">
+      <DependentUpon>NhatKiChuyenChay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\TaiXe\XemLuong.aspx.cs">
+      <DependentUpon>XemLuong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\TaiXe\XemLuong.aspx.designer.cs">
+      <DependentUpon>XemLuong.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\TaiXe\XemPhanHoiChiTiet.aspx.cs">
       <DependentUpon>XemPhanHoiChiTiet.aspx</DependentUpon>
@@ -373,6 +401,13 @@
     <Compile Include="WUC\ChuyenXe\wucChiTietChuyen.ascx.designer.cs">
       <DependentUpon>wucChiTietChuyen.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\ChuyenXe\wucPhanCongChuyen.ascx.cs">
+      <DependentUpon>wucPhanCongChuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucPhanCongChuyen.ascx.designer.cs">
+      <DependentUpon>wucPhanCongChuyen.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\ChuyenXe\wucThemChuyenXe.ascx.cs">
       <DependentUpon>wucThemChuyenXe.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -386,6 +421,20 @@
     </Compile>
     <Compile Include="WUC\ChuyenXe\wucTimChuyen.ascx.designer.cs">
       <DependentUpon>wucTimChuyen.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucXacNhanXeDenTram.ascx.cs">
+      <DependentUpon>wucXacNhanXeDenTram.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucXacNhanXeDenTram.ascx.designer.cs">
+      <DependentUpon>wucXacNhanXeDenTram.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucXemNhatKyChuyen.ascx.cs">
+      <DependentUpon>wucXemNhatKyChuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\wucXemNhatKyChuyen.ascx.designer.cs">
+      <DependentUpon>wucXemNhatKyChuyen.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\MatKhau\wucCapNhatThongTin.ascx.cs">
       <DependentUpon>wucCapNhatThongTin.ascx</DependentUpon>
@@ -428,6 +477,20 @@
     </Compile>
     <Compile Include="WUC\NhanVien\wucTimNhanVien.ascx.designer.cs">
       <DependentUpon>wucTimNhanVien.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\NhanVien\wucXemLichChayKeTiep.ascx.cs">
+      <DependentUpon>wucXemLichChayKeTiep.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\NhanVien\wucXemLichChayKeTiep.ascx.designer.cs">
+      <DependentUpon>wucXemLichChayKeTiep.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\NhanVien\wucXemLuong.ascx.cs">
+      <DependentUpon>wucXemLuong.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\NhanVien\wucXemLuong.ascx.designer.cs">
+      <DependentUpon>wucXemLuong.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\PhanHoi\wucDuyetPhanHoi.ascx.cs">
       <DependentUpon>wucDuyetPhanHoi.ascx</DependentUpon>
@@ -659,7 +722,11 @@
     <Content Include="Administration\DieuHanhCongTy\XoaTram.aspx" />
     <Content Include="Administration\DieuHanhTram\Default.aspx" />
     <Content Include="Administration\DieuHanhTram\DuyetPhanHoi.aspx" />
+    <Content Include="Administration\DieuHanhTram\PhanCongChuyen.aspx" />
+    <Content Include="Administration\DieuHanhTram\PhanHoi.aspx" />
     <Content Include="Administration\TaiXe\Default.aspx" />
+    <Content Include="Administration\TaiXe\NhatKiChuyenChay.aspx" />
+    <Content Include="Administration\TaiXe\XemLuong.aspx" />
     <Content Include="Administration\TaiXe\XemPhanHoiChiTiet.aspx" />
     <Content Include="App_Data\CongTyLuHanh.mdf">
     </Content>
@@ -704,14 +771,19 @@
     <Content Include="WUC\ChuyenXe\wucCacChuyenChayTrongNgay.ascx" />
     <Content Include="WUC\ChuyenXe\wucCacChuyenVeTrongNgay.ascx" />
     <Content Include="WUC\ChuyenXe\wucChiTietChuyen.ascx" />
+    <Content Include="WUC\ChuyenXe\wucPhanCongChuyen.ascx" />
     <Content Include="WUC\ChuyenXe\wucThemChuyenXe.ascx" />
     <Content Include="WUC\ChuyenXe\wucTimChuyen.ascx" />
+    <Content Include="WUC\ChuyenXe\wucXacNhanXeDenTram.ascx" />
+    <Content Include="WUC\ChuyenXe\wucXemNhatKyChuyen.ascx" />
     <Content Include="WUC\MatKhau\wucCapNhatThongTin.ascx" />
     <Content Include="WUC\MatKhau\wucDoiMatKhau.ascx" />
     <Content Include="WUC\MatKhau\wuQuenMatKhauc.ascx" />
     <Content Include="WUC\NhanVien\wucCapNhatThongTinNhanVien.ascx" />
     <Content Include="WUC\NhanVien\wucThemNhanVien.ascx" />
     <Content Include="WUC\NhanVien\wucTimNhanVien.ascx" />
+    <Content Include="WUC\NhanVien\wucXemLichChayKeTiep.ascx" />
+    <Content Include="WUC\NhanVien\wucXemLuong.ascx" />
     <Content Include="WUC\PhanHoi\wucDuyetPhanHoi.ascx" />
     <Content Include="WUC\PhanHoi\wucThemPhanHoi.ascx" />
     <Content Include="WUC\PhanHoi\wucXemPhanHoi.ascx" />
@@ -769,14 +841,11 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49344</DevelopmentServerPort>
+          <DevelopmentServerPort>1378</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
