@@ -1,11 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucChiTietTuyen.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TuyenXe.wucChiTietTuyen" %>
 <asp:DetailsView ID="dvChiTietTuyen" runat="server" Height="50px" Width="300px" 
     AutoGenerateRows="False" DataKeyNames="MaTuyenXe" DataSourceID="ldsTuyen" 
-    BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" 
-    CellPadding="4">
-    <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-    <RowStyle BackColor="White" ForeColor="#330099" />
-    <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+    BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" 
+    CellPadding="3" GridLines="Vertical">
+    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+    <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
     <Fields>
     
         <%-- <asp:TemplateField>
@@ -15,8 +15,6 @@
         </asp:TemplateField>
         --%>
             
-        <asp:BoundField DataField="MaTuyenXe" HeaderText="Mã tuyến xe" 
-            InsertVisible="False" ReadOnly="True" SortExpression="MaTuyenXe" />
         <asp:BoundField DataField="TenTuyenXe" HeaderText="Tên tuyến xe" 
             SortExpression="TenTuyenXe" />
         <asp:BoundField DataField="KhoangThoiGianDi" HeaderText="Khoảng thời gian đi" 
@@ -58,8 +56,9 @@
             UpdateText="Cập nhật" />
         <asp:CommandField ShowDeleteButton="True" DeleteText="Xóa tuyến" />
     </Fields>
-    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-    <EditRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+    <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+    <EditRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+    <AlternatingRowStyle BackColor="#DCDCDC" />
 </asp:DetailsView>
 <asp:LinqDataSource ID="ldsTramXe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" 
