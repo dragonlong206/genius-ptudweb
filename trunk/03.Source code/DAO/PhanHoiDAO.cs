@@ -17,7 +17,7 @@ namespace DAO
                 db.usp_UpdateTinhTrangPhanHoi(iMaPhanHoiKhachHang, iMaTinhTrang);
 
                 //TODO: Thêm dữ liệu vào bảng phản hồi
-                db.SubmitChanges();
+                //db.SubmitChanges();
             }
             catch (Exception ex)
             {
@@ -49,6 +49,19 @@ namespace DAO
             {
                 throw ex;
             }
+        }
+
+        public void ThemPhanHoiDaDuyet(int iMaTaiXe, int iMaPhanHoiKhach, int iMaNhanVienDuyet)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            PHAN_HOI PhanHoi = new PHAN_HOI();
+            PhanHoi.MaPhanHoiKhach = iMaPhanHoiKhach;
+            PhanHoi.MaNhanVienDuyet = iMaNhanVienDuyet;
+            PhanHoi.MaTaiXe = iMaTaiXe;
+            PhanHoi.TinhTrangDoc = 1;
+            db.PHAN_HOIs.InsertOnSubmit(PhanHoi);
+
+            db.SubmitChanges();
         }
     }
 }

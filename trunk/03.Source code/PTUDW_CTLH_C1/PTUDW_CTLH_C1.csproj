@@ -787,7 +787,6 @@
     <Content Include="Common\KhachSan.aspx" />
     <Content Include="Common\LienHe.aspx" />
     <Content Include="Common\TinTuc.aspx" />
-    <Content Include="Images\indicator.gif" />
     <Content Include="Common\TimNhanhTuyen.aspx" />
     <Content Include="Shared\Css\GridView.css" />
     <Content Include="Shared\Css\Images\aqua-arrow.gif" />
