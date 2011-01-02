@@ -105,7 +105,7 @@
             </asp:ContentPlaceHolder>
             <div id="footer">
                 <!--footer-->
-                <asp:Menu ID="mnuBottomMenu" runat="server" DataSourceID="smdsMaster" MaximumDynamicDisplayLevels="0"
+                <asp:Menu ID="mnuBottomMenu" CssClass="bottom_menu" runat="server" DataSourceID="smdsMaster" MaximumDynamicDisplayLevels="0"
                     Orientation="Horizontal" StaticDisplayLevels="2">
                     <StaticMenuStyle CssClass="StaticMenu" />
                     <StaticMenuItemStyle CssClass="StaticMenuItemBottom" />
