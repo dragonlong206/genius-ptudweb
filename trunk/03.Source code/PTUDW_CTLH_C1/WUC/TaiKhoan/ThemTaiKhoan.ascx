@@ -1,7 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ThemTaiKhoan.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.TaiKhoan.ThemTaiKhoan" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
+
 <asp:LinqDataSource ID="ldsTaiKhoan" runat="server" 
         ContextTypeName="DTO.CongTyLuHanhDataContext" EnableInsert="True" 
         TableName="TAI_KHOANs">
@@ -10,8 +9,8 @@
         ContextTypeName="DTO.CongTyLuHanhDataContext" Select="new (MaNhanVien, HoTen)" 
         TableName="NHAN_VIENs">
 </asp:LinqDataSource>
-<asp:LinkButton ID="lnkThemTaiKhoan" runat="server" onclick="lnkThemTaiKhoan_Click">Thêm tài khoản</asp:LinkButton>
-<asp:Panel ID="pnlThemTaiKhoan" runat="server" Visible="false">
+
+<asp:Panel ID="pnlThemTaiKhoan" runat="server">
     <h2>Thêm Tài Khoản</h2>    
     <br />
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="MaTaiKhoan" 
@@ -75,9 +74,9 @@
         </table>
           
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
-                CommandName="Insert" Text="Insert" />
+                CommandName="Insert" Text="Thêm" />
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" 
-                CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                CausesValidation="False" CommandName="Cancel" Text="Hủy" />
         </InsertItemTemplate>
        
     </asp:FormView>
