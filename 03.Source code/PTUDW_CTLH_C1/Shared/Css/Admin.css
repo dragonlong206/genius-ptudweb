@@ -1,6 +1,7 @@
 ﻿.admin_wrapper
 {
 	margin: 20px 0px 0px 40px;
+	min-height: 200px;
 }
 
 .navigator

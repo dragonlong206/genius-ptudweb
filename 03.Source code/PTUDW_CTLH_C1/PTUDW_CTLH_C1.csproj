@@ -131,6 +131,13 @@
     <Compile Include="Administration\DieuHanhCongTy\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\DieuHanhCongTy\DieuHanhCongTy.Master.cs">
+      <DependentUpon>DieuHanhCongTy.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\DieuHanhCongTy\DieuHanhCongTy.Master.designer.cs">
+      <DependentUpon>DieuHanhCongTy.Master</DependentUpon>
+    </Compile>
     <Compile Include="Administration\DieuHanhCongTy\ThemTram.aspx.cs">
       <DependentUpon>ThemTram.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +207,13 @@
     </Compile>
     <Compile Include="Administration\TaiXe\NhatKiChuyenChay.aspx.designer.cs">
       <DependentUpon>NhatKiChuyenChay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\TaiXe\TaiXe.Master.cs">
+      <DependentUpon>TaiXe.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\TaiXe\TaiXe.Master.designer.cs">
+      <DependentUpon>TaiXe.Master</DependentUpon>
     </Compile>
     <Compile Include="Administration\TaiXe\XemLuong.aspx.cs">
       <DependentUpon>XemLuong.aspx</DependentUpon>
@@ -393,6 +407,13 @@
     </Compile>
     <Compile Include="Common\TimNhanhTuyen.aspx.designer.cs">
       <DependentUpon>TimNhanhTuyen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\ThongKeChuyen.ascx.cs">
+      <DependentUpon>ThongKeChuyen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\ChuyenXe\ThongKeChuyen.ascx.designer.cs">
+      <DependentUpon>ThongKeChuyen.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\ChuyenXe\wucCacChuyenChayTrongNgay.ascx.cs">
       <DependentUpon>wucCacChuyenChayTrongNgay.ascx</DependentUpon>
@@ -739,8 +760,6 @@
     <Content Include="Administration\DieuHanhTram\PhanCongChuyen.aspx" />
     <Content Include="Administration\DieuHanhTram\PhanHoi.aspx" />
     <Content Include="Administration\TaiXe\Default.aspx" />
-    <Content Include="Administration\TaiXe\NhatKiChuyenChay.aspx" />
-    <Content Include="Administration\TaiXe\XemLuong.aspx" />
     <Content Include="Administration\TaiXe\XemPhanHoiChiTiet.aspx" />
     <Content Include="App_Data\CongTyLuHanh.mdf">
     </Content>
@@ -833,6 +852,16 @@
     <Content Include="Shared\Css\Admin.css" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\DieuHanhCongTy\DieuHanhCongTy.Master" />
+    <Content Include="Administration\TaiXe\NhatKiChuyenChay.aspx" />
+    <Content Include="Administration\TaiXe\XemLuong.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\TaiXe\TaiXe.Master" />
+    <Content Include="Shared\Css\SearchStyle.css" />
+    <Content Include="WUC\ChuyenXe\ThongKeChuyen.ascx" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Administration\DieuHanhTram\DieuHanhTram.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -855,6 +884,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
