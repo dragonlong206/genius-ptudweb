@@ -4,7 +4,7 @@
 <asp:Repeater ID="rptDanhSachTram" runat="server" DataSourceID="ldsTramXe">
     <ItemTemplate>
 <div id="leftmenu">
-                    <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("TenTramXe") %>'
+                    <asp:HyperLink ID="hplTramXe" ForeColor="#009edc" runat="server" Text='<%# Eval("TenTramXe") %>'
                         NavigateUrl='<%# "~/Common/CacChuyenTrongNgay.aspx?MaTramXe=" + Eval("MaTramXe") %>'>
                     </asp:HyperLink>
    </div>

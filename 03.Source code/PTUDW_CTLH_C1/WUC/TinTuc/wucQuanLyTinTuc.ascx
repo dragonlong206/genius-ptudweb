@@ -1,8 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucQuanLyTinTuc.ascx.cs"
     Inherits="PTUDW_CTLH_C1.WUC.TinTuc.wucQuanLyTinTuc" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
 <asp:LinqDataSource ID="ldsTinTuc" runat="server" ContextTypeName="DTO.CongTyLuHanhDataContext"
     OrderBy="NgayDang desc" TableName="TIN_TUCs">
 </asp:LinqDataSource>

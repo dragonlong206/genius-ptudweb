@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Head.master.cs" Inherits="PTUDW_CTLH_C1.Shared.Head" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" href="../App_Themes/MainTheme/Style.css" type="text/css" />
+    <link href="~/App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />
+    <link href="Css/Style.css" rel="Stylesheet" type="text/css" />
+
+    <script language="javascript" type="text/javascript">
+        function setfocus() {
+            var username = document.getElementById("txtUsername");
+            username.attributes("Text") = "";
+        }
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+        </asp:ToolkitScriptManager>
+        <asp:SiteMapDataSource ID="smdsMaster" runat="server" />
+        <div id="background">
+            <div id="header">
+                <!--header-->
+                <div id="top_header">
+                    <div id="login">
+                        <!--login-->
+                        <asp:TextBox ID="txtUsername" runat="server" CssClass="textbox" ToolTip="Tên đăng nhập"
+                            Text="Tên đăng nhập"></asp:TextBox>
+                        <asp:TextBoxWatermarkExtender ID="twmUsername" runat="server" TargetControlID="txtUsername"
+                            WatermarkText="Tên đăng nhập">
+                        </asp:TextBoxWatermarkExtender>
+                        <asp:TextBox ID="txtPassword" runat="server" CssClass="textbox" TextMode="Password"
+                            ToolTip="Mật khẩu" Text="123456"></asp:TextBox>
+                        <asp:TextBoxWatermarkExtender ID="twmPassword" runat="server" TargetControlID="txtPassword"
+                            WatermarkText="******">
+                        </asp:TextBoxWatermarkExtender>
+                        <asp:Button ID="btnDangNhap" runat="server" CssClass="login_button" CausesValidation="false"
+                            Text="Đăng nhập" OnClick="btnDangNhap_Click" />
+                        <asp:Label ID="lblXinChao" CssClass="text_account" runat="server" Text="Xin chào &nbsp&nbsp"
+                            Visible="False"></asp:Label>
+                        <asp:LinkButton ID="btnXinChao" CssClass="text_account" runat="server" ForeColor="White"
+                            PostBackUrl="~/Administration/CapNhatThongTinCaNhan.aspx" CausesValidation="false"
+                            Visible="False">LinkButton</asp:LinkButton>
+                        &nbsp&nbsp|&nbsp&nbsp
+                        <asp:LinkButton ID="lbtnPhanHoi" runat="server" CssClass="text_account" CausesValidation="false"
+                            Visible="false" PostBackUrl="~/Administration/TaiXe/XemPhanHoi.aspx"></asp:LinkButton>
+                        <asp:LinkButton ID="btnQuenMatKhau" runat="server" CssClass="text_account" CausesValidation="false"
+                            ForeColor="White">Quên mật khẩu</asp:LinkButton>
+                        <asp:LinkButton ID="btnDangXuat" runat="server" ForeColor="White" CssClass="text_account"
+                            CausesValidation="false" Visible="False" OnClick="btnDangXuat_Click">Đăng xuất</asp:LinkButton>
+                        <!--div class="links">
+                        <a href="#">Quên mật khẩu</a> | <a href="#">Đăng ký</a>
+                    </div-->
+                    </div>
+                    <!--end login-->
+                </div>
+                <!--end top header-->
+                <div id="logo_block">
+                    <asp:Image ID="imgLogo" runat="server" ImageAlign="Right" 
+                    ImageUrl="~/App_Themes/MainTheme/images/logo.png" 
+                    AlternateText="Logo"
+                    Width="145px"
+                    Height="186px"/>
+                    <!--img src="~/App_Themes/MainTheme/images/logo.png" alt="" width="145" height="186" /-->
+                </div>
+                <!--end logo block-->
+                <div id="menu_banner">
+                    <!-- menu banner -->
+                    <div id="menu">
+                        <!--menu-->
+                        <asp:Menu ID="mnuMain" runat="server" DataSourceID="smdsMaster" MaximumDynamicDisplayLevels="0"
+                            Orientation="Horizontal" StaticDisplayLevels="2">
+                            <StaticMenuStyle CssClass="StaticMenu" />
+                            <StaticMenuItemStyle CssClass="StaticMenuItem" />
+                            <StaticHoverStyle CssClass="MenuHover" />
+                        </asp:Menu>
+                    </div>
+                    <!--end menu-->
+                    <div id="change_theme">
+                        <asp:DropDownList ID="ddlThemes" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlThemes_SelectedIndexChanged">
+                            <asp:ListItem Value="MainTheme"></asp:ListItem>
+                            <asp:ListItem Value="AnotherTheme"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <!-- end change theme -->
+                    <div id="banner_block">
+                        <!--div id="search_div">
+                        <span>Tìm kiếm</span>
+                        <asp:TextBox ID="txtSearchHotTour" CssClass="search_textbox" runat="server" />
+                    </div-->
+                    </div>
+                    <!--end banner block-->
+                </div>
+                <!--end logo banner-->
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+            </asp:ContentPlaceHolder>
+            <div id="footer">
+                <!--footer-->
+                <asp:Menu ID="mnuBottomMenu" runat="server" DataSourceID="smdsMaster" MaximumDynamicDisplayLevels="0"
+                    Orientation="Horizontal" StaticDisplayLevels="2">
+                    <StaticMenuStyle CssClass="StaticMenu" />
+                    <StaticMenuItemStyle CssClass="StaticMenuItemBottom" />
+                    <StaticHoverStyle CssClass="MenuHover" />
+                </asp:Menu>
+                <p>
+                    Copyright &copy;. All rights reserved.</p>
+            </div>
+            <!-- end footer -->
+        </div>
+        <!--end background-->
+    </div>
+    </form>
+</body>
+</html>

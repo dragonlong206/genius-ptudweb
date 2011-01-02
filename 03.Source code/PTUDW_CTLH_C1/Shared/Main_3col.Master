@@ -1,153 +1,38 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main_3col.master.cs"
-    Inherits="PTUDW_CTLH_C1.Main_3col" %>
+    Inherits="PTUDW_CTLH_C1.Main_3col" MasterPageFile="~/Shared/Head.Master" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register TagPrefix="wuc" TagName="SearchControl" Src="~/WUC/wucSearch.ascx" %>
 <%@ Register TagPrefix="wuc" TagName="DanhSachTram" Src="~/WUC/Tram/wucDanhSachTram.ascx" %>
-
-
-
-<script language="javascript">
-    function setfocus() {
-        var username = document.getElementById("txtUsername");
-        username.attributes("Text") = "";
-    }
-</script>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link href="~/App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />      
-    <link href="Css/Style.css" rel="Stylesheet" type="text/css" />
-</head>
-<body>
-    <form id="MainForm" runat="server" defaultfocus="">
-    <asp:toolkitscriptmanager ID="Toolkitscriptmanager1" runat="server"></asp:toolkitscriptmanager>
-    <asp:SiteMapDataSource ID="smdsMaster" runat="server" />
-    <div id="background">
-        <div id="header">
-            <!--header-->
-            <div id="top_header">
-                <div id="login">
-                    <!--login-->
-                    <asp:TextBox ID="txtUsername"  runat="server" CssClass="textbox" ToolTip="Tên đăng nhập"
-                        Text="Tên đăng nhập"></asp:TextBox>     
-                    <asp:TextBoxWatermarkExtender ID="twmUsername" runat="server" TargetControlID="txtUsername" WatermarkText="Tên đăng nhập">
-                    </asp:TextBoxWatermarkExtender>                
-                    <asp:TextBox ID="txtPassword" runat="server" CssClass="textbox" TextMode="Password"
-                        ToolTip="Mật khẩu" Text="123456"></asp:TextBox>                        
-                    <asp:TextBoxWatermarkExtender ID="twmPassword" runat="server" TargetControlID="txtPassword" WatermarkText="******">
-                    </asp:TextBoxWatermarkExtender>
-                    <asp:Button ID="btnDangNhap" runat="server" CssClass="login_button" CausesValidation="false"
-                        Text="Đăng nhập" onclick="btnDangNhap_Click" />
-                    <asp:Label ID="lblXinChao" runat="server" Text="Xin chào &nbsp&nbsp" Visible="False"></asp:Label>
-                    <asp:LinkButton ID="btnXinChao" runat="server" ForeColor="White" PostBackUrl="~/Administration/CapNhatThongTinCaNhan.aspx" CausesValidation="false"
-                        Visible="False">LinkButton</asp:LinkButton>
-                    &nbsp&nbsp|&nbsp&nbsp
-                    <asp:LinkButton ID="lbtnPhanHoi" runat="server" CausesValidation="false" Visible="false" PostBackUrl="~/Administration/TaiXe/XemPhanHoi.aspx"></asp:LinkButton>
-                    <asp:LinkButton ID="btnQuenMatKhau" runat="server" CausesValidation="false" ForeColor="White">Quên mật khẩu</asp:LinkButton>
-                    <asp:LinkButton ID="btnDangXuat" runat="server" ForeColor="White" CausesValidation="false"
-                        Visible="False" onclick="btnDangXuat_Click">Đăng xuất</asp:LinkButton>
-                    <!--div class="links">
-                        <a href="#">Quên mật khẩu</a> | <a href="#">Đăng ký</a>
-                    </div-->
-                </div>
-                <!--end login-->
-            </div>
-            <!--end top header-->
-            <div id="menu">
-                <!--menu-->
-                <div id="menu_bg">
-                    <!--menu background-->
-                    <ul>
-                        <li>                    
-                            <asp:Menu ID="mnuMain" runat="server" DataSourceID="smdsMaster" 
-                                MaximumDynamicDisplayLevels="0" Orientation="Horizontal" 
-                                StaticDisplayLevels="2"> 
-                                <StaticMenuStyle CssClass="StaticMenu" />                              
-                                <StaticMenuItemStyle CssClass="StaticMenuItem" />
-                            </asp:Menu>
-                        </li>
-                    </ul>
-                </div>
-                <!--end menu background-->
-            </div>
-            <!--end menu-->
-            
-            <div id="change_theme" style="float:right; padding-right:40px">
-                <asp:DropDownList ID="ddlThemes" runat="server" AutoPostBack="True" 
-                    onselectedindexchanged="ddlThemes_SelectedIndexChanged">
-                    <asp:ListItem Value="MainTheme"></asp:ListItem>
-                    <asp:ListItem Value="AnotherTheme"></asp:ListItem>
-                </asp:DropDownList>
-            </div>
-                       
-            <div id="logo_banner">
-                <div id="logo_block">
-                    <img src="../App_Themes/MainTheme/images/logo.png" alt="" width="145" height="186" />
-                    <br />
-                    <p class="text_slogan">
-                        Mỗi chuyến xe an toàn, thoải mái đối với các bạn là niềm vui của chúng tôi. Hãy
-                        để chúng tôi luôn đồng hành với bạn trên mọi nẻo đường.</p>
-                </div>
-                <!--end logo block-->
-                <div id="banner_block">
-                    <div id="search_div">
-                        <span>Tìm kiếm</span>
-                        <asp:TextBox ID="txtSearchHotTour" CssClass="search_textbox" runat="server" />
-                    </div>
-                </div>
-                <!--end banner block-->
-            </div>
-            <!--end logo banner-->
+<%@ Register TagPrefix="wuc" TagName="XemTinTuc" Src="~/WUC/TinTuc/wucXemTinTuc.ascx" %>
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolderHead"
+    runat="server">
+    <div id="content">
+        <div id="left_col">
+            <p class="mytitle">
+                Các trạm chính</p>
+            <wuc:DanhSachTram runat="server" />
         </div>
-        <!--end header-->
-        <div id="content">
-            <div id="left_col">
-                <p id="mytitle">Các trạm chính</p>
-                <br />
-                <wuc:DanhSachTram runat="server" />
-            </div>
-            <!--end left column-->
-            <div id="center_col">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
-            <!--end center column-->
-            <div id="right_col">
-                <div id="line">
-              	    <img src="App_Themes/MainTheme/images/line.gif" alt="" width="5" height="inherit" />
-                </div>
-                <wuc:SearchControl ID="wucSearch" runat="server"></wuc:SearchControl>
-                <div id="service">
-                    <asp:ImageButton ID="imgService" AlternateText="Dành cho quảng cáo" ImageUrl="~/App_Themes/MainTheme/images/service.jpg" CssClass="img" PostBackUrl="~/Detail.aspx" runat="server" />
-                </div>
-                
-                <div class="adv">
-                    <asp:ImageButton ID="imgAdv1" AlternateText="Dành cho quảng cáo" ImageUrl="~/App_Themes/MainTheme/images/logo_print.png" CssClass="img" PostBackUrl="http://diadiem.com" runat="server" />
-                </div>
-            </div>
-            <!--end right column-->
+        <!--end left column-->
+        <div id="center_col">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
-        <!--end content-->
-        <div id="footer">
-        <!--footer-->
-            <ul>
-               <li>                    
-                   <asp:Menu ID="Menu2" runat="server" DataSourceID="smdsMaster" 
-                        MaximumDynamicDisplayLevels="0" Orientation="Horizontal" 
-                        StaticDisplayLevels="2"> 
-                        <StaticMenuStyle CssClass="StaticMenu" />                              
-                        <StaticMenuItemStyle CssClass="StaticMenuItem" />
-                   </asp:Menu>
-               </li>
-            </ul>
-            <p>
-                Copyright &copy;. All rights reserved.</p>
+        <!--end center column-->
+        <div id="right_col">
+            <!--div id="line">
+                    <img src="App_Themes/MainTheme/images/line.gif" alt="" width="5" height="inherit" />
+                </div-->
+            <wuc:SearchControl ID="wucSearch" runat="server"></wuc:SearchControl>
+            <div id="TinTucTrangChu">
+                <wuc:XemTinTuc ID="wucXemTinTuc" runat="server"></wuc:XemTinTuc>
+            </div>
+            <div class="adv">
+                <asp:ImageButton ID="imgAdv1" AlternateText="Dành cho quảng cáo" ImageUrl="~/App_Themes/MainTheme/images/logo_print.png"
+                    CssClass="img" PostBackUrl="http://diadiem.com" runat="server" />
+            </div>
         </div>
-        <!--end footer-->
+        <!--end right column-->
     </div>
-    <!--end background-->
-    </form>
-</body>
-</html>
+    <!--end content-->
+</asp:Content>

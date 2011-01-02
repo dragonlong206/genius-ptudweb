@@ -1575,6 +1575,27 @@ namespace DTO
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maXe, duKienDen);
 			return ((ISingleResult<usp_SelectChuyenXeDauTienSauMotChuyenResult>)(result.ReturnValue));
 		}
+		
+		[Function(Name="dbo.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNam")]
+		public ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult> usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNam([Parameter(Name="Nam", DbType="Int")] System.Nullable<int> nam)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam);
+			return ((ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThang")]
+		public ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult> usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThang([Parameter(Name="Nam", DbType="Int")] System.Nullable<int> nam, [Parameter(Name="Thang", DbType="Int")] System.Nullable<int> thang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, thang);
+			return ((ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuy")]
+		public ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult> usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuy([Parameter(Name="Nam", DbType="Int")] System.Nullable<int> nam, [Parameter(Name="ThangBatDau", DbType="Int")] System.Nullable<int> thangBatDau, [Parameter(Name="ThangKetThuc", DbType="Int")] System.Nullable<int> thangKetThuc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, thangBatDau, thangKetThuc);
+			return ((ISingleResult<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult>)(result.ReturnValue));
+		}
 	}
 	
 	[Table(Name="dbo.CHO_NGOI")]
@@ -12689,6 +12710,408 @@ namespace DTO
 				if ((this._Column1 != value))
 				{
 					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private System.Nullable<int> _SoLuongKhach;
+		
+		private System.Nullable<int> _MaTuyenXe1;
+		
+		private string _TenTuyenXe;
+		
+		private string _TramDi;
+		
+		private string _TramDen;
+		
+		private System.Nullable<int> _SoLuong;
+		
+		public usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_SoLuongKhach", DbType="Int")]
+		public System.Nullable<int> SoLuongKhach
+		{
+			get
+			{
+				return this._SoLuongKhach;
+			}
+			set
+			{
+				if ((this._SoLuongKhach != value))
+				{
+					this._SoLuongKhach = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTuyenXe1", DbType="Int")]
+		public System.Nullable<int> MaTuyenXe1
+		{
+			get
+			{
+				return this._MaTuyenXe1;
+			}
+			set
+			{
+				if ((this._MaTuyenXe1 != value))
+				{
+					this._MaTuyenXe1 = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TramDi", DbType="NVarChar(50)")]
+		public string TramDi
+		{
+			get
+			{
+				return this._TramDi;
+			}
+			set
+			{
+				if ((this._TramDi != value))
+				{
+					this._TramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TramDen", DbType="NVarChar(50)")]
+		public string TramDen
+		{
+			get
+			{
+				return this._TramDen;
+			}
+			set
+			{
+				if ((this._TramDen != value))
+				{
+					this._TramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_SoLuong", DbType="Int")]
+		public System.Nullable<int> SoLuong
+		{
+			get
+			{
+				return this._SoLuong;
+			}
+			set
+			{
+				if ((this._SoLuong != value))
+				{
+					this._SoLuong = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private System.Nullable<int> _SoLuongKhach;
+		
+		private System.Nullable<int> _MaTuyenXe1;
+		
+		private string _TenTuyenXe;
+		
+		private string _TramDi;
+		
+		private string _TramDen;
+		
+		private System.Nullable<int> _SoLuong;
+		
+		public usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_SoLuongKhach", DbType="Int")]
+		public System.Nullable<int> SoLuongKhach
+		{
+			get
+			{
+				return this._SoLuongKhach;
+			}
+			set
+			{
+				if ((this._SoLuongKhach != value))
+				{
+					this._SoLuongKhach = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTuyenXe1", DbType="Int")]
+		public System.Nullable<int> MaTuyenXe1
+		{
+			get
+			{
+				return this._MaTuyenXe1;
+			}
+			set
+			{
+				if ((this._MaTuyenXe1 != value))
+				{
+					this._MaTuyenXe1 = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TramDi", DbType="NVarChar(50)")]
+		public string TramDi
+		{
+			get
+			{
+				return this._TramDi;
+			}
+			set
+			{
+				if ((this._TramDi != value))
+				{
+					this._TramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TramDen", DbType="NVarChar(50)")]
+		public string TramDen
+		{
+			get
+			{
+				return this._TramDen;
+			}
+			set
+			{
+				if ((this._TramDen != value))
+				{
+					this._TramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_SoLuong", DbType="Int")]
+		public System.Nullable<int> SoLuong
+		{
+			get
+			{
+				return this._SoLuong;
+			}
+			set
+			{
+				if ((this._SoLuong != value))
+				{
+					this._SoLuong = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult
+	{
+		
+		private int _MaTuyenXe;
+		
+		private System.Nullable<int> _SoLuongKhach;
+		
+		private System.Nullable<int> _MaTuyenXe1;
+		
+		private string _TenTuyenXe;
+		
+		private string _TramDi;
+		
+		private string _TramDen;
+		
+		private System.Nullable<int> _SoLuong;
+		
+		public usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult()
+		{
+		}
+		
+		[Column(Storage="_MaTuyenXe", DbType="Int NOT NULL")]
+		public int MaTuyenXe
+		{
+			get
+			{
+				return this._MaTuyenXe;
+			}
+			set
+			{
+				if ((this._MaTuyenXe != value))
+				{
+					this._MaTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_SoLuongKhach", DbType="Int")]
+		public System.Nullable<int> SoLuongKhach
+		{
+			get
+			{
+				return this._SoLuongKhach;
+			}
+			set
+			{
+				if ((this._SoLuongKhach != value))
+				{
+					this._SoLuongKhach = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_MaTuyenXe1", DbType="Int")]
+		public System.Nullable<int> MaTuyenXe1
+		{
+			get
+			{
+				return this._MaTuyenXe1;
+			}
+			set
+			{
+				if ((this._MaTuyenXe1 != value))
+				{
+					this._MaTuyenXe1 = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TenTuyenXe", DbType="NVarChar(50)")]
+		public string TenTuyenXe
+		{
+			get
+			{
+				return this._TenTuyenXe;
+			}
+			set
+			{
+				if ((this._TenTuyenXe != value))
+				{
+					this._TenTuyenXe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TramDi", DbType="NVarChar(50)")]
+		public string TramDi
+		{
+			get
+			{
+				return this._TramDi;
+			}
+			set
+			{
+				if ((this._TramDi != value))
+				{
+					this._TramDi = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_TramDen", DbType="NVarChar(50)")]
+		public string TramDen
+		{
+			get
+			{
+				return this._TramDen;
+			}
+			set
+			{
+				if ((this._TramDen != value))
+				{
+					this._TramDen = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_SoLuong", DbType="Int")]
+		public System.Nullable<int> SoLuong
+		{
+			get
+			{
+				return this._SoLuong;
+			}
+			set
+			{
+				if ((this._SoLuong != value))
+				{
+					this._SoLuong = value;
 				}
 			}
 		}

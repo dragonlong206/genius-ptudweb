@@ -1526,4 +1526,43 @@
       <Column Name="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNam" Method="usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNam">
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult">
+      <Column Name="MaTuyenXe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuongKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTuyenXe1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenTuyenXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TramDi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TramDen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThang" Method="usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThang">
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult">
+      <Column Name="MaTuyenXe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuongKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTuyenXe1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenTuyenXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TramDi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TramDen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuy" Method="usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuy">
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ThangBatDau" Parameter="thangBatDau" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ThangKetThuc" Parameter="thangKetThuc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult">
+      <Column Name="MaTuyenXe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuongKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTuyenXe1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenTuyenXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TramDi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TramDen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

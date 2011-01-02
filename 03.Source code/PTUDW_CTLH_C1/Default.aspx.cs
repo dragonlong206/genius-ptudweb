@@ -25,7 +25,7 @@ namespace PTUDW_CTLH_C1
             else
             {
                 Page.Theme = SelectedTheme;
-                Master.SelectedTheme = SelectedTheme;
+                ((PTUDW_CTLH_C1.Shared.Head)Master.Master).SelectedTheme = SelectedTheme;
             }
         }
     }
