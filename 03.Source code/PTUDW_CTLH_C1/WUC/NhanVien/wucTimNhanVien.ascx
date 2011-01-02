@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucTimNhanVien.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.NhanVien.wucTimNhanVien" %>
+<link href="../../Shared/Css/GridView.css" rel="Stylesheet" type="text/css" />
 <table>
     <tr>
         <td colspan="2" style="text-align: center">
@@ -24,8 +25,10 @@
     </tr>
 </table>
 
-<asp:GridView ID="gvNhanVien" runat="server" AutoGenerateColumns="False" 
-    DataSourceID="ldsNhanVien" Visible="False" DataKeyNames="MaNhanVien"
+<asp:Label ID="lblThongBao" runat="server" Text="" CssClass="ThongBao"></asp:Label>
+<asp:GridView ID="gvNhanVien" runat="server" AutoGenerateColumns="False" AllowPaging="true"
+    DataSourceID="ldsNhanVien" Visible="False" DataKeyNames="MaNhanVien" CssClass="mGrid"
+    PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
     onrowupdated="gvNhanVien_RowUpdated">
     <Columns>
         <asp:TemplateField HeaderText="STT">  
@@ -62,8 +65,16 @@
             </EditItemTemplate>
         </asp:TemplateField>
         
-        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
-            CancelText="Hủy" DeleteText="Xóa" EditText="Cập nhật" UpdateText="Lưu" />
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:LinkButton ID="lbtnCapNhat" runat="server" CommandName="Edit">Cập nhật</asp:LinkButton>
+                <asp:LinkButton ID="lbtnXoa" runat="server" OnClientClick="return confirm('Có muốn xóa nhân viên vừa chọn?');" CommandName="Delete">Xóa</asp:LinkButton>
+            </ItemTemplate>
+            <EditItemTemplate>
+                <asp:LinkButton ID="lbtnCapNhat" runat="server" OnClientClick="return confirm('Có muốn cập nhật nhân viên vừa sửa?');" CommandName="Edit">Cập nhật</asp:LinkButton>
+                <asp:LinkButton ID="lbtnHuy" Text="Hủy" Width="55" CommandName="Cancel" runat="server" />
+            </EditItemTemplate>
+        </asp:TemplateField>
     </Columns>
 </asp:GridView>
 <p>
