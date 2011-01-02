@@ -13,9 +13,6 @@
     </WhereParameters>
 </asp:LinqDataSource>
 
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
-
 <asp:FormView ID="fvChiTietTinTuc" runat="server" DataKeyNames="MaTinTuc" 
     DataSourceID="ldsChiTietTinTuc" 
     onitemdeleted="fvChiTietTinTuc_ItemDeleted" 
