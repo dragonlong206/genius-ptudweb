@@ -1,7 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucThemXe.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.Xe.WUX" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
+
 <asp:LinqDataSource ID="ldsLoaiXe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="LOAI_XEs">
 </asp:LinqDataSource>
@@ -15,9 +14,7 @@
 <asp:LinqDataSource ID="ldsTinhTrangXe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="TINH_TRANG_XEs">
 </asp:LinqDataSource>
-<p>
-    <br />
-</p>
+
 
 <asp:FormView ID="fvThemXe" runat="server" DataKeyNames="MaXe" 
     DataSourceID="ldsXe" DefaultMode="Insert" Height="257px" Width="238px" 
@@ -67,7 +64,7 @@
                    <td>
                        <asp:ComboBox ID="cboLoaiXe" runat="server" AutoCompleteMode="SuggestAppend" 
                            DataSourceID="ldsLoaiXe" DataTextField="TenLoaiXe" DataValueField="MaLoaiXe"
-                           MaxLength="0" style="display: inline;" 
+                            style="display: inline;" 
                            SelectedValue='<%# Bind("MaLoaiXe") %>'>
                        </asp:ComboBox>
                    </td>
@@ -87,9 +84,9 @@
              
            </table>
           <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
-                    CommandName="Insert" Text="Insert" />
+                    CommandName="Insert" Text="Thêm" />
                 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" 
-                    CausesValidation="False" CommandName="Cancel" Text="Cancel" />     
+                    CausesValidation="False" CommandName="Cancel" Text="Hủy" />     
       
        
     </InsertItemTemplate>   
