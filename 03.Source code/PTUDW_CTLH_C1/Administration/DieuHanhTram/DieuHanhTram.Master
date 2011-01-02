@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DieuHanhTram.master.cs" 
+    Inherits="PTUDW_CTLH_C1.Administration.DieuHanhTram.DieuHanhTram" MasterPageFile="~/Shared/Head.Master" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+    <div class="DieuHanhTramWrapper">
+        <div class="navigator">
+            <asp:TreeView ID="trvNavigator" runat="server">
+                <Nodes>
+                    <asp:TreeNode Text="Quản lý chuyến" Expanded="false">
+                        <asp:TreeNode Text="Thêm chuyến"></asp:TreeNode>
+                        <asp:TreeNode Text="Cập nhật chuyến"></asp:TreeNode>
+                        <asp:TreeNode Text="Phân công chuyến" NavigateUrl="~/Administration/DieuHanhTram/PhanCongChuyen.aspx"></asp:TreeNode>
+                        <asp:TreeNode Text="Theo dõi chuyến/xe"></asp:TreeNode>
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Quản lý phản hồi" Expanded="false">
+                        <asp:TreeNode Text="Ghi nhận phản hồi" NavigateUrl="~/Administration/DieuHanhTram/PhanHoi.aspx"></asp:TreeNode>
+                        <asp:TreeNode Text="Duyệt phản hồi" NavigateUrl="~/Administration/DieuHanhTram/DuyetPhanHoi.aspx"></asp:TreeNode>
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Quản lý tình trạng đặt chỗ" Expanded="false">
+                        <asp:TreeNode Text="Đặt chỗ"></asp:TreeNode>
+                        <asp:TreeNode Text="Thông tin chỗ ngồi"></asp:TreeNode>
+                    </asp:TreeNode>
+                </Nodes>
+            </asp:TreeView>
+        </div>
+        <!-- End of navigator -->
+        <div class="DieuHanhTramContent">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- End of DieuHanhTramContent -->
+    </div><!-- End of wrapper -->
+</asp:Content>

@@ -11,15 +11,24 @@
 namespace PTUDW_CTLH_C1.Administration.DieuHanhTram {
     
     
-    public partial class DuyetPhanHoi {
+    public partial class DieuHanhTram {
         
         /// <summary>
-        /// wucDuyetPhanHoi control.
+        /// trvNavigator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PTUDW_CTLH_C1.WUC.PhanHoi.wucGhiNhanPhanHoi wucDuyetPhanHoi;
+        protected global::System.Web.UI.WebControls.TreeView trvNavigator;
+        
+        /// <summary>
+        /// ContentPlaceHolder1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
     }
 }
