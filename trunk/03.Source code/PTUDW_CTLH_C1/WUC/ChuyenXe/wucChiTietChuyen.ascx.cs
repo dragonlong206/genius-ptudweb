@@ -17,7 +17,15 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.dvChiTietChuyenXe.Rows[7].Visible = false; 
+  
+            if ((int)Session["IsLogin"] == 1)
+            {
+                if ((int)Session["MaLoaiNhanVien"] == 2)
+                {
+                    this.dvChiTietChuyenXe.Rows[7].Visible = true;
+                }
+            }
         }
     }
 }

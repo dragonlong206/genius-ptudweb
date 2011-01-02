@@ -64,6 +64,7 @@ namespace PTUDW_CTLH_C1.Shared
                     Session["TaiKhoan"] = txtUsername.Text;
                     Session["MaTaiKhoan"] = new TaiKhoanBUS().LayMaTaiKhoan((String)(Session["TaiKhoan"]));
                     Session["MaNhanVien"] = MaNhanVien;
+                    Session["MaLoaiNhanVien"] = MaLoaiNhanVien;
 
                     ThayDoiTrangThai();
 
