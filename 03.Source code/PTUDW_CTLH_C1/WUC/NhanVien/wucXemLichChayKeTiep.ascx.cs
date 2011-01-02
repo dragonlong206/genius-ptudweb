@@ -25,8 +25,11 @@ namespace PTUDW_CTLH_C1.WUC.ChuyenXe
 
         protected void ldsDanhSachChuyenKe_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
+            int iMaNhanVien = (int)Session["MaNhanVien"];
             ChuyenXeBUS ChuyenXeBUS = new ChuyenXeBUS();
-            e.Result = ChuyenXeBUS.XemDanhSachChuyenKeTiep(1);
+            e.Result = ChuyenXeBUS.XemDanhSachChuyenKeTiep(iMaNhanVien);
+            
+
         }
     }
 }

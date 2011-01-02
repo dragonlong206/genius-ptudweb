@@ -1,37 +1,34 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucXemLuong.ascx.cs"
     Inherits="PTUDW_CTLH_C1.WUC.NhanVien.wucXemLuong" %>
+    <link href="../../Shared/Css/GridView.css" rel ="Stylesheet"  type="text/css" />
+    <link href="../../Shared/Css/Style.css" rel="Stylesheet" type="text/css"/>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
+ 
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
-        <style type="text/css">
-            .style1
-            {
-                width: 52px;
-            }
-        </style>
-        <table>
+       
+        <asp:Label ID="lblTieuDe" runat="server" Text="Xem lương trong tháng" CssClass="ThongBao"></asp:Label>
+        <table  >
             <tr>
                 <td colspan="2" style="text-align: center">
-                    <asp:Label ID="lblTieuDe" runat="server" Text="Xem lương trong tháng"></asp:Label>
+                    
                 </td>
             </tr>
             <tr>
                 <td>
                     <asp:Label ID="lblNam" runat="server" Text="Năm"></asp:Label>
                 </td>
-                <td class="style1">
-                    <asp:DropDownList ID="ddlNam" runat="server">
-                    </asp:DropDownList>
+                <td class="row_table">
+                   <asp:DropDownList ID="ddlNam" runat="server" CssClass="dropdown_Style"  >
+                        </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td>
                     <asp:Label ID="lblThang" runat="server" Text="Tháng"></asp:Label>
                 </td>
-                <td class="style1">
-                    <asp:DropDownList ID="ddlThang" runat="server">
+                <td class="row_table">
+                    <asp:DropDownList ID="ddlThang" runat="server" CssClass="dropdown_Style">
                         <asp:ListItem>1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
                         <asp:ListItem>3</asp:ListItem>
@@ -55,7 +52,7 @@
                 Font-Size="X-Large" runat="server" Text = "KHÔNG TÌM  THẤY KẾT QUẢ NÀO" Visible="false"></asp:Label>
         </div>
         <asp:GridView ID="gvChuyenDaChay" runat="server" AutoGenerateColumns="False" DataKeyNames="MaChuyenXe"
-            DataSourceID="ldsChuyenXe">
+            DataSourceID="ldsChuyenXe" CssClass="mGrid" PagerStyle-CssClass="pgr">
             <Columns>
                 <asp:BoundField DataField="MaChuyenXe" HeaderText="Mã chuyến xe" InsertVisible="False"
                     ReadOnly="True" SortExpression="MaChuyenXe" />
@@ -68,7 +65,7 @@
             </Columns>
         </asp:GridView>
         <br />
-        <asp:Label ID="lblLuong" runat="server" ></asp:Label>
+        <asp:Label ID="lblLuong" runat="server" CssClass="thongbao"></asp:Label>
         
     </ContentTemplate>
 </asp:UpdatePanel>

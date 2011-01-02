@@ -1,11 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucXemLichChayKeTiep.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.ChuyenXe.wucXemLichChayKeTiep" %>
-<asp:Label ID="lblTieuDe" runat="server" Text="Lịch chạy kế tiếp"></asp:Label>
+<link href="../../Shared/Css/Style.css"rel="Stylesheet" type="text/css" />
+<link href="../../Shared/Css/GridView.css" rel="Stylesheet" type="text/css" />
+
+<asp:Label ID="lblTieuDe" runat="server" Text="Lịch chạy kế tiếp" CssClass="thongbao"></asp:Label>
 <asp:LinqDataSource ID="ldsDanhSachChuyenKe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="CHUYEN_XEs" 
     onselecting="ldsDanhSachChuyenKe_Selecting">
 </asp:LinqDataSource>
+<br />
+<br />
 
-<asp:GridView ID="gvDanhSachChuyenKe" runat="server" 
+<asp:GridView ID="gvDanhSachChuyenKe" runat="server" CssClass="mGrid" AllowPaging="true" PagerStyle-CssClass="pgr"
     AutoGenerateColumns="False" DataKeyNames="MaChuyenXe" 
     DataSourceID="ldsDanhSachChuyenKe">
     <Columns>

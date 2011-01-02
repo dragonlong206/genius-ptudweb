@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucCapNhatThongTin.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.MatKhau.wucCapNhatThongTin" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
 
+<asp:ToolkitScriptManager runat="server">
+</asp:ToolkitScriptManager>
 <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" 
     AutoGenerateRows="False" DataSourceID="ldsNhanVien" 
     DataKeyNames="MaNhanVien">
