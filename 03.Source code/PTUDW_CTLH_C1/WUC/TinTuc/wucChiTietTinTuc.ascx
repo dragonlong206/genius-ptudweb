@@ -78,7 +78,7 @@
                     <asp:TextBox ID="txtNgayDang" runat="server"
                     Text='<%# Bind("NgayDang") %>' />
                     <asp:CalendarExtender ID="cleNgayDang" runat="server" 
-                        TargetControlID="txtNgayDang" TodaysDateFormat="dd/MM/yyyy" ClearTime="True" 
+                        TargetControlID="txtNgayDang" TodaysDateFormat="dd/MM/yyyy" 
                         SelectedDate='<%# DateTime.Now.Date %>' >
                     </asp:CalendarExtender>
                 </td>

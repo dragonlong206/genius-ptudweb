@@ -237,6 +237,12 @@ div#background
 	background-repeat:no-repeat;
 	float:left;
 	padding:0px 0px 0px 0px;
+	text-align:right;
+}
+
+#banner_block #animated_bus
+{
+	padding: 5px 5px 0px 0px;
 }
 
 .text_slogan
@@ -496,6 +502,12 @@ div#background
 	float:left;
 	width:201px;
 	height:97px;	
+}
+
+.hottour_img img
+{
+	width:inherit;
+	float: left;
 }
 
 .hottour_img span

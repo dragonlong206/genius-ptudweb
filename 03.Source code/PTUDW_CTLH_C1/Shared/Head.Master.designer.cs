@@ -167,13 +167,13 @@ namespace PTUDW_CTLH_C1.Shared {
         protected global::System.Web.UI.WebControls.DropDownList ddlThemes;
         
         /// <summary>
-        /// txtSearchHotTour control.
+        /// imgBannerRight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchHotTour;
+        protected global::System.Web.UI.WebControls.Image imgBannerRight;
         
         /// <summary>
         /// ContentPlaceHolderHead control.

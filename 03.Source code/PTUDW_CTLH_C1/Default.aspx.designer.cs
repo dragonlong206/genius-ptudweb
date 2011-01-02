@@ -23,40 +23,40 @@ namespace PTUDW_CTLH_C1 {
         protected global::System.Web.UI.WebControls.Label ltrWelcome;
         
         /// <summary>
-        /// ImageButton1 control.
+        /// imgHotTour1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.WebControls.Image imgHotTour1;
         
         /// <summary>
-        /// ImageButton2 control.
+        /// imgHotTour2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+        protected global::System.Web.UI.WebControls.Image imgHotTour2;
         
         /// <summary>
-        /// ImageButton3 control.
+        /// imgHotTour3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton3;
+        protected global::System.Web.UI.WebControls.Image imgHotTour3;
         
         /// <summary>
-        /// ImageButton4 control.
+        /// imgHotTour4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton4;
+        protected global::System.Web.UI.WebControls.Image imgHotTour4;
         
         /// <summary>
         /// Master property.

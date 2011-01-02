@@ -16,23 +16,19 @@ Hiện tại, Genius cung cấp hai loại dịch vụ chính: dịch vụ xe kh
             Hot Tours</p>
         <div id="img_block">
             <div class="hottour_img">
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic1.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
-                <span>Phan Thiết</span>
+                <asp:Image ID="imgHotTour1" AlternateText="Hot tour 1" ImageUrl="~/App_Themes/MainTheme/images/pic1.jpg" runat="server" />
+                <span>Phan&nbsp;Thiết</span>
             </div>
             <div class="hottour_img">
-                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic2.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
+                <asp:Image ID="imgHotTour2" AlternateText="Hot tour 2" ImageUrl="~/App_Themes/MainTheme/images/pic2.jpg" runat="server" />
                 <span>Đà Lạt</span>
             </div>
             <div class="hottour_img">
-                <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic3.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
+                <asp:Image ID="imgHotTour3" AlternateText="Hot tour 3" ImageUrl="~/App_Themes/MainTheme/images/pic3.jpg" runat="server" />
                 <span>Điện Biên</span>
             </div>
             <div class="hottour_img">
-                <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/App_Themes/MainTheme/images/pic4.jpg"
-                    Height="79" Width="201" PostBackUrl="~/Common/Detail.aspx" />
+                <asp:Image ID="imgHotTour4" AlternateText="Hot tour 4" ImageUrl="~/App_Themes/MainTheme/images/pic4.jpg" runat="server" />
                 <span>Hạ Long</span>
             </div>
         </div>

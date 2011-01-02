@@ -88,10 +88,13 @@
                     </div>
                     <!-- end change theme -->
                     <div id="banner_block">
-                        <!--div id="search_div">
-                        <span>Tìm kiếm</span>
-                        <asp:TextBox ID="txtSearchHotTour" CssClass="search_textbox" runat="server" />
-                    </div-->
+                        <div id="animated_bus">
+                            <asp:Image ID="imgBannerRight" 
+                            ImageUrl="~/App_Themes/MainTheme/images/animated-bus.gif"
+                            Height="135px"
+                            Width="235px"
+                            AlternateText="Banner bus" runat="server" />
+                        </div>
                     </div>
                     <!--end banner block-->
                 </div>
