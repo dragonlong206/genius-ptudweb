@@ -3,5 +3,7 @@
     Title="Administrator" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <p class="default_content">
+        Admin
+    </p>
 </asp:Content>

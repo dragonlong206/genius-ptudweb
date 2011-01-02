@@ -2,7 +2,7 @@
     Inherits="PTUDW_CTLH_C1.Administration.DieuHanhTram.DieuHanhTram" MasterPageFile="~/Shared/Head.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <div class="DieuHanhTramWrapper">
+    <div class="admin_wrapper">
         <div class="navigator">
             <asp:TreeView ID="trvNavigator" runat="server">
                 <Nodes>
@@ -24,7 +24,7 @@
             </asp:TreeView>
         </div>
         <!-- End of navigator -->
-        <div class="DieuHanhTramContent">
+        <div class="admincontent">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
