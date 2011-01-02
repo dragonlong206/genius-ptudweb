@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <link href="../../Shared/Css/GridView.css" rel="Stylesheet" type="text/css" />
 <div style="text-align: center">
-    <asp:Label ID="Label2" runat="server" CssClass="Title" ForeColor="Black" Text="Tra Cứu Tài Khoản"></asp:Label>
+    <asp:Label ID="Label2" runat="server" CssClass="Title" ForeColor="Black" Text="TRA CỨU TÀI KHOẢN"></asp:Label>
 </div>
 <br />
 <asp:Label ID="Label1" runat="server" Text="Tên tài khoản:"></asp:Label>
@@ -39,7 +39,8 @@
                 <asp:LinkButton ID="lbtnXoa" runat="server" OnClientClick="return confirm('Có muốn xóa tài khoản vừa chọn?');" CommandName="Delete">Xóa</asp:LinkButton>
             </ItemTemplate>
             <EditItemTemplate>
-                <asp:LinkButton ID="lbtnCapNhat" runat="server" OnClientClick="return confirm('Có muốn cập nhật tài khoản vừa sửa?');" CommandName="Edit">Cập nhật</asp:LinkButton>
+                <asp:LinkButton ID="lbtnCapNhat" runat="server" OnClientClick="return confirm('Có muốn cập nhật tài khoản vừa sửa?');" CommandName="Update">Lưu</asp:LinkButton>
+                
                 <asp:LinkButton ID="lbtnHuy" Text="Hủy" Width="55" CommandName="Cancel" runat="server" />
             </EditItemTemplate>
         </asp:TemplateField>
