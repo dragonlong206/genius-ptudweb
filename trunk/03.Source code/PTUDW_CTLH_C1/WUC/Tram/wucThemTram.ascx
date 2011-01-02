@@ -1,7 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucThemTram.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.Tram.wucThemTram" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
+
 <asp:LinqDataSource ID="ldsTramXe" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" 
     TableName="TRAM_XEs" EnableInsert="True">

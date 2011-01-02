@@ -1,7 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucThemNhanVien.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.NhanVien.wucThemNhanVien" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
 <asp:LinqDataSource ID="ldsLoaiNhanVien" runat="server" 
     ContextTypeName="DTO.CongTyLuHanhDataContext" TableName="LOAI_NHAN_VIENs">
 </asp:LinqDataSource>
@@ -79,9 +77,9 @@
            </tr>         
        </table>
           <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
-                    CommandName="Insert" Text="Thêm nhân viên" />
+                    CommandName="Insert" Text="Thêm" />
           <asp:LinkButton ID="InsertCancelButton" runat="server" 
-                    CausesValidation="False" CommandName="Hủy" Text="Cancel" />
+                    CausesValidation="False" CommandName="Cancel" Text="Hủy" />
        
     </InsertItemTemplate>   
 </asp:FormView>
