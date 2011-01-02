@@ -12,7 +12,7 @@ using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using BUS;
 
-namespace PTUDW_CTLH_C1.Common
+namespace PTUDW_CTLH_C1.Administration
 {
     public partial class CapNhatThongTinCaNhan : System.Web.UI.Page
     {
