@@ -27,3 +27,16 @@
 	height: auto;
 	margin-left: 20px;
 }
+
+.DieuHanhTramContent
+{
+	float: left;
+	width: 700px;
+	height: auto;
+	margin-left: 20px;
+}
+
+.DieuHanhTramWrapper
+{
+	margin: 20px 0px 0px 40px;
+}

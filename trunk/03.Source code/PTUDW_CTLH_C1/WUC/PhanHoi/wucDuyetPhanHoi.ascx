@@ -1,8 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucDuyetPhanHoi.ascx.cs"
     Inherits="PTUDW_CTLH_C1.WUC.PhanHoi.wucGhiNhanPhanHoi" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-</asp:ToolkitScriptManager>
 <asp:Repeater ID="rptPhanHoi" runat="server" 
     DataSourceID="ldsDanhSachPhanHoiChuaDuyet" 
     onitemcommand="rptPhanHoi_ItemCommand">
