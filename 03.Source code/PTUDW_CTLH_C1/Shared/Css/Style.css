@@ -177,3 +177,17 @@
 	height: auto;
 	overflow: auto;
 }
+
+#mytitle
+{
+	font-family:Arial;
+	font-size:large;
+	padding-left: 10px;
+}
+
+.ThongBao
+{
+	font-family: Cambria;
+	font-size: 18px;
+	color: Red;
+}

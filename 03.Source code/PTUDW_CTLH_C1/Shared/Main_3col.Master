@@ -104,7 +104,8 @@
         <!--end header-->
         <div id="content">
             <div id="left_col">
-                <p class="mytitle">Các trạm chính</p>
+                <p id="mytitle">Các trạm chính</p>
+                <br />
                 <wuc:DanhSachTram runat="server" />
             </div>
             <!--end left column-->
