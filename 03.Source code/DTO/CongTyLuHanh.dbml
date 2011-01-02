@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="CongTyLuHanh" Class="CongTyLuHanhDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=&quot;C:\Users\mrpoint\Desktop\genius-ptudweb\03.Source code\PTUDW_CTLH_C1\App_Data\CongTyLuHanh.mdf&quot;;Integrated Security=True;Connect Timeout=30;User Instance=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="CongTyLuHanhConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\CongTyLuHanh.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="CongTyLuHanhConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHO_NGOI" Member="CHO_NGOIs">
     <Type Name="CHO_NGOI">
       <Column Name="MaChoNgoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -17,10 +17,11 @@
       <Column Name="NgayNhap" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MaLoaiXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TinhTrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TramHienHanh" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="XE_CHUYEN_XE" Member="CHUYEN_XEs" ThisKey="MaXe" OtherKey="MaXe" Type="CHUYEN_XE" />
       <Association Name="LOAI_XE_XE" Member="LOAI_XE" ThisKey="MaLoaiXe" OtherKey="MaLoaixe" Type="LOAI_XE" IsForeignKey="true" />
       <Association Name="NHAN_VIEN_XE" Member="NHAN_VIEN" ThisKey="MaTaiXe" OtherKey="MaNhanVien" Type="NHAN_VIEN" IsForeignKey="true" />
-      <Association Name="TINH_TRANG_XE_XE" Member="TINH_TRANG_XE" ThisKey="TinhTrang" OtherKey="MaTinhTrangXe" Type="TINH_TRANG_XE" IsForeignKey="true" />
+      <Association Name="TRAM_XE_XE" Member="TRAM_XE" ThisKey="TramHienHanh" OtherKey="MaTramXe" Type="TRAM_XE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CHUC_NANG" Member="CHUC_NANGs">
@@ -82,13 +83,14 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="LoaiNhanVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="LuongTrongThang" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaTram" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="NHAN_VIEN_XE" Member="XEs" ThisKey="MaNhanVien" OtherKey="MaTaiXe" Type="XE" />
       <Association Name="NHAN_VIEN_PHAN_HOI" Member="PHAN_HOIs" ThisKey="MaNhanVien" OtherKey="MaNhanVienDuyet" Type="PHAN_HOI" />
-      <Association Name="NHAN_VIEN_PHAN_HOI1" Member="PHAN_HOIs1" ThisKey="MaNhanVien" OtherKey="MaTaiXe" Type="PHAN_HOI" />
       <Association Name="NHAN_VIEN_TAI_KHOAN" Member="TAI_KHOANs" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="TAI_KHOAN" />
       <Association Name="NHAN_VIEN_TIN_TUC" Member="TIN_TUCs" ThisKey="MaNhanVien" OtherKey="MaAdminDuyet" Type="TIN_TUC" />
       <Association Name="NHAN_VIEN_TRAM_XE" Member="TRAM_XEs" ThisKey="MaNhanVien" OtherKey="MaTruongTram" Type="TRAM_XE" />
       <Association Name="LOAI_NHAN_VIEN_NHAN_VIEN" Member="LOAI_NHAN_VIEN" ThisKey="LoaiNhanVien" OtherKey="MaLoaiNhanVien" Type="LOAI_NHAN_VIEN" IsForeignKey="true" />
+      <Association Name="TRAM_XE_NHAN_VIEN" Member="TRAM_XE" ThisKey="MaTram" OtherKey="MaTramXe" Type="TRAM_XE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PAGE_CHUCNANG" Member="PAGE_CHUCNANGs">
@@ -112,9 +114,10 @@
       <Column Name="MaTaiXe" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaPhanHoiKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaNhanVienDuyet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TinhTrangDoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="NHAN_VIEN_PHAN_HOI" Member="NHAN_VIEN" ThisKey="MaNhanVienDuyet" OtherKey="MaNhanVien" Type="NHAN_VIEN" IsForeignKey="true" />
-      <Association Name="NHAN_VIEN_PHAN_HOI1" Member="NHAN_VIEN1" ThisKey="MaTaiXe" OtherKey="MaNhanVien" Type="NHAN_VIEN" IsForeignKey="true" />
       <Association Name="PHAN_HOI_KHACH_HANG_PHAN_HOI" Member="PHAN_HOI_KHACH_HANG" ThisKey="MaPhanHoiKhach" OtherKey="MaPhanHoi" Type="PHAN_HOI_KHACH_HANG" IsForeignKey="true" />
+      <Association Name="TINH_TRANG_DOC_PHAN_HOI" Member="TINH_TRANG_DOC" ThisKey="TinhTrangDoc" OtherKey="MaTinhTrang" Type="TINH_TRANG_DOC" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PHAN_HOI_KHACH_HANG" Member="PHAN_HOI_KHACH_HANGs">
@@ -173,6 +176,13 @@
       <Association Name="TINH_TRANG_DAT_CHO_DAT_CHO" Member="DAT_CHOs" ThisKey="MaTinhTrangDatCho" OtherKey="TinhTrang" Type="DAT_CHO" />
     </Type>
   </Table>
+  <Table Name="dbo.TINH_TRANG_DOC" Member="TINH_TRANG_DOCs">
+    <Type Name="TINH_TRANG_DOC">
+      <Column Name="MaTinhTrang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTinhTrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TINH_TRANG_DOC_PHAN_HOI" Member="PHAN_HOIs" ThisKey="MaTinhTrang" OtherKey="TinhTrangDoc" Type="PHAN_HOI" />
+    </Type>
+  </Table>
   <Table Name="dbo.TINH_TRANG_PHAN_HOI" Member="TINH_TRANG_PHAN_HOIs">
     <Type Name="TINH_TRANG_PHAN_HOI">
       <Column Name="MaTinhTrang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -184,7 +194,6 @@
     <Type Name="TINH_TRANG_XE">
       <Column Name="MaTinhTrangXe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenTinhTrangXe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="TINH_TRANG_XE_XE" Member="XEs" ThisKey="MaTinhTrangXe" OtherKey="TinhTrang" Type="XE" />
     </Type>
   </Table>
   <Table Name="dbo.TRAM_XE" Member="TRAM_XEs">
@@ -194,6 +203,8 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MaTruongTram" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TRAM_XE_XE" Member="XEs" ThisKey="MaTramXe" OtherKey="TramHienHanh" Type="XE" />
+      <Association Name="TRAM_XE_NHAN_VIEN" Member="NHAN_VIENs" ThisKey="MaTramXe" OtherKey="MaTram" Type="NHAN_VIEN" />
       <Association Name="TRAM_XE_TUYEN_XE" Member="TUYEN_XEs" ThisKey="MaTramXe" OtherKey="MaTramDen" Type="TUYEN_XE" />
       <Association Name="TRAM_XE_TUYEN_XE1" Member="TUYEN_XEs1" ThisKey="MaTramXe" OtherKey="MaTramDi" Type="TUYEN_XE" />
       <Association Name="NHAN_VIEN_TRAM_XE" Member="NHAN_VIEN" ThisKey="MaTruongTram" OtherKey="MaNhanVien" Type="NHAN_VIEN" IsForeignKey="true" />
@@ -1483,6 +1494,36 @@
     <Parameter Name="MaNhanVien" Parameter="maNhanVien" Type="System.Int32" DbType="Int" />
     <ElementType Name="usp_SelectLuongCoDinhResult">
       <Column Name="LuongTrongThang" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectPHAN_HOIs_DemPhanHoiChuaDocCuaTaiXe" Method="usp_SelectPHAN_HOIs_DemPhanHoiChuaDocCuaTaiXe">
+    <Parameter Name="MaTaiXe" Parameter="maTaiXe" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectPHAN_HOIs_DemPhanHoiChuaDocCuaTaiXeResult">
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_UpdatePHAN_HOI_DA_XEM" Method="usp_UpdatePHAN_HOI_DA_XEM">
+    <Parameter Name="MaPhanHoi" Parameter="maPhanHoi" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdateXE_TAIXE" Method="usp_UpdateXE_TAIXE">
+    <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaTaiXe" Parameter="maTaiXe" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectChuyenXeSauCung" Method="usp_SelectChuyenXeSauCung">
+    <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaTramDi" Parameter="maTramDi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GioKhoiHanh" Parameter="gioKhoiHanh" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectChuyenXeSauCungResult">
+      <Column Name="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectChuyenXeDauTienSauMotChuyen" Method="usp_SelectChuyenXeDauTienSauMotChuyen">
+    <Parameter Name="MaXe" Parameter="maXe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DuKienDen" Parameter="duKienDen" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectChuyenXeDauTienSauMotChuyenResult">
+      <Column Name="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
