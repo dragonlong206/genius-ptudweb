@@ -517,19 +517,25 @@ div#background
 	background-image:url(images/footer_bg.gif);
 	background-position:top left;
 	background-repeat:repeat-x;
-	width:920px;
+	width:1000px;
 	height:34px;
-	margin:20px auto 0px 40px;
+	padding:5px 0px 0px 0px;
+	margin-top: 10px;
 	text-align:center;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
 	float:left;
 }
 
-#footer .bottom_menu
+#footer #bottom_menu
 {
-	margin-left: 200px;
+	text-align: center;
 }
+
+#footer #bottom_menu
+{
+	text-align: -moz-center;
+}	
 
 #footer li
 {

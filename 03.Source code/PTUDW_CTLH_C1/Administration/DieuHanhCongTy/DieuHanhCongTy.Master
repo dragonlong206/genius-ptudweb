@@ -14,8 +14,27 @@
                 <asp:TreeNode Text="Quản lý tuyến" Expanded="false">
                     <asp:TreeNode Text="Thêm tuyến" NavigateUrl="~/Administration/DieuHanhCongTy/ThemTuyen.aspx" >
                     </asp:TreeNode>
-                    
+                    <asp:TreeNode Text="Cập nhật/tra cứu thông tin tuyến" NavigateUrl="~/Common/TimNhanhTuyen.aspx" >
+                    </asp:TreeNode>
                 </asp:TreeNode>
+                <asp:TreeNode Text="Quản lý trạm" Expanded="false">
+                    <asp:TreeNode Text="Thêm trạm" NavigateUrl="~/Administration/DieuHanhCongTy/ThemTram.aspx" >
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Cập nhật/tra cứu thông tin trạm" NavigateUrl="~/Administration/DieuHanhCongTy/CapNhatTram.aspx" >
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Xóa trạm" NavigateUrl="~/Administration/DieuHanhCongTy/XoaTram.aspx" >
+                    </asp:TreeNode>
+                </asp:TreeNode> 
+                <asp:TreeNode Text="Quản lý nhân viên" Expanded="false">
+                    <asp:TreeNode Text="Thêm nhân viên" NavigateUrl="~/Administration/DieuHanhCongTy/ThemNhanVien.aspx" >
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Cập nhật/tra cứu thông tin nhân viên" NavigateUrl="~/Administration/DieuHanhCongTy/CapNhatNhanVien.aspx" >
+                    </asp:TreeNode>
+                </asp:TreeNode>
+                <asp:TreeNode Text="Thống kê" Expanded="false">
+                    <asp:TreeNode Text="Thống kê chuyến" NavigateUrl="~/Administration/DieuHanhCongTy/ThongKeChuyen.aspx" >
+                    </asp:TreeNode>
+                </asp:TreeNode>               
             </Nodes>
             </asp:TreeView>
             <%--asp:LinkButton ID="btnQuanLyTaiKhoan" CssClass="navigator_item" CommandName="QuanLyTaiKhoan"
