@@ -23,24 +23,6 @@ namespace PTUDW_CTLH_C1.WUC.TinTuc {
         protected global::System.Web.UI.WebControls.LinqDataSource ldsTinTuc;
         
         /// <summary>
-        /// pnlWrapper control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel pnlWrapper;
-        
-        /// <summary>
-        /// pnlThemTinTuc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlThemTinTuc;
-        
-        /// <summary>
         /// ldsChiTietTinTuc control.
         /// </summary>
         /// <remarks>
@@ -59,13 +41,13 @@ namespace PTUDW_CTLH_C1.WUC.TinTuc {
         protected global::System.Web.UI.WebControls.FormView fvDangTin;
         
         /// <summary>
-        /// btnInsert control.
+        /// pnlWrapper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsert;
+        protected global::System.Web.UI.UpdatePanel pnlWrapper;
         
         /// <summary>
         /// rptTinTuc control.

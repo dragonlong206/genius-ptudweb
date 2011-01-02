@@ -590,13 +590,6 @@
     <Compile Include="WUC\TinTuc\wucQuanLyTinTuc.ascx.designer.cs">
       <DependentUpon>wucQuanLyTinTuc.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WUC\TinTuc\wucThemTinTuc.ascx.cs">
-      <DependentUpon>wucThemTinTuc.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WUC\TinTuc\wucThemTinTuc.ascx.designer.cs">
-      <DependentUpon>wucThemTinTuc.ascx</DependentUpon>
-    </Compile>
     <Compile Include="WUC\TinTuc\wucXemTinTuc.ascx.cs">
       <DependentUpon>wucXemTinTuc.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -796,7 +789,6 @@
     <Content Include="Common\TinTuc.aspx" />
     <Content Include="Images\indicator.gif" />
     <Content Include="Common\TimNhanhTuyen.aspx" />
-    <Content Include="Images\TinTuc\pic5.jpg" />
     <Content Include="Shared\Css\GridView.css" />
     <Content Include="Shared\Css\Images\aqua-arrow.gif" />
     <Content Include="Shared\Css\Images\aqua-bg.gif" />
@@ -832,7 +824,6 @@
     <Content Include="WUC\TaiKhoan\TimTaiKhoan.ascx" />
     <Content Include="WUC\TinTuc\wucChiTietTinTuc.ascx" />
     <Content Include="WUC\TinTuc\wucQuanLyTinTuc.ascx" />
-    <Content Include="WUC\TinTuc\wucThemTinTuc.ascx" />
     <Content Include="WUC\TinTuc\wucXemTinTuc.ascx" />
     <Content Include="WUC\Tram\wucCapNhatTram.ascx" />
     <Content Include="WUC\Tram\wucDanhSachTram.ascx" />
@@ -871,6 +862,10 @@
   <ItemGroup>
     <Content Include="Administration\DieuHanhCongTy\ThongKeChuyen.aspx" />
     <Content Include="Administration\DieuHanhTram\DieuHanhTram.Master" />
+    <Content Include="App_Themes\MainTheme\images\animated-bus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\TinTuc\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -145,6 +145,7 @@
 	width: 310px;
 	padding: 5px;
 	float: left;
+	text-align: right;
 }
 
 .TinTucContent .TomTat
@@ -220,7 +221,7 @@
 	line-height: 17px;
 	padding: 0px 11px 0 4px;
 	margin: 10px 0 10px 0;
-	width: 235px;
+	width: 225px;
 }
 .TinTucTrangChu .TomTat
 {

@@ -21,19 +21,19 @@ namespace PTUDW_CTLH_C1.WUC.TinTuc
 
         }
 
-        protected void btnInsert_Click(object sender, EventArgs e)
-        {
-            this.pnlThemTinTuc.Visible = true;
-            this.btnInsert.Visible = false;
-        }
+        //protected void btnInsert_Click(object sender, EventArgs e)
+        //{
+        //    this.fvDangTin.Visible = true;
+        //    this.btnInsert.Visible = false;
+        //}
 
         protected void fvChiTietTinTuc_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
-            if (e.CommandName == "Cancel")
-            {
-                this.pnlThemTinTuc.Visible = false;
-                this.btnInsert.Visible = true;
-            }
+            //if (e.CommandName == "Cancel")
+            //{
+            //    this.fvDangTin.Visible = false;
+            //    this.btnInsert.Visible = true;
+            //}
         }
 
         protected void fvDangTin_ItemInserted(object sender, FormViewInsertedEventArgs e)
@@ -45,7 +45,8 @@ namespace PTUDW_CTLH_C1.WUC.TinTuc
                 string strPath = MapPath("~/Images/TinTuc/") + Path.GetFileName(afuHinhAnh.FileName);
                 afuHinhAnh.SaveAs(strPath);
             }
-            
+            this.ldsTinTuc.DataBind();
+            this.rptTinTuc.DataBind();
         }
 
         protected void fvDangTin_ItemInserting(object sender, FormViewInsertEventArgs e)
