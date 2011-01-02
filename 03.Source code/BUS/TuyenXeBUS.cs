@@ -31,9 +31,27 @@ namespace BUS
             TuyenXeDAO.ThemTuyenXe(TuyenXeDTO);
         }
 
+        public List<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByNamResult> SelectSoLuongChuyenTheoTuyenByNam(int Nam)
+        {
+            TuyenXeDAO tuyenXe = new TuyenXeDAO();
+            return tuyenXe.SelectSoLuongChuyenXeTheoTuyenByNam(Nam);
+        }
+        public List<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByThangResult> SelectSoChuyenXeAndKhachHangCuaTuyenByThang(int nam, int thang)
+        {
+            TuyenXeDAO tuyenXe = new TuyenXeDAO();
+            return tuyenXe.SelectSoChuyenXeAndKhachHangCuaTuyenByThang(nam, thang);
+        }
+        public List<usp_SeleclSoLuongChuyenVaKhachHangTheoTuyenByQuyResult> SelectSoChuyenXeAndHanhKhachCuaTuyenByQuy(int nam, int thangBatDau, int thangKetThuc)
+        {
+            TuyenXeDAO tuyenXe = new TuyenXeDAO();
+            return tuyenXe.SelectSoChuyenXeAndHanhKhachCuaTuyenByQuy(nam, thangBatDau, thangKetThuc);
+        }
+
+
         public List<Int32> LayDanhSachMaTuyen(int MaTramDi)
         {
             return new TuyenXeDAO().LayDanhSachMaTuyen(MaTramDi);
         }
+
     }
 }
