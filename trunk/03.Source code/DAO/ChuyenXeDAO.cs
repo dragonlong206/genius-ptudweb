@@ -54,15 +54,15 @@ namespace DAO
         public bool KiemTraXeCoThePhanCong(int iMaXe, CHUYEN_XE cxChuyen)
         {
             CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
-            if (db.usp_SelectChuyenXeSauCung(iMaXe, cxChuyen.TUYEN_XE.MaTramDi, cxChuyen.KhoiHanh).Single().Column1.Value == 0)
+            /*if (db.usp_SelectChuyenXeSauCung(iMaXe, cxChuyen.TUYEN_XE.MaTramDi, cxChuyen.KhoiHanh).Single().Column1.Value == 0)
             {
                 return false;
-            }
+            }*/
 
-            if (db.usp_SelectChuyenXeDauTienSauMotChuyen(iMaXe, cxChuyen.DuKienDen).Single().Column1.Value == 0)
+            /*if (db.usp_SelectChuyenXeDauTienSauMotChuyen(iMaXe, cxChuyen.DuKienDen).Single().Column1.Value == 0)
             {
                 return false;
-            }
+            }*/
             return true;
         }
         public List<usp_SelectChuyenALLByMaNhanVienAndNgayKhoiHanhResult> SelectChuyenALLByMaNhanVienAndNgayKhoiHanhResult(int MaNhanVien, DateTime NgayKhoiHanh)
@@ -92,6 +92,13 @@ namespace DAO
             ISingleResult<usp_TongLuongTrongThangResult> kq = db.usp_TongLuongTrongThang(MaNhanVien, Thang, Nam);
             return (double)kq.Single().Luong;
         }
+        public List<usp_SelectChuyenByMaTramGiaVaThoiGianKhoiHanhResult> SelectChuyenByMaTramGiaVaThoiGianKhoiHanh(int maTram, int maTramDen, int gia, DateTime thoiGianKhoiHanh)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            ISingleResult<usp_SelectChuyenByMaTramGiaVaThoiGianKhoiHanhResult> kq = db.usp_SelectChuyenByMaTramGiaVaThoiGianKhoiHanh(maTram, maTramDen, gia, thoiGianKhoiHanh);
+            return kq.ToList();
+        }
+
 
     }
 }
