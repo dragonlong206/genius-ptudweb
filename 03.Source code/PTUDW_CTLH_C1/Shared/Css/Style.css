@@ -218,8 +218,8 @@
 	float: left;
 	background-color: #91A711;
 	line-height: 17px;
-	padding: 0 11px 0 4px;
-	margin: 0 0 10px 0;
+	padding: 0px 11px 0 4px;
+	margin: 10px 0 0px 0;
 	width: 235px;
 }
 .TinTucTrangChu .TomTat
@@ -244,3 +244,7 @@
 	max-height: 150px;
 }
 
+.TinTucTrangChu .ChiTiet
+{
+	float: right;
+}
