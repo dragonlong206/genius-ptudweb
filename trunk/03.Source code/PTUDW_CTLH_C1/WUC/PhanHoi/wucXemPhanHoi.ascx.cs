@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Drawing;
 
 namespace PTUDW_CTLH_C1.WUC.PhanHoi
 {
@@ -34,11 +35,12 @@ namespace PTUDW_CTLH_C1.WUC.PhanHoi
                 // Nếu chưa đọc
                 if (iMaTinhTrangDoc == 1)
                 {
-                    e.Row.BackColor = System.Drawing.Color.FromArgb(255, 234, 255); // Full row color
-                    e.Row.BackColor = System.Drawing.Color.Yellow; // Column color
+                  // e.Row.BackColor = System.Drawing.Color.Yellow; // Column color
 
                     e.Row.ForeColor = System.Drawing.Color.Red; // Change the row's Text color
-                    e.Row.Font.Italic = true;
+                 
+                    e.Row.Font.Bold = true;
+                   // e.Row.Font.Underline = true;
 
                   //  e.Row.Cells[0].Controls.Add(gvPhanHoi); // to add runtime control in GridView
                 } 
@@ -47,7 +49,8 @@ namespace PTUDW_CTLH_C1.WUC.PhanHoi
 
         protected void gvPhanHoi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //iMaPhanHoi = gvPhanHoi.SelectedRow.Cells[0]
+            int index =int.Parse( gvPhanHoi.SelectedIndex.ToString());
+            iMaPhanHoi = int.Parse(gvPhanHoi.SelectedRow.Cells[index].Text);
         }
     }
 }

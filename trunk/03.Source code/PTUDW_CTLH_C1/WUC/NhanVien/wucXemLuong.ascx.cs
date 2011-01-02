@@ -12,7 +12,7 @@ using System.Xml.Linq;
 using BUS;
 using DTO;
 using System.Collections.Generic;
-using System.Data.Linq;
+
 using System.Linq;
 
 namespace PTUDW_CTLH_C1.WUC.NhanVien
@@ -24,11 +24,11 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
             if (!IsPostBack)
             {
                 NhanVienBUS busNhanVien = new NhanVienBUS();
-                List<usp_SelectNamResult> dsNam = busNhanVien.XemDanhSachNam(1);
+                List<usp_SelectNamResult> dsNam = busNhanVien.XemDanhSachNam(2);
                 this.ddlNam.DataSource = dsNam;
-                this.ddlNam.DataValueField = "Nam";
-                this.ddlNam.DataTextField = "Nam";
-                this.ddlNam.DataBind();
+               this.ddlNam.DataValueField = "Nam";
+               this.ddlNam.DataTextField = "Nam";
+              this.ddlNam.DataBind();
             }
 
             
@@ -45,7 +45,7 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
              }
              else 
              {                
-                 e.Result = ChuyenXe.XemChuyenDaChayTheoThang(1, int.Parse(ddlThang.SelectedValue), int.Parse(ddlNam.SelectedValue));
+                 e.Result = ChuyenXe.XemChuyenDaChayTheoThang(2, int.Parse(ddlThang.SelectedValue), int.Parse(ddlNam.SelectedValue));
              }
         }
 
@@ -75,8 +75,8 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
             NhanVienBUS Nhanvien = new NhanVienBUS();
 
             double TongLuong, LuongCoDinh, TongLuongChuyen;
-            LuongCoDinh =  Nhanvien.LuongCoDinhTrongThang(1);
-            TongLuongChuyen = Chuyenxe.TongLuongTrongThang(1, int.Parse(ddlThang.SelectedValue), int.Parse(ddlNam.SelectedValue));
+            LuongCoDinh =  Nhanvien.LuongCoDinhTrongThang(2);
+            TongLuongChuyen = Chuyenxe.TongLuongTrongThang(2, int.Parse(ddlThang.SelectedValue), int.Parse(ddlNam.SelectedValue));
             TongLuong = LuongCoDinh + TongLuongChuyen;
             return TongLuong;
            
