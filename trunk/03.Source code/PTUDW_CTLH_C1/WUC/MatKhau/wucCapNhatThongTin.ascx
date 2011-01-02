@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucCapNhatThongTin.ascx.cs"
     Inherits="PTUDW_CTLH_C1.WUC.MatKhau.wucCapNhatThongTin" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="100%" AutoGenerateRows="False"
     DataSourceID="ldsNhanVien" DataKeyNames="MaNhanVien" BackColor="White" 
     BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
