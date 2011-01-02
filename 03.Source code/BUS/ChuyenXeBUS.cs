@@ -63,6 +63,11 @@ namespace BUS
            ChuyenXeDAO chuyenXe = new ChuyenXeDAO();
            return chuyenXe.KiemTraXeCoThePhanCong(iMaChuyenXe, ChuyenXe);
        }
+       public List<usp_SelectChuyenByMaTramGiaVaThoiGianKhoiHanhResult> SelectChuyenByMaTramGiaVaThoiGianKhoiHanh(int maTram, int maTramDen, int gia, DateTime thoiGianKhoiHanh)
+       {
+           ChuyenXeDAO chuyen = new ChuyenXeDAO();
+           return chuyen.SelectChuyenByMaTramGiaVaThoiGianKhoiHanh(maTram, maTramDen, gia, thoiGianKhoiHanh);
+       }
     }
     
 }

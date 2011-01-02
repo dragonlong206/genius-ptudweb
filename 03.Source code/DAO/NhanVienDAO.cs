@@ -115,9 +115,12 @@ namespace DAO
 
         public double LuongCoDinhTrongThang(int MaNhanVien)
         {
-            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+           /* CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
             ISingleResult<usp_SelectLuongCoDinhResult> kq = db.usp_SelectLuongCoDinh(MaNhanVien);
             return (double)kq.Single().LuongTrongThang;
+        */
+            double t = 0;
+            return t;
         }
     }
 }
