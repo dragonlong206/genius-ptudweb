@@ -1,6 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wucSearch.ascx.cs" Inherits="PTUDW_CTLH_C1.WUC.wucSearch" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <div id="search_block">
-    <p class="mytitle">Tìm chuyến xe</p>
+    <p class="mytitle">
+        Tìm chuyến xe</p>
     <div class="search_bg">
         <table class="table_search">
             <tr>
@@ -8,49 +11,51 @@
                     Nơi khởi hành
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlNoiKhoiHanh" CssClass="combobox_search" runat="server">
-                        <asp:ListItem>--TP.HCM--</asp:ListItem>
+                    <asp:DropDownList ID="ddlNoiKhoiHanh" CssClass="combobox_search" runat="server" DataSourceID="ldsDSTram"
+                        DataTextField="TenTramXe" DataValueField="MaTramXe">
+                       
                     </asp:DropDownList>
                 </td>
             </tr>
-            
             <tr>
                 <td class="row_label">
                     Nơi đến
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlNoiDen" CssClass="combobox_search" runat="server">
-                        <asp:ListItem>--Tất cả--</asp:ListItem>
+                    <asp:DropDownList ID="ddlNoiDen" CssClass="combobox_search" runat="server" DataSourceID="ldsDSTram"
+                        DataTextField="TenTramXe" DataValueField="MaTramXe">
+                     
                     </asp:DropDownList>
                 </td>
             </tr>
-            
             <tr>
                 <td class="row_label">
                     Giá
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlGia" CssClass="combobox_search" runat="server">
-                        <asp:ListItem>--Tất cả--</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:TextBox ID="txtGia" runat="server">0</asp:TextBox>
+                    <asp:FilteredTextBoxExtender ID="ftxtGia" runat="server" TargetControlID="txtGia" FilterType="Numbers">
+                    </asp:FilteredTextBoxExtender>
                 </td>
             </tr>
-            
             <tr>
                 <td class="row_label">
                     Thời gian đi
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlDateTimePicker" CssClass="combobox_search" runat="server">
-                        <asp:ListItem>06/10/2010</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:TextBox ID="txtThoiGianDi" runat="server"></asp:TextBox>
+                    <asp:CalendarExtender ID="cdsThoiGianDi" runat="server" TargetControlID="txtThoiGianDi">
+                    </asp:CalendarExtender>
                 </td>
             </tr>
         </table>
         <div class="green_button">
             <asp:LinkButton ID="btnSearch" CssClass="search_button" runat="server" 
-                Width="72px">Tìm kiếm</asp:LinkButton>
-        </div>
+                Width="72px" onclick="btnSearch_Click" 
+                >Tìm kiếm</asp:LinkButton>
+        </div>'
     </div>
 </div>
-
+<asp:LinqDataSource ID="ldsDSTram" runat="server" ContextTypeName="DTO.CongTyLuHanhDataContext"
+    Select="new (MaTramXe, TenTramXe)" TableName="TRAM_XEs">
+</asp:LinqDataSource>
