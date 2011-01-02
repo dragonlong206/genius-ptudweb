@@ -4,7 +4,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register TagPrefix="wuc" TagName="SearchControl" Src="~/WUC/wucSearch.ascx" %>
 <%@ Register TagPrefix="wuc" TagName="DanhSachTram" Src="~/WUC/Tram/wucDanhSachTram.ascx" %>
-<%@ Register TagPrefix="wuc" TagName="XemTinTuc" Src="~/WUC/TinTuc/wucXemTinTuc.ascx" %>
+<%@ Register TagPrefix="wuc" TagName="XemTinTuc" Src="~/WUC/TinTuc/wucXemTinTuc.ascx" %>    
+
 <asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolderHead"
     runat="server">
     <div id="content">
