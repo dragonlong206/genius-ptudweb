@@ -24,7 +24,7 @@
                     <img src="App_Themes/MainTheme/images/line.gif" alt="" width="5" height="inherit" />
                 </div-->
             <wuc:SearchControl ID="wucSearch" runat="server"></wuc:SearchControl>
-            <div id="TinTucTrangChu">
+            <div class="TinTucTrangChu">
                 <wuc:XemTinTuc ID="wucXemTinTuc" runat="server"></wuc:XemTinTuc>
             </div>
             <div class="adv">
