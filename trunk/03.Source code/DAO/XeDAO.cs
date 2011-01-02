@@ -41,5 +41,15 @@ namespace DAO
             var KQ = from xe in db.XEs where xe.MaTaiXe != null select xe;
             return KQ.ToList();
         }
+
+        public int LayMaXe(int MaTaiXe)
+        { 
+            CongTyLuHanhDataContext db= new CongTyLuHanhDataContext();
+            var KQ = (from xe in db.XEs
+                        where xe.MaTaiXe.Value == MaTaiXe
+                    select xe.MaXe).ToList();
+
+            return KQ[0];
+        }
     }
 }

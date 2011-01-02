@@ -99,6 +99,13 @@ namespace DAO
             return db.usp_SelectNhanVienLaDieuHanhTram().ToList();
         }
 
+        public int LayTramCuaNhanVien(int MaNhanVien)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            var kq = from nv in db.NHAN_VIENs where nv.MaNhanVien == MaNhanVien select nv.MaTram;
+            return kq.Single().Value;
+        }
+
         public List<usp_SelectNamResult> XemDanhSachNam(int MaNhanVien)
         {
             CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();

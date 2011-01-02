@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Linq;
 using DTO;
 
 namespace DAO
@@ -17,6 +18,32 @@ namespace DAO
 
                 //TODO: Thêm dữ liệu vào bảng phản hồi
                 db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void CapNhatTinhTrangPhanHoiDaDoc(int MaPhanHoi)
+        {
+            try
+            {
+                CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+                db.usp_UpdatePHAN_HOI_DA_XEM(MaPhanHoi);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public usp_SelectPHAN_HOIs_DemPhanHoiChuaDocCuaTaiXeResult DemPhanHoiChuaDoc(int MaTaiXe)
+        {
+            try
+            {
+                CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+                return db.usp_SelectPHAN_HOIs_DemPhanHoiChuaDocCuaTaiXe(MaTaiXe).Single();
             }
             catch (Exception ex)
             {

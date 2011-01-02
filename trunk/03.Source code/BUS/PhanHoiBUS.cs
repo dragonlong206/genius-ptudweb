@@ -22,5 +22,29 @@ namespace BUS
                 throw ex;
             }
         }
+
+        public void CapNhatTinhTrangPhanHoiDaDoc(int MaPhanHoi)
+        {
+            try
+            {
+                daoPhanHoi.CapNhatTinhTrangPhanHoiDaDoc(MaPhanHoi);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public usp_SelectPHAN_HOIs_DemPhanHoiChuaDocCuaTaiXeResult DemPhanHoiChuaDoc(int MaTaiXe)
+        {
+            try
+            {
+                return daoPhanHoi.DemPhanHoiChuaDoc(MaTaiXe);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

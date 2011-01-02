@@ -23,13 +23,20 @@ namespace BUS
             }
             return false;
         }
+
         public List<usp_SelectXEsAllResult> LayDSXe()
         {
             return XeDAO.LayDSXe();
         }
+
         public List<XE> LayDSXeDaPhanCong()
         {
             return XeDAO.LayDSXeDaPhanCong();
+        }
+
+        public int LayMaXe(int MaTaiXe)
+        {
+            return XeDAO.LayMaXe(MaTaiXe);
         }
     }
 }

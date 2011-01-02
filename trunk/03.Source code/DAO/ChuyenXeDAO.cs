@@ -25,7 +25,46 @@ namespace DAO
         //    return dsChuyenXe.ToList();
 
         //}
+        public List<CHUYEN_XE> LayDanhSachChuyenXe(List<Int32> danhSachTuyen)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            var KQ = from chuyen in db.CHUYEN_XEs
+                     where danhSachTuyen.Contains(chuyen.MaTuyenXe.Value)
+                     select chuyen;
 
+            List<CHUYEN_XE> danhSach = KQ.ToList();
+
+            return danhSach;
+        }
+
+        public void CapNhatChuyen(int MaChuyen, int MaXe)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+
+            CHUYEN_XE chuyenXe = (from chuyen in db.CHUYEN_XEs
+                                  where chuyen.MaChuyenXe == MaChuyen
+                                  select chuyen).Single();
+
+
+            chuyenXe.MaXe = MaXe;
+
+            db.SubmitChanges();
+        }
+
+        public bool KiemTraXeCoThePhanCong(int iMaXe, CHUYEN_XE cxChuyen)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            if (db.usp_SelectChuyenXeSauCung(iMaXe, cxChuyen.TUYEN_XE.MaTramDi, cxChuyen.KhoiHanh).Single().Column1.Value == 0)
+            {
+                return false;
+            }
+
+            if (db.usp_SelectChuyenXeDauTienSauMotChuyen(iMaXe, cxChuyen.DuKienDen).Single().Column1.Value == 0)
+            {
+                return false;
+            }
+            return true;
+        }
         public List<usp_SelectChuyenALLByMaNhanVienAndNgayKhoiHanhResult> SelectChuyenALLByMaNhanVienAndNgayKhoiHanhResult(int MaNhanVien, DateTime NgayKhoiHanh)
         {
             CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();

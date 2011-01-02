@@ -62,6 +62,7 @@
     <Compile Include="TinTucDAO.cs" />
     <Compile Include="TramXeDAO.cs" />
     <Compile Include="TuyenXeDAO.cs" />
+    <Compile Include="XeDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

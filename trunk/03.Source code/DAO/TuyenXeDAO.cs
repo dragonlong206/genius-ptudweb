@@ -38,5 +38,22 @@ namespace DAO
                 TuyenXeDTO.GioChayChuyenCuoiCungTrongNgay,
                 ref MaTuyen);
         }
+
+        public List<Int32> LayDanhSachMaTuyen(int MaTramDi)
+        {
+            CongTyLuHanhDataContext db = new CongTyLuHanhDataContext();
+            var KQ = from tuyen in db.TUYEN_XEs
+                     where tuyen.MaTramDi == MaTramDi
+                     select tuyen.MaTuyenXe;
+
+            List<Int32> danhSach = KQ.ToList();
+
+            if (danhSach.Count > 0)
+            {
+                return danhSach;
+            }
+
+            return null;
+        }
     }
 }
