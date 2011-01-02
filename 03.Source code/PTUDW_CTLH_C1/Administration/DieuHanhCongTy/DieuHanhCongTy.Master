@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DieuHanhCongTy.master.cs" MasterPageFile="~/Shared/Head.Master"Inherits="PTUDW_CTLH_C1.Administration.DieuHanhCongTy.DieuHanhCongTy" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+    <div class="admin_wrapper">
+        <div class="navigator">
+            <asp:TreeView ID="trvNavigator" runat="server">
+            <Nodes>
+                <asp:TreeNode Text="Quản lý xe" Selected="true" Expanded="false">
+                    <asp:TreeNode Text="Thêm xe" NavigateUrl="~/Administration/DieuHanhCongTy/ThemXe.aspx" >
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="Cập nhật/tra cứu thông tin xe" NavigateUrl="~/Administration/DieuHanhCongTy/CapNhatXe.aspx" >
+                    </asp:TreeNode>
+                </asp:TreeNode>
+                <asp:TreeNode Text="Quản lý tuyến" Expanded="false">
+                    <asp:TreeNode Text="Thêm tuyến" NavigateUrl="~/Administration/DieuHanhCongTy/ThemTuyen.aspx" >
+                    </asp:TreeNode>
+                    
+                </asp:TreeNode>
+            </Nodes>
+            </asp:TreeView>
+            <%--asp:LinkButton ID="btnQuanLyTaiKhoan" CssClass="navigator_item" CommandName="QuanLyTaiKhoan"
+                runat="server">Quản lý tài khoản</asp:LinkButton>
+            <asp:LinkButton ID="btnCauHinhGiaoDien" CssClass="navigator_item" CommandName="CauHinhGiaoDien"
+                runat="server">Cấu hình giao diện</asp:LinkButton--%>
+        </div>
+        <div class="admincontent">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
