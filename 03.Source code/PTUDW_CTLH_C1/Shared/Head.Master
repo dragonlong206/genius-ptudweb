@@ -7,7 +7,6 @@
     <title>Untitled Page</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="Stylesheet" href="../App_Themes/MainTheme/Style.css" type="text/css" />
     <link href="~/App_Themes/MainTheme/Style.css" rel="Stylesheet" type="text/css" />
     <link href="Css/Style.css" rel="Stylesheet" type="text/css" />
 
