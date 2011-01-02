@@ -22,7 +22,6 @@ namespace PTUDW_CTLH_C1.Shared
             if ((int)Session["IsLogin"] == 1)
             {
                 ThayDoiTrangThai();
-                //  txtUsername.Attributes.Add("onfocus", "this.value=''");
             }
         }
 
