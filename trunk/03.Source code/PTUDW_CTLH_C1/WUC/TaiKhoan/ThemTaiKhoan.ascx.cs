@@ -36,6 +36,9 @@ namespace PTUDW_CTLH_C1.WUC.TaiKhoan
             }
         }
 
-        
+        protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            Response.Write("<script>alert('Thêm thành công một tài khoản!')</script>");
+        }        
     }
 }
