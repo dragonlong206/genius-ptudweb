@@ -21,6 +21,16 @@ namespace PTUDW_CTLH_C1.WUC.NhanVien
         protected void Page_Load(object sender, EventArgs e)
         {
             lblKetQua.Visible = false;
+
+            this.gvNhanVien.Columns[8].Visible = false;
+
+            if ((int)Session["IsLogin"] == 1)
+            {
+                if ((int)Session["MaLoaiNhanVien"] == 3)
+                {
+                    this.gvNhanVien.Columns[8].Visible = true;
+                }
+            }
         }
 
         protected void btnTim_Click(object sender, EventArgs e)
