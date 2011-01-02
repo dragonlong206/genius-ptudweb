@@ -54,10 +54,17 @@ namespace PTUDW_CTLH_C1.WUC.TuyenXe
             }
 
             List<usp_SelectTUYEN_XEByTramAndGiaResult> dsTuyen = TuyenXeBUS.TimKiemNangCao(iMaTramDi, iMaTramDen, iGiaVeTu, iGiaVeDen);
-            if (dsTuyen != null)
+            if (dsTuyen.Count>0)
             {
+                lblKetQua.Text ="Kết quả tìm kiếm";
+                grvDanhSachTuyenNangCao.Visible = true;
                 this.grvDanhSachTuyenNangCao.DataSource = dsTuyen;
                 this.grvDanhSachTuyenNangCao.DataBind();
+            }
+            else
+            {
+                lblKetQua.Text = "Không tìm thấy kết quả phù hợp";
+                grvDanhSachTuyenNangCao.Visible = false;
             }
         }
     }
