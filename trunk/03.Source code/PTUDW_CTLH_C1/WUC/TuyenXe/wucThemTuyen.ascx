@@ -71,7 +71,7 @@
     </tr>
     <tr>
         <td class="style2">
-            <asp:Label ID="lblChayTrong" runat="server" Text="Chạy trong"></asp:Label>
+            <asp:Label ID="lblChayTrong" runat="server" Text="Khoảng Thời Gian Đi "></asp:Label>
         </td>
         <td class="style3">
             
